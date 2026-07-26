@@ -11,7 +11,7 @@ We present EvoDRC, a skill-evolution framework for agentic block-level DRC repai
 ```
 agent/                 EvoDRC agentic framework, replace the agent/ in DAC26_DRC_Benchmark with this
 
-data/
+data/                  Folder for data
 └── <EXP>/             EvoDRC or ablation studies
     └── Block{N}/      one chip design (Block1 … Block7)
         └── <Model>/   the AI model used (claude-sonnet-4-6 with Claude Code)
@@ -42,16 +42,16 @@ actually contribute.
 | `<LAYER>` | A layer of the chip, e.g. `M1`–`M6` (metal) or `V0`–`V5` (vias, the connections between metal layers) |
 | `<UNIT>` | One repair unit — a piece of the design handed to the agent. Named `leaf_0001` (a single piece), `Block1_union_row3` (neighbouring pieces merged), or `whole_design` (the entire design, used by `ablation3`) |
 
-### Inside each data/<EXP>/Block{N}/ folder
+### Inside each data<EXP>/Block{N}/ folder
 
 ```
-<Model>/
+<Model>/                          The knowledge database (Knowledge DB)
 │
-├── usage/
-│   └── iter{1..N}.jsonl          What each AI request cost — tokens used and price,
-│                                 one line per request.
+├── usage/                        LLM cost record
+│   └── iter{1..N}.jsonl          
+│                                
 │
-├── db/                           The knowledge base, carried across all iterations.
+├── db/                           The DB, carried across all iterations.
 │   ├── main.md                   The guiding notes plus an index of everything learned.
 │   ├── main_part_a.md            The original starting notes, kept unchanged for reference.
 │   ├── loci.jsonl                Where each accepted repair was made in the design.
@@ -65,7 +65,7 @@ actually contribute.
 │           └── _meta.json        When this layer's record began, plus checksums that
 │                                 prove the rules were not altered.
 │
-├── skill/                        What the system currently believes about each layer.
+├── skill/                        Provide skill files to EvoDRC in each iteration.
 │   ├── <LAYER>.md                The current, best-known advice for this layer. This is
 │   │                             what gets shown to the agent.
 │   └── _drafts/
@@ -77,12 +77,12 @@ actually contribute.
 │                                 step picks at most one. Kept so the choice can be
 │                                 reviewed later. Absent when learning is switched off.
 │
-├── crop_history/                 A snapshot of every unit's inputs, taken at the end of
-│   └── iter{1..N}/<UNIT>/ctx/    each iteration. Preserves exactly what the agent saw,
-│                                 even after later iterations move on.
+├── crop_history/                 Crop history of each iteration.
+│   └── iter{1..N}/<UNIT>/ctx/    
+│                                 
 │
-└── iter{1..N}/                   One folder per iteration — the live working area.
-    │
+└── iter{1..N}/                   Experiment record. one folder per iteration.
+    │                             
     ├── input/                    The frozen inputs for this iteration.
     │   ├── Block{N}.py           The layout at the start of this iteration.
     │   ├── Block{N}.drc.json     The violations found in it.
