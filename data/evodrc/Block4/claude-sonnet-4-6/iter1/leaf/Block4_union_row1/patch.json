@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block4_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0265", "delta_dbu": [112, 0]},
+    {"op": "add_polygon", "layer_name": "M2", "points": [[9252, 3024], [9444, 3024], [9444, 3096], [9252, 3096]]},
+    {"op": "move_instance", "inst_id": "i0325", "delta_dbu": [36, 0]},
+    {"op": "add_polygon", "layer_name": "M2", "points": [[12132, 3024], [12224, 3024], [12224, 3096], [12132, 3096]]}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0265 (+112 dbu in x) and i0325 (+36 dbu in x) rightward to clear their M1 lands from frozen V0 std-cell pin footprints and into background std-cell M1 context that satisfies M1.S.2 spacing and V1.M1.EN.1 enclosure; added M2 bridge polygons to restore connectivity at both relocated via positions."
+}

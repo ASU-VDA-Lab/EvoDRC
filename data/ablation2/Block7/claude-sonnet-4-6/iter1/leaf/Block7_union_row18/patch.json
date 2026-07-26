@@ -1,0 +1,14 @@
+{
+  "leaf_id": "Block7_union_row18",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0978", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0942", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0317", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0292", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0442", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p3532", "axis": "x", "end": "high", "delta_dbu": 60},
+    {"op": "move_instance", "inst_id": "i0428", "delta_dbu": [-72, 0]},
+    {"op": "resize_end", "polygon_id": "p3096", "axis": "x", "end": "low", "delta_dbu": 92}
+  ],
+  "explanation": "Moves 6 VIA_VIA12 instances along x to clear V0.M1.AUX.3, M1.S.2, V1.M1.EN.1, and M1.S.4 violations by repositioning M1 lands away from misaligned std-cell V0 pins; extends M2 stubs p3532 and p3096 to maintain M2 coverage at the new via positions."
+}

@@ -1,0 +1,13 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0011", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i0017", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0019", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0056", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0111", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0131", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "7 VIA_VIA12 instances moved ±36 dbu in x to align M1 land edges with adjacent V0 and fix M1 spacing violations, clearing 1 V0.M1.AUX.3, 5 M1.S.2, and 5 V1.M1.EN.1 violations with no new violations introduced. i0012 was excluded (move shifted a V1.M1.EN.1 to a new location rather than clearing it, yielding no net improvement for that rule). i0117 was excluded (move introduced a new M1.S.2 while clearing 0 target violations)."
+}

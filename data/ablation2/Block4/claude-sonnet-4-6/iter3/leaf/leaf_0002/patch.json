@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p1341", "axis": "y", "end": "high", "delta_dbu": 28}
+  ],
+  "explanation": "Extends M5 polygon p1341's top edge by 28 dbu (y=11972→12000) so it fully contains the VIA45 M5 land, eliminating the notch that caused M5.AUX.1, M5.AUX.3, M5.S.4, and V4.M5.EN.2 violations."
+}

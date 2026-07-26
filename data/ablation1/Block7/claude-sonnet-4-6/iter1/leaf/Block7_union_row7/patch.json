@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1446", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p3317", "axis": "x", "end": "high", "delta_dbu": 16},
+    {"op": "move_instance", "inst_id": "i1442", "delta_dbu": [40, 0]}
+  ],
+  "explanation": "Moves i1446 (VIA_VIA12) right by 108 dbu to relocate its M1 tab from the notch at x=4752..4824 to x=4860..4932 (merging with _ptemp_4 right rail), clearing v0128/v0154/v0155/v0182/v0183; extends p3317 M2 right by 16 dbu to restore M2 connectivity; moves i1442 (VIA_VIA12) right by 40 dbu so its M1 land no longer widens the narrow M1 hosting the frozen V0, clearing v0056."
+}

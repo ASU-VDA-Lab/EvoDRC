@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block4_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0139", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0043", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0028", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Cleared 3 V0.M1.AUX.3 violations (V0 width must equal M1 width perpendicular to M1 length) by moving each VIA_VIA12 instance +36 dbu in x, repositioning the V0 pin to be interior-centered on the M1 pin rather than at its corner edge; no new violations introduced and all 588 connectivity seeds preserved."
+}

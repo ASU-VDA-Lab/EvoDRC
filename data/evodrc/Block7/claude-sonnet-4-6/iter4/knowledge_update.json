@@ -1,0 +1,207 @@
+{
+  "budget_s": 0,
+  "case": "Block7",
+  "iter": 4,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 103.37
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 6,
+          "ok": false,
+          "wall_s": 97.63
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 274.26
+        }
+      ],
+      "judged": false,
+      "layer": "M1",
+      "n_new_records": 4,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 136.12
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 189.77
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 242.07
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B catches i05.ug.leaf_0001.00 reversal A misses; B covers all DRC rules including S.3/S.4/S.5/S.6/S.8 A omits; B has cleaner rule-by-rule org with le",
+          "wall_s": 90.0
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 9,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 90.77
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 267.9
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 145.67
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B covers iter 5 trials (leaf_0006.05, def:VIA23.00, leaf_0001.00) absent from A; cites separation-failure evidence accurately; cleaner structure with les",
+          "wall_s": 74.98
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 4,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 176.81
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 298.46
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 99.94
+        }
+      ],
+      "judged": false,
+      "layer": "V1",
+      "n_new_records": 4,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 172.92
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 95.89
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 197.65
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 138.59
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"A omits both iter:5 records (i05.cu rejected_net_positive; i05.ug gated_in), the newest entries. B covers all 13 records, adds critical do-not-isolat",
+          "wall_s": 31.72
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B covers iter5 trials (i05.cu and i05.ug) absent from A, cites the rejected_net_positive pattern with specifics, and is better organized with less redund",
+          "wall_s": 6.33
+        }
+      ],
+      "judged": true,
+      "layer": "V2",
+      "n_new_records": 4,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "V1",
+    "V2"
+  ],
+  "wall_s": 521.86
+}

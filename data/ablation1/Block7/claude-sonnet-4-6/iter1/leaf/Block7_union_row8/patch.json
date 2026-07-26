@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1891", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i1405", "delta_dbu": [64, 0]},
+    {"op": "move_instance", "inst_id": "i1921", "delta_dbu": [64, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i1891 left by 36 dbu so its M1 land merges with frozen _ptemp_12, providing 9 nm vertical enclosure of V1 (fixing V1.M1.EN.1) and increasing the M1 gap to _ptemp_13 to 31 nm (fixing M1.S.4); moved i1405 and i1921 each right by 64 dbu so their M1 lands no longer overlap the std-cell V0 bounding boxes at x=6876-6948 and x=20700-20772 respectively, clearing both V0.M1.AUX.3 violations."
+}

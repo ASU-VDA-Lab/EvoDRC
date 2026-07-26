@@ -1,0 +1,25 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0012", "delta_dbu": [136, 0]},
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [-28, 0]},
+    {"op": "move_instance", "inst_id": "i0113", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0099", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0112", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0105", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0001", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0002", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0073", "delta_dbu": [0, 96]},
+    {"op": "move_instance", "inst_id": "i0075", "delta_dbu": [0, 96]},
+    {"op": "move_instance", "inst_id": "i0067", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0070", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0062", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0076", "delta_dbu": [0, 48]},
+    {"op": "resize_end", "polygon_id": "p879", "axis": "y", "end": "high", "delta_dbu": 48},
+    {"op": "move", "polygon_id": "p910", "axis": "x", "delta_dbu": 8},
+    {"op": "resize_end", "polygon_id": "p910", "axis": "y", "end": "high", "delta_dbu": 20},
+    {"op": "move_instance", "inst_id": "i0061", "delta_dbu": [8, 0]},
+    {"op": "move_instance", "inst_id": "i0104", "delta_dbu": [8, 0]}
+  ],
+  "explanation": "Moves VIA45/VIA34 stacks to M4 grid-aligned positions (Family B: 6 violations), extends p879 top to cover moved M5 land, moves M3 stub p910 +8 in x and co-moves VIA23 i0061/i0104 to fix M3.S.2 (Family E: 1 violation), and moves safe VIA12 instances i0012/i0103 to fix V0.M1.AUX.3 + M1.S violations (Family A: net +1 violation fixed); Family D (resize_via_shape for V2.M3.AUX.2) dropped because expansion violated V2.M2.EN.1 and V2.M3.EN.2 without net benefit."
+}

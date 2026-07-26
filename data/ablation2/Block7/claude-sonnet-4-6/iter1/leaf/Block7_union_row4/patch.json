@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row4",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1494", "delta_dbu": [68, 0]},
+    {"op": "move_instance", "inst_id": "i1491", "delta_dbu": [68, 0]},
+    {"op": "move_instance", "inst_id": "i1573", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i1494 (+68 dbu x) and i1491 (+68 dbu x) to clear V0.M1.AUX.3 violations by shifting each via's M1 land out of the V0 pin x-range so the std-cell M1 edge at y=6300 is no longer absorbed; moves i1573 (+36 dbu x) to raise the M1.S.2 tip-to-side clearance from 72 dbu (18 nm) to 108 dbu (27 nm)."
+}

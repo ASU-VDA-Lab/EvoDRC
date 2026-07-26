@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1063", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Clears V0.M1.AUX.3 on the top V0 pin of std-cell i2085 by moving VIA_VIA12 instance i1063 rightward 36 dbu (origin 14292→14328,16020): the M1 land left edge shifts from x=14256 to x=14292, so the merged-M1 bottom edge at y=16020 now spans x=14200–14292 and fully coincides with the V0 bottom edge x=14220–14292, eliminating the non-coincident horizontal V0 edge and clearing the convex-corner check."
+}

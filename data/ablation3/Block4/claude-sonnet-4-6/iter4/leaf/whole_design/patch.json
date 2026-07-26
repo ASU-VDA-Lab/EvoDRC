@@ -1,0 +1,31 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p1374", "axis": "x", "end": "high", "delta_dbu": 140},
+    {"op": "resize_end", "polygon_id": "p1395", "axis": "x", "end": "high", "delta_dbu": 172},
+    {"op": "resize_end", "polygon_id": "p1382", "axis": "x", "end": "low", "delta_dbu": 176},
+    {"op": "move_instance", "inst_id": "i0319", "delta_dbu": [24, 0]},
+    {"op": "move_instance", "inst_id": "i0307", "delta_dbu": [24, 0]},
+    {"op": "move_instance", "inst_id": "i0237", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0212", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0205", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0313", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0306", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0214", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0223", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0141", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0136", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0128", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0032", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0021", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0104", "delta_dbu": [0, -72]},
+    {"op": "move_instance", "inst_id": "i0150", "delta_dbu": [0, -72]},
+    {"op": "move_instance", "inst_id": "i0099", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0113", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0079", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0019", "delta_dbu": [0, -48]}
+  ],
+  "explanation": "Clears 22 of 61 DRC violations via three families of ops: (1) extend M4 stubs p1374/p1395/p1382 to resolve M4.S.5 and M4.S.4 parallel-run deficiencies; (2) move VIA34 instances i0319/i0307 (+24 dbu in x) to close the 136-dbu gap to the adjacent M4 straps, clearing M4.S.2 and M4.S.3; (3) move 10 VIA34+VIA45 pairs in y (24–72 dbu) to snap off-grid M4 lands to the 96-dbu routing grid, clearing 9 M4.AUX.1 and 3 M5.AUX.1 violations. Introduces 3 new full-strap M5.AUX.1 violations as declared debt."
+}

@@ -1,0 +1,70 @@
+{
+  "leaf_id": "leaf_0019",
+  "ops": [
+    {
+      "op": "move_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 0,
+      "axis": "x",
+      "delta_dbu": -116
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 0,
+      "axis": "x",
+      "delta_dbu": 320
+    },
+    {
+      "op": "move_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 1,
+      "axis": "x",
+      "delta_dbu": 116
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 1,
+      "axis": "x",
+      "delta_dbu": 320
+    },
+    {
+      "op": "move_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 2,
+      "axis": "x",
+      "delta_dbu": -116
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 2,
+      "axis": "x",
+      "delta_dbu": 320
+    },
+    {
+      "op": "move_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 3,
+      "axis": "x",
+      "delta_dbu": 116
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 3,
+      "axis": "x",
+      "delta_dbu": 320
+    }
+  ],
+  "explanation": "Expands all 4 V5 cuts in VIA_VIA56_2_2_66_58 to span the full M6 x-width (local ±208 dbu) by centering each cut at x=0 via move_via_shape then symmetrically resizing to x=[-208,+208] via resize_via_shape, addressing V5.M6.AUX.2 on all 8 VIA_VIA56 instances (100% admissible); Op A (VIA_VIA23_1_3_36_36 M3 y-shrink for V2.M3.AUX.2) was dropped after DRC preview confirmed zero incremental effect on that target rule."
+}

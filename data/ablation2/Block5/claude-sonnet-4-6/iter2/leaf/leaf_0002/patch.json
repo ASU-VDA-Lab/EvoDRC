@@ -1,0 +1,15 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0105", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0112", "delta_dbu": [32, -48]},
+    {"op": "move_instance", "inst_id": "i0076", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0062", "delta_dbu": [32, 48]},
+    {"op": "move_instance", "inst_id": "i0075", "delta_dbu": [0, 96]},
+    {"op": "move_instance", "inst_id": "i0073", "delta_dbu": [32, 96]},
+    {"op": "move_instance", "inst_id": "i0114", "delta_dbu": [32, 0]},
+    {"op": "resize_end", "polygon_id": "p895", "axis": "y", "end": "high", "delta_dbu": 128},
+    {"op": "move", "polygon_id": "p879", "axis": "x", "delta_dbu": 32}
+  ],
+  "explanation": "Moved VIA_VIA34/VIA45 pairs at y=4320, 6480, 8640 sites to land M4 y-edges on the 96-dbu grid (fixing M4.AUX.1 v0034/v0035 and M4.AUX.2 v0019), extended M3 stub p895 upward to maintain VIA34-M3 connectivity after the y=6480 shift, and co-moved M5 stripe p879 +32 dbu in x together with all four VIA_VIA45 instances to place M5 x-edges on the 96-dbu grid (fixing M5.AUX.1 v0037/v0038); V2.M3.AUX.2 (4 violations) remain unfixable without cascading side-effects; 6 new V4.M5.AUX.2 introduced at shifted via positions as declared debt."
+}

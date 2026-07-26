@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block1_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0299", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0290", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0453", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Three VIA_VIA12 instances are shifted rightward so their M1 lands no longer protrude into the concave notch region of the U-shaped background M1, which was absorbing the y-boundary edge needed to satisfy V0.M1.AUX.3 at each V0 pin; the moves clear all three violations with no new violations introduced and full connectivity preserved."
+}

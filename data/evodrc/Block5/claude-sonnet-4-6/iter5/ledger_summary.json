@@ -1,0 +1,21 @@
+{
+  "case": "Block5",
+  "design_state": "023327f05abe2cdb71a1ae9c6da153511390cbf8a19597d544ccaf36b15efa16",
+  "failed_trials": [],
+  "iter": 5,
+  "n_appended_new": 1,
+  "n_cu_pool": 0,
+  "n_failed_trials": 0,
+  "n_records": 1,
+  "n_unit_gate": 1,
+  "n_unmapped": 0,
+  "per_layer": {
+    "M3": 1
+  },
+  "touched_layers": [
+    "M3"
+  ],
+  "trial_ids": [
+    "i05.ug.leaf_0001.00"
+  ]
+}

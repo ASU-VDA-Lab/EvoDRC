@@ -1,0 +1,35 @@
+## Repair Channels and Decision Semantics
+
+Two repair channels have produced applied results on M6: `unit_gate` and `cu_pool`.
+
+The `unit_gate` channel gates decisions on connectivity preservation, not on whether the operation reduces the DRC violation count. Trial i01.ug.leaf_0020.09 was accepted with `decision: gated_in` despite producing 55 new in-crop violations, because `conn_preserved` was true and zero new out-of-crop violations were introduced. Do not treat a `gated_in` outcome as confirmation that the operation corrects the targeted rule; treat it only as confirmation that connectivity was maintained and the change did not widen the affected crop boundary.
+
+The `cu_pool` channel operates at the via cell definition level. Trial i01.cu.def:VIA_VIA56_2_2_66_58.02 targeted `def:VIA_VIA56_2_2_66_58` and achieved a net reduction of 16 violations by modifying V5 shapes inside that cell, with the benefit propagating to every instantiation site (leaf_0019 and leaf_0020 each gained -8). When the same enclosure violation repeats at multiple sites that share a via cell definition, a single `cu_pool` repair at the definition level is more efficient than per-site unit repairs.
+
+## M6 x-Axis Position Changes Require Co-Moving All Connected Layers
+
+Trial i03.ug.leaf_0003.02 moved M6 polygon p1683 by +32 dbu on the x-axis and M6 polygon p1682 by -16 dbu on the x-axis. Neither move was issued in isolation: the same trial co-moved eight instances of connected cells for the +32 dbu direction and eight instances for the -16 dbu direction, spanning layers M4, M5, V4, and V5. Attempting an M6 x-axis polygon move without moving the attached via and routing instances on M4, M5, V4, and V5 in the same operation is inconsistent with the pattern established by trial i03.ug.leaf_0003.02 and would sever connectivity.
+
+The x-axis move deltas in trial i03.ug.leaf_0003.02 are multiples of 16 dbu, the finest step observed in this history. M6.S.2 requires a minimum horizontal spacing of 40 nm between M6 edges; M6.W.5 requires a minimum horizontal width of 44 nm. Confirm both constraints are satisfied at the target position before applying any x-axis co-move.
+
+## resize_end Operations on M6 y-Axis Ends
+
+Trial i01.ug.leaf_0020.09 applied four `resize_end` operations on the y-axis ends of two M6 polygons (p2107 and p2106), with mixed sign deltas: the low end of p2107 was shrunk by 96 dbu, its high end grown by 32 dbu; the low end of p2106 was shrunk by 16 dbu, its high end grown by 112 dbu. All operations were on the y-axis and touched M6 only, consistent with M6 being a horizontal routing layer where width and spacing violations are addressed by adjusting the y-extent of individual polygons.
+
+M6.AUX.1 requires all M6 horizontal edges to fall on a grid of 32 nm. M6.AUX.2 requires minimum-width M6 tracks (those passing the `m6 - m6.sized(0,-17.nm).sized(0,17.nm)` filter) to have their centerlines positioned at `offset 64 dbu + N × 256 dbu` on the y-axis. After any `resize_end` operation that shifts a horizontal edge, the resulting edge position must be a multiple of 32 nm (M6.AUX.1), and if the polygon remains at minimum width, its centerline must satisfy the M6.AUX.2 routing-track grid. Trial i01.ug.leaf_0020.09 demonstrates that resize_end operations on the y-axis are the operative repair method for M6 width and spacing rules, and that those operations are applied to the end edges of orthogonal (horizontal) M6 polygons.
+
+M6.AUX.3 prohibits M6 from bending; the rule flags any polygon that has a corner at an interior angle between 0 and 90 degrees. Do not apply `resize_end` to any edge that would produce or preserve a non-right-angle corner. The `resize_end` operations in trial i01.ug.leaf_0020.09 targeted the y-axis low and high ends of rectangles, which are orthogonal ends by definition; this is the safe form of the operation.
+
+## Width Rule Constraints on resize_end Targets
+
+M6.W.1 requires a minimum vertical (y-axis) width of 32 nm. M6.W.2 prohibits vertical widths exceeding 640 nm. M6.W.3 forbids widths that are an even integer multiple of 32 nm (i.e., 64, 128, 192, 256, 320, 384, 448, 512, 576, 640 nm are all prohibited). M6.W.4 additionally prohibits widths of 96, 224, 352, 480, and 608 nm. Together these rules constrain the allowed width set to specific non-multiples: 32 nm is the only allowed 1× value; the next allowed values are 160 nm (5×), 288 nm, 416 nm, 544 nm, and analogous odd-multiple values up to the 640 nm ceiling (which M6.W.2 excludes). Trial i01.ug.leaf_0020.09 produced net y-axis height changes of (-96+32) = -64 dbu on p2107 and (-16+112) = +96 dbu on p2106; the resulting widths were accepted by the gated_in decision, indicating both landed on allowed widths. When computing a target width for a `resize_end` candidate, verify the result is not in the M6.W.3 or M6.W.4 forbidden sets before applying.
+
+## Via Enclosure Coupling Between V5 and M6
+
+Rule V5.M6.EN.2 requires that V5 be enclosed by M6 by at least 11 nm on two opposite sides. Rule V5.M6.AUX.2 requires the V5 width to exactly equal the M6 width perpendicular to the M6 length direction. Trial i01.cu.def:VIA_VIA56_2_2_66_58.02 addressed enclosure violations by moving and resizing V5 shapes within the via cell (move_via_shape and resize_via_shape on the x-axis, delta_dbu values of ±116 and +320). This approach modifies the via cell geometry rather than the M6 polygon geometry, satisfying V5.M6.EN.2 by bringing V5 within the M6 boundary with adequate margin. The 320 dbu resize on each V5 shape is a large extension relative to the 11 nm enclosure requirement; the correction was made at the cell definition level so that all instantiation sites of VIA_VIA56_2_2_66_58 received the fix simultaneously, as reflected in the -8 delta at both leaf_0019 and leaf_0020 (trial i01.cu.def:VIA_VIA56_2_2_66_58.02).
+
+When a V5.M6.EN.2 violation exists at a site whose via cell is shared across multiple units, prefer a `cu_pool` repair targeting the via cell definition over per-site M6 geometry changes, following the pattern of trial i01.cu.def:VIA_VIA56_2_2_66_58.02.
+
+## Grid Compliance After Any Operation
+
+M6.AUX.1 is a hard grid rule: every M6 horizontal edge must land at a y-coordinate that is a multiple of 32 nm. Any delta_dbu applied to a y-axis end edge must either leave the edge at a pre-validated grid position or produce a new position that is itself a multiple of 32 nm. The deltas in trial i01.ug.leaf_0020.09 (96, 32, 16, 112 dbu) are all multiples of 16 dbu; only multiples of 32 dbu are guaranteed to preserve grid compliance if the starting position is on-grid. The 16 dbu deltas (low end of p2106, -16 dbu) indicate a starting position that was already 16 dbu off the 32 nm grid half-step, with the delta correcting rather than worsening the misalignment, or indicate a starting position on a 32 nm grid that this delta moved to a 48 nm boundary — this is consistent with M6.AUX.1 enforcement applying to the final state, not intermediate steps. Verify the final edge position modulo 32 nm equals zero before committing any resize_end.

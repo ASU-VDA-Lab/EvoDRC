@@ -1,0 +1,51 @@
+{
+  "leaf_id": "leaf_0020",
+  "ops": [
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA45_1_2_58_58",
+      "layer_name": "M5",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -88,
+      "group": "v4_m5_aux2_fix"
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": 248,
+      "group": "v5_m6_aux2_fix"
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 1,
+      "axis": "y",
+      "delta_dbu": 248,
+      "group": "v5_m6_aux2_fix"
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 2,
+      "axis": "y",
+      "delta_dbu": 248,
+      "group": "v5_m6_aux2_fix"
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "V5",
+      "shape_index": 3,
+      "axis": "y",
+      "delta_dbu": 248,
+      "group": "v5_m6_aux2_fix"
+    }
+  ],
+  "explanation": "Shrinks VIA_VIA45_1_2_58_58 M5 land from y=±92 to y=±48 so M5 edges coincide with V4 cut extents, clearing all 24 V4.M5.AUX.2 violations and 2 M5.AUX.1 violations; expands all 4 V5 cuts in VIA_VIA56_2_2_66_58 by delta=+248 so outer V5 edges reach M6 outer edges (±320), clearing all 16 V5.M6.AUX.2 violations."
+}

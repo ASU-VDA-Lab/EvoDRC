@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1358", "delta_dbu": [0, 36]}
+  ],
+  "explanation": "Addresses violations V1.M2.AUX.2 (v0115) and V1.S.2 (v0100, v0102) by moving instance i1358 (VIA_VIA23) up 36 dbu from origin (4356,14912) to (4356,14948), which aligns VIA_VIA23's M2 land [y=14912..14984] with VIA_VIA12's V1 cut [y=14912..14984] so the merged M2 metal is coincident with the V1 cut on both edges, satisfying the auxiliary and spacing enclosure rules."
+}

@@ -1,0 +1,21 @@
+{
+ "block": "leaf_0003",
+ "ops": [
+  {
+   "op": "resize_end",
+   "polygon_id": "p1831",
+   "axis": "x",
+   "end": "high",
+   "delta_dbu": -8
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0346",
+   "delta_dbu": [
+    -8,
+    0
+   ]
+  }
+ ],
+ "leaf_id": "leaf_0003"
+}

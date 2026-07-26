@@ -1,0 +1,207 @@
+{
+  "budget_s": 0,
+  "case": "Block7",
+  "iter": 3,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 126.57
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 182.14
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 167.77
+        }
+      ],
+      "judged": false,
+      "layer": "M1",
+      "n_new_records": 8,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 128.92
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 265.28
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 6,
+          "ok": false,
+          "wall_s": 229.79
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 435.01
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"A\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"A wins fidelity: B mis-states 43 unit_gate trials vs 52 in excerpt. B wins coverage and quality: fuller n_new_in_crop accounting, cross-iteration uni",
+          "wall_s": 105.48
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 9,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 173.23
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 300.65
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 110.6
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B enumerates all resize_end ops per polygon with citations; A omits several iter-1 resize_end details. B covers SINCE-MODIFIED loci accurately without ov",
+          "wall_s": 7.84
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B cites more specific per-polygon resize_end data, covers all iter-1/2/3 trials with exact ops, and is better organized with less redundancy than A's pro",
+          "wall_s": 6.37
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 129.55
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 101.62
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 281.19
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"A\",\"knowledge_quality\":\"B\",\"reason\":\"A falsely claims p2594 is the only low-end resize (p3300,p3706 also exist) and misattributes n_new=5 to row23.04 (it's 0); B's micro-step nuance is more ",
+          "wall_s": 68.52
+        }
+      ],
+      "judged": true,
+      "layer": "V1",
+      "n_new_records": 8,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 204.7
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 318.9
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites oscillating instances and inter-iteration interactions with precise op-level detail; A omits i1358's iter-1 y+8 move and misattributes n_new_",
+          "wall_s": 39.29
+        }
+      ],
+      "judged": true,
+      "layer": "V2",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "V1",
+    "V2"
+  ],
+  "wall_s": 770.31
+}

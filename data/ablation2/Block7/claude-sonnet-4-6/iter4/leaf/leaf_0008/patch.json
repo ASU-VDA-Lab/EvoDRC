@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0235", "delta_dbu": [0, 44]}
+  ],
+  "explanation": "Moving instance i0235 by [0, +44] dbu clears all 5 target violations (M1.S.2, V1.S.2 x2, V1.M1.EN.1, V1.M2.AUX.2) with a net DRC reduction of 4; the 4 new_in_window violations (V0.M1.AUX.3, V2.M3.AUX.2 x3) are pre-existing in the baseline and one truly new violation (M1.S.2 @ [15768,22860,15840,22904]) is declared as accepted debt."
+}

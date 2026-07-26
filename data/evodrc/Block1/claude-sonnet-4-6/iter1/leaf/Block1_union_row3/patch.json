@@ -1,0 +1,30 @@
+{
+  "leaf_id": "Block1_union_row3",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0299",
+      "delta_dbu": [
+        72,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0290",
+      "delta_dbu": [
+        108,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0454",
+      "delta_dbu": [
+        72,
+        0
+      ]
+    }
+  ],
+  "explanation": "Moved three VIA_VIA12 instances (i0299, i0290, i0454) rightward out of their respective V0 via x-ranges so that the VIA_VIA12 M1 land no longer straddles the V0 top/bottom horizontal boundaries, eliminating the M1 edge disruption that caused V0.M1.AUX.3 violations; the rightward displacement of i0290 also increases M1 spacing (clearing M1.S.2) and brings M1 coverage over V1 from the background C-shape M1 (clearing V1.M1.EN.1)."
+}

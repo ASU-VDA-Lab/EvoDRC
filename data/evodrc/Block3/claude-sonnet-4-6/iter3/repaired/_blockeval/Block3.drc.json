@@ -1,0 +1,70 @@
+{
+  "case_name": "Block3",
+  "design_type": "block",
+  "total_violations": 2,
+  "total_rules_violated": 2,
+  "rules": {
+    "V0.M1.AUX.3": {
+      "violation_count": 1,
+      "description": "V0.M1.AUX.3 : V0 must exactly be the same width as M1 along the direction perpendicular to the M1 length.",
+      "violations": [
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2988,
+              7380
+            ],
+            [
+              2988,
+              7452
+            ],
+            [
+              3060,
+              7452
+            ],
+            [
+              3060,
+              7380
+            ]
+          ],
+          "bbox": [
+            2988,
+            7380,
+            3060,
+            7452
+          ]
+        }
+      ]
+    },
+    "M1.S.2": {
+      "violation_count": 1,
+      "description": "M1.S.2 : Minimum (tip-to-side) spacing between two M1 layer polygons' edges, when one of the edges is <= 36 nm and the other is > 36 nm, is 25 nm.",
+      "violations": [
+        {
+          "type": "edge_pair",
+          "edges": [
+            [
+              3060,
+              7380,
+              3060,
+              7336
+            ],
+            [
+              3096,
+              7336,
+              3096,
+              7380
+            ]
+          ],
+          "bbox": [
+            3060,
+            7336,
+            3096,
+            7380
+          ]
+        }
+      ]
+    }
+  }
+}

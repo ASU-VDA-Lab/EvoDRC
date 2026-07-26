@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0132", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "V0.M1.AUX.3 at (7308,5508,7380,5580): VIA_VIA12 i0132 M1 land left edge was at x=7344 (inside V0 x-span), creating a gap in merged M1 boundary at y=5580 that exposed a convex V0 corner; moving i0132 by dx=+36 shifts the M1 land left edge to x=7380 (coincident with V0 right edge), closing the gap and clearing the convex-corner condition."
+}

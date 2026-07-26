@@ -1,0 +1,15 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M2", "shape_index": 0, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 0, "axis": "x", "delta_dbu": 152},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 1, "axis": "x", "delta_dbu": 152},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M4", "shape_index": 0, "axis": "x", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M4", "shape_index": 0, "axis": "y", "delta_dbu": 88}
+  ],
+  "explanation": "Three rule families fixed via symmetric via-shape resizes. (1) V2.M3.AUX.2 (9 violations, v0003-v0012 minus missing v0006): VIA_VIA23_1_3_36_36 M3/M2/V2 all expanded +64 dbu in y (±36→±68). The y-expansion aligns the via cell's M3 bottom and V2-cut bottom edges with the adjacent top-level M3 wires (p893/p892/p891, bottom y=3172/5332/7492), giving each outer cut (cut0/cut2) two coincident M3-boundary edges (right/left x plus bottom y). Cut1 violations shift to new bboxes (same root cause, unfixable due to VIA34 M3 extending merged M3 top). (2) V4.M5.AUX.2 (6 violations, v0016-v0025): VIA_VIA45_1_2_58_58 V4 cut0 and cut1 each expanded +152 dbu in x. delta=152 grows each cut 76 dbu per side: cut0 right→+240, cut1 left→-240, matching p878 M5 x-extent (2688-3168). The two cuts overlap 16 dbu and merge into one V4 polygon spanning ±240, giving two coincident M5 x-edges → V4.M5.AUX.2 clears at all 3 VIA45 instances. M4 also expanded +64 x and +88 y (to ±240 x, ±92 y) to enclose the expanded V4 and prevent V4.M4.EN.1 from firing (y-enclosure kept ≥44 dbu=11nm). (3) V0.M1.AUX.3 (v0001): pre-cleared at baseline; no op needed. DRC preview: 15/15 targets cleared, connectivity preserved (167 seeds). Declared debt: 6 V1.M2.AUX.2 (M2 y-expansion side effect, unavoidable to enclose V2 cuts), 3 V2.M3.AUX.2 at new cut1 bboxes (structurally unfixable), 6 V3.M4.AUX.2 + 3 M4.AUX.1 (M4 expansion side effect, unavoidable to satisfy V4.M4.EN.1)."
+}

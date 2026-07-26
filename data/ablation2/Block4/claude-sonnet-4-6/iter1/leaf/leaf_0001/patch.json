@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p1374", "axis": "x", "end": "high", "delta_dbu": 96}
+  ],
+  "explanation": "v0086 M4.S.5 fires because the parallel run overlap between the bottom M4 group (p1374 + i0249 M4 land, top at y=1824) and top M4 group (i0258 M4 land + p1387, bottom at y=1920) is only 112 dbu (28 nm), below the 176 dbu (44 nm) minimum; extending p1374's right edge by 96 dbu to x=5508 raises the overlap to exactly 176 dbu, clearing the violation with no new violations introduced."
+}

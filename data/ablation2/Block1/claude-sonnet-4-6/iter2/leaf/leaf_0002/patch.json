@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0181", "delta_dbu": [-96, 0]},
+    {"op": "resize_end", "polygon_id": "p1154", "axis": "y", "end": "low", "delta_dbu": 44}
+  ],
+  "explanation": "Moves via i0181 (VIA_VIA45) left 96 dbu to retract its M4 land from the right-side neighbor, clearing the M4.S.4 tip-to-tip spacing violation; extends M5 polygon p1154's low-y end 44 dbu downward to maintain flush M5 coverage over the via's shifted M5 land."
+}

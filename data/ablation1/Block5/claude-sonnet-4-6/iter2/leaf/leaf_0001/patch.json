@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0104", "delta_dbu": [8, 0]},
+    {"op": "move_instance", "inst_id": "i0061", "delta_dbu": [8, 0]}
+  ],
+  "explanation": "Moved both VIA_VIA23 instances (i0104, i0061) +8 dbu in X so their M3 land aligns exactly with the p910 M3 stripe at x=[3176,3248], making the V2 cut flush with M3 on both X sides and clearing V2.M3.AUX.2 (2-coincident-edge requirement) and V2.M3.EN.2 (enclosure rule) at both via locations."
+}

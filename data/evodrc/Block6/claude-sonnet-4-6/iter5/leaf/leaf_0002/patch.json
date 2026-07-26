@@ -1,0 +1,13 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p2086", "axis": "x", "end": "high", "delta_dbu": 168},
+    {"op": "resize_end", "polygon_id": "p1946", "axis": "x", "end": "high", "delta_dbu": 132},
+    {"op": "move_instance", "inst_id": "i0159", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p2046", "axis": "x", "end": "high", "delta_dbu": 100},
+    {"op": "move_instance", "inst_id": "i0112", "delta_dbu": [-28, 0]},
+    {"op": "move_instance", "inst_id": "i0384", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0528", "delta_dbu": [0, 24]}
+  ],
+  "explanation": "Cleared 10 of 16 target violations: extended M2 polygons p2086/p1946/p2046 to cover VIA12 connectivity; moved VIA_VIA12 i0159 (+136x) and i0112 (-28x) to clear V0.M1.AUX.3 and M1.S.2; moved VIA_VIA56 i0384 and i0528 (+24y) to provide the required 44 dbu (11 nm) M5 enclosure of V5 cuts for V5.M5.EN.1. Six violations remain as declared debt (2x V1.M1.EN.1 unfixable without via-structure edit, 4x V5.M5.EN.1/V5.M6.AUX.2 at top-row instances requiring global die-spanning ops); two new V5.M6.AUX.2 violations at slightly shifted bboxes are introduced by the +24y via moves."
+}

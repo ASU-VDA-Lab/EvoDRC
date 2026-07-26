@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block7_union_row14",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0519", "delta_dbu": [-28, 0]},
+    {"op": "move_instance", "inst_id": "i0374", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0405", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0528", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1020", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "The four V0.M1.AUX.3 via violations (v0051, v0013, v0010, v0009) are cleared by moving each via instance +36 DBU in x (not -36 as originally planned, which introduced M1.S.2 violations). Instance i0519 is moved -28 DBU in x (not -28,-8 as originally planned) to clear M1.S.2 (v0059) and V1.M2.EN.2 (v0142), introducing one residual V1.M2.EN.2 violation (net result: 6 cleared, 1 introduced, 2 unfixable V1.M1.EN.1 remain). Connectivity across all 3325 seeds is preserved."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row24",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0561", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0044", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Two V0.M1.AUX.3 violations are cleared by shifting VIA_VIA12 instances i0561 and i0044 each +36 dbu in x, repositioning their M1 lands to be edge-coincident with the respective frozen std-cell V0 contacts at (14652–14724) and (28044–28116)."
+}

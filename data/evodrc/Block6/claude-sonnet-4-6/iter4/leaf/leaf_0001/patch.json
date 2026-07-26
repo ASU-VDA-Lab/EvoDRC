@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0193", "delta_dbu": [-16, 0]}
+  ],
+  "explanation": "Cleared M4.S.3 violation v0016 (bbox 1700,12744,1844,12768) by moving via instance i0193 (VIA_VIA34) 16 dbu left, shifting its M4 land right edge from x=1700 to x=1684 and increasing the tip-to-tip gap to the adjacent background M4 polygon at x=1844 from 144 dbu (36 nm) to 160 dbu (40 nm), exactly meeting the M4.S.3 threshold."
+}

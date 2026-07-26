@@ -1,0 +1,18 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {
+      "op": "resize_end",
+      "polygon_id": "p1214",
+      "axis": "x",
+      "end": "high",
+      "delta_dbu": 172
+    },
+    {
+      "op": "move_instance",
+      "instance_id": "i0074",
+      "delta_dbu": [176, 0]
+    }
+  ],
+  "explanation": "Two M4.S.5 violations (minimum parallel run length 44 nm) fixed. v0028 [2260,7200,2264,7296]: M4 polygon p1214 at (2132,7296)-(2264,7392) had only 4 dbu parallel overlap with adjacent-track M4 at y=[7200,7296]; extending p1214 high-x end by 172 dbu extends it to x=2436, creating a 176 dbu parallel run with the neighbor at x=[2260,2436]. v0029 [10324,13152,10340,13248]: VIA34 M4 land (10180,13248)-(10340,13344) and VIA45 M4 land (10324,13056)-(10508,13152) had only 16 dbu parallel overlap at x=[10324,10340]; moving VIA45 instance i0074 (originally at (10416,13104)) rightward by 176 dbu to (10592,13104) shifts its M4 land to (10500,13056)-(10684,13152), eliminating the short parallel overlap (new gap = 28 dbu between upper right 10340 and new lower left 10500, with no PRL) without triggering M4.S.3 tip-to-tip violations. The VIA34 subcell M4 land width (160 dbu) pre-existing M4.W.5 and 44 baseline new_in_window violations remain unchanged. Net: 9 target violations cleared, 0 new violations introduced."
+}

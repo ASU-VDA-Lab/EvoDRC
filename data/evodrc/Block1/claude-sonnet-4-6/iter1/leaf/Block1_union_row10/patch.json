@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block1_union_row10",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0041", "delta_dbu": [108, 0]},
+    {"op": "move_instance", "inst_id": "i0065", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 i0041 right by 108 dbu to restore the M1 edge at y=12060 over the V0 pin at x=11844..11916, clearing V0.M1.AUX.3 (v0021), M1.S.2 (v0048), and V1.M1.EN.1 (v0064); moved VIA_VIA12 i0065 right by 36 dbu to restore the M1 edge at y=12060 over the V0 pin at x=10764..10836, clearing V0.M1.AUX.3 (v0037)."
+}

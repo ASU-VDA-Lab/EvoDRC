@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block7_union_row21",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0100", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Moves via instance i0100 right by 4 dbu to clear M1.S.6 spacing violations v0162 and v0163 (bboxes [24117,23984,24195,24012] and [24120,23977,24192,24019]). The 6 V5.M6.AUX.2 and pre-existing M1.S.4/M1.S.5 violations appearing in new_in_window are confirmed pre-existing (present in empty-ops baseline) and not introduced by this move; connectivity is preserved across all 3325 seeds."
+}

@@ -1,0 +1,13 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move", "polygon_id": "p937", "axis": "x", "delta_dbu": -64},
+    {"op": "move_instance", "inst_id": "i0099", "delta_dbu": [-64, 0]},
+    {"op": "move_instance", "inst_id": "i0111", "delta_dbu": [-64, 0]},
+    {"op": "move_instance", "inst_id": "i0061", "delta_dbu": [-64, 0]},
+    {"op": "move_instance", "inst_id": "i0066", "delta_dbu": [-64, 0]},
+    {"op": "move_instance", "inst_id": "i0063", "delta_dbu": [0, 36]},
+    {"op": "move", "polygon_id": "p1036", "axis": "y", "delta_dbu": 36}
+  ],
+  "explanation": "Moved M5 stripe p937 x=-64 dbu to snap both edges to 24 nm grid (clearing M5.AUX.1 v0014), co-moving all 4 owned VIA45 instances x=-64 to preserve M5 coverage; moved VIA12 i0063 y=+36 dbu and co-moved M2 pad p1036 y=+36 to resolve V0.M1.AUX.3/M1.S.2/V1.M1.EN.1 cluster (v0001/v0002/v0003)."
+}

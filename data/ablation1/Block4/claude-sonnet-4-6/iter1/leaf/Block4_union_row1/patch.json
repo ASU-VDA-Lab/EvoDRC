@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block4_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0265", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0265 right by 36 dbu (9 nm) to clear M1.S.2 (tip-to-side spacing gap grows from 24 nm to 33 nm) and V1.M1.EN.1 (V1 top edge now fully within _ptemp_19 M1, providing 9 nm top enclosure); violations v0004 and v0014 (V0.M1.AUX.3) are structurally unfixable due to frozen background M1 polygons."
+}

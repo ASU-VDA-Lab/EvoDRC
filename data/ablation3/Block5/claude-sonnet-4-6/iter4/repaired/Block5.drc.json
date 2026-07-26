@@ -1,0 +1,404 @@
+{
+  "case_name": "Block5",
+  "design_type": "block",
+  "total_violations": 16,
+  "total_rules_violated": 4,
+  "rules": {
+    "V0.M1.AUX.3": {
+      "violation_count": 2,
+      "description": "V0.M1.AUX.3 : V0 must exactly be the same width as M1 along the direction perpendicular to the M1 length.",
+      "violations": [
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2772,
+              5220
+            ],
+            [
+              2772,
+              5292
+            ],
+            [
+              2844,
+              5292
+            ],
+            [
+              2844,
+              5220
+            ]
+          ],
+          "bbox": [
+            2772,
+            5220,
+            2844,
+            5292
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              6228,
+              7668
+            ],
+            [
+              6228,
+              7740
+            ],
+            [
+              6300,
+              7740
+            ],
+            [
+              6300,
+              7668
+            ]
+          ],
+          "bbox": [
+            6228,
+            7668,
+            6300,
+            7740
+          ]
+        }
+      ]
+    },
+    "V1.M1.EN.1": {
+      "violation_count": 1,
+      "description": "V1.M1.EN.1 : Minimum enclosure of V1 by M1 on two opposite sides is 5 & 2 nm.",
+      "violations": [
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              5284,
+              7344
+            ],
+            [
+              5284,
+              7416
+            ],
+            [
+              5356,
+              7416
+            ],
+            [
+              5356,
+              7344
+            ]
+          ],
+          "bbox": [
+            5284,
+            7344,
+            5356,
+            7416
+          ]
+        }
+      ]
+    },
+    "V2.M3.EN.2": {
+      "violation_count": 6,
+      "description": "V2.M3.EN.2 : Minimum enclosure of V2 by M3 on two opposite sides is 5 & 5 nm or 5 & 0 nm.",
+      "violations": [
+        {
+          "type": "edge",
+          "edges": [
+            [
+              2788,
+              5364,
+              2736,
+              5364
+            ]
+          ],
+          "bbox": [
+            2736,
+            5364,
+            2788,
+            5364
+          ]
+        },
+        {
+          "type": "edge",
+          "edges": [
+            [
+              2932,
+              5364,
+              2860,
+              5364
+            ]
+          ],
+          "bbox": [
+            2860,
+            5364,
+            2932,
+            5364
+          ]
+        },
+        {
+          "type": "edge",
+          "edges": [
+            [
+              3056,
+              5364,
+              3004,
+              5364
+            ]
+          ],
+          "bbox": [
+            3004,
+            5364,
+            3056,
+            5364
+          ]
+        },
+        {
+          "type": "edge",
+          "edges": [
+            [
+              2736,
+              7596,
+              2788,
+              7596
+            ]
+          ],
+          "bbox": [
+            2736,
+            7596,
+            2788,
+            7596
+          ]
+        },
+        {
+          "type": "edge",
+          "edges": [
+            [
+              2860,
+              7596,
+              2932,
+              7596
+            ]
+          ],
+          "bbox": [
+            2860,
+            7596,
+            2932,
+            7596
+          ]
+        },
+        {
+          "type": "edge",
+          "edges": [
+            [
+              3004,
+              7596,
+              3056,
+              7596
+            ]
+          ],
+          "bbox": [
+            3004,
+            7596,
+            3056,
+            7596
+          ]
+        }
+      ]
+    },
+    "V2.M3.AUX.2": {
+      "violation_count": 7,
+      "description": "V2.M3.AUX.2 : V2 must exactly be the same width as M3 along the direction perpendicular to the M3 length.",
+      "violations": [
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2092,
+              2124
+            ],
+            [
+              2092,
+              2196
+            ],
+            [
+              2164,
+              2196
+            ],
+            [
+              2164,
+              2124
+            ]
+          ],
+          "bbox": [
+            2092,
+            2124,
+            2164,
+            2196
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2860,
+              3204
+            ],
+            [
+              2860,
+              3276
+            ],
+            [
+              2932,
+              3276
+            ],
+            [
+              2932,
+              3204
+            ]
+          ],
+          "bbox": [
+            2860,
+            3204,
+            2932,
+            3276
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2092,
+              4284
+            ],
+            [
+              2092,
+              4356
+            ],
+            [
+              2164,
+              4356
+            ],
+            [
+              2164,
+              4284
+            ]
+          ],
+          "bbox": [
+            2092,
+            4284,
+            2164,
+            4356
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2860,
+              5364
+            ],
+            [
+              2860,
+              5436
+            ],
+            [
+              2932,
+              5436
+            ],
+            [
+              2932,
+              5364
+            ]
+          ],
+          "bbox": [
+            2860,
+            5364,
+            2932,
+            5436
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2092,
+              6444
+            ],
+            [
+              2092,
+              6516
+            ],
+            [
+              2164,
+              6516
+            ],
+            [
+              2164,
+              6444
+            ]
+          ],
+          "bbox": [
+            2092,
+            6444,
+            2164,
+            6516
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2860,
+              7524
+            ],
+            [
+              2860,
+              7596
+            ],
+            [
+              2932,
+              7596
+            ],
+            [
+              2932,
+              7524
+            ]
+          ],
+          "bbox": [
+            2860,
+            7524,
+            2932,
+            7596
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2092,
+              8604
+            ],
+            [
+              2092,
+              8676
+            ],
+            [
+              2164,
+              8676
+            ],
+            [
+              2164,
+              8604
+            ]
+          ],
+          "bbox": [
+            2092,
+            8604,
+            2164,
+            8676
+          ]
+        }
+      ]
+    }
+  }
+}

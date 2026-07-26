@@ -1,0 +1,61 @@
+{
+ "strip": {
+  "leaf_0002": [
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 32, \"group\": \"m5_fix\", \"layer_name\": \"M5\", \"op\": \"move_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"delta_dbu\": 32, \"group\": \"m5_fix\", \"op\": \"move\", \"polygon_id\": \"p1060\"}]"
+  ]
+ },
+ "winners": [],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "conflict_keys": [
+    "polygon:p1060",
+    "via_cell:VIA_VIA45_1_2_58_58"
+   ],
+   "group": "m5_fix",
+   "atomic": true,
+   "ops": [
+    {
+     "op": "move",
+     "polygon_id": "p1060",
+     "axis": "x",
+     "delta_dbu": 32,
+     "group": "m5_fix"
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 32,
+     "group": "m5_fix"
+    }
+   ],
+   "proposers": [
+    "leaf_0002"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0002",
+     "before": 12,
+     "after": 11,
+     "delta": -1
+    },
+    {
+     "window": "unit:leaf_0003",
+     "before": 17,
+     "after": 46,
+     "delta": 29
+    }
+   ],
+   "delta_total": 28,
+   "conn_preserved": true,
+   "decision": "rejected_net_positive"
+  }
+ ]
+}

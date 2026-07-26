@@ -1,0 +1,62 @@
+{
+ "ops": [
+  {
+   "op": "move",
+   "polygon_id": "p878",
+   "axis": "x",
+   "delta_dbu": 32,
+   "group": "g_m5_snap"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0113",
+   "delta_dbu": [
+    32,
+    0
+   ],
+   "group": "g_m5_snap"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0001",
+   "delta_dbu": [
+    32,
+    0
+   ],
+   "group": "g_m5_snap"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0067",
+   "delta_dbu": [
+    32,
+    0
+   ],
+   "group": "g_m5_snap"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p892",
+   "axis": "x",
+   "end": "high",
+   "delta_dbu": -8
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0003",
+   "delta_dbu": [
+    -8,
+    0
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0111",
+   "delta_dbu": [
+    4,
+    0
+   ]
+  }
+ ],
+ "leaf_id": "leaf_0003"
+}

@@ -1,0 +1,47 @@
+Reading the new record and comparing against current knowledge to identify what must change.
+
+The new trial `i04.ug.leaf_0002.01` contradicts one existing claim: the section "Y-direction polygon shrinks on M2 are applied **exclusively** through the cu_pool channel" is now false — this unit_gate trial applies two y-shrinks (−32 dbu each end) on p891. Everything else either extends or is consistent with existing knowledge.
+
+## Effective M2 Repair Operations
+
+### X-direction instance moves clear spacing violations without introducing new ones
+
+The dominant unit_gate repair for M2 spacing is a lateral (x-direction) move of one or more instances. Trials trial:i01.ug.Block5_union_row3.00, trial:i01.ug.leaf_0001.02, trial:i01.ug.leaf_0002.03, and trial:i02.ug.leaf_0001.00 each applied moves of exactly [36, 0] dbu to one or two instances, touching M1, M2, and V1, and produced n_new_in_crop=0 and n_new_out_of_crop=0 in every case. A paired counter-move of [−36, 0] dbu on a second instance (trial:i01.ug.leaf_0002.03, instance i0103) also preserved the zero-new-violation result, establishing that symmetric opposing moves on adjacent instances are a valid repair pattern.
+
+Single-instance moves of [112, 0] dbu (trial:i01.ug.leaf_0005.04), [72, 0] dbu (trial:i04.ug.leaf_0002.01), and [4, 0] dbu (trial:i01.ug.leaf_0006.05) likewise produced zero new out-of-crop violations, covering a measured move range of 4 to 112 dbu in x. In iteration 3, moves of [8, 0] dbu (instances i0104 and i0061) combined with [−32, 0] dbu (instance i0073) introduced 5 new in-crop violations yet were still accepted because conn_preserved was true (trial:i03.ug.leaf_0001.00). In iteration 4, a [72, 0] dbu move combined with polygon resizes introduced 8 new in-crop violations but was still accepted because conn_preserved was true (trial:i04.ug.leaf_0002.01). When the move amplitude is in the 8–72 dbu range and combined with polygon end-resizes touching multiple layers, new in-crop violations on other layers do not prevent gating.
+
+### Polygon x-resizes extend M2 ends to satisfy tip spacing and enclosure rules
+
+When instance moves alone do not resolve M2 spacing, polygon resizes applied along the x-axis clear violations. Trial trial:i01.ug.Block5_union_row6.01 resized polygon p955 by +256 dbu in x and polygon p971 by +328 dbu in x alongside instance moves ([108, 0] dbu for i0025 and i0019), touching M1, M2, and V1, and produced zero new violations. Trial trial:i03.ug.leaf_0001.00 applied resize_end operations on the high end in x of +28 dbu on p946 and +64 dbu on p968, as part of a five-operation sequence that also moved three instances and touched M2, M3, M4, M5, V2, and V4. Trial trial:i04.ug.leaf_0002.01 applied a resize_end of +128 dbu on the high end in x of polygon p951, alongside a [72, 0] dbu instance move and y-axis shrinks on p891, touching M1, M2, M3, and V1, and produced zero new out-of-crop violations.
+
+The large-magnitude resizes in trial:i01.ug.Block5_union_row6.01 (+256, +328 dbu) are consistent with extending M2 ends far enough to overcome M2.S.2 tip-to-side constraints (minimum 25 nm) or M2.S.7 requirements (parallel run length ≥35 nm when side spacing ≤32 nm). The +128 dbu resize in trial:i04.ug.leaf_0002.01 and the +28 and +64 dbu resizes in trial:i03.ug.leaf_0001.00 address similar tip geometry in more constrained contexts; all three cases produced n_new_out_of_crop=0.
+
+### Y-direction polygon shrinks on M2 occur in both cu_pool and unit_gate channels
+
+Y-direction shrinks on M2 polygons are not exclusive to the cu_pool channel. Polygons p894, p895, p896, and p897 were each shrunk by −64 dbu in y in trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 (a cu_pool decision), co-occurring with a −40 dbu y-shrink on the M3 via shape, reducing the total violation count by 8. Trial trial:i02.ug.leaf_0003.02 applied a −64 dbu y-shrink on polygon p893 in a unit_gate trial without generating M2.W.1 or M2.A.1 violations. Trial trial:i04.ug.leaf_0002.01 applied two y-axis resize_end operations on polygon p891 in a unit_gate trial: −32 dbu on the low end and −32 dbu on the high end (a net −64 dbu bilateral shrink), also without generating M2.W.1 or M2.A.1 violations and with n_new_out_of_crop=0.
+
+Rule V2.M2.EN.1 requires M2 to enclose V2 by 5 nm on at least two opposite sides; adjusting M2 y-extent at a via location directly governs this enclosure. All measured y-shrinks on M2 (−32 dbu per end or −64 dbu single-end) left M2.W.1 (minimum 18 nm width) and M2.A.1 (minimum 504 nm² area) in compliance, confirming these shrink magnitudes are safe for polygons of the sizes present in trials trial:i01.cu.def:VIA_VIA23_1_3_36_36.00, trial:i02.ug.leaf_0003.02, and trial:i04.ug.leaf_0002.01.
+
+### The cu_pool channel repairs VIA_VIA23_1_3_36_36 across successive iterations, each reducing the violation count
+
+Both cu_pool applications for the target def:VIA_VIA23_1_3_36_36 touched M2 (trials trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 and trial:i02.cu.def:VIA_VIA23_1_3_36_36.01). The iteration 1 trial shrunk four M2 polygons by 64 dbu in y and the via shape by 40 dbu in y, yielding −8 violation delta across two windows. The iteration 2 trial moved V2 via shape (shape_index 1) by +144 dbu in x, yielding −7 violation delta (−4 in unit:leaf_0002, −3 in unit:leaf_0003). Both trials operated over the same global locus (1728, 2068 to 9072, 8732 dbu), meaning M2 changes in the cu_pool channel affect the entire block crop region across multiple unit cells simultaneously, not a single unit cell.
+
+### The gating decision is based on connectivity preservation, not zero new in-crop violations
+
+Trials trial:i02.ug.leaf_0003.02 (7 new in-crop violations: M1.A.1:4, V1.M1.EN.1:3), trial:i03.ug.leaf_0001.00 (5 new in-crop violations), and trial:i04.ug.leaf_0002.01 (8 new in-crop violations) were all accepted as gated_in because conn_preserved was true in each case. New in-crop violations on M1 or V1 do not block acceptance when M2 connectivity is maintained. Trials that produced zero new in-crop violations (trial:i01.ug.Block5_union_row3.00, trial:i01.ug.leaf_0001.02, trial:i01.ug.leaf_0002.03, trial:i01.ug.leaf_0005.04, trial:i01.ug.leaf_0006.05, trial:i01.cu.def:VIA_VIA23_1_3_36_36.00, trial:i02.ug.leaf_0001.00, trial:i02.cu.def:VIA_VIA23_1_3_36_36.01) also gated in or were applied, confirming zero new violations is sufficient but not required.
+
+### The assemble_drops mechanism prevents double-application of via resize ops already committed by cu_pool
+
+When a cu_pool trial has committed a resize to a specific via cell, the unit_gate assembly drops duplicate resize_via_shape operations on that same via. In trial:i02.ug.leaf_0003.02, the op `resize_via_shape` (axis y, delta_dbu −88, cell_name VIA_VIA45_1_2_58_58, layer M5, shape_index 0) was dropped with reason `cu_pool:applied`. The trial was still gated_in after the drop. Do not include resize_via_shape ops for via cells already handled by an applied cu_pool trial in the same or a prior iteration (trial:i02.ug.leaf_0003.02).
+
+### Co-moving all connected layers preserves V1.M2.EN.2 and V1.M2.AUX.2 compliance across x-direction moves
+
+Rule V1.M2.EN.2 requires M2 to enclose V1 by at least 5 nm on two opposite sides (or 5 & 0 nm on opposing sides). Rule V1.M2.AUX.2 requires V1 to match M2 width exactly in the direction perpendicular to M2 length. All unit_gate trials that moved instances in x while touching M1, M2, and V1 simultaneously (trials trial:i01.ug.Block5_union_row3.00, trial:i01.ug.leaf_0001.02, trial:i01.ug.leaf_0002.03, trial:i01.ug.leaf_0005.04, trial:i01.ug.leaf_0006.05, trial:i02.ug.leaf_0001.00, trial:i04.ug.leaf_0002.01) produced zero new out-of-crop M2 violations. Applying the same delta uniformly across all layers connected at the via maintains the relative enclosure geometry required by V1.M2.EN.2 and V1.M2.AUX.2.
+
+### Tip spacing rules govern the geometric constraints most sensitive to M2 end position
+
+Rules M2.S.3, M2.S.4, and M2.S.5 impose tip-to-tip spacing requirements of 27 nm to 31 nm depending on whether both tip edges are ≥24 nm, both <24 nm, or mixed. Rule M2.S.7 forbids co-located 18 nm tip-to-tip gaps with side-to-side spacing ≤32 nm, and requires parallel run length ≥35 nm when side spacing ≤32 nm. Rule M2.S.8 requires an 80 nm diagonal center-to-center minimum between tip-to-tip gaps on different tracks. The large x-resizes of +256 and +328 dbu in trial:i01.ug.Block5_union_row6.01 extended M2 ends far enough to clear these combined tip spacing constraints without any new violations. The +128 dbu resize in trial:i04.ug.leaf_0002.01 and the smaller end-resizes of +28 and +64 dbu in trial:i03.ug.leaf_0001.00 address tip geometry in more constrained contexts where each trial still produced n_new_out_of_crop=0.
+
+### M2.S.6 corner-to-corner constraint is handled implicitly by instance moves that maintain Euclidean separation
+
+Rule M2.S.6 requires a minimum corner-to-corner spacing of 20 nm between M2 polygons (Euclidian metric, excluding cases already covered by the projection metric). All x-direction instance moves in the measured history that touched M2 produced zero new out-of-crop violations, including those involving moves as small as 4 dbu (trial:i01.ug.leaf_0006.05) and as large as 112 dbu (trial:i01.ug.leaf_0005.04), with trial:i04.ug.leaf_0002.01 at [72, 0] dbu also producing n_new_out_of_crop=0, indicating that the corner-to-corner constraint was satisfied across all tested displacements.

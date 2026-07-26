@@ -1,0 +1,58 @@
+{
+  "budget_s": 0,
+  "case": "Block7",
+  "iter": 3,
+  "layers": {
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 8,
+          "ok": false,
+          "wall_s": 1485.82
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 312.61
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 6,
+          "ok": false,
+          "wall_s": 1485.82
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 98.54
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B's claims map directly to history excerpt and DRC deck; A's 7-polygon claim conflicts with histogram input=54 and relies on unverifiable seed coords not",
+          "wall_s": 32.44
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M4"
+  ],
+  "wall_s": 1830.89
+}

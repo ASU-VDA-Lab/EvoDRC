@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M2", "shape_index": 0, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": 24}
+  ],
+  "explanation": "Grows all three V2 cuts in VIA_VIA23_1_3_36_36 from y=+/-36 to y=+/-68 dbu to match the merged M3 y-extent (driven by stacked VIA_VIA34 M3 at +/-68), accompanied by growing the M2 landing pad from y=+/-36 to y=+/-68 to keep V2 inside M2, and growing the M3 landing pad from y=+/-56 to y=+/-68 to keep the outer V2 cuts inside M3 at the full width. This clears 36 V2.M3.AUX.2 and 6 V2.M3.EN.2 violations with connectivity preserved."
+}

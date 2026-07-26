@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block4_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0158", "delta_dbu": [-28, 0]},
+    {"op": "move_instance", "inst_id": "i0124", "delta_dbu": [-28, 0]},
+    {"op": "move", "polygon_id": "p1596", "axis": "x", "delta_dbu": -28},
+    {"op": "move", "polygon_id": "p1477", "axis": "x", "delta_dbu": -28},
+    {"op": "resize_end", "polygon_id": "p1395", "axis": "x", "end": "high", "delta_dbu": 172}
+  ],
+  "explanation": "Move VIA_VIA12 (i0158) and VIA_VIA23 (i0124) left 28 dbu to clear M1.S.2 spacing violation v0026 at (4104,8820,4176,8864); co-move connected M2 polygon p1596 and M3 polygon p1477 left 28 dbu to preserve V2.M3.AUX.2 enclosure and avoid M2.S.7. Extend M4 polygon p1395 right end by 172 dbu (3828→4000) to achieve 176 dbu parallel run with p1398, clearing M4.S.5 violation v0087 at (3824,8736,3828,8832)."
+}

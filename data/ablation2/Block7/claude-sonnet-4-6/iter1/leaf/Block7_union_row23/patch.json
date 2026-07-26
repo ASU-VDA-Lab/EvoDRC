@@ -1,0 +1,53 @@
+{
+ "ops": [
+  {
+   "op": "move_instance",
+   "inst_id": "i0041",
+   "delta_dbu": [
+    72,
+    0
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0045",
+   "delta_dbu": [
+    108,
+    0
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0190",
+   "delta_dbu": [
+    -36,
+    0
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0678",
+   "delta_dbu": [
+    36,
+    0
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0195",
+   "delta_dbu": [
+    72,
+    0
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0699",
+   "delta_dbu": [
+    72,
+    0
+   ]
+  }
+ ],
+ "leaf_id": "Block7_union_row23"
+}

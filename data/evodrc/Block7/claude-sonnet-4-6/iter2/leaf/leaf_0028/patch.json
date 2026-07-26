@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0028",
+  "ops": [],
+  "explanation": "No safe repair found. All five violations are geometrically interlocked around VIA_VIA12 (i0177) at origin (19476, 27948). (1) Moving i0177 downward is blocked: frozen std-cell M1 _ptemp_17 has its top edge at y=27900 spanning x=18936-19620; i0177 M1 bottom is at y=27904 (4 dbu gap), so any move >4 dbu creates a direct M1 short circuit and cascade M1.S.4/5/6 violations. (2) Deleting i0177 breaks block connectivity: conn_preview returned preserved=false with 2 pin endpoint mismatches and 1 layer count mismatch across 3325 seeds; conn_impact_preview confirmed i0177 bridges frozen std-cell M1 (i2197) to M2 via p3537 and i0184, with no parallel path. (3) resize_via_shape/move_via_shape on i0177 are gating-doctrine blocked: V1.S.2 affects only a subset of VIA_VIA12 placements, not all instances. (4) The only independent partial fix (move i0184 -12 dbu + resize_end p3537 high -12 dbu to clear M2.S.1) introduced 4 new violations (M2.S.2 x2, V1.M2.EN.2, V1.M2.AUX.2), net=-3, strictly regressing. Empty ops is the only connectivity-safe, non-regressing outcome."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1623", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p3384", "axis": "x", "end": "low", "delta_dbu": 56}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i1623 left by 36 dbu so its V1 cut falls entirely within std-cell M1 pin _ptemp_7, clearing V1.M1.EN.1 (merged top enclosure 36 dbu ≥ 5 nm) and M1.S.4 (gap to _ptemp_11 becomes 124 dbu = 31 nm threshold); extends M2 polygon p3384 left edge by 56 dbu to maintain 20 dbu V1.M2.EN.2 left enclosure of the shifted V1 cut."
+}

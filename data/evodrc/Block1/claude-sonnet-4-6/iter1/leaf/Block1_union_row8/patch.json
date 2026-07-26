@@ -1,0 +1,13 @@
+{
+  "leaf_id": "Block1_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0199", "delta_dbu": [64, 0]},
+    {"op": "move_instance", "inst_id": "i0244", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1388", "axis": "x", "end": "high", "delta_dbu": 192},
+    {"op": "move_instance", "inst_id": "i0258", "delta_dbu": [-64, 0]},
+    {"op": "move_instance", "inst_id": "i0079", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1345", "axis": "x", "end": "high", "delta_dbu": 192},
+    {"op": "move_instance", "inst_id": "i0100", "delta_dbu": [64, 0]}
+  ],
+  "explanation": "Moves five VIA_VIA12 instances away from V0 pins and M1 spacing violations and extends two M2 polygons to maintain via-to-route connectivity; clears all 8 target violations (V0.M1.AUX.3 x4, M1.S.2 x3, V1.M1.EN.1 x1) with no new violations introduced and full connectivity preserved across all 824 seeds."
+}

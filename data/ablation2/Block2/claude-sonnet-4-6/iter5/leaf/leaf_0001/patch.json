@@ -1,0 +1,18 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {
+      "op": "resize",
+      "polygon_id": "p961",
+      "axis": "y",
+      "delta_dbu": -64
+    },
+    {
+      "op": "resize",
+      "polygon_id": "p960",
+      "axis": "y",
+      "delta_dbu": -64
+    }
+  ],
+  "explanation": "Symmetrically shrinks the four local M3 polygons (p958\u2013p961) by 64 dbu in Y (32 dbu per edge), making each M3 segment's y-extent flush with its V2 via cuts and clearing 8 V2.M3.AUX.2 violations plus 1 M1.S.2 violation; declared debt: M1.A.1 and V1.M1.EN.1 at i0063 position."
+}

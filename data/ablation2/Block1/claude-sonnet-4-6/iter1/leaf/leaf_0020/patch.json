@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0020",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0082", "delta_dbu": [-56, 0]}
+  ],
+  "explanation": "Moves via i0082 (VIA_VIA12) left by 56 dbu so that std-cell M1 _ptemp_4 (right edge x=10404) provides 20 dbu right-side enclosure of the V1 cut (clearing V1.M1.EN.1) and increases the M1 tip-to-tip gap from via M1 to _ptemp_5 from 88 dbu (22 nm) to 144 dbu (36 nm), clearing M1.S.4."
+}

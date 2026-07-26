@@ -1,0 +1,1290 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {
+      "op": "move",
+      "polygon_id": "p2213",
+      "axis": "x",
+      "delta_dbu": 32
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2216",
+      "axis": "x",
+      "delta_dbu": 32
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2212",
+      "axis": "x",
+      "delta_dbu": -16
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2215",
+      "axis": "x",
+      "delta_dbu": -16
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2211",
+      "axis": "x",
+      "delta_dbu": -64
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2214",
+      "axis": "x",
+      "delta_dbu": -64
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0704",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0708",
+      "delta_dbu": [
+        32,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0730",
+      "delta_dbu": [
+        32,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0838",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0840",
+      "delta_dbu": [
+        32,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0878",
+      "delta_dbu": [
+        32,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0879",
+      "delta_dbu": [
+        32,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1369",
+      "delta_dbu": [
+        32,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1379",
+      "delta_dbu": [
+        32,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1397",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1468",
+      "delta_dbu": [
+        32,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1476",
+      "delta_dbu": [
+        32,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1523",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0705",
+      "delta_dbu": [
+        32,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0724",
+      "delta_dbu": [
+        32,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0729",
+      "delta_dbu": [
+        32,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0837",
+      "delta_dbu": [
+        32,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0854",
+      "delta_dbu": [
+        32,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0867",
+      "delta_dbu": [
+        32,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1344",
+      "delta_dbu": [
+        32,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1365",
+      "delta_dbu": [
+        32,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1378",
+      "delta_dbu": [
+        32,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1512",
+      "delta_dbu": [
+        32,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1533",
+      "delta_dbu": [
+        32,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1534",
+      "delta_dbu": [
+        32,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0543",
+      "delta_dbu": [
+        -16,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0545",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0648",
+      "delta_dbu": [
+        -16,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0967",
+      "delta_dbu": [
+        -16,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0968",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1066",
+      "delta_dbu": [
+        -16,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1099",
+      "delta_dbu": [
+        -16,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1129",
+      "delta_dbu": [
+        -16,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1265",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1291",
+      "delta_dbu": [
+        -16,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1556",
+      "delta_dbu": [
+        -16,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1661",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1691",
+      "delta_dbu": [
+        -16,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0544",
+      "delta_dbu": [
+        -16,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0622",
+      "delta_dbu": [
+        -16,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0662",
+      "delta_dbu": [
+        -16,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0955",
+      "delta_dbu": [
+        -16,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1068",
+      "delta_dbu": [
+        -16,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1085",
+      "delta_dbu": [
+        -16,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1130",
+      "delta_dbu": [
+        -16,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1163",
+      "delta_dbu": [
+        -16,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1268",
+      "delta_dbu": [
+        -16,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1547",
+      "delta_dbu": [
+        -16,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1588",
+      "delta_dbu": [
+        -16,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1673",
+      "delta_dbu": [
+        -16,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0067",
+      "delta_dbu": [
+        -64,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0068",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0109",
+      "delta_dbu": [
+        -64,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0444",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0461",
+      "delta_dbu": [
+        -64,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0481",
+      "delta_dbu": [
+        -64,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0497",
+      "delta_dbu": [
+        -64,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1763",
+      "delta_dbu": [
+        -64,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1793",
+      "delta_dbu": [
+        -64,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1800",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2016",
+      "delta_dbu": [
+        -64,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2030",
+      "delta_dbu": [
+        -64,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2031",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0076",
+      "delta_dbu": [
+        -64,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0098",
+      "delta_dbu": [
+        -64,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0131",
+      "delta_dbu": [
+        -64,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0447",
+      "delta_dbu": [
+        -64,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0483",
+      "delta_dbu": [
+        -64,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0484",
+      "delta_dbu": [
+        -64,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1735",
+      "delta_dbu": [
+        -64,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1751",
+      "delta_dbu": [
+        -64,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1784",
+      "delta_dbu": [
+        -64,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2020",
+      "delta_dbu": [
+        -64,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2040",
+      "delta_dbu": [
+        -64,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2044",
+      "delta_dbu": [
+        -64,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0121",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0123",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0656",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0664",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0723",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0726",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1124",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1139",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1336",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1362",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1469",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1524",
+      "delta_dbu": [
+        32,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1666",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1693",
+      "delta_dbu": [
+        -16,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1762",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1765",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2012",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2026",
+      "delta_dbu": [
+        -64,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0081",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0083",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0089",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0094",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0115",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0449",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0459",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0470",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0491",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0498",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0499",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0541",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0552",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0612",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0632",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0641",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0700",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0702",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0725",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0727",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0742",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0830",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0846",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0866",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0876",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0885",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0888",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0953",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0966",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1093",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1100",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1101",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1105",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1135",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1152",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1157",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1248",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1273",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1340",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1351",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1366",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1375",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1393",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1481",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1514",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1515",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1530",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1540",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1559",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1582",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1585",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1656",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1674",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1733",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1750",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1755",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1783",
+      "delta_dbu": [
+        0,
+        48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1798",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2010",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2017",
+      "delta_dbu": [
+        0,
+        -48
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2024",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2034",
+      "delta_dbu": [
+        0,
+        96
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2038",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    }
+  ],
+  "explanation": "Group C (M5.AUX.1): Moved 6 M5 stripe polygons (p2211-p2216) in x to place their vertical edges on the 96-dbu grid. Co-moved all 75 associated VIA45 instances with combined [dx, dy] deltas: dx from Group C x-alignment, dy from Group B y-alignment (to fix M4.AUX.1/M4.AUX.2 on M4 lands). Co-moved 18 VIA56 instances in x. Co-moved 63 VIA34 instances in y (to maintain M4-land grid alignment after VIA45 y-moves). VIA23 y-moves were omitted: adding them cleared only 15+189=204 additional violations but introduced 126+19+1=146 new M2 violations, resulting in a net regression. Without VIA23 moves: 297 target violations cleared, 223 introduced (net -74). Connectivity preserved (verified). Group B (M4.AUX.1/AUX.2): handled by the VIA45 and VIA34 y-moves within the same ops. Structural violations (447): skipped as unfixable."
+}

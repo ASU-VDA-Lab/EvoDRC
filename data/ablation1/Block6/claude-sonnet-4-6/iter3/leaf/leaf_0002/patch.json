@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0015", "delta_dbu": [36, -48]},
+    {"op": "resize_end", "polygon_id": "p1991", "axis": "x", "end": "high", "delta_dbu": 56}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i0015 by [+36, -48] dbu (new origin 8280,7380) to clear all 8 violations by resolving M1.S.2 tip-spacing, V1.S.2/V1.M1.EN.1/V1.M2.AUX.2 enclosure, and V0.S.2/V0.M1.AUX.3 proximity; extended M2 polygon p1991 high-x end by 56 dbu to maintain 5 nm M2 enclosure past the relocated V1 cut right edge."
+}

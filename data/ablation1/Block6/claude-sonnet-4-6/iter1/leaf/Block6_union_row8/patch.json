@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block6_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0071", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1907", "axis": "x", "end": "high", "delta_dbu": 36}
+  ],
+  "explanation": "Fixes V0.M1.AUX.3 violations at (8604,10620,8676,10692) and (11196,10620,11268,10692) by moving via instances i0078 and i0071 each +36 dbu in x so their M1 land left edges become coincident with the respective V0 right edges, eliminating the convex corner condition; M2 polygon p1907 high-x end extended +36 dbu to maintain connectivity with i0071's shifted position."
+}

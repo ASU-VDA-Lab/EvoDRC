@@ -1,0 +1,150 @@
+{
+ "block": "leaf_0003",
+ "ops": [
+  {
+   "op": "move_instance",
+   "instance_id": "i0375",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 3216
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0379",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 3216
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0531",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 3216
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0527",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 3216
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0367",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 5424
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0366",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 5424
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0426",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 5424
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0435",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 5424
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0362",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 7536
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0360",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 7536
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0424",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 7536
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0411",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 7536
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0225",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 9744
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0198",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 9744
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0114",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 9744
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0109",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 9744
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0137",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 11856
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0136",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 11856
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0023",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 11856
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0022",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 11856
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0177",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 14064
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0168",
+   "new_origin_x_dbu": 2896,
+   "new_origin_y_dbu": 14064
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0030",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 14064
+  },
+  {
+   "op": "move_instance",
+   "instance_id": "i0026",
+   "new_origin_x_dbu": 13696,
+   "new_origin_y_dbu": 14064
+  }
+ ],
+ "leaf_id": "leaf_0003"
+}

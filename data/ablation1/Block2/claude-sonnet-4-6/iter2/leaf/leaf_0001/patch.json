@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "delete", "polygon_id": "p1101"},
+    {"op": "delete_instance", "inst_id": "i0086"},
+    {"op": "add_via", "cell_name": "VIA_VIA12", "origin_dbu": [5472, 2340]},
+    {"op": "resize_end", "polygon_id": "p957", "axis": "x", "end": "low", "delta_dbu": 172}
+  ],
+  "explanation": "Deleted M1 polygon p1101 and repositioned VIA_VIA12 (removed i0086, added new instance at x=5472) to move the via landing outside the V0.M1.AUX.3 enclosure window, clearing v0001. Extended M4 polygon p957 left edge by 172 dbu to x=4724, giving 176 dbu (44 nm) parallel run overlap with p956 and clearing M4.S.5 (v0004)."
+}

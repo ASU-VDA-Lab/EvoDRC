@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0233", "delta_dbu": [-20, 0]}
+  ],
+  "explanation": "Violation v0003 (M1.S.2) is caused by the VIA_VIA12 instance i0233 whose M1 land right edge (x=7552) is only 80 dbu from the frozen std-cell M1 strip left edge (x=7632), below the 100 dbu minimum. Moving i0233 left by 20 dbu brings the gap to exactly 100 dbu, clearing the violation with no new violations introduced."
+}

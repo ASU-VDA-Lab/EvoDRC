@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block7_union_row13",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0507", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p3526", "axis": "x", "end": "low", "delta_dbu": 56},
+    {"op": "resize_end", "polygon_id": "p3526", "axis": "x", "end": "high", "delta_dbu": 100},
+    {"op": "move_instance", "inst_id": "i0482", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p3525", "axis": "x", "end": "high", "delta_dbu": 192},
+    {"op": "move_instance", "inst_id": "i1059", "delta_dbu": [136, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0507, i0482, and i1059 +136/+124 dbu in x to clear V0.M1.AUX.3, M1.S.6 violations; extends M2 pads p3526 and p3525 to maintain connectivity for co-located anchored VIA_VIA23 instances and their new via positions."
+}

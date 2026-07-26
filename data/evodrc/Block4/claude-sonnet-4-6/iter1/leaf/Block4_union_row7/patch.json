@@ -1,0 +1,14 @@
+{
+  "leaf_id": "Block4_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0153", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p1595", "axis": "x", "end": "high", "delta_dbu": 164},
+    {"op": "move_instance", "inst_id": "i0158", "delta_dbu": [-28, 0]},
+    {"op": "move_instance", "inst_id": "i0040", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1577", "axis": "x", "end": "high", "delta_dbu": 92},
+    {"op": "move_instance", "inst_id": "i0026", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1556", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "resize_end", "polygon_id": "p1395", "axis": "x", "end": "high", "delta_dbu": 172}
+  ],
+  "explanation": "Moved four VIA_VIA12 instances to remove M1-land overlap with frozen V0 pins (clearing V0.M1.AUX.3 x3), achieve >=25 nm M1 tip-to-side gap (M1.S.2 x2), and establish correct V1 M1 enclosure (V1.M1.EN.1); extended companion M2 polygons to maintain routing connectivity after each move; extended M4 polygon p1395 right edge +172 dbu to achieve exactly 44 nm parallel run with p1398, clearing M4.S.5."
+}

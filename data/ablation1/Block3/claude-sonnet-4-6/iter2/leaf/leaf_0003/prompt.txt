@@ -1,0 +1,930 @@
+=== S1: MISSION & TASK ===
+
+- You are an EDA engineer specializing in ASAP7 PDK block-level DRC repair.
+- You repair ONE cropped block-level layout. Inlined below: the crop (S6 '## Crop'), its violations (S6 '# === violations to fix ==='), the patch grammar v2 (S5), and the output envelope (S7). The three preview-tool directives (Connectivity / DRC / Connectivity-impact) and the pre-output self-critique are in S4; the static '## Repair order by DRC degree' table is in S6.
+- The leaf id is leaf_0003.
+
+TASK -- for each violation:
+- Decide whether a minimal, safe, legal repair exists using ONLY editable polygons / allowed instance ops.
+- PREFER repairs that introduce NO new violation.
+- A candidate that cannot avoid collateral is still submittable when the window preview shows NET DRC reduction (violations cleared strictly greater than violations introduced) AND connectivity preserved -- declare every introduced violation (rule + bbox) in the trace as DECLARED DEBT.
+- Stay legal and on-grid: manufacturing grid 1 dbu; respect each layer's own routing-grid AUX rules.
+- Fewer ops better. If no net-reducing legal fix exists, leave it out (empty ops is valid).
+
+SUBMISSION STANDARD:
+- Follow the final ## Output section (S7) exactly.
+- The patch JSON explanation field: 1-2 sentences naming the violation(s) addressed and the polygon(s) edited.
+- The validator is deterministic Python; if your patch is malformed, the leaf is silently skipped.
+
+FINAL OUTPUT: see S7 (output requirements are centralized there).
+
+=== S2: RESOURCES & PATHS ===
+
+Reference resources, in PRIORITY ORDER (all staged read-only; SUBAGENT-READ per CONTEXT HYGIENE below):
+1. Living repair knowledge -- PRIMARY rule source: /work/in/main.md (Read it FIRST: gating doctrine (PART A, binding) + LAYER INDEX) plus the per-layer knowledge files under /work/in/knowledge/.
+   - Each layer file's [DRC RULES] section carries that layer's verbatim deck rules (implementation + derivations); [KNOWLEDGE] carries the distilled repair heuristics.
+   - START with the layers that have violations in YOUR crop: map each violation's rule name to its layers -- the layer tokens (M*/V*) in the rule name, at most 2; both appear in the crop's rule descriptions -- and have your PLANNER and CODER subagents Read those violated layers' files FIRST at the INDEX paths.
+   - Add a layer's file ONLY when you plan to edit geometry on it.
+2. Per-rule DRM images: /workspace/testcase/asap7/drm_jpg/<rule>.jpg (e.g. M1.S.4.jpg) -- each rule's geometric intent, alongside the layer files' [DRC RULES].
+3. Full rule deck -- FALLBACK ONLY: /workspace/testcase/asap7/asap7.lydrc; consult it only for a layer you plan to EDIT that has no staged knowledge file, or for cross-layer derivations not visible in the layer files.
+
+Background reference: /work/in/skill_official.md (base reference skill).
+On any conflict: main.md's gating doctrine and THIS prompt win.
+
+FORBIDDEN READS: do NOT read the full Block3 layout script, other crops/leaves, the agent source, or scoring files.
+
+CONTEXT HYGIENE:
+- You are the MAIN agent: do NOT read the reference resources into your OWN context; they are NOT inlined here.
+- When a role needs a reference, have that PLANNER or CODER subagent Read it; spread the reads across your subagents.
+
+PAGING GUARD (applies to EVERY file Read in this task, by any agent):
+- First check the file's line count (e.g. wc -l via Bash, or a probing Read).
+- If it may exceed 1800 lines OR ~20k tokens (the Read tool truncates near 25k tokens -- the rule deck does), Read it in pages with offset/limit.
+- NEVER assume a single Read returned the whole file.
+
+=== S3: SUBAGENT ROLES & REPAIR WORKFLOW ===
+
+REPAIR WORKFLOW -- you are the MAIN agent and you MUST divide the work across subagents in a FOUR-ROLE loop: PLANNER -> PLAN-REVIEWER -> CODER -> PATCH-REVIEWER. Do NOT write a one-shot patch. Every subagent you spawn inherits this model and effort (Sonnet 4.6, medium).
+1. PLANNER: spawn a planner subagent. Give it the block/crop, its target violations, the connectivity constraint to preserve, the patch grammar, and the skill. It returns ONE concrete candidate repair PLAN (which polygons / via structures / instances to edit, and how) that is minimal, safe, and legal. Planner sub-steps:
+   1a. Parse the violations from '# === violations to fix ===' (S6): note each violation type (rule) and bounding box.
+   1b. Study each violated rule per the S2 priority order (violated layers' [DRC RULES] sections first; DRM image; full deck as FALLBACK ONLY): the check logic (KLayout Ruby DRC API, layer derivations, measurement ops), the layer(s) involved, the geometric constraint (min width / spacing / enclosure, exact pitch, forbidden bend, area, ...), and the numeric threshold + unit. Units: nanometers in ASAP7; crop coords are raw integers in dbu, 1 dbu = 0.00025 um = 0.25 nm -- confirm the scale from the crop header. Do NOT guess thresholds or rule semantics.
+   1c. Locate the offending geometry: in the '## Crop' snippet (S6), map each violation bbox to the editable polygon(s) / instance(s) listed there.
+   REPAIR ORDER (mandatory, REGIONAL before GLOBAL):
+   - FIRST try the REGIONAL ops for each violation: move_instance / guarded delete_instance, or a top-level polygon op (resize / resize_end / move / delete / add_jog / add_polygon / add_via) -- effect stays local to this crop's neighborhood.
+   - ONLY IF no regional op can clear it: escalate to editing the VIA STRUCTURE via resize_via_shape / move_via_shape. That escalation is GLOBAL (see '## Shared-target context' (S6) for admissibility and how the harness measures def-level candidates block-wide).
+   - A via-structure plan MUST state the expected effect at the OTHER placements of that via type, not just the in-crop ones.
+   - COUPLED edits (spanning multiple shared definitions, or a def edit plus companion polygon/instance edits): plan them as ONE atomic candidate -- mark every coupled op with the same {"group": "<name>"} key (full spec in S4). A def edit that measures non-negative SOLO can become net-negative when measured WITH its coupled companions.
+2. PLAN-REVIEWER: spawn a SEPARATE subagent and give it ONLY the planner's PLAN. It ADVERSARIALLY reviews the plan, applying the VERIFICATION STANDARDS & TOOLS (S4) -- NET-reduction bar, HIERARCHY OF STANDARDS, atomic-group rules, MANDATORY SHARED-TARGET CHECK, and preview-tool verification -- to the PLAN. Any resize_via_shape / move_via_shape whose motivating rule is not marked (=100%) in '## Shared-target context' (S6) is an automatic REJECT. It returns APPROVE, or REJECT with specific, actionable reasons.
+3. PLAN LOOP: while the plan-reviewer REJECTS, spawn a FRESH planner subagent carrying the reviewer's critique verbatim, and repeat 1->2. There is NO fixed iteration cap -- continue until the plan is APPROVED (if you exhaust your budget, carry the best-reviewed plan forward).
+4. CODER: once the PLAN is APPROVED, spawn a coder subagent. Give it the approved plan plus the patch grammar; it implements the plan into the CONCRETE patch -- the exact CLEAR-Next ops JSON: a flat list of op dicts drawn ONLY from the op vocabulary (S5), referencing the real ids exactly as they appear. Coder rules:
+   - Apply the MINIMAL repair: the smallest geometric tweak that clears the violation, per the NET-reduction standard (S4); declare any introduced violation as DEBT in the trace.
+   - Verify internal consistency before handing off: edits stay within block_bounds_dbu; targets and grid legality follow the TASK (S1); the JSON matches the patch grammar (S5).
+   - If the approved plan declares an atomic group, every op of that group must carry the same {"group": "<name>"} key in the final ops JSON.
+5. PATCH-REVIEWER: spawn a SEPARATE subagent and give it the coder's FINAL PATCH. It ADVERSARIALLY reviews the concrete patch, applying the SAME VERIFICATION STANDARDS & TOOLS (S4) to the CONCRETE ops. It re-runs the MANDATORY SHARED-TARGET CHECK (S4): any resize_via_shape / move_via_shape whose motivating rule is not marked (=100%) in '## Shared-target context' (S6) is an automatic REJECT. It returns APPROVE, or REJECT with specific reasons.
+6. PATCH LOOP + ESCALATION: while the patch-reviewer REJECTS, spawn a FRESH coder subagent carrying the critique and repeat 4->5 (no fixed cap). HOWEVER, if the patch-reviewer concludes the PLAN ITSELF is flawed (no legal patch can satisfy it), it MUST escalate: discard the plan and RESTART FROM STEP 1 with a fresh planner carrying the escalation critique.
+7. FINALIZE: only once the patch-reviewer APPROVES, you (the MAIN agent) aggregate and emit the final approved patch plus a concise reasoning trace, exactly per the ## Output section (S7). Stop only when the patch-reviewer has APPROVED.
+
+=== S4: VERIFICATION & TOOLS ===
+
+VERIFICATION STANDARDS -- applied by BOTH reviewer roles (S3 step 2 to the
+PLAN, S3 step 5 to the CONCRETE ops):
+
+NET-REDUCTION BAR:
+- APPROVE when the previews show NET DRC reduction (cleared > introduced)
+  AND connectivity preserved AND every op legal/on-grid.
+- PREFER a zero-new-violation candidate when one exists.
+- Any introduced violations MUST be listed in the trace (rule + bbox) as
+  declared debt.
+
+HIERARCHY OF STANDARDS:
+- The net-reduction bar above governs ALL ordinary edits.
+- ONE exception: a def edit ADMITTED by the (=100%) shared-target test.
+  Your window cannot price a block-wide edit -- do NOT self-reject it on
+  secondary in-window preview noise; such a candidate may carry declared
+  debt and MUST be submitted for the harness's block-wide combined
+  measurement (doctrine G4), which is the binding judge.
+
+ATOMIC GROUPS (coupled edits, part of the hierarchy above):
+- When a def edit needs coupled companion edits (e.g. coupled resizes on
+  multiple shared definitions, or a def resize plus a die-spanning polygon
+  resize): mark EVERY coupled op with the same {"group": "<name>"} key.
+- Group WITH at least one def-level or die-spanning-resize member: the
+  harness measures and applies it as ONE atomic candidate over the pooled
+  targets' block-wide coverage windows PLUS, when the group carries
+  regional members, your unit's own window (those members are priced in
+  your window; effects outside all measured windows are NOT priced -- keep
+  coupled edits near the group's targets).
+- All-regional group: the group key is ignored and the ops flow through
+  normal per-unit gating.
+- Group members MUST use only resize / resize_end / move / delete /
+  move_instance / delete_instance / resize_via_shape / move_via_shape /
+  add_via.
+- A group WITH at least one def-level or die-spanning-resize member that
+  also contains add_polygon or add_jog is rejected unmeasured;
+  all-regional groups are exempt from that rejection (their key is simply
+  ignored).
+
+MANDATORY SHARED-TARGET CHECK:
+- Trigger: the plan or patch contains resize_via_shape / move_via_shape
+  (or a full-edge op on a die-spanning polygon).
+- Look up the motivating rule for that cell in '## Shared-target context'
+  (S6: DATA).
+- Unless that rule is marked (=100%) there: REJECT; demand a regional fix
+  (move/delete) or leaving the violation unfixed.
+- An in-window 'all placements look broken' impression NEVER overrides the
+  injected block-wide fraction.
+
+PREVIEW-TOOL VERIFICATION -- the reviewer MUST verify using the three
+preview tools available in THIS run:
+- drc_preview: do all target violations clear / are there new in-window
+  violations?
+- conn_preview: is connectivity preserved on the full design?
+- conn_impact_preview: what does each edited object physically touch?
+- Protocol: write the candidate {"ops":[...]} to a scratch file; run each
+  tool against the pre-filled --context path (the three tool directives
+  below); treat their one-line JSON verdicts as ground truth.
+
+
+## Connectivity preview (call BEFORE risky ops)
+
+Before you finalize any patch that contains delete_instance or move_instance
+(these most often break a net), CHECK it first:
+  1. Write your candidate ops JSON to a temp file (use the Write tool), e.g.
+     /workspace/temp/conn/candidate.json. The file needs ONLY {"ops":[...]};
+     you do NOT include a leaf_id -- the tool supplies it from context.
+  2. Run:
+     python3 -m agent.src.conn_preview --candidate <that_path> --context /out/ctx/conn/context_leaf_0003.json
+  3. Read the one-line JSON verdict. If "preserved" is false, your ops break
+     block connectivity (see "broken_seeds"): drop or revise the offending op
+     and re-check. Only write your FINAL patch (per "## Output") once the
+     preview says "preserved": true (or you removed the risky op).
+You do NOT need to know the leaf id, case, layout path, or golden file -- the
+tool already has them. Pass ONLY --candidate (and the --context value above).
+
+## DRC preview (check candidate ops BEFORE writing your final patch)
+
+To verify a candidate patch actually clears your target violations without
+introducing new in-window ones, CHECK it first:
+  1. Write your candidate ops JSON to a temp file, e.g.
+     /workspace/temp/drc/candidate.json. The file needs ONLY {"ops":[...]};
+     you do NOT include a leaf_id -- the tool supplies it from context.
+  2. Run:
+     python3 -m agent.src.drc_preview --candidate <that_path> --context /out/ctx/drc/context_leaf_0003.json
+  3. Read the one-line JSON verdict: "cleared" / "remaining" target violations
+     and "new_in_window" (NEW violations your ops introduced inside this crop).
+     Only write your FINAL patch once ALL of:
+       - "remaining" shrinks;
+       - connectivity preserved;
+       - "new_in_window" strictly SMALLER than the set you cleared (net
+         reduction; prefer empty when achievable).
+     Every entry left in "new_in_window" MUST be declared in your trace
+     with rule + bbox.
+You do NOT need the leaf id, case, layout path, or deck -- the tool has them.
+Pass ONLY --candidate (and the --context value above).
+
+## Connectivity-impact preview (which objects you are electrically touching)
+
+Before you move/delete a via, resize/move a via land/cut, or resize a metal:
+  - See EVERY other object that is CONNECTIVITY-OVERLAPPING it (same layer,
+    real polygons overlap with positive area; a via participates through its
+    per-layer lands).
+  - LIST-ONLY: grants no permissions; shows what you may break.
+  Run:
+     python3 -m agent.src.conn_impact_preview --object <id> --context /out/ctx/connimpact/context_leaf_0003.json
+  <id> is ONE object id: a top-level polygon id (pNNN) OR a via instance id (iNNNN).
+  Read the one-line JSON {"object":<id>,"overlapping":[{id,kind,layer,editability}...]}:
+  (each listed object shares a layer and physically overlaps yours):
+    - [D editable] / [C partial-editable] = you may edit it;
+    - [movable, owned] = you may move/delete that via OR resize/move its
+      lands/cut (resize_via_shape/move_via_shape);
+    - anything else = FROZEN.
+  Use it to keep every land covered when you move/resize a via, and to spot
+  a metal you would short.
+You do NOT need the leaf id, case, or layout path -- the tool has the geometry.
+Pass ONLY --object (and the --context value above).
+
+## Pre-output self-critique (adjustment-aware)
+
+Before writing your patch, verify each:
+1. Every targeted polygon_id is an editable polygon -- it appears under the
+   `# --- D.` (editable) or `# --- C.` (partially editable, near end only)
+   section, NOT under `# --- B.` background (neither a `_ptemp_` B(i) flattened
+   polygon nor a real-pNNN B(ii) read-only/out-of-band neighbour); every
+   instance op targets an owned, mobile via in `# --- A.` (NOT a std cell, NOT
+   V0, NOT a non-owned via). Any via-structure op (resize_via_shape /
+   move_via_shape) names a via you OWN in section A and a land/cut layer shown
+   in its A1 structure.
+2. Edits stay on the violation's layer band; you did not touch a background
+   layer.
+3. For a long stripe, you only shorten/elongate the OPEN end along its long
+   axis and did not cross the leaf border.
+4. For a via move, you stayed inside the stated move-freedom interval so the
+   via still overlaps every tied land and respects spacing.
+5. Fewer ops is better -- a 1-op fix beats a 6-op fix that risks new
+   violations.
+6. If every candidate previews net-negative or breaks connectivity, write
+   an empty ops list. Otherwise submit the best NET-REDUCING patch per
+   the NET-reduction standard above (declared debt in your trace).
+
+
+=== S5: EDIT RULES ===
+
+## Patch grammar (v2)
+
+Polygon ops (target = polygon_id in editable_polygons OR bridge_polygons[ownership=self]):
+  {"op": "add_polygon", "layer_name": "M1", "points": [[x1,y1], ...]}
+     - The new polygon is inserted into the block's top cell
+       (cell_<case_name>). Additive repair is a first-class strategy
+       (enclosure patches, extensions, tie-in geometry).
+  {"op": "resize",  "polygon_id": "pNNN", "axis": "x|y", "delta_dbu": <int>}
+     - SYMMETRIC grow/shrink along the chosen axis: delta_dbu/2 on the lower
+       edge and delta_dbu - delta_dbu/2 on the upper edge; the polygon's
+       centre stays put. Negative delta_dbu shrinks. D-SECTION
+       polygons (fully-contained editable); ONE C-section exception: a
+       stripe marked WIDTH ONLY (both ends display-cut) accepts resize on
+       its PERPENDICULAR (width) axis only.
+  {"op": "resize_end", "polygon_id": "pNNN", "axis": "x|y", "end": "low|high", "delta_dbu": <int>}
+     - SINGLE-END move: moves ONLY the chosen end's edge along axis. end="low"
+       moves the min-coord edge to min - delta_dbu; end="high" moves the
+       max-coord edge to max + delta_dbu. delta_dbu>0 ELONGATES that end
+       (away from centre), delta_dbu<0 SHORTENS it. The OTHER end stays put.
+     - C-SECTION ONLY: use on a partially-editable stripe to move ONLY a
+       real (in-crop) end. A display-cut end is FROZEN -- resize_end on a
+       frozen end, or move / add_jog on a C-section stripe, are REJECTED;
+       symmetric resize on a C-section stripe is REJECTED except the
+       WIDTH-ONLY perpendicular case under "resize" above.
+  {"op": "move",    "polygon_id": "pNNN", "axis": "x|y", "delta_dbu": <int>}
+  {"op": "delete",  "polygon_id": "pNNN"}
+  {"op": "add_jog", "polygon_id": "pNNN", "jog_pts": [[x1,y1], ...]}
+     - APPENDS the listed vertices to that polygon's vertex outline (a
+       jog/notch). Each jog point is an absolute on-grid integer dbu pair
+       inside the block bounds; at least one point required. REJECTED on a
+       C-section stripe. Example with placeholder id
+       (always use the real ids from YOUR crop): {"op": "add_jog",
+       "polygon_id": "pA", "jog_pts": [[x1,y1], [x2,y2]]}
+
+Instance ops (target = inst_id in subcell_instances; op must be in allowed_ops):
+  {"op": "move_instance",   "inst_id": "iNNNN", "delta_dbu": [<int>, <int>]}
+  {"op": "delete_instance", "inst_id": "iNNNN"}
+  {"op": "add_via", "cell_name": "VIA_*", "origin_dbu": [x, y]}
+     - Creates ONE NEW instance of a DESIGN-PRESENT via cell def at that
+       origin (rotation 0, no mirror). NEVER invent a cell name: pick one
+       from this crop's "via cell types placeable with add_via" catalog.
+       FREE placement -- no metal-overlap precondition (preview the result;
+       the gate judges outcomes). Constraints: the cell's cut layer must be
+       a via layer in THIS crop's editable band; the instance bbox must lie
+       inside this crop window; REJECTED if its M1 land would overlap
+       std-cell M1 geometry; disabled when VIA_ADD=0.
+
+Via-structure ops (target = a SHARED via cell's internal shape; edits the cell
+DEFINITION so ALL instances of that via type change together):
+  {"op":"resize_via_shape","cell_name":"VIA_VIA12","layer_name":"M1","shape_index":0,"axis":"x|y","delta_dbu":<int>}
+     - SYMMETRIC grow/shrink of that land/cut about its centre (grow a land to
+       fix an EN enclosure, widen/narrow the cut for a via width/spacing rule).
+  {"op":"move_via_shape","cell_name":"VIA_VIA12","layer_name":"M1","shape_index":0,"axis":"x|y","delta_dbu":<int>}
+     - TRANSLATE that land/cut. NOTE: shifts the shape for EVERY instance of the
+       type (may realign some, misalign others) -- prefer resize_via_shape.
+   cell_name = a via you OWN in section A; layer_name = a land (M*) or cut (V*)
+   shown in that cell's A1 structure; shape_index (default 0) picks the Nth
+   shape on that layer (needed only for array/strap vias with repeated cuts).
+   REJECTED if cell_name is a std cell, not owned/movable here, or the layer /
+   shape_index does not exist.
+
+All delta_dbu values must be integers (MANUFACTURING_GRID_DBU = 1).
+
+Optional key on ANY op: "group": "<name>" -- ops sharing a group name are
+pooled by the harness and measured/applied as ONE atomic candidate (used
+for coupled multi-def or def+polygon repairs; see the atomic-group
+spec in S4).
+
+
+## Subcell instance protection rule
+
+Block-level layout contains TWO categories of geometry:
+
+(1) top_level polygons -- directly inserted by cell_<top>.shapes(...).insert(p).
+    You MAY edit these via polygon ops: resize, move, delete.
+    Target polygon_id MUST be in editable_polygons or bridge_polygons[ownership=self].
+
+(2) subcell instances -- emitted as cell_<top>.insert(pya.CellInstArray(...)).
+    Two kinds with DIFFERENT permissions:
+
+    (2a) kind="via" -- PDK via cells (VIA_VIA12, VIA_VIA23, VIA_VIA34, VIA_VIA45,
+         and parameterized variants like VIA_VIA12_1_3_36_36).
+         allowed_ops = ["move_instance", "delete_instance"].
+         NO rotate_instance (vias are symmetric).
+         NO swap_instance (changing via type alters electrical impedance).
+         Via INTERNAL structure IS editable via resize_via_shape / move_via_shape
+         (see patch grammar): you may resize/move the metal lands (M*) and the
+         V-cut (V*). This edits the SHARED VIA_* cell definition, so EVERY
+         instance of that via type changes together -- admissibility and
+         block-wide measurement per '## Shared-target context'.
+
+    (2b) kind="stdcell" -- ASAP7 standard cells (INVx1_*, BUFx2_*, AND2x2_*,
+         HAxp5_*, TAPCELL_*, DECAPx*_*, FILLER*_*).
+         allowed_ops = [] -- COMPLETELY FROZEN. You MUST NOT emit any
+         instance op targeting a stdcell. Placement is fixed by P&R timing
+         closure; moving a stdcell breaks setup/hold timing.
+
+You MUST NOT edit a polygon inside a STD-CELL definition
+(cell_INVx1_ASAP7_75t_R.shapes(...), etc.) -- std-cell internals stay FROZEN
+(fab signoff / PDK compliance). Via cell internals are the ONLY subcell shapes
+you may edit, and ONLY through resize_via_shape / move_via_shape (never a raw
+polygon op).
+
+Sub-M1 layers (V0, LISD, LIG, SDT, ACTIVE, GATE, FIN, WELL, NSELECT,
+PSELECT, SLVT, LVT, SRAMVT) are NEVER exposed at block top level -- they
+live exclusively inside stdcell internals. You will not see them in any
+leaf JSON field; do not reference them.
+
+All of the above are rejected at validator check 1 (provenance); the
+entire patch is discarded and the leaf is marked skipped_invalid_patch
+(no retry this iteration).
+
+
+=== S6: DATA ===
+
+## Shared-target context (block-wide, input-derived)
+How to read: a structure edit on a shared definition re-renders at EVERY placement block-wide. It is admissible ONLY for a rule marked (=100%) below -- any smaller fraction proves compliant siblings exist, so the defect is POSITIONAL: fix by move/delete or leave unfixed. Your own window is violation-biased by construction and NEVER overrides these fractions. The harness measures every def-level candidate across coverage windows spanning its whole footprint and rejects it unless the combined DRC amount drops and connectivity holds.
+- VIA_VIA12: 80 placements = 74 SIGNAL + 4 VDD + 2 VSS; this crop owns 2 (your preview tools cover ONLY the owned/in-window ones); M5.AUX.1: 6/80 violating; V0.M1.AUX.3: 3/80 violating
+- VIA_VIA23_1_3_36_36: 9 placements = 5 VDD + 4 VSS; this crop owns 4 (your preview tools cover ONLY the owned/in-window ones); M4.AUX.1: 6/9 violating; M5.AUX.1: 9/9 violating (=100%)
+- VIA_VIA34_1_2_58_52: 9 placements = 5 VDD + 4 VSS; this crop owns 4 (your preview tools cover ONLY the owned/in-window ones); M4.AUX.1: 6/9 violating; M5.AUX.1: 9/9 violating (=100%)
+- VIA_VIA45_1_2_58_58: 9 placements = 5 VDD + 4 VSS; this crop owns 4 (your preview tools cover ONLY the owned/in-window ones); M4.AUX.1: 6/9 violating; M5.AUX.1: 9/9 violating (=100%)
+- VIA_via1_2_2322_18_1_64_36_36: 9 placements = 5 VDD + 4 VSS; this crop owns 4 (your preview tools cover ONLY the owned/in-window ones); M4.AUX.1: 6/9 violating; M5.AUX.1: 9/9 violating (=100%)
+- polygon p1179 spans ~73% of the die (footprint far beyond this window); 3 violations touch it block-wide. A full-edge resize is a GLOBAL op: same admissibility and harness measurement as a via-def edit.
+- polygon p1180 spans ~73% of the die (footprint far beyond this window); 3 violations touch it block-wide. A full-edge resize is a GLOBAL op: same admissibility and harness measurement as a via-def edit.
+- polygon p1181 spans ~73% of the die (footprint far beyond this window); 3 violations touch it block-wide. A full-edge resize is a GLOBAL op: same admissibility and harness measurement as a via-def edit.
+- polygon p1182 spans ~73% of the die (footprint far beyond this window); 3 violations touch it block-wide. A full-edge resize is a GLOBAL op: same admissibility and harness measurement as a via-def edit.
+
+## Crop (runnable KLayout snippet)
+
+# leaf_id: leaf_0003
+# rule_families: other
+# bbox_dbu: (1728, 3148, 11016, 9812)
+# block_bounds_dbu: (0, 0, 12696, 12696)
+# manufacturing_grid_dbu: 1
+# Edits MUST keep all polygon vertices inside block_bounds_dbu;
+# the validator (check 2) rejects any op that moves a vertex outside.
+# === violations to fix (n=6) ===
+# v0002 violation type=V0.M1.AUX.3 violation_bounding_box_in_dbu=(2988, 7380, 3060, 7452)
+# v0005 violation type=M4.AUX.1 violation_bounding_box_in_dbu=(2688, 3192, 3104, 3288)
+# v0007 violation type=M4.AUX.1 violation_bounding_box_in_dbu=(2688, 5352, 3104, 5448)
+# v0008 violation type=M4.AUX.1 violation_bounding_box_in_dbu=(2688, 7512, 3104, 7608)
+# v0010 violation type=M4.AUX.1 violation_bounding_box_in_dbu=(2688, 9672, 3104, 9768)
+# v0011 violation type=M5.AUX.1 violation_bounding_box_in_dbu=(2656, 3148, 3136, 9812)
+
+```python
+# Units: coords are dbu; layout.dbu=0.00025µm → 1 dbu = 0.25 nm, 1 nm = 4 dbu. DRC rules are in nm (deck≠crop units); multiply nm×4 to compare in dbu.
+layout = pya.Layout()
+layout.dbu = 0.00025
+cell_Block3 = layout.create_cell("Block3")
+# === layer band ===
+# editable layers: M2, M3, M5
+# background layers: V2, V6 (view-only; do NOT edit)
+
+# --- A. via instances (this crop OWNS these). Editable TWO ways:
+#   (1) whole instance -> move_instance / delete_instance;
+#   (2) SHARED via cell structure -> resize_via_shape / move_via_shape on its
+#       internal metal LANDS (M*) and V-CUT (V*). This edits the ONE shared
+#       VIA_* cell definition, so EVERY instance of that via type changes
+#       together (cell name + all placements unchanged). ---
+# A1 structure: cell VIA_VIA12 (declared once; all cut shapes shown, never truncated) -- lands/cut EDITABLE via resize_via_shape/move_via_shape (shared cell def; all same-type instances change together)
+cell_VIA_VIA12 = layout.create_cell("VIA_VIA12")
+# layer: M2 (GDS 20) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA12 layer_name=M2 shape_index=0]
+p0 = pya.Polygon([pya.Point(-56, -36), pya.Point(-56, 36), pya.Point(56, 36), pya.Point(56, -36)])
+cell_VIA_VIA12.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p0)
+# layer: M1 (GDS 19) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA12 layer_name=M1 shape_index=0]
+p1 = pya.Polygon([pya.Point(-36, -44), pya.Point(-36, 44), pya.Point(36, 44), pya.Point(36, -44)])
+cell_VIA_VIA12.shapes(layout.layer(pya.LayerInfo(19, 0))).insert(p1)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA12 layer_name=V1 shape_index=0]
+p2 = pya.Polygon([pya.Point(-36, -36), pya.Point(-36, 36), pya.Point(36, 36), pya.Point(36, -36)])
+cell_VIA_VIA12.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p2)
+# instance_id: i0145
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA12.cell_index(), pya.Trans(0, False, pya.Vector(2916, 4932))))
+# instance_id: i0099
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA12.cell_index(), pya.Trans(0, False, pya.Vector(3060, 7380))))
+# A1 structure: cell VIA_via1_2_2322_18_1_64_36_36 (declared once; all cut shapes shown, never truncated) -- lands/cut EDITABLE via resize_via_shape/move_via_shape (shared cell def; all same-type instances change together)
+cell_VIA_via1_2_2322_18_1_64_36_36 = layout.create_cell("VIA_via1_2_2322_18_1_64_36_36")
+# layer: M2 (GDS 20) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=M2 shape_index=0]
+p0 = pya.Polygon([pya.Point(-4580, -36), pya.Point(-4580, 36), pya.Point(4580, 36), pya.Point(4580, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p0)
+# layer: M1 (GDS 19) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=M1 shape_index=0]
+p1 = pya.Polygon([pya.Point(-4572, -36), pya.Point(-4572, 36), pya.Point(4572, 36), pya.Point(4572, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(19, 0))).insert(p1)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=0]
+p2 = pya.Polygon([pya.Point(-4572, -36), pya.Point(-4572, 36), pya.Point(-4500, 36), pya.Point(-4500, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p2)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=1]
+p3 = pya.Polygon([pya.Point(-4428, -36), pya.Point(-4428, 36), pya.Point(-4356, 36), pya.Point(-4356, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p3)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=2]
+p4 = pya.Polygon([pya.Point(-4284, -36), pya.Point(-4284, 36), pya.Point(-4212, 36), pya.Point(-4212, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p4)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=3]
+p5 = pya.Polygon([pya.Point(-4140, -36), pya.Point(-4140, 36), pya.Point(-4068, 36), pya.Point(-4068, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p5)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=4]
+p6 = pya.Polygon([pya.Point(-3996, -36), pya.Point(-3996, 36), pya.Point(-3924, 36), pya.Point(-3924, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p6)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=5]
+p7 = pya.Polygon([pya.Point(-3852, -36), pya.Point(-3852, 36), pya.Point(-3780, 36), pya.Point(-3780, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p7)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=6]
+p8 = pya.Polygon([pya.Point(-3708, -36), pya.Point(-3708, 36), pya.Point(-3636, 36), pya.Point(-3636, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p8)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=7]
+p9 = pya.Polygon([pya.Point(-3564, -36), pya.Point(-3564, 36), pya.Point(-3492, 36), pya.Point(-3492, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p9)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=8]
+p10 = pya.Polygon([pya.Point(-3420, -36), pya.Point(-3420, 36), pya.Point(-3348, 36), pya.Point(-3348, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p10)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=9]
+p11 = pya.Polygon([pya.Point(-3276, -36), pya.Point(-3276, 36), pya.Point(-3204, 36), pya.Point(-3204, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p11)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=10]
+p12 = pya.Polygon([pya.Point(-3132, -36), pya.Point(-3132, 36), pya.Point(-3060, 36), pya.Point(-3060, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p12)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=11]
+p13 = pya.Polygon([pya.Point(-2988, -36), pya.Point(-2988, 36), pya.Point(-2916, 36), pya.Point(-2916, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p13)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=12]
+p14 = pya.Polygon([pya.Point(-2844, -36), pya.Point(-2844, 36), pya.Point(-2772, 36), pya.Point(-2772, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p14)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=13]
+p15 = pya.Polygon([pya.Point(-2700, -36), pya.Point(-2700, 36), pya.Point(-2628, 36), pya.Point(-2628, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p15)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=14]
+p16 = pya.Polygon([pya.Point(-2556, -36), pya.Point(-2556, 36), pya.Point(-2484, 36), pya.Point(-2484, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p16)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=15]
+p17 = pya.Polygon([pya.Point(-2412, -36), pya.Point(-2412, 36), pya.Point(-2340, 36), pya.Point(-2340, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p17)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=16]
+p18 = pya.Polygon([pya.Point(-2268, -36), pya.Point(-2268, 36), pya.Point(-2196, 36), pya.Point(-2196, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p18)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=17]
+p19 = pya.Polygon([pya.Point(-2124, -36), pya.Point(-2124, 36), pya.Point(-2052, 36), pya.Point(-2052, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p19)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=18]
+p20 = pya.Polygon([pya.Point(-1980, -36), pya.Point(-1980, 36), pya.Point(-1908, 36), pya.Point(-1908, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p20)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=19]
+p21 = pya.Polygon([pya.Point(-1836, -36), pya.Point(-1836, 36), pya.Point(-1764, 36), pya.Point(-1764, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p21)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=20]
+p22 = pya.Polygon([pya.Point(-1692, -36), pya.Point(-1692, 36), pya.Point(-1620, 36), pya.Point(-1620, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p22)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=21]
+p23 = pya.Polygon([pya.Point(-1548, -36), pya.Point(-1548, 36), pya.Point(-1476, 36), pya.Point(-1476, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p23)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=22]
+p24 = pya.Polygon([pya.Point(-1404, -36), pya.Point(-1404, 36), pya.Point(-1332, 36), pya.Point(-1332, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p24)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=23]
+p25 = pya.Polygon([pya.Point(-1260, -36), pya.Point(-1260, 36), pya.Point(-1188, 36), pya.Point(-1188, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p25)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=24]
+p26 = pya.Polygon([pya.Point(-1116, -36), pya.Point(-1116, 36), pya.Point(-1044, 36), pya.Point(-1044, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p26)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=25]
+p27 = pya.Polygon([pya.Point(-972, -36), pya.Point(-972, 36), pya.Point(-900, 36), pya.Point(-900, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p27)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=26]
+p28 = pya.Polygon([pya.Point(-828, -36), pya.Point(-828, 36), pya.Point(-756, 36), pya.Point(-756, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p28)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=27]
+p29 = pya.Polygon([pya.Point(-684, -36), pya.Point(-684, 36), pya.Point(-612, 36), pya.Point(-612, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p29)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=28]
+p30 = pya.Polygon([pya.Point(-540, -36), pya.Point(-540, 36), pya.Point(-468, 36), pya.Point(-468, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p30)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=29]
+p31 = pya.Polygon([pya.Point(-396, -36), pya.Point(-396, 36), pya.Point(-324, 36), pya.Point(-324, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p31)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=30]
+p32 = pya.Polygon([pya.Point(-252, -36), pya.Point(-252, 36), pya.Point(-180, 36), pya.Point(-180, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p32)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=31]
+p33 = pya.Polygon([pya.Point(-108, -36), pya.Point(-108, 36), pya.Point(-36, 36), pya.Point(-36, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p33)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=32]
+p34 = pya.Polygon([pya.Point(36, -36), pya.Point(36, 36), pya.Point(108, 36), pya.Point(108, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p34)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=33]
+p35 = pya.Polygon([pya.Point(180, -36), pya.Point(180, 36), pya.Point(252, 36), pya.Point(252, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p35)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=34]
+p36 = pya.Polygon([pya.Point(324, -36), pya.Point(324, 36), pya.Point(396, 36), pya.Point(396, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p36)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=35]
+p37 = pya.Polygon([pya.Point(468, -36), pya.Point(468, 36), pya.Point(540, 36), pya.Point(540, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p37)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=36]
+p38 = pya.Polygon([pya.Point(612, -36), pya.Point(612, 36), pya.Point(684, 36), pya.Point(684, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p38)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=37]
+p39 = pya.Polygon([pya.Point(756, -36), pya.Point(756, 36), pya.Point(828, 36), pya.Point(828, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p39)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=38]
+p40 = pya.Polygon([pya.Point(900, -36), pya.Point(900, 36), pya.Point(972, 36), pya.Point(972, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p40)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=39]
+p41 = pya.Polygon([pya.Point(1044, -36), pya.Point(1044, 36), pya.Point(1116, 36), pya.Point(1116, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p41)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=40]
+p42 = pya.Polygon([pya.Point(1188, -36), pya.Point(1188, 36), pya.Point(1260, 36), pya.Point(1260, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p42)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=41]
+p43 = pya.Polygon([pya.Point(1332, -36), pya.Point(1332, 36), pya.Point(1404, 36), pya.Point(1404, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p43)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=42]
+p44 = pya.Polygon([pya.Point(1476, -36), pya.Point(1476, 36), pya.Point(1548, 36), pya.Point(1548, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p44)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=43]
+p45 = pya.Polygon([pya.Point(1620, -36), pya.Point(1620, 36), pya.Point(1692, 36), pya.Point(1692, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p45)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=44]
+p46 = pya.Polygon([pya.Point(1764, -36), pya.Point(1764, 36), pya.Point(1836, 36), pya.Point(1836, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p46)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=45]
+p47 = pya.Polygon([pya.Point(1908, -36), pya.Point(1908, 36), pya.Point(1980, 36), pya.Point(1980, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p47)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=46]
+p48 = pya.Polygon([pya.Point(2052, -36), pya.Point(2052, 36), pya.Point(2124, 36), pya.Point(2124, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p48)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=47]
+p49 = pya.Polygon([pya.Point(2196, -36), pya.Point(2196, 36), pya.Point(2268, 36), pya.Point(2268, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p49)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=48]
+p50 = pya.Polygon([pya.Point(2340, -36), pya.Point(2340, 36), pya.Point(2412, 36), pya.Point(2412, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p50)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=49]
+p51 = pya.Polygon([pya.Point(2484, -36), pya.Point(2484, 36), pya.Point(2556, 36), pya.Point(2556, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p51)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=50]
+p52 = pya.Polygon([pya.Point(2628, -36), pya.Point(2628, 36), pya.Point(2700, 36), pya.Point(2700, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p52)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=51]
+p53 = pya.Polygon([pya.Point(2772, -36), pya.Point(2772, 36), pya.Point(2844, 36), pya.Point(2844, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p53)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=52]
+p54 = pya.Polygon([pya.Point(2916, -36), pya.Point(2916, 36), pya.Point(2988, 36), pya.Point(2988, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p54)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=53]
+p55 = pya.Polygon([pya.Point(3060, -36), pya.Point(3060, 36), pya.Point(3132, 36), pya.Point(3132, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p55)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=54]
+p56 = pya.Polygon([pya.Point(3204, -36), pya.Point(3204, 36), pya.Point(3276, 36), pya.Point(3276, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p56)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=55]
+p57 = pya.Polygon([pya.Point(3348, -36), pya.Point(3348, 36), pya.Point(3420, 36), pya.Point(3420, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p57)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=56]
+p58 = pya.Polygon([pya.Point(3492, -36), pya.Point(3492, 36), pya.Point(3564, 36), pya.Point(3564, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p58)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=57]
+p59 = pya.Polygon([pya.Point(3636, -36), pya.Point(3636, 36), pya.Point(3708, 36), pya.Point(3708, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p59)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=58]
+p60 = pya.Polygon([pya.Point(3780, -36), pya.Point(3780, 36), pya.Point(3852, 36), pya.Point(3852, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p60)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=59]
+p61 = pya.Polygon([pya.Point(3924, -36), pya.Point(3924, 36), pya.Point(3996, 36), pya.Point(3996, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p61)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=60]
+p62 = pya.Polygon([pya.Point(4068, -36), pya.Point(4068, 36), pya.Point(4140, 36), pya.Point(4140, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p62)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=61]
+p63 = pya.Polygon([pya.Point(4212, -36), pya.Point(4212, 36), pya.Point(4284, 36), pya.Point(4284, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p63)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=62]
+p64 = pya.Polygon([pya.Point(4356, -36), pya.Point(4356, 36), pya.Point(4428, 36), pya.Point(4428, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p64)
+# layer: V1 (GDS 21) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_via1_2_2322_18_1_64_36_36 layer_name=V1 shape_index=63]
+p65 = pya.Polygon([pya.Point(4500, -36), pya.Point(4500, 36), pya.Point(4572, 36), pya.Point(4572, -36)])
+cell_VIA_via1_2_2322_18_1_64_36_36.shapes(layout.layer(pya.LayerInfo(21, 0))).insert(p65)
+# instance_id: i0006
+cell_Block3.insert(pya.CellInstArray(cell_VIA_via1_2_2322_18_1_64_36_36.cell_index(), pya.Trans(0, False, pya.Vector(6372, 3240))))
+# instance_id: i0002
+cell_Block3.insert(pya.CellInstArray(cell_VIA_via1_2_2322_18_1_64_36_36.cell_index(), pya.Trans(0, False, pya.Vector(6372, 5400))))
+# instance_id: i0008
+cell_Block3.insert(pya.CellInstArray(cell_VIA_via1_2_2322_18_1_64_36_36.cell_index(), pya.Trans(0, False, pya.Vector(6372, 7560))))
+# instance_id: i0009
+cell_Block3.insert(pya.CellInstArray(cell_VIA_via1_2_2322_18_1_64_36_36.cell_index(), pya.Trans(0, False, pya.Vector(6372, 9720))))
+# A1 structure: cell VIA_VIA23_1_3_36_36 (declared once; all cut shapes shown, never truncated) -- lands/cut EDITABLE via resize_via_shape/move_via_shape (shared cell def; all same-type instances change together)
+cell_VIA_VIA23_1_3_36_36 = layout.create_cell("VIA_VIA23_1_3_36_36")
+# layer: M3 (GDS 30) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA23_1_3_36_36 layer_name=M3 shape_index=0]
+p0 = pya.Polygon([pya.Point(-180, -56), pya.Point(-180, 56), pya.Point(180, 56), pya.Point(180, -56)])
+cell_VIA_VIA23_1_3_36_36.shapes(layout.layer(pya.LayerInfo(30, 0))).insert(p0)
+# layer: M2 (GDS 20) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA23_1_3_36_36 layer_name=M2 shape_index=0]
+p1 = pya.Polygon([pya.Point(-200, -36), pya.Point(-200, 36), pya.Point(200, 36), pya.Point(200, -36)])
+cell_VIA_VIA23_1_3_36_36.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p1)
+# layer: V2 (GDS 25) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA23_1_3_36_36 layer_name=V2 shape_index=0]
+p2 = pya.Polygon([pya.Point(-180, -36), pya.Point(-180, 36), pya.Point(180, 36), pya.Point(180, -36)])
+cell_VIA_VIA23_1_3_36_36.shapes(layout.layer(pya.LayerInfo(25, 0))).insert(p2)
+# layer: V2 (GDS 25) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA23_1_3_36_36 layer_name=V2 shape_index=1]
+p3 = pya.Polygon([pya.Point(-180, -36), pya.Point(-180, 36), pya.Point(180, 36), pya.Point(180, -36)])
+cell_VIA_VIA23_1_3_36_36.shapes(layout.layer(pya.LayerInfo(25, 0))).insert(p3)
+# layer: V2 (GDS 25) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA23_1_3_36_36 layer_name=V2 shape_index=2]
+p4 = pya.Polygon([pya.Point(-180, -36), pya.Point(-180, 36), pya.Point(180, 36), pya.Point(180, -36)])
+cell_VIA_VIA23_1_3_36_36.shapes(layout.layer(pya.LayerInfo(25, 0))).insert(p4)
+# instance_id: i0162
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA23_1_3_36_36.cell_index(), pya.Trans(0, False, pya.Vector(2896, 3240))))
+# instance_id: i0188
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA23_1_3_36_36.cell_index(), pya.Trans(0, False, pya.Vector(2896, 5400))))
+# instance_id: i0116
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA23_1_3_36_36.cell_index(), pya.Trans(0, False, pya.Vector(2896, 7560))))
+# instance_id: i0122
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA23_1_3_36_36.cell_index(), pya.Trans(0, False, pya.Vector(2896, 9720))))
+# A1 structure: cell VIA_VIA34_1_2_58_52 (declared once; all cut shapes shown, never truncated) -- lands/cut EDITABLE via resize_via_shape/move_via_shape (shared cell def; all same-type instances change together)
+cell_VIA_VIA34_1_2_58_52 = layout.create_cell("VIA_VIA34_1_2_58_52")
+# layer: M4 (GDS 40) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA34_1_2_58_52 layer_name=M4 shape_index=0]
+p0 = pya.Polygon([pya.Point(-184, -48), pya.Point(-184, 48), pya.Point(184, 48), pya.Point(184, -48)])
+cell_VIA_VIA34_1_2_58_52.shapes(layout.layer(pya.LayerInfo(40, 0))).insert(p0)
+# layer: M3 (GDS 30) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA34_1_2_58_52 layer_name=M3 shape_index=0]
+p1 = pya.Polygon([pya.Point(-160, -68), pya.Point(-160, 68), pya.Point(160, 68), pya.Point(160, -68)])
+cell_VIA_VIA34_1_2_58_52.shapes(layout.layer(pya.LayerInfo(30, 0))).insert(p1)
+# layer: V3 (GDS 35) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA34_1_2_58_52 layer_name=V3 shape_index=0]
+p2 = pya.Polygon([pya.Point(68, -48), pya.Point(68, 48), pya.Point(140, 48), pya.Point(140, -48)])
+cell_VIA_VIA34_1_2_58_52.shapes(layout.layer(pya.LayerInfo(35, 0))).insert(p2)
+# layer: V3 (GDS 35) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA34_1_2_58_52 layer_name=V3 shape_index=1]
+p3 = pya.Polygon([pya.Point(-140, -48), pya.Point(-140, 48), pya.Point(-68, 48), pya.Point(-68, -48)])
+cell_VIA_VIA34_1_2_58_52.shapes(layout.layer(pya.LayerInfo(35, 0))).insert(p3)
+# instance_id: i0151
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA34_1_2_58_52.cell_index(), pya.Trans(0, False, pya.Vector(2896, 3240))))
+# instance_id: i0192
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA34_1_2_58_52.cell_index(), pya.Trans(0, False, pya.Vector(2896, 5400))))
+# instance_id: i0096
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA34_1_2_58_52.cell_index(), pya.Trans(0, False, pya.Vector(2896, 7560))))
+# instance_id: i0088
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA34_1_2_58_52.cell_index(), pya.Trans(0, False, pya.Vector(2896, 9720))))
+# A1 structure: cell VIA_VIA45_1_2_58_58 (declared once; all cut shapes shown, never truncated) -- lands/cut EDITABLE via resize_via_shape/move_via_shape (shared cell def; all same-type instances change together)
+cell_VIA_VIA45_1_2_58_58 = layout.create_cell("VIA_VIA45_1_2_58_58")
+# layer: M5 (GDS 50) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA45_1_2_58_58 layer_name=M5 shape_index=0]
+p0 = pya.Polygon([pya.Point(-240, -48), pya.Point(-240, 48), pya.Point(240, 48), pya.Point(240, -48)])
+cell_VIA_VIA45_1_2_58_58.shapes(layout.layer(pya.LayerInfo(50, 0))).insert(p0)
+# layer: M4 (GDS 40) -- via land [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA45_1_2_58_58 layer_name=M4 shape_index=0]
+p1 = pya.Polygon([pya.Point(-208, -48), pya.Point(-208, 48), pya.Point(208, 48), pya.Point(208, -48)])
+cell_VIA_VIA45_1_2_58_58.shapes(layout.layer(pya.LayerInfo(40, 0))).insert(p1)
+# layer: V4 (GDS 45) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA45_1_2_58_58 layer_name=V4 shape_index=0]
+p2 = pya.Polygon([pya.Point(68, -48), pya.Point(68, 48), pya.Point(164, 48), pya.Point(164, -48)])
+cell_VIA_VIA45_1_2_58_58.shapes(layout.layer(pya.LayerInfo(45, 0))).insert(p2)
+# layer: V4 (GDS 45) -- via cut [editable: resize_via_shape/move_via_shape  cell_name=VIA_VIA45_1_2_58_58 layer_name=V4 shape_index=1]
+p3 = pya.Polygon([pya.Point(-164, -48), pya.Point(-164, 48), pya.Point(-68, 48), pya.Point(-68, -48)])
+cell_VIA_VIA45_1_2_58_58.shapes(layout.layer(pya.LayerInfo(45, 0))).insert(p3)
+# instance_id: i0173
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA45_1_2_58_58.cell_index(), pya.Trans(0, False, pya.Vector(2896, 3240))))
+# instance_id: i0147
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA45_1_2_58_58.cell_index(), pya.Trans(0, False, pya.Vector(2896, 5400))))
+# instance_id: i0083
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA45_1_2_58_58.cell_index(), pya.Trans(0, False, pya.Vector(2896, 7560))))
+# instance_id: i0085
+cell_Block3.insert(pya.CellInstArray(cell_VIA_VIA45_1_2_58_58.cell_index(), pya.Trans(0, False, pya.Vector(2896, 9720))))
+
+# --- D. editable (top-level editable polygons + owned-via connecting metal in [N]+/-1) ---
+# editable
+# polygon_id: p1182
+# layer: M2
+p1182 = pya.Polygon([pya.Point(1728, 3204), pya.Point(1728, 3276), pya.Point(11016, 3276), pya.Point(11016, 3204)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p1182)
+# editable
+# polygon_id: p1181
+# layer: M2
+p1181 = pya.Polygon([pya.Point(1728, 5364), pya.Point(1728, 5436), pya.Point(11016, 5436), pya.Point(11016, 5364)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p1181)
+# editable
+# polygon_id: p1180
+# layer: M2
+p1180 = pya.Polygon([pya.Point(1728, 7524), pya.Point(1728, 7596), pya.Point(11016, 7596), pya.Point(11016, 7524)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p1180)
+# editable
+# polygon_id: p1179
+# layer: M2
+p1179 = pya.Polygon([pya.Point(1728, 9684), pya.Point(1728, 9756), pya.Point(11016, 9756), pya.Point(11016, 9684)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p1179)
+# editable
+# polygon_id: p1194
+# layer: M2
+p1194 = pya.Polygon([pya.Point(2448, 6120), pya.Point(2448, 6192), pya.Point(2772, 6192), pya.Point(2772, 6120)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p1194)
+# editable
+# polygon_id: p1188
+# layer: M2
+p1188 = pya.Polygon([pya.Point(2880, 4896), pya.Point(2880, 4968), pya.Point(4824, 4968), pya.Point(4824, 4896)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p1188)
+# editable
+# polygon_id: p1207
+# layer: M2
+p1207 = pya.Polygon([pya.Point(3024, 7344), pya.Point(3024, 7416), pya.Point(3816, 7416), pya.Point(3816, 7344)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(20, 0))).insert(p1207)
+# editable
+# polygon_id: p1104
+# layer: M3
+p1104 = pya.Polygon([pya.Point(2716, 3172), pya.Point(2716, 3308), pya.Point(3076, 3308), pya.Point(3076, 3172)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(30, 0))).insert(p1104)
+# editable
+# polygon_id: p1103
+# layer: M3
+p1103 = pya.Polygon([pya.Point(2716, 5332), pya.Point(2716, 5468), pya.Point(3076, 5468), pya.Point(3076, 5332)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(30, 0))).insert(p1103)
+# editable
+# polygon_id: p1102
+# layer: M3
+p1102 = pya.Polygon([pya.Point(2716, 7492), pya.Point(2716, 7628), pya.Point(3076, 7628), pya.Point(3076, 7492)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(30, 0))).insert(p1102)
+# editable
+# polygon_id: p1101
+# layer: M3
+p1101 = pya.Polygon([pya.Point(2716, 9652), pya.Point(2716, 9788), pya.Point(3076, 9788), pya.Point(3076, 9652)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(30, 0))).insert(p1101)
+# editable
+# polygon_id: p1059
+# layer: M5
+p1059 = pya.Polygon([pya.Point(2656, 3148), pya.Point(2656, 9812), pya.Point(3136, 9812), pya.Point(3136, 3148)])
+cell_Block3.shapes(layout.layer(pya.LayerInfo(50, 0))).insert(p1059)
+```
+
+## Objects physically at each violation (bbox touches the violation's DRC bbox)
+For EACH violation below: EVERY top-level polygon / via / std-cell whose
+bounding box touches that violation's DRC bbox (inclusive -- even one
+vertex/edge). Vias / std-cells are listed as WHOLE instances, not inner
+shapes. The [flag] is this object's editability in THIS crop, identical to
+the Crop above: [C partial-editable] / [D editable] = you MAY edit it (see
+that section); [movable...] = you MAY move/delete it, OR resize/move its
+lands/cut via resize_via_shape/move_via_shape (section A); [frozen]
+= you may NOT. This section grants NO new permissions; it only shows what
+geometry is physically at each violation so you do not miss the culprit.
+
+* v0002 V0.M1.AUX.3 @ bbox (2988, 7380, 3060, 7452)
+  - via i0099  cell=VIA_VIA12  bbox=(3004, 7336, 3116, 7424)  [movable, owned]
+  - top-level polygon p1207  layer=M2  bbox=(3024, 7344, 3816, 7416)  [D editable]
+  - top-level polygon p1059  layer=M5  bbox=(2656, 3148, 3136, 9812)  [D editable]
+  - std-cell i0298  cell=INVx3_ASAP7_75t_R  bbox=(2160, 6392, 3240, 7648)  [frozen]
+
+* v0005 M4.AUX.1 @ bbox (2688, 3192, 3104, 3288)
+  - top-level polygon p1276  layer=M1  bbox=(1728, 3204, 11016, 3276)  [frozen]
+  - via i0006  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 3204, 10952, 3276)  [movable, owned]
+  - top-level polygon p1182  layer=M2  bbox=(1728, 3204, 11016, 3276)  [D editable]
+  - via i0162  cell=VIA_VIA23_1_3_36_36  bbox=(2696, 3184, 3096, 3296)  [movable, owned]
+  - via i0151  cell=VIA_VIA34_1_2_58_52  bbox=(2712, 3172, 3080, 3308)  [movable, owned]
+  - top-level polygon p1104  layer=M3  bbox=(2716, 3172, 3076, 3308)  [D editable]
+  - via i0173  cell=VIA_VIA45_1_2_58_58  bbox=(2656, 3192, 3136, 3288)  [movable, owned]
+  - top-level polygon p1059  layer=M5  bbox=(2656, 3148, 3136, 9812)  [D editable]
+  - std-cell i0316  cell=BUFx2_ASAP7_75t_R  bbox=(2376, 2072, 3456, 3328)  [frozen]
+  - std-cell i0270  cell=FILLERxp5_ASAP7_75t_R  bbox=(2592, 3152, 2808, 4408)  [frozen]
+  - std-cell i0312  cell=FAx1_ASAP7_75t_R  bbox=(2808, 3152, 5832, 4408)  [frozen]
+
+* v0007 M4.AUX.1 @ bbox (2688, 5352, 3104, 5448)
+  - top-level polygon p1275  layer=M1  bbox=(1728, 5364, 11016, 5436)  [frozen]
+  - via i0002  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 5364, 10952, 5436)  [movable, owned]
+  - top-level polygon p1181  layer=M2  bbox=(1728, 5364, 11016, 5436)  [D editable]
+  - via i0188  cell=VIA_VIA23_1_3_36_36  bbox=(2696, 5344, 3096, 5456)  [movable, owned]
+  - via i0192  cell=VIA_VIA34_1_2_58_52  bbox=(2712, 5332, 3080, 5468)  [movable, owned]
+  - top-level polygon p1103  layer=M3  bbox=(2716, 5332, 3076, 5468)  [D editable]
+  - via i0147  cell=VIA_VIA45_1_2_58_58  bbox=(2656, 5352, 3136, 5448)  [movable, owned]
+  - top-level polygon p1059  layer=M5  bbox=(2656, 3148, 3136, 9812)  [D editable]
+  - std-cell i0315  cell=FAx1_ASAP7_75t_R  bbox=(2160, 5312, 5184, 6568)  [frozen]
+  - std-cell i0268  cell=FILLERxp5_ASAP7_75t_R  bbox=(2592, 4232, 2808, 5488)  [frozen]
+  - std-cell i0325  cell=BUFx2_ASAP7_75t_R  bbox=(2808, 4232, 3888, 5488)  [frozen]
+
+* v0008 M4.AUX.1 @ bbox (2688, 7512, 3104, 7608)
+  - top-level polygon p1274  layer=M1  bbox=(1728, 7524, 11016, 7596)  [frozen]
+  - via i0008  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 7524, 10952, 7596)  [movable, owned]
+  - top-level polygon p1180  layer=M2  bbox=(1728, 7524, 11016, 7596)  [D editable]
+  - via i0116  cell=VIA_VIA23_1_3_36_36  bbox=(2696, 7504, 3096, 7616)  [movable, owned]
+  - via i0096  cell=VIA_VIA34_1_2_58_52  bbox=(2712, 7492, 3080, 7628)  [movable, owned]
+  - top-level polygon p1102  layer=M3  bbox=(2716, 7492, 3076, 7628)  [D editable]
+  - via i0083  cell=VIA_VIA45_1_2_58_58  bbox=(2656, 7512, 3136, 7608)  [movable, owned]
+  - top-level polygon p1059  layer=M5  bbox=(2656, 3148, 3136, 9812)  [D editable]
+  - std-cell i0298  cell=INVx3_ASAP7_75t_R  bbox=(2160, 6392, 3240, 7648)  [frozen]
+  - std-cell i0338  cell=BUFx12f_ASAP7_75t_R  bbox=(2160, 7472, 6048, 8728)  [frozen]
+
+* v0010 M4.AUX.1 @ bbox (2688, 9672, 3104, 9768)
+  - top-level polygon p1273  layer=M1  bbox=(1728, 9684, 11016, 9756)  [frozen]
+  - via i0009  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 9684, 10952, 9756)  [movable, owned]
+  - top-level polygon p1179  layer=M2  bbox=(1728, 9684, 11016, 9756)  [D editable]
+  - via i0122  cell=VIA_VIA23_1_3_36_36  bbox=(2696, 9664, 3096, 9776)  [movable, owned]
+  - via i0088  cell=VIA_VIA34_1_2_58_52  bbox=(2712, 9652, 3080, 9788)  [movable, owned]
+  - top-level polygon p1101  layer=M3  bbox=(2716, 9652, 3076, 9788)  [D editable]
+  - via i0085  cell=VIA_VIA45_1_2_58_58  bbox=(2656, 9672, 3136, 9768)  [movable, owned]
+  - top-level polygon p1059  layer=M5  bbox=(2656, 3148, 3136, 9812)  [D editable]
+  - std-cell i0337  cell=BUFx6f_ASAP7_75t_R  bbox=(2160, 8552, 4320, 9808)  [frozen]
+  - std-cell i0330  cell=BUFx2_ASAP7_75t_R  bbox=(2160, 9632, 3240, 10888)  [frozen]
+
+* v0011 M5.AUX.1 @ bbox (2656, 3148, 3136, 9812)
+  - top-level polygon p1276  layer=M1  bbox=(1728, 3204, 11016, 3276)  [frozen]
+  - top-level polygon p1280  layer=M1  bbox=(1728, 4284, 11016, 4356)  [frozen]
+  - top-level polygon p1275  layer=M1  bbox=(1728, 5364, 11016, 5436)  [frozen]
+  - top-level polygon p1279  layer=M1  bbox=(1728, 6444, 11016, 6516)  [frozen]
+  - top-level polygon p1274  layer=M1  bbox=(1728, 7524, 11016, 7596)  [frozen]
+  - top-level polygon p1278  layer=M1  bbox=(1728, 8604, 11016, 8676)  [frozen]
+  - top-level polygon p1273  layer=M1  bbox=(1728, 9684, 11016, 9756)  [frozen]
+  - via i0006  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 3204, 10952, 3276)  [movable, owned]
+  - via i0004  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 4284, 10952, 4356)  [movable via (owned by another leaf)]
+  - via i0002  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 5364, 10952, 5436)  [movable, owned]
+  - via i0003  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 6444, 10952, 6516)  [movable via (owned by another leaf)]
+  - via i0008  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 7524, 10952, 7596)  [movable, owned]
+  - via i0001  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 8604, 10952, 8676)  [movable via (owned by another leaf)]
+  - via i0009  cell=VIA_via1_2_2322_18_1_64_36_36  bbox=(1792, 9684, 10952, 9756)  [movable, owned]
+  - via i0145  cell=VIA_VIA12  bbox=(2860, 4888, 2972, 4976)  [movable, owned]
+  - via i0099  cell=VIA_VIA12  bbox=(3004, 7336, 3116, 7424)  [movable, owned]
+  - top-level polygon p1213  layer=M2  bbox=(1584, 7056, 3384, 7128)  [frozen]
+  - top-level polygon p1182  layer=M2  bbox=(1728, 3204, 11016, 3276)  [D editable]
+  - top-level polygon p1186  layer=M2  bbox=(1728, 4284, 11016, 4356)  [frozen]
+  - top-level polygon p1181  layer=M2  bbox=(1728, 5364, 11016, 5436)  [D editable]
+  - top-level polygon p1185  layer=M2  bbox=(1728, 6444, 11016, 6516)  [frozen]
+  - top-level polygon p1180  layer=M2  bbox=(1728, 7524, 11016, 7596)  [D editable]
+  - top-level polygon p1184  layer=M2  bbox=(1728, 8604, 11016, 8676)  [frozen]
+  - top-level polygon p1179  layer=M2  bbox=(1728, 9684, 11016, 9756)  [D editable]
+  - top-level polygon p1194  layer=M2  bbox=(2448, 6120, 2772, 6192)  [D editable]
+  - via i0162  cell=VIA_VIA23_1_3_36_36  bbox=(2696, 3184, 3096, 3296)  [movable, owned]
+  - via i0188  cell=VIA_VIA23_1_3_36_36  bbox=(2696, 5344, 3096, 5456)  [movable, owned]
+  - via i0116  cell=VIA_VIA23_1_3_36_36  bbox=(2696, 7504, 3096, 7616)  [movable, owned]
+  - via i0122  cell=VIA_VIA23_1_3_36_36  bbox=(2696, 9664, 3096, 9776)  [movable, owned]
+  - top-level polygon p1188  layer=M2  bbox=(2880, 4896, 4824, 4968)  [D editable]
+  - top-level polygon p1207  layer=M2  bbox=(3024, 7344, 3816, 7416)  [D editable]
+  - via i0151  cell=VIA_VIA34_1_2_58_52  bbox=(2712, 3172, 3080, 3308)  [movable, owned]
+  - via i0192  cell=VIA_VIA34_1_2_58_52  bbox=(2712, 5332, 3080, 5468)  [movable, owned]
+  - via i0096  cell=VIA_VIA34_1_2_58_52  bbox=(2712, 7492, 3080, 7628)  [movable, owned]
+  - via i0088  cell=VIA_VIA34_1_2_58_52  bbox=(2712, 9652, 3080, 9788)  [movable, owned]
+  - top-level polygon p1104  layer=M3  bbox=(2716, 3172, 3076, 3308)  [D editable]
+  - top-level polygon p1103  layer=M3  bbox=(2716, 5332, 3076, 5468)  [D editable]
+  - top-level polygon p1102  layer=M3  bbox=(2716, 7492, 3076, 7628)  [D editable]
+  - top-level polygon p1101  layer=M3  bbox=(2716, 9652, 3076, 9788)  [D editable]
+  - via i0173  cell=VIA_VIA45_1_2_58_58  bbox=(2656, 3192, 3136, 3288)  [movable, owned]
+  - via i0147  cell=VIA_VIA45_1_2_58_58  bbox=(2656, 5352, 3136, 5448)  [movable, owned]
+  - via i0083  cell=VIA_VIA45_1_2_58_58  bbox=(2656, 7512, 3136, 7608)  [movable, owned]
+  - via i0085  cell=VIA_VIA45_1_2_58_58  bbox=(2656, 9672, 3136, 9768)  [movable, owned]
+  - top-level polygon p1059  layer=M5  bbox=(2656, 3148, 3136, 9812)  [D editable]
+  - std-cell i0315  cell=FAx1_ASAP7_75t_R  bbox=(2160, 5312, 5184, 6568)  [frozen]
+  - std-cell i0298  cell=INVx3_ASAP7_75t_R  bbox=(2160, 6392, 3240, 7648)  [frozen]
+  - std-cell i0338  cell=BUFx12f_ASAP7_75t_R  bbox=(2160, 7472, 6048, 8728)  [frozen]
+  - std-cell i0337  cell=BUFx6f_ASAP7_75t_R  bbox=(2160, 8552, 4320, 9808)  [frozen]
+  - std-cell i0330  cell=BUFx2_ASAP7_75t_R  bbox=(2160, 9632, 3240, 10888)  [frozen]
+  - std-cell i0316  cell=BUFx2_ASAP7_75t_R  bbox=(2376, 2072, 3456, 3328)  [frozen]
+  - std-cell i0270  cell=FILLERxp5_ASAP7_75t_R  bbox=(2592, 3152, 2808, 4408)  [frozen]
+  - std-cell i0268  cell=FILLERxp5_ASAP7_75t_R  bbox=(2592, 4232, 2808, 5488)  [frozen]
+  - std-cell i0312  cell=FAx1_ASAP7_75t_R  bbox=(2808, 3152, 5832, 4408)  [frozen]
+  - std-cell i0325  cell=BUFx2_ASAP7_75t_R  bbox=(2808, 4232, 3888, 5488)  [frozen]
+
+
+## Repair order by DRC degree (STATIC -- computed once; do NOT recompute)
+
+This fixed order ranks THIS leaf's EDITABLE objects (the editable top-level
+polygons in sections C/D above + the movable/owned vias in section A) by DRC
+DEGREE = how many of this leaf's TARGET violations the object's bounding box
+touches (inclusive -- a shared edge/vertex counts), highest first. Objects that
+touch NO target violation are omitted. Editability is identical to the sections
+above and to "Objects physically at each violation": [C partial-editable] /
+[D editable] = you MAY edit it; [movable, owned] = you MAY move/delete it OR
+resize/move its lands/cut (resize_via_shape/move_via_shape, section A); anything
+else is frozen and only here for context.
+
+Work the order TOP-DOWN: edit/move/delete the HIGHEST-degree object first. AFTER
+each fix, run the DRC-preview tool (## DRC preview below) to refresh which
+targets are CLEARED vs REMAINING; then move to the next object DOWN this list.
+Introducing a NEW in-window violation mid-way is acceptable ONLY if you clear it
+before you finish (the DRC preview's "new_in_window" must be empty in your final
+check). Do NOT recompute this ranking -- it is fixed for the whole repair.
+
+| # | object id | layer | kind | degree | editability | touched violation ids |
+|---|-----------|-------|------|--------|-------------|-----------------------|
+| 1 | p1059 | M5 | polygon | 6 | D editable | v0002, v0005, v0007, v0008, v0010, v0011 |
+| 2 | i0002 | M1+M2+V1 | via | 2 | movable, owned | v0007, v0011 |
+| 3 | i0006 | M1+M2+V1 | via | 2 | movable, owned | v0005, v0011 |
+| 4 | i0008 | M1+M2+V1 | via | 2 | movable, owned | v0008, v0011 |
+| 5 | i0009 | M1+M2+V1 | via | 2 | movable, owned | v0010, v0011 |
+| 6 | i0083 | M4+M5+V4 | via | 2 | movable, owned | v0008, v0011 |
+| 7 | i0085 | M4+M5+V4 | via | 2 | movable, owned | v0010, v0011 |
+| 8 | i0088 | M3+M4+V3 | via | 2 | movable, owned | v0010, v0011 |
+| 9 | i0096 | M3+M4+V3 | via | 2 | movable, owned | v0008, v0011 |
+| 10 | i0099 | M1+M2+V1 | via | 2 | movable, owned | v0002, v0011 |
+| 11 | i0116 | M2+M3+V2 | via | 2 | movable, owned | v0008, v0011 |
+| 12 | i0122 | M2+M3+V2 | via | 2 | movable, owned | v0010, v0011 |
+| 13 | i0147 | M4+M5+V4 | via | 2 | movable, owned | v0007, v0011 |
+| 14 | i0151 | M3+M4+V3 | via | 2 | movable, owned | v0005, v0011 |
+| 15 | i0162 | M2+M3+V2 | via | 2 | movable, owned | v0005, v0011 |
+| 16 | i0173 | M4+M5+V4 | via | 2 | movable, owned | v0005, v0011 |
+| 17 | i0188 | M2+M3+V2 | via | 2 | movable, owned | v0007, v0011 |
+| 18 | i0192 | M3+M4+V3 | via | 2 | movable, owned | v0007, v0011 |
+| 19 | p1101 | M3 | polygon | 2 | D editable | v0010, v0011 |
+| 20 | p1102 | M3 | polygon | 2 | D editable | v0008, v0011 |
+| 21 | p1103 | M3 | polygon | 2 | D editable | v0007, v0011 |
+| 22 | p1104 | M3 | polygon | 2 | D editable | v0005, v0011 |
+| 23 | p1179 | M2 | polygon | 2 | D editable | v0010, v0011 |
+| 24 | p1180 | M2 | polygon | 2 | D editable | v0008, v0011 |
+| 25 | p1181 | M2 | polygon | 2 | D editable | v0007, v0011 |
+| 26 | p1182 | M2 | polygon | 2 | D editable | v0005, v0011 |
+| 27 | p1207 | M2 | polygon | 2 | D editable | v0002, v0011 |
+| 28 | i0145 | M1+M2+V1 | via | 1 | movable, owned | v0011 |
+| 29 | p1188 | M2 | polygon | 1 | D editable | v0011 |
+| 30 | p1194 | M2 | polygon | 1 | D editable | v0011 |
+
+## Rule cards (active in this leaf)
+Rule IDs active in this leaf: V0.M1.AUX.3, M4.AUX.1, M5.AUX.1.
+Look up each rule's exact definition and numeric threshold per the S2 resource priority (the violated layers' [DRC RULES] sections first; full deck as FALLBACK ONLY), and view its DRM image (paths in S2). DRC rules interact -- before committing a fix, also check neighbouring rules on the same layers so your edit does not introduce a new violation.
+
+=== S7: OUTPUT ===
+
+## Output
+
+Write exactly these two output files using the Write tool, and do not modify any other file:
+  /out/patch.json
+  /out/trace.md
+
+/out/patch.json must be pure JSON with NO markdown fences and exactly this envelope:
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "resize", "polygon_id": "pA", "axis": "x", "delta_dbu": -96},
+    {"op": "move_instance", "inst_id": "iA", "delta_dbu": [18, 0]}
+  ],
+  "explanation": "Short human-readable rationale in 1-2 sentences."
+}
+
+The two ops above are format examples with placeholder ids (pA / iA) -- always use the real ids from YOUR crop.
+
+If no safe fix exists, write this to /out/patch.json:
+{"leaf_id": "leaf_0003", "ops": [], "explanation": "no safe fix"}
+
+/out/trace.md must contain the full reasoning trace: each violation, rule+threshold, candidates considered and why, op effect, self-critique, repair order followed, and whether/how the connectivity-, DRC-, and connectivity-impact-preview tools were used, and, if your patch introduces any violation, a DECLARED-DEBT list (rule + bbox) for each.

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block7_union_row20",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0600", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0600 right by 36 dbu (from origin 9252,23580 to 9288,23580), shifting the M1 land left edge from x=9216 to x=9252, making it coincide with the frozen V0 pin left edge and eliminating the interior M1 edge that caused V0.M1.AUX.3. Op for v0027 (M1.S.2) omitted: no valid position for i0235 can clear the right-side gap (needs origin_x ≤ 15704) while preserving the left-side gap (needs origin_x ≥ 15724) simultaneously, so moving it introduces a new M1.S.2 with identical net DRC reduction."
+}

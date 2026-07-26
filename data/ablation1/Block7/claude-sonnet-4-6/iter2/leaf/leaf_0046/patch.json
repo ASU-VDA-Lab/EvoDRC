@@ -1,0 +1,15 @@
+{
+  "leaf_id": "leaf_0046",
+  "ops": [
+    {"op": "move_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": -132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": 128},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": -132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": 128},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 2, "axis": "y", "delta_dbu": 132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 2, "axis": "y", "delta_dbu": 128},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 3, "axis": "y", "delta_dbu": 132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 3, "axis": "y", "delta_dbu": 128},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "M6", "shape_index": 0, "axis": "y", "delta_dbu": -384}
+  ],
+  "explanation": "Repositions all four V5 cuts in VIA_VIA56_2_2_66_58 from quadrant-offset positions to a unified y=[-128,128] dbu extent (making V5 y-edges coincident with M6 y-edges) and shrinks the M6 land to match, clearing 36 V5.M6.AUX.2 violations (18/18=100% admissible) and aligning M6 to the 32 nm grid for M6.AUX.1 compliance (18/18=100% admissible)."
+}

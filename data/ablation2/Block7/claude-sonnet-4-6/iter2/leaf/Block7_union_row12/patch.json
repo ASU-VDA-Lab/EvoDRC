@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row12",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1311", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1320", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1759", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Three V0.M1.AUX.3 violations cleared by moving each VIA_VIA12 instance +36 dbu in x: this aligns each via's M1 land left edge with the corresponding V0 right edge, eliminating the area overlap that caused merged M1 to extend below y=14940 and creating a coincident M1 vertical boundary at the V0 bottom-right corner."
+}

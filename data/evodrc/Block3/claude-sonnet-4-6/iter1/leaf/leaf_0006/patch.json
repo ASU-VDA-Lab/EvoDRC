@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0179", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0106", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "V0.M1.AUX.3 at two sites (v0014, v0015): each VIA_VIA12 M1 land straddled a background M1 step edge, absorbing it into the merged polygon and leaving a V0 horizontal edge non-coincident with any M1 edge. Moving each VIA_VIA12 instance +36 dbu in x shifts its M1 land's left boundary to x=4788 (the V0 right edge), so the background step edge is preserved and all V0 convex-corner conditions dissolve."
+}

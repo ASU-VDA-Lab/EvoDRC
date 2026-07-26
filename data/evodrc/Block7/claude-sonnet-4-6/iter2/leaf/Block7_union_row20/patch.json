@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row20",
+  "ops": [
+    {"op":"move_instance","inst_id":"i0142","delta_dbu":[72,0]},
+    {"op":"move_instance","inst_id":"i0263","delta_dbu":[36,0]},
+    {"op":"resize_end","polygon_id":"p3048","axis":"x","end":"high","delta_dbu":56}
+  ],
+  "explanation": "Moved VIA_VIA12 i0142 (+72 x-dbu) to clear v0013 AUX.3 (M1 land now 36 dbu past V0 boundary) and moved VIA_VIA12 i0263 (+36 x-dbu) to edge-clear v0023 AUX.3 (zero-area contact in KLayout), with p3048 M2 extended +56 dbu to maintain coverage. V0 v0013 M1 coverage is provided by frozen std-cell polygon from i2176 (M1, frozen), confirmed by conn_impact_preview. p2355 is GDS layer 30/0 = M3, not M2, so no inter-layer spacing rule applies. DRC preview confirmed 2 targets cleared, new_in_window=[], connectivity preserved across 3325 seeds."
+}

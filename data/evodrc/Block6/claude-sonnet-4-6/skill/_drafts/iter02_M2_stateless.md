@@ -1,0 +1,37 @@
+## Operation Directionality
+
+All 13 trials in this history applied movement and resize deltas exclusively along the X axis. No Y-axis component appears in any operation across any trial from trial:i01.ug.Block6_union_row3.00 through trial:i02.ug.leaf_0004.04. Do not apply Y-axis moves or resize_end operations on axis Y when repairing M2 in this design.
+
+## Channel Behavior and Gating
+
+The unit_gate channel uses `move_instance` and `resize_end` as its only operation types on M2-touching layouts. Every unit_gate trial received decision `gated_in` with `n_new_in_crop=0` and `n_new_out_of_crop=0`, verified by the `conn_preserved` gate criterion (trial:i01.ug.Block6_union_row3.00, trial:i01.ug.Block6_union_row5.01, trial:i01.ug.Block6_union_row7.02, trial:i01.ug.Block6_union_row8.03, trial:i01.ug.leaf_0001.04, trial:i01.ug.leaf_0011.05, trial:i01.ug.leaf_0015.06, trial:i01.ug.leaf_0018.07, trial:i02.ug.Block6_union_row4.00, trial:i02.ug.Block6_union_row7.01, trial:i02.ug.Block6_union_row8.02, trial:i02.ug.leaf_0004.04). Apply `conn_preserved` as the acceptance gate: an operation set that introduces zero new violations inside or outside the crop window and preserves connectivity is accepted.
+
+## Co-Layer Constraint: M2 Is Never Repaired in Isolation
+
+Every unit_gate trial touches layers M1, M2, and V1 together. No trial modifies M2 without simultaneously moving instances that carry M1 and V1 geometry. When sizing or repositioning an M2 polygon, treat the V1 and M1 geometry attached to the same instance as co-moving, and verify that V1.M2.EN.2 enclosure is maintained after the repair.
+
+## resize_end Offset Relative to move_instance
+
+Several trials pair a `move_instance` with a `resize_end` on the same polygon, with the resize delta consistently exceeding the instance move delta. In trial:i01.ug.leaf_0001.04, instance i0404 moved +112 dbu and polygon p2016's high end extended +132 dbu (difference: +20 dbu). In trial:i01.ug.Block6_union_row7.02, instance i0093 moved +104 dbu and polygon p1903's high end extended +124 dbu (difference: +20 dbu). In trial:i02.ug.Block6_union_row4.00, instance i0410 moved +112 dbu and polygon p2020's high end extended +132 dbu (difference: +20 dbu). The consistent +20 dbu surplus on the high-end resize, across three independent trials spanning both iterations, establishes that extending a polygon's high end by (instance_delta + 20 dbu) is a validated strategy. This offset is consistent with maintaining V1.M2.EN.2's minimum 5 nm enclosure of V1 by M2 on two opposite sides after an instance shift: do not resize_end by exactly the instance delta; add the surplus.
+
+In trial:i01.ug.Block6_union_row7.02, the paired low-end resize diverges: instance i0074 moved -36 dbu while polygon p1920's low end extended +56 dbu (sum: +20 dbu relative to stationary reference), confirming the same effective surplus applies at the low end even when the instance moves in the opposite direction.
+
+## Move Quantum
+
+The value 36 dbu recurs as the dominant base increment. Instance deltas of 36, 72 (2×36), and 108 (3×36) appear across trial:i01.ug.Block6_union_row3.00, trial:i01.ug.Block6_union_row5.01, trial:i01.ug.Block6_union_row8.03, trial:i01.ug.leaf_0011.05, trial:i01.ug.leaf_0018.07, trial:i02.ug.Block6_union_row8.02, and trial:i02.ug.leaf_0004.04. Use multiples of 36 dbu as the primary snap unit for instance moves on this layer. Fine-tuning moves of 4 dbu (trial:i02.ug.Block6_union_row7.01), 8 dbu (trial:i02.ug.Block6_union_row8.02), and 28 dbu (trial:i01.ug.leaf_0015.06) also appear as secondary corrections; these are not multiples of 36 and are used for residual adjustment after a primary 36-dbu-quantum repair.
+
+## Iterative Residual Correction
+
+The design_state hash changed from `685706506817f4f5a58d885e68808402b61fcf189fed22cc344fa6dec38c0f99` (iter 1) to `35ec6414a52ad9c906954900ee4dc0046bac1f44990f43b2bbdc06464f8e14a4` (iter 2), confirming iter 1 repairs were committed before iter 2 units were processed. Iter 2 revisited Block6_union_row7 (trial:i02.ug.Block6_union_row7.01, delta +4 dbu) and Block6_union_row8 (trial:i02.ug.Block6_union_row8.02, deltas +8 dbu and +36 dbu) with small residual moves, after iter 1 had applied larger primary moves to these same units (trial:i01.ug.Block6_union_row7.02: +104 dbu; trial:i01.ug.Block6_union_row8.03: +36 dbu). A first-pass primary move at a 36-dbu quantum does not always eliminate all violations on a unit; plan for a second-pass fine-tuning step on units that receive large primary moves.
+
+## cu_pool Via Repair (V2.M2.EN.1 Context)
+
+The single cu_pool trial (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00) targeted via cell VIA_VIA23_1_3_36_36 and achieved a net -78 violation reduction across two windows (leaf_0019: -42, leaf_0020: -36). The repair moved V2 shapes on the X axis and resized them: shape_index 0 moved -144 dbu then was resized +264 dbu on the X axis; shape_index 1 was resized +288 dbu; shape_index 2 moved +144 dbu and was resized +264 dbu. The touched layers were M2, M3, and V2. This trial is the only `applied` (non-gated) decision in the history, and it produced the largest single violation reduction. Resizing via shapes symmetrically outward on M2 (expanding M2 enclosure of V2) is a validated repair for V2.M2.EN.1, which requires minimum 5 nm enclosure of V2 by M2 on at least two opposite sides. Target shared via cell definitions (not individual instances) when a via cell contributes violations across multiple units: trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 affected both leaf_0019 and leaf_0020 with a single repair.
+
+## M2.W.1, M2.S.*, and M2.A.1 Indirect Observations
+
+No trial in this history was rejected for introducing new M2 width, spacing, area, or corner violations. All accepted repairs used exclusively X-axis moves and high/low-end resizes. The minimum M2 width is 18 nm (M2.W.1); minimum side-to-side spacing is 18 nm for edges longer than 36 nm (M2.S.1); tip-to-side spacing is 25 nm (M2.S.2); tip-to-tip spacing varies from 27 nm (M2.S.3, both tips 24–36 nm) to 31 nm (M2.S.4, both tips <24 nm; M2.S.5, mixed). Moving an instance in the X direction changes tip-edge positions; the absence of any new violation introductions across all 12 unit_gate trials (trial:i01.ug.Block6_union_row3.00 through trial:i02.ug.leaf_0004.04) confirms that X-axis moves at 36-dbu multiples with the +20 dbu resize surplus do not produce M2.S.* or M2.W.1 violations in this design context, provided the conn_preserved gate passes.
+
+## M2.S.7 and M2.S.8 Interaction Risk
+
+M2.S.7 forbids tip-to-tip gaps of 18 nm co-located with side-to-side spacing ≤32 nm, and requires parallel run length ≥35 nm when side spacing ≤32 nm. M2.S.8 requires ≥80 nm diagonal center-to-center spacing between tip-to-tip gaps on different tracks. No trial in this history was rejected for M2.S.7 or M2.S.8 violations. The X-axis moves and resize_end operations in the gated_in trials preserved these constraints without explicit M2.S.7/M2.S.8-targeted operations, indicating that the 36-dbu move quantum and +20 dbu resize surplus are compatible with the existing M2.S.7/M2.S.8 geometry in this design. Do not introduce new tip-to-tip gaps at positions that would fall within 80 nm diagonal of existing gaps on adjacent tracks when applying resize_end operations.

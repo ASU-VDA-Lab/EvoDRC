@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block7_union_row10",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p3306", "axis": "x", "end": "low", "delta_dbu": 48}
+  ],
+  "explanation": "Extends the left edge of M2 polygon p3306 from x=9792 to x=9744 (+48 dbu), increasing the parallel x-run between the two M2 tracks at y=12312..12384 and y=12456..12528 from 112 dbu (28 nm) to 140 dbu (35 nm), clearing the M2.S.7 violation at (9772,12384,9884,12456). Violation v0024 (V0.M1.AUX.3) is left unfixed: all candidates either broke block connectivity (delete i1140) or introduced more violations than they cleared (horizontal/vertical moves of i1140)."
+}

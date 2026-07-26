@@ -1,0 +1,16 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA34_1_2_58_52", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -112, "group": "V2M3_corrected"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA34_1_2_58_52", "layer_name": "V3", "shape_index": 0, "axis": "y", "delta_dbu": -112, "group": "V2M3_corrected"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA34_1_2_58_52", "layer_name": "V3", "shape_index": 1, "axis": "y", "delta_dbu": -112, "group": "V2M3_corrected"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -40, "group": "V2M3_corrected"},
+    {"op": "resize_end", "polygon_id": "p893", "axis": "y", "end": "low", "delta_dbu": -32, "group": "V2M3_corrected"},
+    {"op": "resize_end", "polygon_id": "p893", "axis": "y", "end": "high", "delta_dbu": -32, "group": "V2M3_corrected"},
+    {"op": "resize_end", "polygon_id": "p892", "axis": "y", "end": "low", "delta_dbu": -32, "group": "V2M3_corrected"},
+    {"op": "resize_end", "polygon_id": "p892", "axis": "y", "end": "high", "delta_dbu": -32, "group": "V2M3_corrected"},
+    {"op": "resize_end", "polygon_id": "p891", "axis": "y", "end": "low", "delta_dbu": -32, "group": "V2M3_corrected"},
+    {"op": "resize_end", "polygon_id": "p891", "axis": "y", "end": "high", "delta_dbu": -32, "group": "V2M3_corrected"}
+  ],
+  "explanation": "Clears 9× V2.M3.AUX.2 violations (v0012-v0028) by shrinking M3/V3 shapes in via cells VIA_VIA34_1_2_58_52 and VIA_VIA23_1_3_36_36, and trimming both ends of polygons p891, p892, and p893 along the y-axis. Introduces 6× V3.M4.AUX.2 violations declared as accepted debt, yielding a net reduction of 3 violations."
+}

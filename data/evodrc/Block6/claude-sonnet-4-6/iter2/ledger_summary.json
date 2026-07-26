@@ -1,0 +1,47 @@
+{
+  "case": "Block6",
+  "design_state": "35ec6414a52ad9c906954900ee4dc0046bac1f44990f43b2bbdc06464f8e14a4",
+  "failed_trials": [
+    {
+      "artifact": "leaf/leaf_0009/patch.json",
+      "channel": "unit_gate",
+      "reason": "expected_object",
+      "trial_id": "i02.ug.leaf_0009.05"
+    }
+  ],
+  "iter": 2,
+  "n_appended_new": 20,
+  "n_cu_pool": 0,
+  "n_failed_trials": 1,
+  "n_records": 6,
+  "n_unit_gate": 6,
+  "n_unmapped": 0,
+  "per_layer": {
+    "M1": 4,
+    "M2": 4,
+    "M3": 2,
+    "M4": 2,
+    "M5": 1,
+    "V1": 4,
+    "V3": 2,
+    "V4": 1
+  },
+  "touched_layers": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "V1",
+    "V3",
+    "V4"
+  ],
+  "trial_ids": [
+    "i02.ug.Block6_union_row4.00",
+    "i02.ug.Block6_union_row7.01",
+    "i02.ug.Block6_union_row8.02",
+    "i02.ug.leaf_0003.03",
+    "i02.ug.leaf_0004.04",
+    "i02.ug.leaf_0010.06"
+  ]
+}

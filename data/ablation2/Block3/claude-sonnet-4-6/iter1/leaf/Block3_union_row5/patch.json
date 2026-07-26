@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block3_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0124", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1265", "axis": "x", "end": "high", "delta_dbu": 36},
+    {"op": "move_instance", "inst_id": "i0011", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0033", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves three VIA_VIA12 instances (i0124, i0011, i0033) +36 dbu in x so their M1 lands no longer create non-coincident convex corners on frozen V0 std-cell pins, clearing all three V0.M1.AUX.3 violations; extends M2 polygon p1265 by +36 dbu on its high-x end to maintain M2 routing connectivity for the relocated i0124."
+}

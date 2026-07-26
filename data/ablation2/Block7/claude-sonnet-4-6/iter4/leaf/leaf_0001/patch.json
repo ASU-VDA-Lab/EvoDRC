@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1117", "delta_dbu": [-56, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i1117 left by 56 dbu so its M2 land's right edge shifts from x=11576 to x=11520, creating a 124 dbu (31 nm) gap to the nearest M2 edge of the i1168/p3300 net — exactly meeting the M2.S.4 minimum tip-to-tip spacing rule."
+}

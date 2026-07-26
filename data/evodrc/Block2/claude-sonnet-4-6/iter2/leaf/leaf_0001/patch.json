@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p957", "axis": "x", "end": "low", "delta_dbu": -4}
+  ],
+  "explanation": "Shrinks p957's left M4 edge rightward by 4 dbu (from x=4720 to x=4724), increasing the tip-to-tip M4 gap from 156 dbu (39 nm) to 160 dbu (40 nm) to clear v0020 M4.S.4; right edge at x=4948 unchanged, preserving VIA_VIA45 connectivity."
+}

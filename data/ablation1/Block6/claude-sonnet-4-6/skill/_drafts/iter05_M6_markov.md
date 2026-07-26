@@ -1,0 +1,21 @@
+## V5.M6.AUX.2 Violations
+
+**Fix by Y-axis resize of V5 shapes, not X-axis repositioning.** Rule V5.M6.AUX.2 requires V5 to exactly match M6's width in the direction perpendicular to M6 length. In trial:i01.cu.def:VIA_VIA56_2_2_66_58.02, resizing all four V5 shapes by +248 dbu on the Y axis (group `v5_m6_aux2_fix`) removed 32 total violations (−16 in leaf_0019, −16 in leaf_0020) and was applied. X-axis move/resize of the same V5 shapes in trial:i01.cu.def:VIA_VIA56_2_2_66_58.01 (±116 dbu moves, +320 dbu resizes) reduced violations by only 16 total and lost the tournament, confirming that lateral repositioning of V5 is a weaker repair path for this rule class.
+
+When a via cell touching both M5 and M6 generates V5.M6.AUX.2 violations, apply Y-axis resizes to the V5 shapes rather than X-axis moves. Trial:i01.cu.def:VIA_VIA56_2_2_66_58.02 demonstrates that symmetric Y-axis expansion of all shapes in the via cell achieves the full enclosure correction without disrupting connectivity. Trial:i01.cu.def:VIA_VIA56_2_2_66_58.01 confirms that X-axis adjustments to V5 shapes in the same cell are a competing but inferior repair path for violations scored in the M6 window.
+
+## Via Cell Repair Scope
+
+Both i01 trials operated on `VIA_VIA56_2_2_66_58` and touched layers M5, M6, and V5 together. The applied fix (trial:i01.cu.def:VIA_VIA56_2_2_66_58.02) preserved connectivity (`conn_preserved: true`) while achieving the larger violation delta. Do not treat M6 violation windows in this locus as requiring direct M6 shape edits; the root cause was V5 undersize relative to M6 width, and V5 Y-axis resize is the effective repair.
+
+VIA_VIA56_2_2_66_58 is a recurring repair target across iterations. In trial:i05.cu.def:VIA_VIA45_1_2_58_58.00 the M5 shape at index 0 in VIA_VIA56_2_2_66_58 was resized −64 dbu on the X axis (group `m5_fix`) as part of a cu_pool fix that also adjusted M5 shapes in VIA_VIA45_1_2_58_58. That trial achieved −2 violations total (leaf_0003: 121→119) and was applied. This M5 X-axis resize in the via cell addresses a distinct violation type from the V5 Y-axis resize; both co-exist without contradiction. When violations in the M6 window trace to M5 width or M5/V4 alignment in VIA_VIA56_2_2_66_58, apply M5 X-axis resize on the via shape before reaching for M6 or V5 edits.
+
+## V5.M6.EN.2 Interaction
+
+V5.M6.EN.2 requires 11 nm enclosure of V5 by M6 on two opposite sides. The Y-axis expansion of V5 by +248 dbu applied in trial:i01.cu.def:VIA_VIA56_2_2_66_58.02 was the dominant fix; no separate M6 resizing was needed to satisfy enclosure in this case. When both V5.M6.AUX.2 and V5.M6.EN.2 are failing together in the same via cell, prioritize the AUX.2 Y-axis resize, as trial:i01.cu.def:VIA_VIA56_2_2_66_58.02 shows that single action yielded the maximum per-window delta (−16 each window) and was tournament-winning.
+
+## M6 Direct Edits in unit_gate Channel Cascade to Lower Layers
+
+Direct Y-axis moves of M6 polygons in the unit_gate channel, when combined with large-scale instance repositioning, propagate violations into lower-layer windows. Trial:i05.ug.leaf_0003.01 moved M6 polygons p2107 (+32 dbu Y) and p2106 (−16 dbu Y) and issued 16 instance moves (Y-axis, ±24 dbu) in addition to M6-group instance moves. The trial was gated_in with 68 new in-crop violations: M1.A.1 (+27), V1.M1.EN.1 (+39), M4.W.5 (+2). The conn_preserved flag was true, but the violation debt was decisive. Do not issue M6 Y-axis polygon moves in the unit_gate channel when the same repair window also requires large instance displacements; the coupling between M6 repositioning and lower-layer grid alignment is sufficient to detonate M1 and V1 checks across the crop.
+
+The M5 operations that were assembled from trial:i05.ug.leaf_0003.01 as `assemble_drops` (X-axis M5 polygon moves p1683 +32, p1682 −16; M5 via shape resizes −64 dbu in VIA_VIA45_1_2_58_58 and VIA_VIA56_2_2_66_58) were instead applied through the cu_pool channel as trial:i05.cu.def:VIA_VIA45_1_2_58_58.00, achieving −2 net violations without the cascade. The M6 and instance-move ops from the same unit_gate trial were not carried forward. This confirms that M5-layer X-axis via-shape resizes are a safe, isolated repair path for violations visible in M6-adjacent windows, while M6 direct moves bundled with instance cascades in unit_gate are not.

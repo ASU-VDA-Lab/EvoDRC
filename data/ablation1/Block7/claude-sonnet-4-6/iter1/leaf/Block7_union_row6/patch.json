@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block7_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1473", "delta_dbu": [28, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i1473 right by 28 dbu (+28 in x, 0 in y) to increase the M1 tip-to-side gap from 72 dbu (18nm) to 100 dbu (25nm), satisfying the M1.S.2 minimum spacing rule. The five pre-existing V0.M1.AUX.3 violations are left unfixed because any y-axis adjustment would reduce the M2-to-power-rail gap below the 100 dbu M2.S.2 threshold."
+}

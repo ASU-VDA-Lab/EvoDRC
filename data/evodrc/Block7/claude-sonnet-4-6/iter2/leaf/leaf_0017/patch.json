@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0017",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0949", "delta_dbu": [0, 48]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0949 upward 48 dbu (to origin 12564,21780) to clear M1.S.2/M2.S.2/V1.S.2/V1.M1.EN.1/V1.M2.AUX.2 spacing violations caused by the via being too close to horizontal M1/M2/V1 rails at y=21636."
+}

@@ -1,0 +1,46 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops_total": 5,
+  "ops_applied": 6,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA23_1_3_36_36",
+        "layer_name": "M3",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": -40
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "M6",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": -248
+      },
+      "reason": "cu_pool:rejected_net_positive"
+    }
+  ],
+  "had_drop": true,
+  "cu_pool": [
+    {
+      "target": "def:VIA_VIA23_1_3_36_36",
+      "role": "winner",
+      "ops": [
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA23_1_3_36_36",
+          "layer_name": "M3",
+          "shape_index": 0,
+          "axis": "y",
+          "delta_dbu": -40
+        }
+      ]
+    }
+  ]
+}

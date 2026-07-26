@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block7_union_row13",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0856", "delta_dbu": [316, 0]},
+    {"op": "resize_end", "polygon_id": "p3189", "axis": "x", "end": "high", "delta_dbu": 320},
+    {"op": "move_instance", "inst_id": "i0347", "delta_dbu": [-120, 0]},
+    {"op": "move_instance", "inst_id": "i1063", "delta_dbu": [-120, 0]},
+    {"op": "move_instance", "inst_id": "i1059", "delta_dbu": [-44, 0]}
+  ],
+  "explanation": "Cleared 8 DRC violations (V0.M1.EN.1, V0.M1.AUX.3, V1.M1.EN.1, M1.S.2) by repositioning four VIA_VIA12 instances (i0856, i0347, i1063, i1059) and extending M2 polygon p3189. Op1 moves i0856 by +316 dbu to land on the AND2x2 right M1 strip, avoiding the V0/V1 enclosure conflicts caused by overlap with the AND2x2 left strip; Op2 extends p3189 high-x by 320 dbu to re-establish M2 continuity to the relocated i0856; Ops 3-5 move i0347, i1063, i1059 leftward to clear M1.S.2 and V1.M1.EN.1 spacing violations. Two new V0.M1.AUX.3 violations introduced near i1063 and i0347 new positions are declared as DEBT."
+}

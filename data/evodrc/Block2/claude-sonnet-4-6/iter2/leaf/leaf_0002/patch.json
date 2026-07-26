@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op":"move","polygon_id":"p938","axis":"x","delta_dbu":32},
+    {"op":"move_instance","inst_id":"i0098","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0097","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0064","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0068","delta_dbu":[32,0]}
+  ],
+  "explanation": "Shift die-spanning M5 stripe p938 and all four VIA_VIA45 instances +32 dbu in x to place their edges on the 24 nm routing grid (1888→1920, 2368→2400), clearing M5.AUX.1 violations v0026 and v0027."
+}

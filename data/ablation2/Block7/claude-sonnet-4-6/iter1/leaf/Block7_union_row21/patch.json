@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row21",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0627", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0155", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moving i0627 right by 36 dbu shifts its M1 land (new x=[14292,14364]) out of the V0 x-range [14220,14292], clearing M1.S.6 violations v0170/v0171 (corner distance to std-cell M1 at (14184,24588) increases to ~112 dbu) and V0.M1.AUX.3 violation v0042 (std-cell M1 now solely covers the V0 with coincident H-top and H-bottom edges). Moving i0155 right by 36 dbu positions its M1 land (new x=[28116,28188]) adjacent to but not overlapping the V0 x-range [28044,28116], clearing V0.M1.AUX.3 violation v0032 (std-cell M1 alone covers V0 with coincident top/bottom)."
+}

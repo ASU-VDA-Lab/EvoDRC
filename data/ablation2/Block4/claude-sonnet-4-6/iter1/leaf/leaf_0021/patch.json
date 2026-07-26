@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0021",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0038", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Clears V0.M1.AUX.3 on V0 pin _ptemp_5 (12060,11700,12132,11772): moving VIA_VIA12 i0038 rightward by 36 dbu shifts its M1 land from x=12096..12168 to x=12132..12204, making the V0's right vertical edge (x=12132) coincident with the M1 left edge and eliminating the non-coincident convex corners that triggered the rule."
+}

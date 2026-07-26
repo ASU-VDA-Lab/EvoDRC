@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row15",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [0, -72]},
+    {"op": "resize_end", "polygon_id": "p3592", "axis": "y", "end": "low", "delta_dbu": 72}
+  ],
+  "explanation": "Moves VIA_VIA12 i1062 down 72 dbu to increase M1.S.2 gap to frozen HAxp5 pin (_ptemp_8) from 28 to 100 dbu (v0032), and extends p3592 bottom edge down 72 dbu to maintain M2 coverage of i1062 at its new position."
+}

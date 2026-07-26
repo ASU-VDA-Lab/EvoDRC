@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0056", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0056 rightward by 36 dbu to clear V0.M1.AUX.3 (v0002) and two M1.S.2 spacing violations (v0012, v0020), and moves VIA_VIA12 i0103 leftward by 36 dbu to clear the remaining M1.S.2 violation (v0011); all 4 target violations are cleared with no new violations introduced and full connectivity preserved."
+}

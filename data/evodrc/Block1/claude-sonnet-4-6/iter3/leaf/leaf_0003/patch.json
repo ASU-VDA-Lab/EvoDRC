@@ -1,0 +1,72 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {
+      "op": "resize_end",
+      "polygon_id": "p1543",
+      "end": "high",
+      "axis": "x",
+      "delta_dbu": -8,
+      "comment": "Shrink p1543 right edge from 13876 to 13868; gap to p1534 left (13968) becomes 100 dbu = 25 nm, clearing M3.S.2 v0014. M3 width (height 72 dbu = 18 nm) unchanged. All V2 cuts inside p1543 have rightmost edge at x=13860 < 13868 so V2.M3.AUX.2 alignment is preserved."
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p1458",
+      "end": "high",
+      "axis": "x",
+      "delta_dbu": -8,
+      "group": "m3s2_left",
+      "comment": "Part 1/2 of M3.S.2 v0015 fix. Shrink p1458 right edge from 3076 to 3068. Combined with i0180 move (Part 2/2), merged M3 right at x=3068; gap to p1480 left (3168) becomes 100 dbu = 25 nm."
+    },
+    {
+      "op": "move_instance",
+      "instance_id": "i0180",
+      "dx": -40,
+      "dy": 0,
+      "group": "m3s2_left",
+      "comment": "Part 2/2 of M3.S.2 v0015 fix. Move VIA23_1_3_36_36 i0180 from (2928,14040) to (2888,14040). VIA23 M3 land right edge moves from 3108 to 3068. Connectivity preserved: VIA23 M2 center moves to x=2888, M2 land spans (2708,13984,3068,14096); M2 bus p1217 spans (1728..14256) so overlap retained. VIA23 M3 land spans (2708,13984,3068,14096) and overlaps p1458 new extent (2716..3068) with zero gap at right edges."
+    },
+    {
+      "op": "move_instance",
+      "instance_id": "i0485",
+      "dx": 4,
+      "dy": 0,
+      "comment": "Move VIA12 i0485 from (12276,3420) to (12280,3420). M1 left edge moves from 12240 to 12244; gap to standard-cell M1 side at x=12144 becomes 100 dbu = 25 nm, clearing M1.S.2 v0011. M2 overlap with p1309 (11808..12312) preserved: VIA12 M2 new left=12244-36=12208 < 12312."
+    },
+    {
+      "op": "move_instance",
+      "instance_id": "i0188",
+      "dx": 4,
+      "dy": 0,
+      "comment": "Move VIA12 i0188 from (2772,11700) to (2776,11700). M1 left edge moves from 2736 to 2740; gap to standard-cell M1 side at x=2640 becomes 100 dbu = 25 nm, clearing M1.S.2 v0012. M2 overlap with p1270 (2448..2808) preserved: VIA12 M2 new left=2740-36=2704 < 2808."
+    }
+  ],
+  "deferred": [
+    {
+      "rule": "M6.AUX.3",
+      "count": 7,
+      "reason": "Fix requires moving p1143 (+32x) and p1142 (-16x) plus ~78 instance moves. Prior trial:i02.ug.leaf_0003.02 applied this and introduced 80 new in-crop violations. Knowledge confirms this approach creates cross-leaf polygon conflicts via cross_crop_first_wins and connectivity risk. Deferred as net-negative."
+    },
+    {
+      "rule": "M6.AUX.1",
+      "count": 2,
+      "reason": "Violations originate from VIA56 M6 land y-extents (3168, 3808) which are not on the 32 dbu (= 8 nm) grid relative to 32 nm pitch. Fix would require moving p1561 or VIA56 instances; p1561 y-moves must be multiples of 32 dbu but any y-move changes the p1561/VIA56 interaction geometry, risking new M6.AUX.3 violations. Same root cause as M6.AUX.3 complex. Deferred."
+    },
+    {
+      "rule": "V1.M1.EN.1",
+      "count": 3,
+      "reason": "VIA_VIA12 cell has M1 and V1 with identical x-extents (+/-36 dbu), giving zero x-enclosure vs. the required 2 nm minimum. Cannot fix by instance moves alone (enclosure is inherent to cell shape). resize_via_shape would change ALL VIA12 instances globally and is not 100%-admissible here. No safe per-instance fix exists. Deferred."
+    },
+    {
+      "rule": "V0.M1.AUX.3",
+      "count": 10,
+      "reason": "V0 must exactly match M1 width perpendicular to M1 length (coincident edges required). Violations are inherent to VIA_VIA01 cell geometry at standard cell boundaries not owned by this crop. No admissible instance-level fix identified. Deferred."
+    },
+    {
+      "rule": "M1.S.2 v0018",
+      "count": 1,
+      "reason": "VIA12 at (8820,13140) not in crop's owned instance list; cannot apply move_instance. Deferred."
+    }
+  ],
+  "explanation": "5 ops fixing 4 violations (2x M3.S.2 + 2x M1.S.2). M6, V1.M1.EN.1, V0.M1.AUX.3, and one out-of-crop M1.S.2 instance deferred. Expected net: -4 violations, +0 new violations."
+}

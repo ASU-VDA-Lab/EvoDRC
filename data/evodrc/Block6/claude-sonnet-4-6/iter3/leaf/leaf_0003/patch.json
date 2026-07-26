@@ -1,0 +1,23 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move", "polygon_id": "p1683", "axis": "x", "delta_dbu": 32},
+    {"op": "move_instance", "inst_id": "i0379", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0366", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0360", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0198", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0136", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0168", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0384", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0173", "delta_dbu": [32, 0]},
+    {"op": "move", "polygon_id": "p1682", "axis": "x", "delta_dbu": -16},
+    {"op": "move_instance", "inst_id": "i0527", "delta_dbu": [-16, 0]},
+    {"op": "move_instance", "inst_id": "i0435", "delta_dbu": [-16, 0]},
+    {"op": "move_instance", "inst_id": "i0411", "delta_dbu": [-16, 0]},
+    {"op": "move_instance", "inst_id": "i0109", "delta_dbu": [-16, 0]},
+    {"op": "move_instance", "inst_id": "i0022", "delta_dbu": [-16, 0]},
+    {"op": "move_instance", "inst_id": "i0026", "delta_dbu": [-16, 0]},
+    {"op": "move_instance", "inst_id": "i0528", "delta_dbu": [-16, 0]},
+    {"op": "move_instance", "inst_id": "i0027", "delta_dbu": [-16, 0]}
+  ]
+}

@@ -1,0 +1,445 @@
+{
+ "strip": {
+  "leaf_0019": [
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -144, \"layer_name\": \"V2\", \"op\": \"move_via_shape\", \"shape_index\": 0}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": 264, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 0}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": 288, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 1}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": 144, \"layer_name\": \"V2\", \"op\": \"move_via_shape\", \"shape_index\": 2}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": 264, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 2}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -144, \"layer_name\": \"V2\", \"op\": \"move_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": 144, \"layer_name\": \"V2\", \"op\": \"move_via_shape\", \"shape_index\": 2}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": 264, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": 264, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 2}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": 288, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 1}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": -116, \"layer_name\": \"V4\", \"op\": \"move_via_shape\", \"shape_index\": 0}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 116, \"layer_name\": \"V4\", \"op\": \"move_via_shape\", \"shape_index\": 1}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 384, \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 384, \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 1}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 152, \"layer_name\": \"M4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": -116, \"layer_name\": \"V4\", \"op\": \"move_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 116, \"layer_name\": \"V4\", \"op\": \"move_via_shape\", \"shape_index\": 1}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 152, \"layer_name\": \"M4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 384, \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 384, \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 1}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": -116, \"layer_name\": \"V5\", \"op\": \"move_via_shape\", \"shape_index\": 0}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 116, \"layer_name\": \"V5\", \"op\": \"move_via_shape\", \"shape_index\": 1}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": -116, \"layer_name\": \"V5\", \"op\": \"move_via_shape\", \"shape_index\": 2}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 116, \"layer_name\": \"V5\", \"op\": \"move_via_shape\", \"shape_index\": 3}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 320, \"layer_name\": \"V5\", \"op\": \"resize_via_shape\", \"shape_index\": 0}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 320, \"layer_name\": \"V5\", \"op\": \"resize_via_shape\", \"shape_index\": 1}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 320, \"layer_name\": \"V5\", \"op\": \"resize_via_shape\", \"shape_index\": 2}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 320, \"layer_name\": \"V5\", \"op\": \"resize_via_shape\", \"shape_index\": 3}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": -116, \"layer_name\": \"V5\", \"op\": \"move_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": -116, \"layer_name\": \"V5\", \"op\": \"move_via_shape\", \"shape_index\": 2}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 116, \"layer_name\": \"V5\", \"op\": \"move_via_shape\", \"shape_index\": 1}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 116, \"layer_name\": \"V5\", \"op\": \"move_via_shape\", \"shape_index\": 3}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 320, \"layer_name\": \"V5\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 320, \"layer_name\": \"V5\", \"op\": \"resize_via_shape\", \"shape_index\": 1}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 320, \"layer_name\": \"V5\", \"op\": \"resize_via_shape\", \"shape_index\": 2}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": 320, \"layer_name\": \"V5\", \"op\": \"resize_via_shape\", \"shape_index\": 3}]"
+  ]
+ },
+ "winners": [
+  {
+   "target": "def:VIA_VIA23_1_3_36_36",
+   "target_keys": [
+    "def:VIA_VIA23_1_3_36_36"
+   ],
+   "ops": [
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -144
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 264
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 288
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 2,
+     "axis": "x",
+     "delta_dbu": 144
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 2,
+     "axis": "x",
+     "delta_dbu": 264
+    }
+   ],
+   "attributed_to": "leaf_0019"
+  },
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "ops": [
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -116
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 116
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 384
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 384
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 152
+    }
+   ],
+   "attributed_to": "leaf_0019"
+  },
+  {
+   "target": "def:VIA_VIA56_2_2_66_58",
+   "target_keys": [
+    "def:VIA_VIA56_2_2_66_58"
+   ],
+   "ops": [
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -116
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 116
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 2,
+     "axis": "x",
+     "delta_dbu": -116
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 3,
+     "axis": "x",
+     "delta_dbu": 116
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 320
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 320
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 2,
+     "axis": "x",
+     "delta_dbu": 320
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 3,
+     "axis": "x",
+     "delta_dbu": 320
+    }
+   ],
+   "attributed_to": "leaf_0019"
+  }
+ ],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA23_1_3_36_36",
+   "target_keys": [
+    "def:VIA_VIA23_1_3_36_36"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA23_1_3_36_36"
+   ],
+   "group": null,
+   "atomic": false,
+   "ops": [
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -144
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 264
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 288
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 2,
+     "axis": "x",
+     "delta_dbu": 144
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 2,
+     "axis": "x",
+     "delta_dbu": 264
+    }
+   ],
+   "proposers": [
+    "leaf_0019"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0019",
+     "before": 139,
+     "after": 97,
+     "delta": -42
+    },
+    {
+     "window": "unit:leaf_0020",
+     "before": 154,
+     "after": 118,
+     "delta": -36
+    }
+   ],
+   "delta_total": -78,
+   "conn_preserved": true,
+   "decision": "applied"
+  },
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA45_1_2_58_58"
+   ],
+   "group": null,
+   "atomic": false,
+   "ops": [
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -116
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 116
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 384
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 384
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 152
+    }
+   ],
+   "proposers": [
+    "leaf_0019"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0019",
+     "before": 139,
+     "after": 111,
+     "delta": -28
+    },
+    {
+     "window": "unit:leaf_0020",
+     "before": 154,
+     "after": 130,
+     "delta": -24
+    }
+   ],
+   "delta_total": -52,
+   "conn_preserved": true,
+   "decision": "applied"
+  },
+  {
+   "target": "def:VIA_VIA56_2_2_66_58",
+   "target_keys": [
+    "def:VIA_VIA56_2_2_66_58"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA56_2_2_66_58"
+   ],
+   "group": null,
+   "atomic": false,
+   "ops": [
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -116
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 116
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 2,
+     "axis": "x",
+     "delta_dbu": -116
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 3,
+     "axis": "x",
+     "delta_dbu": 116
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 320
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 320
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 2,
+     "axis": "x",
+     "delta_dbu": 320
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "V5",
+     "shape_index": 3,
+     "axis": "x",
+     "delta_dbu": 320
+    }
+   ],
+   "proposers": [
+    "leaf_0019"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0019",
+     "before": 139,
+     "after": 131,
+     "delta": -8
+    },
+    {
+     "window": "unit:leaf_0020",
+     "before": 154,
+     "after": 146,
+     "delta": -8
+    }
+   ],
+   "delta_total": -16,
+   "conn_preserved": true,
+   "decision": "applied"
+  }
+ ]
+}

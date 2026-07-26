@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move", "polygon_id": "p1053", "axis": "x", "delta_dbu": 76}
+  ],
+  "explanation": "Clears M2.S.4 tip-to-tip spacing violation (v0003) by moving M2 polygon p1053 rightward 76 dbu, increasing the gap to via i0143's M2 land from 48 dbu (12 nm) to 124 dbu (31 nm = exactly the M2.S.4 threshold)."
+}

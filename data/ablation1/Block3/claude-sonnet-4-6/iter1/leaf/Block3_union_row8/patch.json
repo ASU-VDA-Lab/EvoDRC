@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block3_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0016", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0017", "delta_dbu": [108, 0]},
+    {"op": "move_instance", "inst_id": "i0019", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0021", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "All four VIA_VIA12 instances are shifted right so their M1 lands no longer overlap the respective background V0 x-ranges, restoring coincidence between V0 bottom edges and background ptemp M1 bottom edges and clearing all six V0.M1.AUX.3, M1.S.2, and V1.M1.EN.1 target violations. i0017 requires a larger shift (108 dbu total) to move its M1 land fully to the right of the V0 at x=8028."
+}

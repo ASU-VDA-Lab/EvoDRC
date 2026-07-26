@@ -1,0 +1,67 @@
+{
+  "leaf_id": "leaf_0026",
+  "ops": [
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "M3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -40
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA34_1_2_58_52",
+      "layer_name": "M3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -64
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA34_1_2_58_52",
+      "layer_name": "V3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -24
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA34_1_2_58_52",
+      "layer_name": "V3",
+      "shape_index": 1,
+      "axis": "y",
+      "delta_dbu": -24
+    },
+    {
+      "op": "resize",
+      "polygon_id": "p1406",
+      "axis": "y",
+      "delta_dbu": -64
+    },
+    {
+      "op": "resize",
+      "polygon_id": "p1407",
+      "axis": "y",
+      "delta_dbu": -64
+    },
+    {
+      "op": "resize",
+      "polygon_id": "p1408",
+      "axis": "y",
+      "delta_dbu": -64
+    },
+    {
+      "op": "resize",
+      "polygon_id": "p1409",
+      "axis": "y",
+      "delta_dbu": -64
+    },
+    {
+      "op": "resize",
+      "polygon_id": "p1410",
+      "axis": "y",
+      "delta_dbu": -64
+    }
+  ]
+}

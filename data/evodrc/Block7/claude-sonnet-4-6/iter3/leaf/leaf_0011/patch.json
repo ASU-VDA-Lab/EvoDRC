@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0011",
+  "ops": [
+    {"op": "move", "polygon_id": "p3383", "axis": "y", "delta_dbu": 21},
+    {"op": "move_instance", "inst_id": "i1643", "delta_dbu": [0, 21]}
+  ],
+  "explanation": "Clears M2.S.1 violation v0047 by translating M2 polygon p3383 and VIA_VIA23 instance i1643 upward by 21 dbu, increasing the gap between their M2 bottom edges and the frozen M2 stripe p2989 from 51 dbu (12.75 nm) to 72 dbu (18 nm), exactly meeting the M2.S.1 minimum spacing threshold."
+}

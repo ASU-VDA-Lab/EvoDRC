@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block1_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0097", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0434", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0455", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i0436", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0116", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "All five V0.M1.AUX.3 violations are caused by VIA_VIA12 M1 landing pads offset from their paired V0 std-cell pins; moving each VIA_VIA12 instance by ±36 dbu in x repositions its M1 land so that the merged-M1 transition at the V0 boundary y-level creates a horizontal M1 edge coincident with the V0 boundary, eliminating all non-coincident convex corners."
+}

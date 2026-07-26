@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row18",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0942", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0428", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 i0942 right 36 dbu to clear M1.S.2/V1.M1.EN.1/V0.M1.AUX.3 violations; moved VIA_VIA12 i0428 left 36 dbu to clear V1.M1.EN.1 and M1.S.4 violations."
+}

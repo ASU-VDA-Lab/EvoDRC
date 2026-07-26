@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [],
+  "explanation": "No net-reducing legal fix exists. The only connectivity-preserving move (move_instance i0294 delta_dbu=[-72, 0]) clears 1 violation (V0.M1.AUX.3) but introduces 4 new violations (M1.W.1 x2, M1.S.2, V1.M1.EN.1), a net worsening of 3; resize_via_shape on VIA_VIA12 is forbidden (21/150 violating placements, not 100%)."
+}

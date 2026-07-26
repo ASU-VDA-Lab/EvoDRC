@@ -1,0 +1,5 @@
+{
+  "leaf_id": "Block4_union_row3",
+  "ops": [],
+  "explanation": "No safe regional fix exists: DRC preview confirms that moving i0170 (v0024/M1.S.2) or i0292 (v0006/V0.M1.AUX.3) by any amount does not clear the violations, and deleting either via breaks block connectivity; resize_via_shape/move_via_shape are forbidden since neither rule reaches 100% in the shared-target context."
+}

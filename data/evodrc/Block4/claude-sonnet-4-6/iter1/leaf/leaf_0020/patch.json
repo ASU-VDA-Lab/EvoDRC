@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0020",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0101", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "V0.M1.AUX.3 fired because VIA_VIA12 (i0101) at origin (6516,10620) placed its M1 land at (6480,10576)-(6552,10664), leaving the V0 bottom edge at y=10620 partially inside merged M1 and creating a dual non-coincident corner at (6516,10620); moving i0101 right 36 dbu to (6552,10620) aligns its M1 left edge (x=6516) with the V0 right edge, eliminating the offending convex corner and clearing the rule with no new violations."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0452", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA23 instance i0452 left by 36 dbu so its V2 cut and M3 land align with the M3 polygon p1544 edges, satisfying V2.M3.AUX.2's opposite-pair coincident-edge requirement."
+}

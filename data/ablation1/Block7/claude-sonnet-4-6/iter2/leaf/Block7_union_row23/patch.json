@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row23",
+  "ops": [
+    {"op":"move_instance","inst_id":"i0699","delta_dbu":[36,0]},
+    {"op":"move_instance","inst_id":"i0195","delta_dbu":[36,0]}
+  ],
+  "explanation": "Two V0.M1.AUX.3 violations cleared by moving VIA_VIA12 instances to the right by 36 dbu each. The rule fires when V0 edges have no coincident M1 edges forming convex (non-coincident h+v) corners. For v0026 at (4284,26820,4356,26892): the BUFx3 M1 notched polygon already provides coincident horizontal edges at y=26820 and y=26892, but the VIA_VIA12 at (4356,26820) was positioned such that its M1 land (4320-4392) did not provide a coincident vertical edge at x=4356 (V0 right). Moving i0699 right by 36 to (4392,26820) places its M1 land left edge at x=4356, which coincides with V0 right edge for y=[26776,26864], eliminating the convex corner condition. For v0029 at (15516,26028,15588,26100): same mechanism applies to i0195 VIA_VIA12, moved from (15588,26100) to (15624,26100). i0224 VIA_VIA23 at (15588,26100) is NOT moved. The M2 polygon p3183 does not require resize because the new i0699 M2 land left edge (4336) is already covered by p3183 (starts at 4320). Both new instance positions are within block bounds (0,0,30440,30440)."
+}

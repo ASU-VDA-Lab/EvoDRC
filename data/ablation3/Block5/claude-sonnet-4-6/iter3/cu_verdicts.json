@@ -1,0 +1,63 @@
+{
+ "strip": {
+  "whole_design": [
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": -88, \"layer_name\": \"M5\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]"
+  ]
+ },
+ "winners": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -88
+    }
+   ],
+   "attributed_to": "whole_design"
+  }
+ ],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA45_1_2_58_58"
+   ],
+   "group": null,
+   "atomic": false,
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -88
+    }
+   ],
+   "proposers": [
+    "whole_design"
+   ],
+   "windows": [
+    {
+     "window": "unit:whole_design",
+     "before": 47,
+     "after": 32,
+     "delta": -15
+    }
+   ],
+   "delta_total": -15,
+   "conn_preserved": true,
+   "decision": "applied"
+  }
+ ]
+}

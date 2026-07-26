@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0019",
+  "ops": [
+    {"op":"move_via_shape","cell_name":"VIA_VIA23_1_3_36_36","layer_name":"V2","shape_index":0,"axis":"x","delta_dbu":-144},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA23_1_3_36_36","layer_name":"V2","shape_index":0,"axis":"x","delta_dbu":288},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA23_1_3_36_36","layer_name":"V2","shape_index":1,"axis":"x","delta_dbu":288},
+    {"op":"move_via_shape","cell_name":"VIA_VIA23_1_3_36_36","layer_name":"V2","shape_index":2,"axis":"x","delta_dbu":144},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA23_1_3_36_36","layer_name":"V2","shape_index":2,"axis":"x","delta_dbu":288}
+  ],
+  "explanation": "Fixes 12 V2.M3.AUX.2 violations by expanding all 3 V2 cuts in VIA_VIA23_1_3_36_36 to span the full M3 x-width (x=-180..+180 relative), giving each cut 2 coincident x-edges with the merged M3 boundary; also clears V0.M1.AUX.3 (v0017) as a side-effect."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0358", "delta_dbu": [-16, 0]}
+  ],
+  "explanation": "Moves VIA_VIA34 instance i0358 left by 16 dbu (4 nm) to increase the M4 edge-to-edge gap from 144 dbu to 160 dbu (40 nm), clearing all three M4.S.2/M4.S.3 violations against the neighboring VIA_VIA45_1_2_58_58 M4 land at x=1844."
+}

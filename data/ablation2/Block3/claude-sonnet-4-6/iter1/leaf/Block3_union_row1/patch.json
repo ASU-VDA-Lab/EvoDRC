@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block3_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0233", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1254", "axis": "x", "end": "high", "delta_dbu": 192},
+    {"op": "move_instance", "inst_id": "i0246", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1270", "axis": "x", "end": "high", "delta_dbu": 192},
+    {"op": "move_instance", "inst_id": "i0205", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1255", "axis": "x", "end": "high", "delta_dbu": 192}
+  ],
+  "explanation": "Three VIA_VIA12 instances (i0233, i0246, i0205) are shifted +136 dbu in x to separate their M1 lands from frozen V0 std-cell pins, clearing V0.M1.AUX.3 at all three sites and the co-located M1.S.2 and V1.M1.EN.1 violations; the three associated M2 connector polygons (p1254, p1270, p1255) are extended +192 dbu on their high-x end to maintain M2 coverage for the relocated vias."
+}

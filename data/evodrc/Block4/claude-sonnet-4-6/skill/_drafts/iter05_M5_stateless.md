@@ -1,0 +1,23 @@
+**M5 Width Constraints**
+
+The minimum horizontal (x-direction) width for M5 is 24 nm (M5.W.1). The maximum horizontal width is 480 nm (M5.W.2). M5.W.3 prohibits horizontal widths that are exact even-integer multiples of 24 nm: 48, 96, 144, 192, 240, 288, 336, 384, 432, and 480 nm are each individually forbidden. M5.W.4 further prohibits widths of 72, 168, 264, 360, and 456 nm, which span an even number of minimum-width routing tracks. The minimum vertical (y-direction) width is 44 nm (M5.W.5). M5.W.2 and M5.W.3 together make 480 nm forbidden both as the declared maximum and as an even multiple; horizontal widths of 481 nm and above trigger M5.W.2 independently.
+
+**M5 Spacing Constraints**
+
+Minimum horizontal spacing between M5 edges is 24 nm regardless of edge length or mask color (M5.S.1); the rule has two triggers — a projection-based check for 90°-angle edge pairs and a general 1 nm Euclidean check that catches sub-1 nm overlaps or touches. Minimum vertical spacing is 40 nm (M5.S.2). Tip-to-tip spacing on adjacent tracks is 40 nm under both M5.S.3 (no shared parallel run length) and M5.S.4 (shared parallel run length). The minimum parallel run length between M5 polygons on adjacent tracks is 44 nm (M5.S.5).
+
+**M5 Grid and Topology Constraints**
+
+All M5 vertical edges must land on a 24 nm x-grid (M5.AUX.1). Minimum-width M5 tracks — shapes that do not survive a 13 nm inward bilateral x-sizing — must have centerlines at x = 48 + N × 192 dbu for integer N ≥ 0 (M5.AUX.2). Wide M5 shapes — those surviving the 13 nm inward x-sizing — must not have outer vertical edges coinciding with a routing track edge (M5.AUX.4). M5 must be strictly rectilinear; any corner between 0° and 90° (exclusive) triggers M5.AUX.3, and the global NONORTHOGONAL block independently flags any non-axis-aligned edge on every layer including M5.
+
+**Via Enclosure Rules Involving M5**
+
+V4 must be enclosed by M5 by at least 11 nm on two opposite sides (V4.M5.EN.2). V4 must match M5 width exactly in the direction perpendicular to the M5 length (V4.M5.AUX.2); any V4 not fully inside M5, or inside M5 but sharing fewer than two coincident edges with M5's boundary, violates this rule. V5 must be enclosed by M5 by at least 11 nm on at least two opposite sides (V5.M5.EN.1).
+
+**Observed Repair Patterns**
+
+*VIA56 M5 y-extension pattern.* Both applied cu_pool repairs targeting VIA_VIA56 cells extended the M5 via shape by +160 dbu in the y-direction alongside coordinated V5 shape adjustments. trial:i04.cu.def:VIA_VIA56_2_1_66_58.00 used a two-shape V5 adjustment (move ∓132 dbu y, resize +512 dbu y per shape) with the +160 dbu M5 y-resize, reducing the violation count by 2 (80→78). trial:i04.cu.def:VIA_VIA56_2_2_66_58.01 applied the same M5 y-extension with a four-shape V5 adjustment (two pairs, each moved ∓132 dbu y and resized +512 dbu y) and reduced violations by 4 (80→76). Both were applied with connectivity preserved. Apply the +160 dbu M5 y-resize paired with the V5 shape adjustment when VIA56 cells show V5.M5.EN.1 failures in the y-direction; the pattern is consistently effective and safe at these magnitudes (trial:i04.cu.def:VIA_VIA56_2_1_66_58.00, trial:i04.cu.def:VIA_VIA56_2_2_66_58.01).
+
+*VIA45 V4/M4 x-resize yields the highest single-operation violation reduction observed.* trial:i05.cu.def:VIA_VIA45_1_2_58_58.01 resized V4 shapes by +384 dbu in x (with ∓116 dbu centering moves on each shape) and extended M4 by +152 dbu in x, with M5 in the touched-layer set. This single operation reduced total violations by 38 (-28 in unit:leaf_0001, -10 in unit:leaf_0002), the largest yield of any recorded operation across all iterations. Resize V4 and M4 in x using this move-and-resize pattern when VIA45 cells contribute to M5-adjacent enclosure violations; the multi-unit benefit confirms the cell definition change propagates broadly (trial:i05.cu.def:VIA_VIA45_1_2_58_58.01).
+
+*Unit-gate M5 alignment moves preserve connectivity but introduce new in-crop violations.* trial:i04.ug.leaf_0002.01 shifted M5 polygon p1341 by +32 dbu in x via the m5_align group and moved five instances by [32, ±24] dbu; the decision was gated_in with conn_preserved, recording 2 new in-crop violations and 0 out-of-crop. trial:i01.ug.leaf_0025.11 moved instances i0234 and i0305 by [0, 64] dbu and was also gated_in with 9 new in-crop violations. Do not treat a gated_in unit-gate decision as violation-neutral: every recorded unit-gate operation touching M5 introduced new in-crop violations regardless of the move axis or magnitude (trial:i04.ug.leaf_0002.01, trial:i01.ug.leaf_0025.11). The gating criterion is conn_preserved, not net violation reduction.

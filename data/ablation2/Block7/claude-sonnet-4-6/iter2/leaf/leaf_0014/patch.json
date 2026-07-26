@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0014",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0519", "delta_dbu": [108, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0519 right by 108 dbu to eliminate the x-projection between its M1 land top edge and the frozen std-cell M1 bottom edge, clearing the M1.S.4 spacing violation v0051 with no new violations introduced."
+}

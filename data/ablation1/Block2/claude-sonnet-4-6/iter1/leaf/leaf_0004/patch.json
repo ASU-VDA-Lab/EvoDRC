@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [{"op": "move_instance", "inst_id": "i0127", "delta_dbu": [37, 0]}],
+  "explanation": "Moves VIA_VIA12 i0127 right 37 dbu so its M1 land bridge (x=[6517,6589]) no longer absorbs the background M1 edge at y=3420 over V0's top edge, clearing V0.M1.AUX.3 at (6444,3348,6516,3420)."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [73, 0]},
+    {"op": "resize_end", "polygon_id": "p1226", "axis": "x", "end": "high", "delta_dbu": 130}
+  ],
+  "explanation": "Moves VIA_VIA12 i0239 rightward 73 dbu so its M1 land clears the V0 pin x-range, making the V0 top edge coincident with the std-cell M1 boundary and clearing V0.M1.AUX.3; extends M2 stripe p1226 high-x end by 130 dbu to maintain M2 connectivity at the via's new position."
+}

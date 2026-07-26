@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block6_union_row4",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0319", "delta_dbu": [56, 0]},
+    {"op": "move_instance", "inst_id": "i0410", "delta_dbu": [112, 0]},
+    {"op": "resize_end", "polygon_id": "p2020", "axis": "x", "end": "high", "delta_dbu": 132}
+  ],
+  "explanation": "Moved VIA_VIA12 i0319 right by 56 dbu to clear M1.S.2 tip spacing (v0014) and V1.M1.EN.1 enclosure (v0024) by shifting V1 cut fully inside std-cell M1 coverage; moved VIA_VIA12 i0410 right by 112 dbu to clear M1.S.2 (v0015), V1.M1.EN.1 (v0025), and V0.M1.AUX.3 (v0010) by shifting the via M1 footprint outside the V0 x-span, then extended M2 stripe p2020 by 132 dbu to restore M2 routing connectivity to i0410's new position."
+}

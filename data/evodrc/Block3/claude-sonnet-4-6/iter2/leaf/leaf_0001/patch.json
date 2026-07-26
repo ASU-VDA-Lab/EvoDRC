@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0233", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0233 left by 36 dbu to clear M1.S.2 tip-to-side violation v0003: the gap between the via's M1 land right edge and frozen std-cell M1 left edge increases from 80 dbu (20 nm, below the 25 nm rule threshold) to 116 dbu (29 nm), while the M2 land remains fully inside p1254 and M1 connectivity to the std-cell is preserved."
+}

@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block7_union_row19",
+  "ops": [
+    {"op":"move_instance","inst_id":"i0949","delta_dbu":[0,-52]},
+    {"op":"move_instance","inst_id":"i0950","delta_dbu":[0,-52]},
+    {"op":"move_instance","inst_id":"i0771","delta_dbu":[37,0]},
+    {"op":"move_instance","inst_id":"i0026","delta_dbu":[-37,0]},
+    {"op":"move_instance","inst_id":"i0294","delta_dbu":[-37,0]}
+  ],
+  "explanation": "Moved five via instances (all move_instance regional ops) to clear 9 of 11 target violations: i0949/i0950 shifted down 52 dbu to fix the M1.S.4/M1.S.5/M1.S.6 cluster (v0139, v0150, v0172, v0173) at origin (12564,21780); i0771 shifted right 37 dbu to clear M1.S.6 corner violations and V0.M1.AUX.3 (v0174, v0175, v0010) at origin (7812,22500); i0026 shifted left 37 dbu to clear V0.M1.AUX.3 (v0030) at origin (14868,22500); i0294 shifted left 37 dbu to clear V0.M1.AUX.3 (v0021) at origin (20916,21780)."
+}

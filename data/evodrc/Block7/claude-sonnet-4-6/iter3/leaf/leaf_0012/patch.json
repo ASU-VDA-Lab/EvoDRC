@@ -1,0 +1,114 @@
+{
+  "leaf_id": "leaf_0012",
+  "ops": [
+    {
+      "op": "move",
+      "polygon_id": "p2213",
+      "axis": "x",
+      "delta_dbu": 32
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2212",
+      "axis": "x",
+      "delta_dbu": -16
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2211",
+      "axis": "x",
+      "delta_dbu": -64
+    },
+    {
+      "op": "move",
+      "polygon_id": "p3803",
+      "axis": "y",
+      "delta_dbu": 32
+    },
+    {
+      "op": "move",
+      "polygon_id": "p3802",
+      "axis": "y",
+      "delta_dbu": -16
+    },
+    {
+      "op": "move",
+      "polygon_id": "p3801",
+      "axis": "y",
+      "delta_dbu": 64
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1524",
+      "delta_dbu": [
+        32,
+        32
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1693",
+      "delta_dbu": [
+        -16,
+        32
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2026",
+      "delta_dbu": [
+        -64,
+        32
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1336",
+      "delta_dbu": [
+        32,
+        -16
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1124",
+      "delta_dbu": [
+        -16,
+        -16
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1762",
+      "delta_dbu": [
+        -64,
+        -16
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0726",
+      "delta_dbu": [
+        32,
+        64
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0664",
+      "delta_dbu": [
+        -16,
+        64
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0121",
+      "delta_dbu": [
+        -64,
+        64
+      ]
+    }
+  ],
+  "explanation": "Clears 6 M5.AUX.1/M6.AUX.1 auxiliary-layer spacing violations (v0363-v0365, v0370-v0374) by shifting three M5 polygons (p2211-p2213) along x and three M6 polygons (p3801-p3803) along y, with matching co-moves of all 9 VIA56 instances (i0121, i0664, i0726, i1124, i1336, i1524, i1693, i1762, i2026) to preserve connectivity."
+}

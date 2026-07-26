@@ -1,0 +1,35 @@
+## Repair Behavior and Operation Patterns
+
+Every trial in which V2 geometry was modified resulted in `conn_preserved: true` for acceptance. No trial was `gated_in` without connectivity preservation — trial:i02.cu.def:VIA_VIA23_1_3_36_36.00 (the only rejection) failed on `rejected_net_positive` because its single `resize_via_shape` op produced zero delta across all five monitored windows, not because connectivity broke. This establishes that repairs touching V2 must maintain M2/M3 net connections; the DRC rules V2.AUX.1 and V2.M3.AUX.2 both depend on V2 being contained inside M2 ∩ M3, so any move that displaces V2 outside either parent layer breaks electrical and geometric constraints simultaneously.
+
+## Instance Move as Primary Repair Operation
+
+The dominant repair primitive across all accepted V2 trials is `move_instance`, often combined with `resize_end` on an adjacent M3 polygon end. Standalone `resize_via_shape` on an M3 shape within a via cell was attempted once (trial:i02.cu.def:VIA_VIA23_1_3_36_56.00, op: `resize_via_shape` layer M3 shape_index 0, delta_dbu -40 on y) and produced zero improvement. Do not use `resize_via_shape` applied to M3 alone to resolve V2 violations; the V2 instance itself must move with its enclosing M3.
+
+## Typical Move Magnitudes Observed
+
+Accepted x-axis instance moves: 36, 37, 40, 56, 60, 108 dbu — seen in trial:i01.ug.Block7_union_row12.02, trial:i04.ug.leaf_0001.01, trial:i01.ug.Block7_union_row9.21, trial:i04.ug.leaf_0008.06. Accepted y-axis moves: 12, 16, 52, 57, 64, 68 dbu — seen in trial:i01.ug.Block7_union_row14.04, trial:i02.ug.leaf_0023.16, trial:i01.ug.Block7_union_row19.09, trial:i02.ug.Block7_union_row17.02, trial:i04.ug.leaf_0007.05. Move quanta are not always multiples of the 18 nm rule minimum, indicating that spacing between V2.S rules is not the only constraint being satisfied; M2 enclosure (V2.M2.EN.1) and M3 enclosure (V2.M3.EN.2) also gate admissible positions.
+
+## Oscillating Instances Indicate Unresolved Global State
+
+Instance pair i0949 and i0950 moved [0,-52] in trial:i01.ug.Block7_union_row19.09, reversed to [0,+52] in trial:i02.ug.leaf_0032.17, moved [0,-52] again in trial:i03.ug.Block7_union_row19.03, and reversed again to [0,+52] in trial:i04.ug.leaf_0008.06. Instance pair i0794 and i0810 together with polygon p3631 moved [0,+57] in trial:i02.ug.Block7_union_row17.02, reversed [0,-57] in trial:i03.ug.Block7_union_row17.02, then moved [0,+68] in trial:i04.ug.leaf_0007.05. These oscillations show that local acceptance of a move does not guarantee global stability; the same physical instances re-enter the repair queue in subsequent iterations with opposing corrections. When a V2 instance or its containing M3 segment participates in an oscillating sequence, enlarging the repair locus to include both ends of the conflicting M3 track resolves more violations per operation — compare the narrow loci (e.g., [4293,15004,4419,15064] in trial:i02.ug.leaf_0010.13) with the broader covering locus [4176,13248,4419,17784] used in trial:i05.ug.leaf_0001.01 for the same instance i1358.
+
+## Instance i1358 Repeated Repositioning
+
+Instance i1358 (touching only M2, M3, V2) was moved four times across four iterations: y-36 in trial:i02.ug.leaf_0010.13, y+36 in trial:i03.ug.leaf_0002.07 (net cancellation), x-36 in trial:i04.ug.leaf_0002.02, and x+36 in trial:i05.ug.leaf_0001.01 (net cancellation again). Each individual move was `gated_in`, but the net displacement after iteration 5 is zero relative to iteration 1. This pattern demonstrates that narrow crops allow local connectivity to be preserved while inadvertently recreating the violation in an adjacent evaluation window, causing the inverse correction to be accepted in the next pass. Use a crop that includes all V2 instances within one V2.S.1 projection spacing (≥18 nm in-track, ≥27 nm cross-track) of the target instance to prevent cancellation cycles.
+
+## New In-Crop Violations Are Acceptable Under unit_gate
+
+Trials trial:i01.ug.Block7_union_row13.03, trial:i02.ug.leaf_0032.17, trial:i03.ug.Block7_union_row19.03, and trial:i04.ug.leaf_0008.06 each introduced n_new_in_crop > 0 (1, 4, 1, 4 respectively) and were still accepted because the `unit_gate` channel gates on connectivity, not DRC count. New violations introduced inside the crop are tolerated as long as no violations appear outside the crop and connectivity is preserved. This means a sequence of unit_gate moves can accumulate uncounted in-crop V2 violations; the cu_pool channel (which tracks per-window DRC counts) will surface these in subsequent passes.
+
+## M3 End-Cap Classification Governs Spacing Rule Selection
+
+V2.S.1 through V2.S.4 all branch on whether a V2 instance has a 5 nm M3 end-cap (wec: with-end-cap) or no M3 end-cap flush to the V2 edge (nec: no-end-cap). The repair operations observed in trial:i02.cu.def:VIA_VIA23_1_3_36_56.00 targeted cell `VIA_VIA23_1_3_36_36`, whose name encodes a 36×36 via body with a specific M3 shape; the rejected M3 resize tried to shorten M3 by 40 dbu along y, which would have reduced or eliminated the end-cap. Because this produced zero delta, shrinking an existing end-cap below the 5 nm threshold does not convert a wec instance to a nec instance in a way that relaxes violations when the spacing geometry is otherwise unchanged. Maintain end-cap classification when moving V2 instances; do not attempt to reclassify wec→nec through M3 trimming alone.
+
+## Coupled M3 Polygon Resizes Accompany Instance Moves
+
+In trial:i01.ug.Block7_union_row12.02, instance i1208 was moved x+36 and M3 polygon p3273 had its high-x end resized +56. In trial:i01.ug.Block7_union_row14.04, M3 polygon p3200 was resized high-x +48 alongside instance moves. In trial:i04.ug.leaf_0001.01, M3 polygon p3696 was resized high-x +108 alongside instance i1140 moved +108. The resize delta on M3 matches or exceeds the instance move delta in the same axis. This is required by V2.M3.AUX.2 (V2 must match M3 width perpendicular to M3 length) and V2.M3.EN.2 (M3 must enclose V2 on two opposite sides); moving a V2 instance without extending the adjacent M3 endpoint by at least the same displacement will violate both rules.
+
+## Connectivity Preservation Across All Accepted Trials
+
+Every `gated_in` trial has `conn_preserved: true` regardless of locus size, number of operations, or presence of new in-crop violations. This holds for single-op trials (trial:i02.ug.leaf_0010.13, trial:i03.ug.leaf_0002.07, trial:i04.ug.leaf_0002.02, trial:i05.ug.leaf_0001.01) and for nine-op trials (trial:i01.ug.Block7_union_row12.02, trial:i03.ug.Block7_union_row17.02). Never move a V2 instance without verifying that the M2 and M3 segments it bridges remain connected; V2.AUX.1 requires V2 to be inside both M2 and M3, and any displacement that pulls V2 outside either layer severs the via connection.

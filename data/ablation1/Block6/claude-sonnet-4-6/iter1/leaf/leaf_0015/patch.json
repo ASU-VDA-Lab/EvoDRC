@@ -1,0 +1,23 @@
+{
+  "leaf_id": "leaf_0015",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0213",
+      "delta_dbu": [28, 0]
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p1923",
+      "axis": "x",
+      "end": "high",
+      "delta_dbu": 48
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0204",
+      "delta_dbu": [28, 0]
+    }
+  ],
+  "explanation": "Fixes v0030 (M1.S.2) by moving VIA_VIA12 i0213 right by 28 dbu to increase gap to frozen M1 at x=3528 from 72 to 100 dbu. Extends M2 polygon p1923 right edge by 48 dbu to maintain V1 enclosure by M2 (V1.AUX.1) after via move. Fixes v0031 (M1.S.2) by moving VIA_VIA12 i0204 right by 28 dbu to increase gap to frozen M1 at x=3384 from 72 to 100 dbu. Clears v0050 (V1.M1.EN.1) as a side effect of the via move. One new V1.M1.EN.1 violation appears at the moved i0213 via position (3628,10584,3700,10656) due to insufficient M1 enclosure at the new location; however this is strictly fewer new violations (1) than cleared (3), satisfying the acceptance criteria. Connectivity is fully preserved."
+}

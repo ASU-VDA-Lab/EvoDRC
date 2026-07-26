@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block7_union_row18",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0978", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0317", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0292", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0442", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Four VIA_VIA12 instances (i0978, i0317, i0292, i0442) are each shifted +36 dbu in X to clear their respective V0.M1.AUX.3 spacing violations; Ops 2/3/7 from the approved plan were dropped because Op 2 introduces net-new DRC violations without its companion Op 3, and both Op 3 and Op 7 add_polygon operations break layout connectivity."
+}

@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1446", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p3317", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i1442", "delta_dbu": [40, 0]}
+  ],
+  "explanation": "Move VIA_VIA12 i1446 (+108 dbu in x) so its M1 land merges with background _ptemp_4 at x=4932, clearing five M1.S.4/S.5/S.6 violations; extend p3317 M2 land to maintain M2 coverage of the moved via. Move VIA_VIA12 i1442 (+40 dbu in x) so its M1 land clears V0 pin x-range, resolving the V0.M1.AUX.3 violation."
+}

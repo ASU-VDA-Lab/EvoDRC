@@ -1,0 +1,13 @@
+{
+  "leaf_id": "Block7_union_row15",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0909", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0913", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1045", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0346", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0351", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0377", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0477", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Seven VIA_VIA12 instances were each moved +36 dbu in x so that each via's M1 land left edge coincides with the corresponding V0 std-cell pin right edge, clearing all six V0.M1.AUX.3 violations plus the co-located M1.S.2 and V1.M1.EN.1 violations; DRC preview confirmed all 8 targets cleared with zero new violations and connectivity preserved across 3325 seeds."
+}

@@ -1,0 +1,14 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -40},
+    {"op": "resize_end", "polygon_id": "p1214", "axis": "x", "end": "high", "delta_dbu": 172},
+    {"op": "resize_end", "polygon_id": "p1178", "axis": "x", "end": "high", "delta_dbu": 192},
+    {"op": "resize_end", "polygon_id": "p1211", "axis": "x", "end": "high", "delta_dbu": 172},
+    {"op": "resize_end", "polygon_id": "p1216", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "resize_end", "polygon_id": "p1543", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p1458", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p1301", "axis": "x", "end": "low", "delta_dbu": 48}
+  ],
+  "explanation": "Shrinks VIA_VIA23_1_3_36_36 M3 land y-extent from ±56 to ±36 dbu (aligning M3 y-edges with V2 cut y-edges) to clear 24 admissible V2.M3.AUX.2 violations block-wide; extends four M4 polygons rightward (172–192 dbu) to bring parallel run to exactly 176 dbu for four M4.S.5 violations; extends two M3 polygon tops by 9 dbu to convert their adjacent edge from TIP (≤144 dbu) to SIDE (>144 dbu), switching the applicable rule from M3.S.2 (100 dbu) to M3.S.1 (72 dbu) so the 92 dbu gap passes; and extends one M2 polygon left by 48 dbu to raise the parallel run to 140 dbu for the M2.S.7 compound rule."
+}

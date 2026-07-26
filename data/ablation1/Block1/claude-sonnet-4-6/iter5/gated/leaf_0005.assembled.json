@@ -1,0 +1,19 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops_total": 5,
+  "ops_applied": 5,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "M6",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": -96
+      },
+      "reason": "cu_pool:rejected_net_positive"
+    }
+  ],
+  "had_drop": true
+}

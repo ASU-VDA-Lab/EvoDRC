@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move", "polygon_id": "p1060", "axis": "x", "delta_dbu": -64, "group": "fix_m5aux1"},
+    {"op": "move_instance", "inst_id": "i0163", "delta_dbu": [-64, 0], "group": "fix_m5aux1"},
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [-64, 0], "group": "fix_m5aux1"},
+    {"op": "move_instance", "inst_id": "i0079", "delta_dbu": [-64, 0], "group": "fix_m5aux1"},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [-64, 0], "group": "fix_m5aux1"},
+    {"op": "move_instance", "inst_id": "i0140", "delta_dbu": [-64, 0], "group": "fix_m5aux1"}
+  ],
+  "explanation": "Clears M5.AUX.1 violation v0004 by shifting M5 polygon p1060 and all five owned VIA_VIA45_1_2_58_58 instances leftward by 64 dbu, moving vertical M5 edges from off-grid positions (x=1888, x=2368) onto the 24 nm (96 dbu) grid (x=1824, x=2304)."
+}

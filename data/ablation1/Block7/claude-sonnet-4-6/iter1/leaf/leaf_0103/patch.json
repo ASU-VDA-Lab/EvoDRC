@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0103",
+  "ops": [],
+  "explanation": "All attempted V2.M3.AUX.2 repairs (shrinking M3 pads, expanding V2/M2/M3 via structure) produced net-negative DRC outcomes due to cascading violations; empty ops yields the best result with 14 target violations already absent from the current layout state."
+}

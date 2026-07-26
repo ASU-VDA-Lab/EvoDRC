@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1646", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i1646 rightward 36 dbu (from origin x=8676 to x=8712) so its M1 land no longer extends below y=4140 within the V0 pin x-range [8604,8676], eliminating the non-coincident horizontal edge that triggered V0.M1.AUX.3 violation v0047."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block2_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0159", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0152", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Both V0.M1.AUX.3 violations arise because VIA_VIA12 M1 lands straddle the notch boundary of the background M1 U-shape, creating a non-coincident convex corner on the adjacent V0 std-cell pin; shifting each via +36 dbu in x moves its M1 land left edge to the V0 pin's right edge, making the entire V0 boundary edge coincident with the merged M1 boundary and eliminating the convex-corner condition."
+}

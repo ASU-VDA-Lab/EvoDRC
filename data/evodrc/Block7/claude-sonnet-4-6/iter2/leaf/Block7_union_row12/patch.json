@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row12",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1311", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1320", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1759", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Three VIA_VIA12 instances were shifted +36 dbu in the x-direction to resolve three V0.M1.AUX.3 DRC violations (v0032, v0019, v0026). The delta of +36 dbu is the minimum required to move each via center out of the enclosure overlap region causing the auxiliary spacing rule violation. Instance i1734 (VIA_VIA23) was intentionally left in place as it is not involved in the flagged violations. DRC preview confirmed all three targets cleared (remaining=0, new_in_window=[]). Connectivity preview verified all 3325 seeds intact with no broken connections (preserved=true)."
+}

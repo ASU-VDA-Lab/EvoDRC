@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block6_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0093", "delta_dbu": [4, 0]},
+    {"op": "resize_end", "polygon_id": "p1903", "axis": "x", "end": "high", "delta_dbu": 4},
+    {"op": "move_instance", "inst_id": "i0122", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Fixes two V0.M1.AUX.3 violations: moves VIA_VIA12 instance i0093 by +4 DBU in X and extends M2 polygon p1903 high-X edge by +4 DBU to clear the violation at bbox [8820,9540,8892,9612]; moves VIA_VIA12 instance i0122 by +36 DBU in X to clear the violation at bbox [14220,8748,14292,8820]."
+}

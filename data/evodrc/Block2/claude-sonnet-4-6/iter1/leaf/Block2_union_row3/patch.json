@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block2_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0115", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1040", "axis": "x", "end": "high", "delta_dbu": 36}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0115 and i0103 right by 36 dbu each so their M1 lands no longer extend into the std-cell V0 pin x-ranges, eliminating the non-coincident horizontal V0 top edges that were triggering V0.M1.AUX.3. Also extends M2 polygon p1040 rightward by 36 dbu to maintain direct M2 coverage over the repositioned i0103."
+}

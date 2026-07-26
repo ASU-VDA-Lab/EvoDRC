@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0090", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0110", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0094", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0098", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0088", "delta_dbu": [0, 24]}
+  ],
+  "explanation": "Cleared v0025 and v0023 (M4.AUX.1) by moving the VIA_VIA34/VIA_VIA45 stacks +24/-24 dbu in Y so M4 land edges land on the 96-dbu routing grid; cleared v0002 (M2.S.2) by moving i0088 (VIA_VIA12) +24 dbu Y increasing the tip-to-side gap from 84 to 108 dbu (>25 nm threshold). v0001 was already clear at baseline. v0008/v0009 (V1.M2.AUX.2) cannot be fixed regionally without introducing M2.S.1 (insufficient clearance between i0089 M2 land and p1006). DECLARED DEBT: M4.AUX.2 @ (2688, 3216, 3104, 3312) introduced by i0094/i0098 -24 move."
+}

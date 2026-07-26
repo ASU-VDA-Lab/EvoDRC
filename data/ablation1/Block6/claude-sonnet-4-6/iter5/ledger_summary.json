@@ -1,0 +1,41 @@
+{
+  "case": "Block6",
+  "design_state": "998b18572a34387b7c7fa00cfb7529e1b719e6b6bf6c99b055c6c7ddd7542204",
+  "failed_trials": [
+    {
+      "artifact": "leaf/leaf_0002/patch.json",
+      "channel": "unit_gate",
+      "reason": "expected_object",
+      "trial_id": "i05.ug.leaf_0002.00"
+    }
+  ],
+  "iter": 5,
+  "n_appended_new": 12,
+  "n_cu_pool": 1,
+  "n_failed_trials": 1,
+  "n_records": 2,
+  "n_unit_gate": 1,
+  "n_unmapped": 0,
+  "per_layer": {
+    "M3": 1,
+    "M4": 2,
+    "M5": 2,
+    "M6": 2,
+    "V3": 1,
+    "V4": 2,
+    "V5": 2
+  },
+  "touched_layers": [
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "trial_ids": [
+    "i05.cu.def:VIA_VIA45_1_2_58_58.00",
+    "i05.ug.leaf_0003.01"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0920", "delta_dbu": [0, -64]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0920 downward by 64 dbu to clear M1.S.2 spacing violation (v0031, gap 36→100 dbu) and V1.S.2 spacing violations (v0077/v0078, V1 mask gap 4→68 dbu)."
+}

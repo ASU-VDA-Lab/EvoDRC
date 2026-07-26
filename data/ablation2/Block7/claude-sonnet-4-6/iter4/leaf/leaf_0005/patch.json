@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [0, 72]},
+    {"op": "add_polygon", "layer_name": "M2", "points": [[14560, 17352], [14560, 17432], [14632, 17432], [14632, 17352]]}
+  ],
+  "explanation": "Moves VIA_VIA12 i1062 up by 72 dbu so its M1 land TIP merges into the same-net _ptemp_19 body, increasing the effective gap to p3793 from 7nm to 18nm and clearing M1.S.2 (v0025); adds a companion M2 polygon to restore the merged M2 bottom edge from 23nm (TIP) to 41nm (SIDE), preventing the M2.S.2 regression that the via move alone would introduce."
+}

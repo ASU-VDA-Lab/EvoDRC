@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block4_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0170", "delta_dbu": [-28, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0170 left by 28 dbu to increase the M1 tip-to-side gap from 72 dbu (18 nm) to 100 dbu (25 nm), clearing M1.S.2 violation v0011. V0.M1.AUX.3 violation v0007 is structurally unfixable (frozen std-cell V0 pin and M1 strip in INVx3; VIA_VIA12 fraction 10/104 precludes via-structure edits)."
+}

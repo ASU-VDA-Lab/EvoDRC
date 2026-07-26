@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block4_union_row10",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0120", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0041", "delta_dbu": [-108, 0]},
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [96, 0]},
+    {"op": "resize_end", "polygon_id": "p1551", "axis": "x", "end": "high", "delta_dbu": 16}
+  ],
+  "explanation": "Clears three V0.M1.AUX.3 violations by moving owned VIA_VIA12 instances (i0120, i0041, i0025) away from the std-cell M1 step regions where they were disrupting the M1 boundary coincidence with V0 edges; p1551 M2 is extended 16 dbu to maintain connectivity after i0025 moves right. M4.S.4 at (8020,12864,8164,12888) is declared debt — both M4 sources are frozen/uneditable."
+}

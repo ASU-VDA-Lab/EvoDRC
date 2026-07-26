@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0250", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "V0.M1.AUX.3 fired because VIA_VIA12 i0250's M1 land (centered at x=5832) covered x=5796–5868 and extended above y=3420, making the merged M1 top non-coincident with the V0 pin top edge at y=3420. Moving i0250 by +72 dbu in x shifts its M1 land to x=5868–5940, leaving the V0 x-range covered only by frozen _ptemp_15 M1 (y=3348–3420), whose boundaries exactly coincide with the V0 pin edges."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row20",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0753", "delta_dbu": [-36, 0]},
+    {"op": "add_polygon", "layer_name": "M2", "points": [[5992,22824],[5992,22896],[6048,22896],[6048,22824]]}
+  ],
+  "explanation": "Moved via instance i0753 (VIA_VIA12) left by 36 dbu to merge its M1 land with the adjacent _ptemp_16 M1 shape, clearing the V1.M1.EN.1 enclosure violation (v0232) and the M1.S.4 tip-spacing violation (v0140); added a 56x72 dbu M2 fill polygon to cover the gap left of polygon p3160 and maintain M2 continuity. Sites 2 (v0085), 3 (v0116), 4 (v0005), and 5 (v0036) were skipped: site 4 breaks connectivity on deletion, and sites 2, 3, and 5 each introduce new M1 or M2 spacing violations (M1.S.4, M2.S.2, M2.S.4) due to tight geometric constraints between frozen std-cell M1/M2 rails and the displaced via M1 land."
+}

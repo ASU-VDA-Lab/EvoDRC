@@ -1,0 +1,98 @@
+{
+ "strip": {
+  "whole_design": [
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 152, \"layer_name\": \"M4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 152, \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 152, \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 1}, {\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 152, \"layer_name\": \"M4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 152, \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 152, \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 1}]"
+  ]
+ },
+ "winners": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 152
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 152
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 152
+    }
+   ],
+   "attributed_to": "whole_design"
+  }
+ ],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA45_1_2_58_58"
+   ],
+   "group": null,
+   "atomic": false,
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 152
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 152
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 152
+    }
+   ],
+   "proposers": [
+    "whole_design"
+   ],
+   "windows": [
+    {
+     "window": "unit:whole_design",
+     "before": 21,
+     "after": 3,
+     "delta": -18
+    }
+   ],
+   "delta_total": -18,
+   "conn_preserved": true,
+   "decision": "applied"
+  }
+ ]
+}

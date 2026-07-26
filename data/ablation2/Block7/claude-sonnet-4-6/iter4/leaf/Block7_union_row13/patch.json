@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row13",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1063", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0347", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p3538", "axis": "x", "end": "high", "delta_dbu": 36}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i1063 and i0347 by +72 dbu in x to remove their M1 lands from the std-cell V0 footprints, clearing V0.M1.AUX.3 at both sites; extended M2 polygon p3538 rightward by 36 dbu to maintain M2 coverage for relocated i0347."
+}

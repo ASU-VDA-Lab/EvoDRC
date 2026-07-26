@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0018",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0060", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0060 right by 36 dbu (from origin 9540,12780 to 9576,12780), removing its M1 land from the V0 pin region and restoring M1-edge coincidence on all four corners of the V0 pin, clearing v0018 (V0.M1.AUX.3)."
+}

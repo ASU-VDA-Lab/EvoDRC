@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0012", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0012 by +36 dbu in x, eliminating the x-overlap between its M1 land and the std-cell V0 pin at (5148,7380,5220,7452) that triggered V0.M1.AUX.3. After the move, the V0 pin is covered solely by the std-cell M1 polygon (_ptemp_9) with exactly coincident y-edges, clearing the convex-corner condition."
+}

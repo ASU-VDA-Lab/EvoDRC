@@ -1,0 +1,28 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0086", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0018", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0159", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0027", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0152", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0127", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0115", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0034", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0083", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0132", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1065", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1045", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1026", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1052", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1053", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1040", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1063", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1034", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1057", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1059", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p1060", "axis": "x", "end": "high", "delta_dbu": 72}
+  ],
+  "explanation": "Clears all 11 V0.M1.AUX.3 violations by moving each offending VIA_VIA12 instance +72 dbu in x so the via M1 land no longer overlaps the std-cell V0 contact region, with co-extending the corresponding M2 routing polygon right edge by the same delta to maintain M2-M1 connectivity."
+}

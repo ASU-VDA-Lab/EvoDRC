@@ -1,0 +1,64 @@
+{
+  "iter": 3,
+  "case": "Block3",
+  "units": [
+    {
+      "unit_id": "leaf_0001",
+      "kind": "union",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0001"
+      ],
+      "bbox_dbu": [
+        9232,
+        5508,
+        10080,
+        6372
+      ],
+      "violation_ids": [
+        "v0001"
+      ],
+      "n_viol": 1
+    },
+    {
+      "unit_id": "leaf_0002",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0002"
+      ],
+      "bbox_dbu": [
+        1728,
+        2068,
+        11016,
+        10892
+      ],
+      "violation_ids": [
+        "v0004"
+      ],
+      "n_viol": 1
+    },
+    {
+      "unit_id": "leaf_0003",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0003"
+      ],
+      "bbox_dbu": [
+        1728,
+        3148,
+        11016,
+        9840
+      ],
+      "violation_ids": [
+        "v0002",
+        "v0003"
+      ],
+      "n_viol": 2
+    }
+  ],
+  "n_union": 0,
+  "quarantined": [],
+  "count": 3
+}

@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move", "polygon_id": "p2916", "axis": "x", "delta_dbu": -8},
+    {"op": "move_instance", "inst_id": "i2005", "delta_dbu": [-8, 0]},
+    {"op": "move_instance", "inst_id": "i1790", "delta_dbu": [-8, 0]}
+  ],
+  "explanation": "Move M3 stripe p2916 and coupled via instances i2005/i1790 left by 8 dbu, increasing the M3.S.1 spacing between p2916 and p2874 from 64 dbu (16 nm, violating) to 72 dbu (18 nm, exactly at threshold and compliant), clearing violation v0070 with no new violations and full connectivity preserved."
+}

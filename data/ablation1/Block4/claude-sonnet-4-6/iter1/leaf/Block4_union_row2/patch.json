@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block4_union_row2",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0250", "delta_dbu": [108, 0]},
+    {"op": "move", "polygon_id": "p1548", "axis": "x", "delta_dbu": 16},
+    {"op": "move_instance", "inst_id": "i0163", "delta_dbu": [28, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0250 right 108 dbu (27 nm) to clear v0022 M1.S.2 (gap 96→204 dbu), v0031 V1.M1.EN.1 (V1 left enclosure via _ptemp_26 becomes 26 nm), and v0016 V0.M1.AUX.3 (M1 land left edge x=5868 exits V0 x-footprint 5796–5868); shifts M2 stripe p1548 right 16 dbu to maintain abutting M2 connectivity to i0250's shifted M2 land; moves VIA_VIA12 i0163 right 28 dbu to clear v0023 M1.S.2 (gap 72→100 dbu = 25 nm minimum)."
+}

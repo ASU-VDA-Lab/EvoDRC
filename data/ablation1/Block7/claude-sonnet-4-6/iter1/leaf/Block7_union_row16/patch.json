@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row16",
+  "ops": [
+    {"op":"move_instance","inst_id":"i0407","delta_dbu":[-36,0]},
+    {"op":"move_instance","inst_id":"i0928","delta_dbu":[-36,0]},
+    {"op":"move_instance","inst_id":"i0320","delta_dbu":[40,0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0407 and i0928 left by 36 dbu to increase M1 tip-to-tip spacing from 22 nm to 31 nm (fixing M1.S.4 and V1.M1.EN.1 via alignment with std-cell M1 tracks), and moved i0320 right by 40 dbu to remove its M1 land from the V0 x-range (fixing V0.M1.AUX.3); v0137 is left unfixed as Op 3 was net-negative."
+}

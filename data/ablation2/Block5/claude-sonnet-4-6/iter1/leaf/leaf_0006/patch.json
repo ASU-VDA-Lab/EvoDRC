@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0012", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0012 right by 4 dbu to increase the corner-to-corner distance between i0012's M1 land lower-left corner and the frozen _ptemp_11 M1 upper-right corner from ~77.2 dbu to ~81.0 dbu, clearing M1.S.6 violations v0016 and v0017; V0.M1.AUX.3 (v0007) cannot be fixed regionally because the M1 land height (88 dbu) cannot match the V0 height (72 dbu) via any positional move, and resize_via_shape is forbidden (V0.M1.AUX.3 is 9/52, not 100%)."
+}

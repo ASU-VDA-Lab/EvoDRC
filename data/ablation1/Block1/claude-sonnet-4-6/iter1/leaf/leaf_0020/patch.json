@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0020",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0082", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p1253", "axis": "x", "end": "low", "delta_dbu": 36}
+  ],
+  "explanation": "Moves via i0082 left 36 dbu so that _ptemp_4 fully encloses V1 (fixing V1.M1.EN.1) and increases M1 tip-to-tip gap to 31 nm (fixing M1.S.4); extends p1253 left end to keep V1 inside M2."
+}

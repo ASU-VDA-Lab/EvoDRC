@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "M6", "shape_index": 0, "axis": "y", "delta_dbu": -256},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "M6", "shape_index": 0, "axis": "y", "delta_dbu": -256}
+  ],
+  "explanation": "Shrink the M6 lands of VIA_VIA56_2_2_66_58 and VIA_VIA56_2_1_66_58 by -256 dbu in y (±320 dbu → ±192 dbu), pulling both M6 arms entirely inside p1402 (y=2240..2880 global). This eliminates the step-corner geometry at y=2880 that produced 7 M6.AUX.3 and 4 M6.AUX.1 point violations, clearing 11 of 90 target violations while preserving all 588 connectivity seeds."
+}

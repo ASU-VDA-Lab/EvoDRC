@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0404", "delta_dbu": [112, 0]},
+    {"op": "resize_end", "polygon_id": "p2016", "axis": "x", "end": "high", "delta_dbu": 132}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0404 right by 112 dbu (new center 10660,4140) so its M1 land clears _ptemp_8 spacing (M1.S.2), its V1 cut gains full M1 enclosure from _ptemp_9 (V1.M1.EN.1), and its M1 land no longer overlaps the V0 pin footprint (V0.M1.AUX.3); extends M2 stripe p2016 to x=10716 to restore M2 coverage of the relocated via land."
+}

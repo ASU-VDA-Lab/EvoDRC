@@ -1,0 +1,15 @@
+{
+  "leaf_id": "Block7_union_row22",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0194", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p3052", "axis": "x", "end": "low", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0187", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0075", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3017", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0132", "delta_dbu": [32, 0]},
+    {"op": "resize_end", "polygon_id": "p3527", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "move_instance", "inst_id": "i0042", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3025", "axis": "x", "end": "high", "delta_dbu": 56}
+  ],
+  "explanation": "Fixes 4 of 5 V0.M1.AUX.3 violations in row22 by repositioning VIA_VIA12 instances i0187, i0075, i0132, and i0042 so their M1 lands no longer displace M1 boundaries at V0 pin edges, with corresponding M2 polygon extensions (p3017, p3527, p3025) to maintain metal coverage; the fifth violation at bbox [16164,25668,16236,25740] (i0194/p3052) is partially addressed by moving i0194 left 36dbu but remains uncleared (declared DEBT), and no new violations are introduced."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0404", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Moves via i0404 (VIA_VIA12) 4 dbu right, clearing the M1.S.2 tip-to-side spacing violation (gap becomes exactly 25 nm) and the V1.M1.EN.1 enclosure violation (V1 left edge aligns with _ptemp_9 left, providing 9 nm top enclosure via H-pair); V0.M1.AUX.3 cannot be simultaneously fixed (geometric constraint: the M1.S.2 fix and V0.AUX.3 fix require contradictory via positions) and is declared as remaining debt."
+}

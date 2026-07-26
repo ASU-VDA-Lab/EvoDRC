@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0453", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Clears V0.M1.AUX.3 (v0005): VIA_VIA12 i0453 is moved +36 dbu in x (from origin (11268,4500) to (11304,4500)) so its M1 land no longer extends above the std-cell M1 strip at y=4500 in the V0 pin x-range, eliminating the convex non-coincident corner at (11268,4500)."
+}

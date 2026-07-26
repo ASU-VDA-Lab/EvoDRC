@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0099", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0099 left by 36 dbu so its M1 land x-edges ([2988,3060]) become coincident with the V0 contact's x-edges, eliminating the non-coincident vertical edges that trigger V0.M1.AUX.3; M2 connectivity to p1207 is preserved via a 56 dbu overlap."
+}

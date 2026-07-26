@@ -1,0 +1,13 @@
+{
+  "leaf_id": "Block7_union_row24",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0215", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p3058", "axis": "x", "end": "high", "delta_dbu": 136},
+    {"op": "move_instance", "inst_id": "i0561", "delta_dbu": [64, 0]},
+    {"op": "resize_end", "polygon_id": "p3635", "axis": "x", "end": "high", "delta_dbu": 120},
+    {"op": "move_instance", "inst_id": "i0221", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0044", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p3564", "axis": "x", "end": "high", "delta_dbu": 128}
+  ],
+  "explanation": "Moved four VIA_VIA12 instances (i0215, i0561, i0221, i0044) in +x to eliminate M1-land/V0-pin x-overlap, clearing five V0.M1.AUX.3 violations; the i0215 move also clears M1.S.2 (v0122) and V1.M1.EN.1 (v0236) via increased tip spacing and proper V1-cut enclosure by merged std-cell M1; three M2 routing polygons (p3058, p3635, p3564) are extended at their high-x ends to maintain M2 coverage at the new via positions."
+}

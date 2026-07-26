@@ -1,0 +1,31 @@
+{
+  "leaf_id": "leaf_0010",
+  "ops": [
+    {
+      "op": "move_instance",
+      "instance_id": "i0361",
+      "delta_dbu": [4, 0]
+    },
+    {
+      "op": "move_instance",
+      "instance_id": "i0239",
+      "delta_dbu": [4, 0]
+    },
+    {
+      "op": "move_instance",
+      "instance_id": "i0112",
+      "delta_dbu": [-28, 0]
+    },
+    {
+      "op": "move_instance",
+      "instance_id": "i0015",
+      "delta_dbu": [0, -40]
+    },
+    {
+      "op": "move_instance",
+      "instance_id": "i0471",
+      "delta_dbu": [0, -40]
+    }
+  ],
+  "explanation": "Fixed M1.S.2 violations v0021/v0026/v0027 by moving VIA_VIA12 instances i0361/i0239 (+4 dbu x) and i0112 (-28 dbu x) to achieve 100 dbu (25 nm) M1 tip-to-side spacing; fixed M2.S.2 violations v0029/v0030 by moving VIA_VIA12 instances i0471/i0015 (-40 dbu y) to achieve 100 dbu M2 tip-to-side spacing."
+}

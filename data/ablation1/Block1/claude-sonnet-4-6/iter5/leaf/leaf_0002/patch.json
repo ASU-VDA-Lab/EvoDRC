@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0451", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA23 instance i0451 by +36 dbu in X so its M3 land (now x=10512–10584) aligns exactly with p1544, making both lateral V2 edges coincident with the merged M3 edges and clearing V2.M3.AUX.2 violation v0057. Violation v0050 (i0452) cannot be fixed without breaking net connectivity to frozen stdcell i0622 on M2 and to co-row VIA_VIA23 instances on M3."
+}

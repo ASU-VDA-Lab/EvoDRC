@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block1_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0455", "delta_dbu": [-32, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0455 left by 32 dbu (8 nm) to increase M1 tip-to-side spacing from 18 nm to 26 nm, clearing the M1.S.2 violation v0043 at bbox (10584,7740,10656,7784). Moving i0452 (VIA_VIA23) was excluded because it introduced a new V2.M3.AUX.2 violation (moving M3 land out of alignment with a neighboring V2 via), and i0455-only is sufficient: new M2 land x[10460,10572] still overlaps p1346 (M2, x[10456,10548]) by 88 dbu, preserving connectivity. The five V0.M1.AUX.3 violations involve frozen std-cell geometry and cannot be fixed by any admissible regional operation."
+}

@@ -1,0 +1,27 @@
+## Operation Patterns That Cleared V1 Violations
+
+**Lateral instance moves at +36 dbu in x resolve V1 spacing violations in most units.** In trials trial:i01.ug.Block2_union_row1.00, trial:i01.ug.Block2_union_row3.01, trial:i01.ug.Block2_union_row5.02, trial:i01.ug.leaf_0004.04, trial:i01.ug.leaf_0007.05, trial:i01.ug.leaf_0011.06, and trial:i04.ug.leaf_0001.00, moving one or more instances +36 dbu in x — without any direct polygon edits to V1 shapes — produced zero new in-crop violations and preserved connectivity (conn_preserved:true, decision:gated_in in every case). Multi-instance moves within the same locus (two or three instances simultaneously) succeeded in trial:i01.ug.Block2_union_row1.00, trial:i01.ug.Block2_union_row3.01, and trial:i01.ug.Block2_union_row5.02 without conflict.
+
+**When an instance move alone is insufficient, pair it with a polygon resize in the same pass.** In trial:i01.ug.Block2_union_row1.00, three instance moves at +36 dbu were combined with a +184 dbu x-axis resize of polygon p1053, and the repair cleared with zero new violations. The larger resize magnitude (184 dbu vs. 36 dbu shift) addresses situations where the enclosing M1 or M2 shape does not reach the required enclosure margin after the via is repositioned.
+
+**Standard via cell substitution (VIA_VIA12) resolves residual V1 violations that instance moves leave behind.** In trial:i02.ug.leaf_0001.00 (iter 2 for leaf_0001), the iter-1 repair trial:i01.ug.leaf_0001.03 left a residual violation. The iter-2 repair deleted manual polygon p1101 and instance i0086, inserted a VIA_VIA12 cell at [5472, 2340] dbu, and extended the low-x end of polygon p957 by +172 dbu. This produced zero new in-crop violations and was gated_in. Prefer VIA_VIA12 cell placement over manual V1 polygon construction when the via site is accessible: trial:i02.ug.leaf_0001.00 demonstrates that removing a manually placed instance and its patch polygon in favor of a standard cell yields a clean result.
+
+**Y-direction instance moves (±24 dbu) spanning multiple metal and via layers are accepted when connectivity is preserved, even when they introduce new in-crop violations.** In trial:i05.ug.leaf_0003.01 (iter 5), five instances were moved ±24 dbu in y, touching V1, V3, V4, and M1–M5. The result introduced 13 new in-crop violations (n_new_in_crop:13), yet the decision was gated_in because conn_preserved:true. Do not block y-direction multi-layer repairs solely on new in-crop count when connectivity is intact.
+
+## M1 Enclosure Coordination (V1.M1.EN.1)
+
+**Adding a small M1 patch polygon must accompany a small instance shift when the enclosure deficit is minor.** In trial:i01.ug.leaf_0001.03, moving instance i0086 by only +12 dbu in x was paired with adding an M1 polygon (points [5332,2340]–[5532,2448], 200 dbu × 108 dbu) to extend M1 coverage over the via. The repair cleared with zero new violations at iter 1. The +12 dbu shift is smaller than the typical +36 dbu used elsewhere because the enclosure deficit was minor; the polygon addition supplies the missing overlap without requiring a large instance displacement.
+
+**A repair that introduces a new M1.A.1 in-crop violation is still gated in when V1 connectivity is preserved.** Trial:i01.ug.leaf_0013.08 produced n_new_in_crop:1 (M1.A.1) alongside its +36 dbu move of instance i0063, yet decision was gated_in. Do not reject a V1 repair solely because it trades a V1 violation for a new M1 area violation; the scheduler accepts the net improvement as long as conn_preserved:true.
+
+## Metal Enclosure and Width Context (V1.M2.EN.2, V1.M2.AUX.2, V1.W.1, V1.AUX.1)
+
+The resize operations applied in trial:i01.ug.Block2_union_row1.00 (+184 dbu to polygon p1053 in x) and trial:i02.ug.leaf_0001.00 (+172 dbu to the low-x end of polygon p957) extended the enclosing metal to re-establish the required M2 overlap margins after via repositioning. Moves of +36 dbu in x — one grid step at the pitch used across these loci — consistently satisfied the enclosure constraints in all other accepted trials (trial:i01.ug.Block2_union_row1.00 through trial:i04.ug.leaf_0001.00). Larger metal extends are needed only when the pre-existing M2 undercut exceeds one grid step, as in trial:i02.ug.leaf_0001.00.
+
+## V1.S.1 / V1.S.2 / V1.S.3 / V1.S.4 Spacing Context
+
+The +36 dbu uniform displacement applied in trial:i01.ug.Block2_union_row1.00, trial:i01.ug.Block2_union_row3.01, trial:i01.ug.Block2_union_row5.02, trial:i01.ug.leaf_0004.04, trial:i01.ug.leaf_0007.05, trial:i01.ug.leaf_0011.06, and trial:i04.ug.leaf_0001.00 demonstrates that a single-grid-step lateral shift is sufficient to open the projection-based and euclidean mask separations to the required values in every locus encountered through iter 5. No case required a larger move for spacing alone; the larger resizes in trial:i01.ug.Block2_union_row1.00 and trial:i02.ug.leaf_0001.00 addressed enclosure deficits, not residual spacing violations.
+
+## Assemble-Drop Behavior for Co-Located V2 Operations
+
+In trial:i01.ug.leaf_0013.08, V2 shape operations (move_via_shape and resize_via_shape on VIA_VIA23_1_3_36_36) appeared in assemble_drops with reason "cu_pool:applied", meaning those V2 corrections had already been committed from a prior pool and were not re-applied. The V1-layer operation in that trial was only the +36 dbu move of instance i0063. Do not re-apply V2 operations that appear in assemble_drops with reason "cu_pool:applied"; they are already in the design state and re-application would double-count the displacement.

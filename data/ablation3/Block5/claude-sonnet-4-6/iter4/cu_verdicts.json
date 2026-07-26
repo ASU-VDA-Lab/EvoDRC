@@ -1,0 +1,177 @@
+{
+ "strip": {
+  "whole_design": [
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -40, \"group\": \"v2m3aux2_fix\", \"layer_name\": \"M3\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"y\", \"delta_dbu\": -64, \"group\": \"v2m3aux2_fix\", \"op\": \"resize\", \"polygon_id\": \"p891\"}]",
+   "[{\"axis\": \"y\", \"delta_dbu\": -64, \"group\": \"v2m3aux2_fix\", \"op\": \"resize\", \"polygon_id\": \"p892\"}]",
+   "[{\"axis\": \"y\", \"delta_dbu\": -64, \"group\": \"v2m3aux2_fix\", \"op\": \"resize\", \"polygon_id\": \"p893\"}]",
+   "[{\"axis\": \"y\", \"delta_dbu\": -64, \"group\": \"v2m3aux2_fix\", \"op\": \"resize\", \"polygon_id\": \"p894\"}]",
+   "[{\"axis\": \"y\", \"delta_dbu\": -64, \"group\": \"v2m3aux2_fix\", \"op\": \"resize\", \"polygon_id\": \"p895\"}]",
+   "[{\"axis\": \"y\", \"delta_dbu\": -64, \"group\": \"v2m3aux2_fix\", \"op\": \"resize\", \"polygon_id\": \"p896\"}]",
+   "[{\"axis\": \"y\", \"delta_dbu\": -64, \"group\": \"v2m3aux2_fix\", \"op\": \"resize\", \"polygon_id\": \"p897\"}]"
+  ]
+ },
+ "winners": [
+  {
+   "target": "def:VIA_VIA23_1_3_36_36",
+   "target_keys": [
+    "def:VIA_VIA23_1_3_36_36"
+   ],
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "M3",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -40,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p891",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p892",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p893",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p894",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p895",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p896",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p897",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    }
+   ],
+   "attributed_to": "whole_design"
+  }
+ ],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA23_1_3_36_36",
+   "target_keys": [
+    "def:VIA_VIA23_1_3_36_36"
+   ],
+   "conflict_keys": [
+    "polygon:p891",
+    "polygon:p892",
+    "polygon:p893",
+    "polygon:p894",
+    "polygon:p895",
+    "polygon:p896",
+    "polygon:p897",
+    "via_cell:VIA_VIA23_1_3_36_36"
+   ],
+   "group": "v2m3aux2_fix",
+   "atomic": true,
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "M3",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -40,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p891",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p892",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p893",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p894",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p895",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p896",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    },
+    {
+     "op": "resize",
+     "polygon_id": "p897",
+     "axis": "y",
+     "delta_dbu": -64,
+     "group": "v2m3aux2_fix"
+    }
+   ],
+   "proposers": [
+    "whole_design"
+   ],
+   "windows": [
+    {
+     "window": "unit:whole_design",
+     "before": 30,
+     "after": 22,
+     "delta": -8
+    }
+   ],
+   "delta_total": -8,
+   "conn_preserved": true,
+   "decision": "applied"
+  }
+ ]
+}

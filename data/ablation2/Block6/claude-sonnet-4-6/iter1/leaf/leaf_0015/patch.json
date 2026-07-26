@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0015",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0213", "delta_dbu": [28, 0]},
+    {"op": "resize_end", "polygon_id": "p1923", "axis": "x", "end": "high", "delta_dbu": 48},
+    {"op": "move_instance", "inst_id": "i0204", "delta_dbu": [28, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0213 (+28 dbu x) and i0204 (+28 dbu x) to clear M1.S.2 tip-to-side spacing violations v0030 and v0031 by increasing the gap to adjacent std-cell M1 edges to exactly 100 dbu (25 nm); extended M2 polygon p1923 rightward 48 dbu to maintain full M2 land coverage over the shifted i0213."
+}

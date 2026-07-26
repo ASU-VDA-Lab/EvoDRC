@@ -1,0 +1,16 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M5","shape_index":0,"axis":"y","delta_dbu":-88},
+    {"op":"move","polygon_id":"p878","axis":"x","delta_dbu":32},
+    {"op":"move","polygon_id":"p879","axis":"x","delta_dbu":32},
+    {"op":"move_instance","inst_id":"i0001","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0062","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0067","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0073","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0112","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0113","delta_dbu":[32,0]},
+    {"op":"move_instance","inst_id":"i0114","delta_dbu":[32,0]}
+  ],
+  "explanation": "Shrinks M5 in VIA_VIA45_1_2_58_58 cell to match V4 y-width (fixing V4.M5.AUX.2), and shifts top-level M5 polygons p878/p879 and all VIA45_1_2_58_58 instances +32 dbu in x to align M5 x-edges to the 96-dbu grid (fixing M5.AUX.1); V2.M3.AUX.2 and V0.M1.AUX.3 remain as declared debt because their fixes introduce cascading violations."
+}

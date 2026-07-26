@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0073", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0068", "delta_dbu": [0, 48]},
+    {"op": "resize_end", "polygon_id": "p962", "axis": "y", "end": "high", "delta_dbu": 80}
+  ],
+  "explanation": "M4.AUX.1 fired because the M4 lands of VIA_VIA34 (i0073) and VIA_VIA45 (i0068) were centered at y=8640, placing M4 horizontal edges at y=8592 and y=8688 (both mod 96=48, off the 24 nm grid). Moving both vias +48 dbu shifts their M4 edges to y=8640 and y=8736 (both mod 96=0, on-grid); p962 (M3) is extended +80 dbu on its high-y end to cover i0073's shifted M3 land top at y=8756."
+}

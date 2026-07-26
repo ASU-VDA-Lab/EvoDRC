@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block2_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0083", "delta_dbu": [64, 0]},
+    {"op": "resize_end", "polygon_id": "p1059", "axis": "x", "end": "high", "delta_dbu": 64},
+    {"op": "move_instance", "inst_id": "i0018", "delta_dbu": [64, 0]},
+    {"op": "move_instance", "inst_id": "i0034", "delta_dbu": [64, 0]},
+    {"op": "resize_end", "polygon_id": "p1057", "axis": "x", "end": "high", "delta_dbu": 64}
+  ],
+  "explanation": "Moved three VIA_VIA12 instances (i0083, i0018, i0034) rightward by 64 dbu so their M1 lands no longer overlap the frozen std-cell V0 bounding boxes, clearing V0.M1.AUX.3 at all three sites; extended M2 polygons p1059 and p1057 by 64 dbu on the high-x end to maintain routing coverage at the new via positions."
+}

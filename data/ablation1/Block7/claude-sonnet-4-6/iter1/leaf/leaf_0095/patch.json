@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0095",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [0, 44]},
+    {"op": "move_instance", "inst_id": "i0175", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0177 up 44 dbu so its M1 land bottom aligns flush with the wide _ptemp_34 rail (eliminating the narrow-tip protrusion that caused M1.S.4/S.5/S.6 violations v0143/v0146/v0147/v0164/v0165); moves VIA_VIA12 i0175 right 72 dbu so its M1 land no longer extends below the V0 pin bottom at y=26820, clearing V0.M1.AUX.3 violation v0046."
+}

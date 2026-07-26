@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0025",
+  "gated_in": true,
+  "connectivity_preserved": true,
+  "n_ops": 13,
+  "n_new_in_crop": 9,
+  "n_new_out_of_crop": 0,
+  "reason": "conn_preserved"
+}

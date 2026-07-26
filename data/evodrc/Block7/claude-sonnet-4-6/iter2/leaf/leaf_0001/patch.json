@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1643", "delta_dbu": [0, -57]},
+    {"op": "move", "polygon_id": "p3383", "axis": "y", "delta_dbu": -57}
+  ],
+  "explanation": "Clears M2.S.7 violation v0066 by moving VIA_VIA23 instance i1643 and M2 polygon p3383 down 57 dbu together, increasing the y-gap between the lower M2 group and upper M2 group from 72 dbu (18 nm) to 129 dbu (32.25 nm), which satisfies the rule threshold of 32 nm + 1 dbu."
+}

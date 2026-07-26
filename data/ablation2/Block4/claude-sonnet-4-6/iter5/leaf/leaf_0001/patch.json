@@ -1,0 +1,22 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0280",
+      "delta_dbu": [
+        200,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0295",
+      "delta_dbu": [
+        200,
+        44
+      ]
+    }
+  ],
+  "explanation": "Moves the 2 right-cluster VIA_VIA23_1_3_36_36 instances (x=12928) east by 200 dbu (to x=13128). This places the VIA_VIA23 M2 left edge at 12928, which is 4 dbu beyond V1 cut-77 right edge (12924), removing that cut from the VIA_VIA23 M2 x-range. The merged M2 at cut-77 positions then equals only VIA_via1 M2 (y=[-36,+36] relative to row centre), which coincides with both y-edges of the 72x72 dbu V1 cut, satisfying V1.M2.AUX.2. Instance i0295 additionally receives a +44 dbu y-shift that raises its M2 bottom from 4284 to 4248 dbu, opening a 72 dbu gap to polygon p1561 (top=4176 dbu), satisfying M2.S.1 (threshold: strictly <72 dbu fires). Connectivity is fully preserved: each moved instance retains M2 overlap with VIA_via1 (4 dbu at x=[12928,12932]) and with bus polygon p1512 (240 dbu), and retains M3 overlap with p1416-p1416-family polygons (~160 dbu). The 12 left-cluster V1.M2.AUX.2 violations (i0240/i0228/i0206/i0108/i0111/i0112 at x=2128) are structurally unfixable without via-structure edits or M2 polygon changes: the 400 dbu VIA_VIA23 M2 width over a 144 dbu V1 pitch always captures exactly 2 full cuts that fail V1.M2.AUX.2. These are declared DEBT."
+}

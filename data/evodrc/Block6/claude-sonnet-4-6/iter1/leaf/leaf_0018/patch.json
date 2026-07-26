@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0018",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0060", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves via i0060 (VIA_VIA12) +36 dbu in x so its M1 land (x=9504..9576) shifts to x=9540..9612, clearing the overlap with frozen V0 contact _ptemp_2 (9468..9540, 12780..12852) and resolving V0.M1.AUX.3."
+}

@@ -1,0 +1,28 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0041", "delta_dbu": [48, 0]},
+    {"op": "move_instance", "inst_id": "i0060", "delta_dbu": [44, 0]},
+    {"op": "resize_end", "polygon_id": "p1255", "axis": "x", "end": "high", "delta_dbu": 44},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0188", "delta_dbu": [44, 0]},
+    {"op": "resize_end", "polygon_id": "p1270", "axis": "x", "end": "high", "delta_dbu": 44},
+    {"op": "move_instance", "inst_id": "i0244", "delta_dbu": [48, 0]},
+    {"op": "move_instance", "inst_id": "i0290", "delta_dbu": [48, 0]},
+    {"op": "move_instance", "inst_id": "i0294", "delta_dbu": [44, 0]},
+    {"op": "resize_end", "polygon_id": "p1295", "axis": "x", "end": "high", "delta_dbu": 44},
+    {"op": "move_instance", "inst_id": "i0300", "delta_dbu": [48, 0]},
+    {"op": "move_instance", "inst_id": "i0434", "delta_dbu": [48, 0]},
+    {"op": "move_instance", "inst_id": "i0438", "delta_dbu": [48, 0]},
+    {"op": "move_instance", "inst_id": "i0463", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0485", "delta_dbu": [44, 0]},
+    {"op": "resize_end", "polygon_id": "p1309", "axis": "x", "end": "high", "delta_dbu": 44},
+    {"op": "move_instance", "inst_id": "i0492", "delta_dbu": [48, 0]},
+    {"op": "move_instance", "inst_id": "i0507", "delta_dbu": [44, 0]},
+    {"op": "resize_end", "polygon_id": "p1320", "axis": "x", "end": "high", "delta_dbu": 44},
+    {"op": "move_instance", "inst_id": "i0433", "delta_dbu": [-72, 0]},
+    {"op": "move_instance", "inst_id": "i0082", "delta_dbu": [-72, 0]},
+    {"op": "move_instance", "inst_id": "i0258", "delta_dbu": [-64, 0]}
+  ],
+  "explanation": "Moved 14 VIA_VIA12 instances (with companion M2 resize_end ops for 5 that needed M2 extension) to clear V0.M1.AUX.3 violations; moved 2 VIA_VIA12 instances to clear V1.M1.EN.1 and M1.S.4; moved 1 VIA_VIA12 instance to clear M1.S.2 — 19 violations cleared, 0 introduced."
+}

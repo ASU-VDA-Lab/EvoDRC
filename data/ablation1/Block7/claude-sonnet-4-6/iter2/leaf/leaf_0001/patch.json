@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1486", "delta_dbu": [104, 0]}
+  ],
+  "explanation": "Moving via i1486 (VIA_VIA12) right by 104 dbu shifts its M1 land to x=7596–7668, placing it entirely outside the V0 pin x-range (7524–7596), so only the std-cell M1 (_ptemp_9) covers V0 with coincident top and bottom edges, eliminating all convex corners and clearing V0.M1.AUX.3. Connectivity is preserved via 4 dbu M2 overlap with i1450's M2 land (confirmed by conn_preview: 3325 seeds, 0 broken)."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0099", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i0099 +72 dbu in x so its M1 land clears the V0 contact region, fixing V0.M1.AUX.3 at (2988,7380,3060,7452) without disturbing M2 connectivity via p1207."
+}

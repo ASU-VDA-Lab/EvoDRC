@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row21",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0627", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0155", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moving via i0627 right 36 dbu clears two M1.S.6 spacing violations (v0082, v0083) and one V0.M1.AUX.3 violation (v0048) by realigning the merged M1 step edge at y=24660 to be coincident with the V0 bottom edge. Moving via i0155 right 36 dbu clears V0.M1.AUX.3 (v0028) by shifting its M1 land away from the V0 region where it was creating a non-coincident M1-V0 boundary at y=23940."
+}

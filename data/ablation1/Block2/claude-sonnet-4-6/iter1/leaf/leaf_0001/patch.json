@@ -1,0 +1,16 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0086",
+      "delta_dbu": [12, 0]
+    },
+    {
+      "op": "add_polygon",
+      "layer_name": "M1",
+      "points": [[5332, 2340], [5532, 2340], [5532, 2448], [5332, 2448]]
+    }
+  ],
+  "explanation": "Fixes v0013 (M1.S.2) and v0015 (V1.M1.EN.1); leaves v0002 (V0.M1.AUX.3) and v0041 (M4.S.5) as declared debt. Net reduction: 2 cleared, 0 introduced. Op1: move i0086 right by 12 dbu widens gap from _ptemp_19 right (x=5232) to new via M1 left (x=5340) from 84 dbu to 108 dbu (27 nm > 25 nm M1.S.2 threshold). Op2: M1 rectangle at (5332,2340)-(5532,2448) fills the region above _ptemp_20 step edge (y=2340) where _ptemp_20 retreats to x=5688-5760, providing left enc=8 dbu (2 nm) and right enc=120 dbu (30 nm) for V1 cut at (5340,2304)-(5412,2376), satisfying V1.M1.EN.1 via X-pair. v0002 is geometrically unresolvable (via M1 must span y=2296-2384 by via definition, making M1 interior at V0 top y=2340 unavoidable). v0041 fix attempts all introduce net-zero or negative new violations (M4.S.3 and M4.S.2 from adjacent-track end-spacing), so it is left unfixed."
+}

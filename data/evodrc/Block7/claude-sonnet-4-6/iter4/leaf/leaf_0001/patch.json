@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p3379", "axis": "x", "end": "high", "delta_dbu": 56}
+  ],
+  "explanation": "Fixes M2.S.7 (parallel-run-length < 35 nm) by extending M2 stripe p3379's right edge from 10296 to 10352 dbu (+56 dbu = +14 nm). This increases the parallel run of the upper M2 group (i1596 VIA_VIA12 land at x=[10204,10316]) against the lower M2 stripe (p3383 at y=[4428,4500]) by extending the effective coverage. The approved plan's Op1 (move_instance i1596 +36 dbu) was dropped after DRC preview showed it introduced a new V1.M1.EN.1 violation at the via's new position; Op2 (resize_end p3379 +56 dbu) alone both clears M2.S.7 and introduces no new violations."
+}

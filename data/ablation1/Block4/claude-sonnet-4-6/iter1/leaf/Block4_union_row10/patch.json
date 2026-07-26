@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block4_union_row10",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [12, 0]}
+  ],
+  "explanation": "Move VIA_VIA12 instance i0025 by +12 dbu in X (new origin 10992,12060) to shift M1 land left edge from x=10944 to x=10956, creating 108 dbu (27 nm) tip-to-side gap to neighbour M1 at x=10848 (clears M1.S.2/v0028) and moving V1 cut to x=10956-11028 where _ptemp_38 M1 left edge at x=10948 provides 8 dbu (2 nm) enclosure of V1 left (clears V1.M1.EN.1/v0033). Violations v0015, v0002, v0005 (V0.M1.AUX.3) and v0085 (M4.S.4) cannot be resolved with available movable objects."
+}

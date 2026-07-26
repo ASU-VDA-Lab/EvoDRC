@@ -1,0 +1,11 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M5","shape_index":0,"axis":"y","delta_dbu":-88},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":0,"axis":"y","delta_dbu":248},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":1,"axis":"y","delta_dbu":248},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":2,"axis":"y","delta_dbu":248},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":3,"axis":"y","delta_dbu":248}
+  ],
+  "explanation": "Shrinks VIA_VIA45_1_2_58_58 M5 land y from ±92 to ±48 dbu so V4 cut y-edges coincide with M5 y-edges, clearing V4.M5.AUX.2 (52 violations) plus 6 M5.AUX.1; expands all four V5 cuts in VIA_VIA56_2_2_66_58 symmetrically so their outer y-edges reach ±320 dbu, coinciding with the M6 land edges and clearing V5.M6.AUX.2 (32 violations)."
+}

@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block4_union_row10",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p1551", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i0041", "delta_dbu": [-108, 0]},
+    {"op": "resize_end", "polygon_id": "p1589", "axis": "x", "end": "low", "delta_dbu": 72},
+    {"op": "move_instance", "inst_id": "i0120", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1605", "axis": "x", "end": "high", "delta_dbu": 92},
+    {"op": "resize_end", "polygon_id": "p1379", "axis": "x", "end": "low", "delta_dbu": 64}
+  ]
+}

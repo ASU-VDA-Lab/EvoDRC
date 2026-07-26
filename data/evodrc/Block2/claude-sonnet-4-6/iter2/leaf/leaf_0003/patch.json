@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -40, "group": "via23-m3"},
+    {"op": "resize", "polygon_id": "p961", "axis": "y", "delta_dbu": -64, "group": "via23-m3"},
+    {"op": "resize", "polygon_id": "p960", "axis": "y", "delta_dbu": -64, "group": "via23-m3"},
+    {"op": "resize", "polygon_id": "p959", "axis": "y", "delta_dbu": -64, "group": "via23-m3"},
+    {"op": "resize", "polygon_id": "p958", "axis": "y", "delta_dbu": -64, "group": "via23-m3"}
+  ],
+  "explanation": "Shrinks M3 land in VIA_VIA23_1_3_36_36 cell def by -40 dbu in y and resizes M3 routing polygons p958-p961 by -64 dbu in y to restore edge coincidence between V2 cuts and merged M3, clearing 8 V2.M3.AUX.2 violations plus V0.M1.AUX.3 and M1.S.2 (10 total); introduces 1 new M1.A.1 at (2736,6616,2808,6704) as declared debt."
+}

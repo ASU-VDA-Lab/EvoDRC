@@ -1,0 +1,20 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move", "polygon_id": "p1341", "axis": "x", "delta_dbu": 32},
+    {"op": "move_instance", "inst_id": "i0237", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0214", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0223", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0141", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0104", "delta_dbu": [0, -72]},
+    {"op": "move_instance", "inst_id": "i0150", "delta_dbu": [0, -72]},
+    {"op": "move_instance", "inst_id": "i0134", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0138", "delta_dbu": [0, 72]},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -40},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M5", "shape_index": 0, "axis": "x", "delta_dbu": -152},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M5", "shape_index": 0, "axis": "y", "delta_dbu": -88}
+  ],
+  "explanation": "Fixes 29 target violations by: moving M5 polygon p1341 by +32 dbu in x (clearing 2 M5.AUX.1), moving 5 pairs of VIA34/VIA45 instances by ±24 to ±72 dbu in y (clearing 5 M4.AUX.1 and 10 V4.M5.AUX.2), and shrinking the M3 land of VIA_VIA23_1_3_36_36 by 40 dbu in y and the M5 land of VIA_VIA45_1_2_58_58 by 152 dbu in x and 88 dbu in y (clearing 10 V2.M3.AUX.2 and 2 previously-flagged target violations). Connectivity is fully preserved across all 588 verified seeds."
+}

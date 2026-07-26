@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block1_union_row9",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0195", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0245", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Three V0.M1.AUX.3 violations fixed by moving each VIA_VIA12 instance dx=+36 dbu to align its M1 land x-edges with the corresponding frozen V0 pin edges; DRC preview confirmed all three violations cleared with no new violations and full connectivity preserved."
+}

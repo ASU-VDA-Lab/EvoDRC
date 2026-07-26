@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0020",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0235", "delta_dbu": [0, 48]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0235 upward 48 dbu (12 nm) so its M1 land clears the M1 bus by exactly 25 nm (M1.S.2), its V1 cut gains 27 nm separation from background V1 cuts (V1.S.2), external AND2x2 M1 provides 9 nm bottom enclosure of V1 (V1.M1.EN.1), and the V1 cut aligns flush with M2 polygon p3546 on both y-edges (V1.M2.AUX.2)."
+}

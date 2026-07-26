@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block5_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [104, 0]},
+    {"op": "move_instance", "inst_id": "i0019", "delta_dbu": [104, 0]},
+    {"op": "resize_end", "polygon_id": "p955", "axis": "x", "end": "high", "delta_dbu": 20}
+  ],
+  "explanation": "Both V0.M1.AUX.3 violations are cleared by moving VIA_VIA12 instances i0025 and i0019 each +104 dbu in x, shifting their M1 lands so the left edge lands on the V0 pin's right edge (x=6300 and x=8028), which makes the frozen std-cell M1 step edge at y=7740 fully coincident with the V0 top edge and eliminates all free corners; p955's right end is extended +20 dbu to close the 16 dbu M2 gap introduced by the via move."
+}

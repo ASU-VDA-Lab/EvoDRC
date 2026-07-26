@@ -1,0 +1,24 @@
+{
+  "case": "Block4",
+  "design_state": "02c3cdbce7a6184fb9a2bfd2505a8b5df45d3d419e6e23e2b822f357d060c139",
+  "failed_trials": [
+    {
+      "artifact": "leaf/leaf_0001/patch.json",
+      "channel": "unit_gate",
+      "reason": "expected_object",
+      "trial_id": "i03.ug.leaf_0001.00"
+    }
+  ],
+  "iter": 3,
+  "n_appended_new": 0,
+  "n_cu_pool": 0,
+  "n_failed_trials": 1,
+  "n_records": 1,
+  "n_unit_gate": 1,
+  "n_unmapped": 1,
+  "per_layer": {},
+  "touched_layers": [],
+  "trial_ids": [
+    "i03.ug.leaf_0002.01"
+  ]
+}

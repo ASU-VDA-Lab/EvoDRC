@@ -1,0 +1,30 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move", "polygon_id": "p3806", "axis": "y", "delta_dbu": -64, "group": "m6_snap"},
+    {"op": "move", "polygon_id": "p3803", "axis": "y", "delta_dbu": 32, "group": "m6_snap"},
+    {"op": "move", "polygon_id": "p3805", "axis": "y", "delta_dbu": 16, "group": "m6_snap"},
+    {"op": "move", "polygon_id": "p3802", "axis": "y", "delta_dbu": -16, "group": "m6_snap"},
+    {"op": "move", "polygon_id": "p3804", "axis": "y", "delta_dbu": -32, "group": "m6_snap"},
+    {"op": "move", "polygon_id": "p3801", "axis": "y", "delta_dbu": -64, "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1469", "delta_dbu": [0, -64], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1666", "delta_dbu": [0, -64], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i2012", "delta_dbu": [0, -64], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1524", "delta_dbu": [0, 32], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1693", "delta_dbu": [0, 32], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i2026", "delta_dbu": [0, 32], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1362", "delta_dbu": [0, 16], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1139", "delta_dbu": [0, 16], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1765", "delta_dbu": [0, 16], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1336", "delta_dbu": [0, -16], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1124", "delta_dbu": [0, -16], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i1762", "delta_dbu": [0, -16], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i0723", "delta_dbu": [0, -32], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i0656", "delta_dbu": [0, -32], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i0123", "delta_dbu": [0, -32], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i0726", "delta_dbu": [0, -64], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i0664", "delta_dbu": [0, -64], "group": "m6_snap"},
+    {"op": "move_instance", "inst_id": "i0121", "delta_dbu": [0, -64], "group": "m6_snap"}
+  ],
+  "explanation": "Snap 6 die-spanning M6 horizontal stripes (p3801-p3806) to the 128-dbu grid to fix all 6 M6.AUX.1 violations, and co-move their 18 VIA_VIA56_2_2_66_58 instances by identical deltas to maintain via-stripe alignment."
+}

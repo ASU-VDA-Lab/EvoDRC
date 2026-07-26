@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [],
+  "explanation": "No safe net-reducing fix exists: V4.M5.AUX.2 fixes require V4 outside M4 enclosure (introducing V4.AUX.1 at all 8 placements, net=0); M4.AUX.1 and M5.AUX.1 are inadmissible for def edits (6/8 and 2/8); V0.M1.AUX.3 is frozen in std cell."
+}

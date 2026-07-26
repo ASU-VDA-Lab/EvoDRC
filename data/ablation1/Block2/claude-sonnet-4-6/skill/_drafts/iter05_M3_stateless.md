@@ -1,0 +1,27 @@
+## Via Cell X-Axis Adjustments Resolve M3-Touching V2 Enclosure Violations
+
+The cu_pool channel repairs M3-related V2 enclosure violations by repositioning and resizing V2 shapes along the x-axis within via cell definitions. In trial:i01.cu.def:VIA_VIA23_1_3_36_36.00, moving V2 shape_index 0 by −144 dbu and shape_index 2 by +144 dbu (spreading the outer cuts) then widening all three V2 shapes by +288 dbu in x reduced total DRC violations by 24 (−12 in unit:leaf_0012, −12 in unit:leaf_0013) and was accepted as applied. The cell VIA_VIA23_1_3_36_36 touches both M3 and V2 (touched_layers confirmed), so adjusting V2 shapes within the cell propagates geometry corrections to the M3 enclosure checks V2.M3.EN.2 and V2.M3.AUX.2. When a via cell spans M3 and V2, prefer x-axis spread-and-widen ops on V2 shapes to close enclosure deficits rather than editing M3 directly.
+
+## Added M3 Polygons Must Respect Minimum Width and Area Floors
+
+When the unit_gate channel inserts new M3 polygons, every added shape must clear M3.W.1 (18 nm minimum width on all edges) and M3.A.1 (504 nm² minimum area). In trial:i05.ug.leaf_0002.00, three M3 rectangles were added with x-span 360 dbu and y-spans of 48 or 96 dbu. The resulting n_new_in_crop was 0 and n_new_out_of_crop was 0, confirming that these dimensions introduce no new M3 geometric violations. Use a short-axis dimension of at least 48 dbu when inserting rectangular M3 connector polygons; the 96-dbu tall variant in that trial also produced zero new violations. Never insert M3 polygons narrower than the minimum width on any axis, as even a single sub-threshold edge triggers M3.W.1.
+
+## Y-Axis Instance Moves in Unit_Gate Use 24 dbu Base Grid Steps
+
+Instance moves applied in the unit_gate channel use y-axis steps that are multiples of 24 dbu (±24, ±48, ±72, ±96 dbu). In trial:i03.ug.leaf_0002.01, eight instances were moved by amounts in this range alongside a polygon resize, yielding n_new_in_crop of 2. In trial:i04.ug.leaf_0003.02, three instances moved ±24 dbu each with n_new_in_crop of 2. In trial:i05.ug.leaf_0002.00, eight instances moved in increments of 48 or 96 dbu with n_new_in_crop of 0. In trial:i05.ug.leaf_0003.01, five instances moved ±24 dbu with n_new_in_crop of 13. All four trials preserved connectivity. Snap all M3-affecting instance moves to the 24-dbu grid; moves off this grid do not appear anywhere in the recorded history.
+
+## Differential End Resizes on M3 Polygons Extend Coverage Asymmetrically
+
+The unit_gate channel applies differential end resizes on M3 polygons in combination with instance moves. In trial:i03.ug.leaf_0002.01, polygon p937 was resized +64 dbu on the low-x end and +320 dbu on the high-x end alongside eight instance moves; the trial was accepted gated_in with conn_preserved and n_new_out_of_crop of 0. The asymmetric magnitudes (+64 vs. +320) shift the polygon center toward the high-x direction while extending both ends. Apply differential end resizes when the M3 polygon must close a spacing gap on one side (M3.S.1, M3.S.2) without violating spacing on the opposite side.
+
+## Gated_In Is the Normal Acceptance Outcome for Unit_Gate M3 Repairs
+
+All unit_gate trials on M3 (trial:i03.ug.leaf_0002.01, trial:i04.ug.leaf_0003.02, trial:i05.ug.leaf_0002.00, trial:i05.ug.leaf_0003.01) were decided gated_in rather than applied, in every case with conn_preserved true and n_new_out_of_crop of 0. The gated_in outcome occurs across the full observed range of n_new_in_crop values: 0 (trial:i05.ug.leaf_0002.00), 2 (trial:i03.ug.leaf_0002.01, trial:i04.ug.leaf_0003.02), and 13 (trial:i05.ug.leaf_0003.01). Do not treat gated_in as a failure or rejection; it is the confirmed acceptance path for unit_gate repairs that touch M3 when the edits stay within the crop window and preserve connectivity.
+
+## M3 Strap Insertions at a Fixed X Range Are Safe Relative to Spacing Rules
+
+In trial:i05.ug.leaf_0002.00, all three add_polygon ops on M3 used the identical x-range 1948–2308 dbu, placed at y-positions 4204–4252, 6316–6412, and 8708–8756. The y-gaps between these polygons are 6316−4252 = 2064 dbu and 8708−6412 = 2296 dbu, far exceeding any M3 spacing rule (maximum tip-to-tip requirement is 31 nm). Zero new in-crop or out-of-crop violations were introduced, confirming that M3 strap polygons inserted at x-range 1948–2308 with at least 2000 dbu of vertical separation are safe under all M3.S.* rules in this design region. When adding multiple M3 straps in a vertical stack, maintain at least this separation to avoid introducing M3.S.1 or M3.S.2 violations between the new shapes.
+
+## Multi-Layer Repairs Touching M3 Propagate Through V3 and Above
+
+All five recorded trials that touch M3 also touch at least one via layer (V2 or V3) and at least one metal layer above M3 (M4 or higher). In trial:i03.ug.leaf_0002.01 and trial:i05.ug.leaf_0002.00, touched_layers include M3, M4, M5, V3, and V4. In trial:i04.ug.leaf_0003.02 and trial:i05.ug.leaf_0003.01, touched_layers extend to M2 and V2 below as well as M4, M5, V3, and V4 above. In trial:i01.cu.def:VIA_VIA23_1_3_36_36.00, touched_layers include M2, M3, and V2. No trial touches M3 in isolation. When evaluating an M3 repair candidate, verify that any resulting enclosure changes to V3 satisfy V3.M3.EN.1 (≥5 nm enclosure on at least two opposite sides) and that V2 enclosure rules V2.M3.EN.2 and V2.M3.AUX.2 remain satisfied for any V2 vias within the affected M3 region.

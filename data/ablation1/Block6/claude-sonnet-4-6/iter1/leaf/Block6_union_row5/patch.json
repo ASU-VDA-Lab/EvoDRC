@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block6_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0015", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0446", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i0015 up by 48 dbu to clear two M1.S.6 spacing violations (v0037, v0038) between its M1 landing pad and adjacent M1 polygons. Moved VIA_VIA12 instance i0446 right by 4 dbu to clear an M1.S.2 spacing violation (v0027) and a V1.M1.EN.1 enclosure violation (v0047) caused by insufficient separation from a neighboring M1 polygon edge. Both moves verified: 4 target violations cleared, 0 new violations introduced, full connectivity preserved."
+}
