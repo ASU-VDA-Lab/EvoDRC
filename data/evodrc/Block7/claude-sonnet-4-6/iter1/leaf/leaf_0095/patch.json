@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0095",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0184", "delta_dbu": [0, 48]},
+    {"op": "resize_end", "polygon_id": "p2432", "axis": "y", "end": "high", "delta_dbu": 68},
+    {"op": "move_instance", "inst_id": "i0175", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3537", "axis": "y", "end": "high", "delta_dbu": 48}
+  ],
+  "explanation": "Moved VIA_VIA12/VIA_VIA23 stack (i0177+i0184) up by 48 dbu to clear M1.S.4/S.5/S.6 spacing violations against frozen std-cell M1 edges; extended p2432 (M3) and p3537 (M2) top edges to maintain metal coverage at new via positions; moved i0175 (VIA_VIA12) right by 36 dbu to remove its M1 land from the V0 interior, clearing V0.M1.AUX.3."
+}

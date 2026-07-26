@@ -1,0 +1,60 @@
+{
+  "leaf_id": "leaf_0002",
+  "leaf_bbox": [
+    1728,
+    2020,
+    9072,
+    8780
+  ],
+  "n_targets": 29,
+  "n_cleared": 28,
+  "n_remaining": 1,
+  "cleared": [
+    "M5.W.5",
+    "M5.W.5",
+    "M5.W.5",
+    "M5.W.5",
+    "M5.W.5",
+    "M5.S.4",
+    "M5.S.4",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.3",
+    "M5.AUX.1",
+    "M5.AUX.1",
+    "M5.AUX.1",
+    "M5.AUX.1",
+    "M5.AUX.1",
+    "M5.AUX.1",
+    "M5.AUX.1",
+    "M5.AUX.1"
+  ],
+  "remaining": [
+    "M5.AUX.1"
+  ],
+  "repair_rate": 0.9655172413793104,
+  "n_new_in_crop": 10,
+  "n_new_out_of_crop": 0,
+  "new_in_crop_by_rule": {
+    "M1.A.1": 4,
+    "V1.M1.EN.1": 6
+  },
+  "new_out_of_crop_by_rule": {},
+  "new_out_of_crop_bboxes": [],
+  "drc_total_after": 21,
+  "drc_baseline": 39,
+  "drc_delta": -18,
+  "connectivity_preserved": true,
+  "scored_against": "isolated",
+  "had_drop": true
+}

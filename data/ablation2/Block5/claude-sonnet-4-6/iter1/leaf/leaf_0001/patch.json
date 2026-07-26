@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0011", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0011 right by 36 dbu (from center x=5220 to x=5256) so its M1 land (layer 19, now x=5220..5292) no longer creates a gap in the merged M1 top-arm at y=2340 within the V0's x-range (5148..5220), eliminating the non-coincident convex corner at (5220,2340) that fires V0.M1.AUX.3."
+}

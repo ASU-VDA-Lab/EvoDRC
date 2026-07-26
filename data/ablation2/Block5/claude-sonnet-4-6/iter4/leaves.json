@@ -1,0 +1,266 @@
+{
+  "iter": 4,
+  "block_bounds_dbu": [
+    0,
+    0,
+    10784,
+    10784
+  ],
+  "violations": [
+    {
+      "violation_id": "v0001",
+      "rule_id": "V0.M1.AUX.3",
+      "bbox": [
+        2772,
+        5220,
+        2844,
+        5292
+      ]
+    },
+    {
+      "violation_id": "v0002",
+      "rule_id": "V2.M3.AUX.2",
+      "bbox": [
+        2716,
+        3204,
+        2788,
+        3276
+      ]
+    },
+    {
+      "violation_id": "v0003",
+      "rule_id": "V2.M3.AUX.2",
+      "bbox": [
+        3004,
+        3204,
+        3076,
+        3276
+      ]
+    },
+    {
+      "violation_id": "v0004",
+      "rule_id": "V2.M3.AUX.2",
+      "bbox": [
+        2996,
+        5364,
+        3068,
+        5436
+      ]
+    },
+    {
+      "violation_id": "v0005",
+      "rule_id": "V2.M3.AUX.2",
+      "bbox": [
+        2716,
+        7524,
+        2788,
+        7596
+      ]
+    },
+    {
+      "violation_id": "v0006",
+      "rule_id": "V2.M3.AUX.2",
+      "bbox": [
+        3004,
+        7524,
+        3076,
+        7596
+      ]
+    },
+    {
+      "violation_id": "v0007",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        1996,
+        2112,
+        2092,
+        2208
+      ]
+    },
+    {
+      "violation_id": "v0008",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2228,
+        2112,
+        2324,
+        2208
+      ]
+    },
+    {
+      "violation_id": "v0009",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2764,
+        3264,
+        2860,
+        3360
+      ]
+    },
+    {
+      "violation_id": "v0010",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2996,
+        3264,
+        3092,
+        3360
+      ]
+    },
+    {
+      "violation_id": "v0011",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        1996,
+        4224,
+        2092,
+        4320
+      ]
+    },
+    {
+      "violation_id": "v0012",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2228,
+        4224,
+        2324,
+        4320
+      ]
+    },
+    {
+      "violation_id": "v0013",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2764,
+        5376,
+        2860,
+        5472
+      ]
+    },
+    {
+      "violation_id": "v0014",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2996,
+        5376,
+        3092,
+        5472
+      ]
+    },
+    {
+      "violation_id": "v0015",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        1996,
+        6528,
+        2092,
+        6624
+      ]
+    },
+    {
+      "violation_id": "v0016",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2228,
+        6528,
+        2324,
+        6624
+      ]
+    },
+    {
+      "violation_id": "v0017",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2764,
+        7488,
+        2860,
+        7584
+      ]
+    },
+    {
+      "violation_id": "v0018",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2996,
+        7488,
+        3092,
+        7584
+      ]
+    },
+    {
+      "violation_id": "v0019",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        1996,
+        8640,
+        2092,
+        8736
+      ]
+    },
+    {
+      "violation_id": "v0020",
+      "rule_id": "V4.M5.AUX.2",
+      "bbox": [
+        2228,
+        8640,
+        2324,
+        8736
+      ]
+    }
+  ],
+  "leaves": [
+    {
+      "leaf_id": "leaf_0001",
+      "bbox_dbu": [
+        1728,
+        2068,
+        9072,
+        8736
+      ],
+      "violation_ids": [
+        "v0007",
+        "v0008",
+        "v0011",
+        "v0012",
+        "v0015",
+        "v0016",
+        "v0019",
+        "v0020"
+      ],
+      "rule_counts": {
+        "V4.M5.AUX.2": 8
+      },
+      "n_viol": 8
+    },
+    {
+      "leaf_id": "leaf_0002",
+      "bbox_dbu": [
+        1728,
+        3148,
+        9072,
+        7652
+      ],
+      "violation_ids": [
+        "v0001",
+        "v0002",
+        "v0003",
+        "v0004",
+        "v0005",
+        "v0006",
+        "v0009",
+        "v0010",
+        "v0013",
+        "v0014",
+        "v0017",
+        "v0018"
+      ],
+      "rule_counts": {
+        "V0.M1.AUX.3": 1,
+        "V2.M3.AUX.2": 5,
+        "V4.M5.AUX.2": 6
+      },
+      "n_viol": 12
+    }
+  ],
+  "count": 2
+}

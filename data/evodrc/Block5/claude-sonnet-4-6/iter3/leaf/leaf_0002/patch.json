@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0114", "delta_dbu": [-32, 0]},
+    {"op": "move_instance", "inst_id": "i0112", "delta_dbu": [-32, 0]},
+    {"op": "move_instance", "inst_id": "i0073", "delta_dbu": [-32, 0]},
+    {"op": "move_instance", "inst_id": "i0062", "delta_dbu": [-32, 0]}
+  ],
+  "explanation": "Moves all four VIA_VIA45_1_2_58_58 instances (i0114, i0112, i0073, i0062) left by 32 dbu in x to eliminate the M5 metal protrusion beyond polygon p879, clearing violation v0010 (M5.W.5 at 2261,8640,2400,8780) while preserving connectivity and avoiding secondary violations."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0300", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1385", "axis": "x", "end": "high", "delta_dbu": 200}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0300 by +136 dbu in x so its M1 land (formerly 5768-5840) no longer overlaps the V0 contact x-range (5796-5868), eliminating the merged-M1 step that caused the V0.M1.AUX.3 convex-corner violation; extends M2 polygon p1385 right edge to x=5996 to cover i0300's new M2 land at (5884-5996, 6264-6336) and preserve connectivity."
+}

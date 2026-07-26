@@ -1,0 +1,39 @@
+## M5 Repair Knowledge — Iteration 2
+
+### M5 Vertical Resize (Y-axis shrink) Is the High-Yield Single-Op Repair for Via-Cell Violations
+
+Shrinking an M5 shape in the Y direction inside a via cell is the most effective single-operation M5 repair observed so far. In trial:i01.cu.def:VIA_VIA45_1_2_58_58.02, applying a single `resize_via_shape` of −88 dbu on M5 (axis:y, shape_index:0, cell VIA_VIA45_1_2_58_58) produced a delta_total of −20, clearing 11 violations in leaf_0018 and 9 in leaf_0019. This op was applied unconditionally. The magnitude −88 dbu is larger than the M5.W.5 minimum vertical width (44 nm = 44 dbu at 1 dbu = 1 nm equivalence implied by rule units), confirming the shape was over-tall and the shrink brought it closer to minimum without violating the 44 nm floor.
+
+Do not conflate Y-axis shrink effectiveness with X-axis move effectiveness: they address different rule families. Y shrinks relieve M5.S.2 (minimum vertical spacing 40 nm), M5.S.3 (tip-to-tip on adjacent tracks, 40 nm), M5.S.4 (shared-parallel-run-length tip-to-tip, 40 nm), and can reduce M5.W.5 over-width violations; X moves affect M5.AUX.1 (24 nm vertical-edge grid), M5.AUX.2 (routing-track center-line alignment, pitch 192 dbu, offset 48 dbu from base 96 dbu), and M5.S.1 (horizontal spacing 24 nm). These are independent constraint families and must be evaluated separately.
+
+### M5 X-Move of +32 dbu on p1060 Is Consistently Counter-Productive — Do Not Retry
+
+Moving M5 polygon p1060 by +32 dbu in X (and the corresponding via shape in VIA_VIA45_1_2_58_58) produced a net-positive delta of +28 in trial:i02.cu.def:VIA_VIA45_1_2_58_58.00: leaf_0002 improved by only −1 while leaf_0003 worsened by +29. The trial was rejected with decision `rejected_net_positive`. The same two ops (move p1060 +32 x, move_via_shape M5 +32 x) were dropped at assembly time in trial:i02.ug.leaf_0002.01 with reason `cu_pool:rejected_net_positive`, consistent with the standalone rejection. Do not issue a +32 dbu X-move on p1060 or its associated M5 via shape; the violation budget in leaf_0003 is highly sensitive to this displacement. A 32 dbu X-move does not land on the M5.AUX.2 routing-track grid (pitch 192, offset 48 from base 96: valid track centers are 48 + 192k dbu from origin); this likely explains why the move creates new M5.AUX.2 violations faster than it resolves anything else.
+
+### Five-Op V4+M4 Compound Repair Lost Tournament to the One-Op M5 Y-Shrink
+
+Trial:i01.cu.def:VIA_VIA45_1_2_58_58.01 applied five operations (move V4 −116 x, resize V4 +384 x, move V4 +116 x, resize V4 +384 x, resize M4 +152 x) and achieved delta_total −18 (leaf_0018: −10, leaf_0019: −8). Despite being an improvement, it was decided `lost_tournament` to the one-op M5 Y-shrink (trial:i01.cu.def:VIA_VIA45_1_2_58_58.02, delta_total −20). When a low-op-count M5-only repair is available, prefer it over compound V4/M4 reshaping for the same target: the cu_pool tournament selects by delta_total, and the M5 Y-shrink cleared two more violations with four fewer operations. The V4 reshape in trial:i01.cu.def:VIA_VIA45_1_2_58_58.01 was likely addressing V4.M5.AUX.2 (V4 must span exactly the M5 width perpendicular to M5 length) and V4.M5.EN.2 (11 nm enclosure on two opposite sides); the M5 shrink in trial:i01.cu.def:VIA_VIA45_1_2_58_58.02 resolved the same enclosure constraint by reducing the M5 envelope directly, making the via adjustment unnecessary.
+
+### Instance Moves That Touch M5 Can Introduce Lower-Layer Violations
+
+Both unit_gate trials that touched M5 as a side-effect of instance moves were gated in on `conn_preserved` rather than on violation count improvement. Trial:i02.ug.leaf_0002.01 introduced 8 new in-crop violations (M1.A.1: 4, V1.M1.EN.1: 4) as a result of 6 instance moves (y-offsets: −48, −48, −96, −96, +48, +48 dbu on instances i0177, i0152, i0079, i0102, i0078, i0101). Trial:i02.ug.leaf_0003.02 introduced 12 new in-crop violations from 10 ops including an asymmetric X-resize of M5 polygon p1059 (low end +64 dbu, high end +320 dbu) and 8 instance moves. Neither trial was rejected but both added new violations on M1 and V1, which will become debt for those layers. When M5 is touched incidentally by a unit_gate instance-move batch, do not assume the M5 state is improved; check whether the asymmetric p1059 resize created M5.W.3 or M5.W.4 violations (the +320 dbu high-end expansion is large relative to the 480 nm maximum width and the 24 nm even-multiple prohibitions).
+
+### M5 Width and Spacing Grid Constraints to Enforce Before Any X-Axis Move
+
+Any candidate X-move or X-resize on M5 must be validated against four interlocking constraints before submission:
+
+- **M5.AUX.1**: all vertical edges (left/right) must sit on a 24 dbu grid. A move or resize delta that is not a multiple of 24 dbu will immediately create an M5.AUX.1 violation. Both the +64 dbu and +320 dbu end-resizes on p1059 (trial:i02.ug.leaf_0003.02) are multiples of 64 dbu / 24 dbu and 320 dbu / 24 dbu respectively — 64/24 is not an integer, so the low-end resize of +64 dbu on p1059 violates M5.AUX.1 unless the starting edge was already offset such that the result lands on a 24 dbu boundary. Verify post-move edge positions modulo 24 before applying.
+
+- **M5.AUX.2**: minimum-width (1x) M5 tracks (width < 26 dbu after erosion by 13 dbu each side) must have their center-line at positions satisfying (cl − 48) mod 192 = 0, within the base-96 dbu grid. A +32 dbu move (as in the rejected trial:i02.cu.def:VIA_VIA45_1_2_58_58.00) will shift a compliant track off-grid unless the starting center was already 32 dbu away from a valid track position.
+
+- **M5.W.3 / M5.W.4**: horizontal widths that are even integer multiples of 24 nm (48, 96, 144, …, 480 dbu) are prohibited (M5.W.3). Widths of 72, 168, 264, 360, 456 dbu are also prohibited (M5.W.4). When resizing M5 in X, verify the resulting width is not in either forbidden set.
+
+- **M5.W.2**: maximum horizontal width is 480 nm (480 dbu). The +320 dbu high-end resize in trial:i02.ug.leaf_0003.02 on p1059 may push width above 480 dbu depending on the pre-existing width of p1059; this must be checked.
+
+### M5.AUX.3 (No Bends) and M5.GEOMETRY.NONORTHOGONAL Are Absolute
+
+No trial has tested non-rectilinear M5 geometry. Both M5.AUX.3 (corners with angle 0–90 degrees are forbidden, meaning no bends) and GEOMETRY.NONORTHOGONAL (edges at angles 1–89, 91–179, −179 to −91, −89 to −1 degrees are forbidden) are structural constraints that no repair operation should violate. All ops observed in the history (move, resize_end, move_via_shape, resize_via_shape) preserve rectilinear geometry. Do not introduce diagonal edges or bends; no measured trial has done so and both rules are unconditional.
+
+### Via Enclosure Rules Drive M5 Via-Cell Repair Scope
+
+The effective repair in trial:i01.cu.def:VIA_VIA45_1_2_58_58.02 targeted VIA_VIA45_1_2_58_58 and touched layers M4, M5, and V4, consistent with V4.M5.EN.2 (11 nm enclosure of V4 by M5 on two opposite sides) and V4.M5.AUX.2 (V4 must be exactly the same width as M5 perpendicular to M5 length) being the root violations. Shrinking M5 in Y by 88 dbu reduces the M5 envelope and, if V4 was over-enclosed, directly fixes V4.M5.EN.2 over-constraint or tip-region spacing violations. The V5.M5.EN.1 rule (11 nm enclosure of V5 by M5) applies similarly for the upper via but was not triggered in these trials. When repairing via cells, prioritize M5 Y-resize first (as trial:i01.cu.def:VIA_VIA45_1_2_58_58.02 demonstrates); attempt V4/V5 or M4 reshaping only if M5 Y-resize alone cannot clear the violation, given that the compound approach (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01) lost the tournament.

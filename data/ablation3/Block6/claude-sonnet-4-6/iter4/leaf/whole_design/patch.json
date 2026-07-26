@@ -1,0 +1,26 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move", "polygon_id": "p1684", "axis": "x", "delta_dbu": 80},
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0040", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0108", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0126", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0409", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0412", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0530", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0031", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0538", "delta_dbu": [80, 0]},
+    {"op": "move_instance", "inst_id": "i0112", "delta_dbu": [-96, 0]},
+    {"op": "move_instance", "inst_id": "i0152", "delta_dbu": [-96, 0]},
+    {"op": "move_instance", "inst_id": "i0319", "delta_dbu": [96, 0]},
+    {"op": "resize", "polygon_id": "p1990", "axis": "x", "delta_dbu": 10},
+    {"op": "move_instance", "inst_id": "i0213", "delta_dbu": [96, 0]},
+    {"op": "resize", "polygon_id": "p1923", "axis": "x", "delta_dbu": 10},
+    {"op": "move_instance", "inst_id": "i0074", "delta_dbu": [-96, 0]},
+    {"op": "resize", "polygon_id": "p1920", "axis": "x", "delta_dbu": 10},
+    {"op": "move_instance", "inst_id": "i0015", "delta_dbu": [-48, 0]},
+    {"op": "move_instance", "inst_id": "i0471", "delta_dbu": [-48, 0]}
+  ],
+  "explanation": "Fixes M5.AUX.1 (2 violations) by moving M5 stripe p1684 +80 dbu in x (placing both edges on 96-dbu routing grid) and co-moving all via-stack instances inside that stripe (i0025/i0040/i0108/i0126/i0409/i0412/i0530 VIA45, i0031/i0538 VIA56). Fixes V1.M1.EN.1 (5), M1.S.2 (4), and M1.S.4 (1) by moving 8 VIA_VIA12 instances ±48-96 dbu in x with M2 routing adjustments (p1990/p1923/p1920 resized +10 dbu) to prevent new M2 spacing violations."
+}

@@ -1,0 +1,19 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops_total": 0,
+  "ops_applied": 0,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA23_1_3_36_36",
+        "layer_name": "M3",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": -30
+      },
+      "reason": "cu_pool:rejected_net_positive"
+    }
+  ],
+  "had_drop": true
+}

@@ -1,0 +1,9 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"V4","shape_index":0,"axis":"x","delta_dbu":152},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"V4","shape_index":1,"axis":"x","delta_dbu":152},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M4","shape_index":0,"axis":"x","delta_dbu":152}
+  ],
+  "explanation": "Expands both V4 cuts in VIA_VIA45_1_2_58_58 by 76 dbu on each side so their outer x-edges coincide with the M5 land at ±240 dbu, clearing all 34 V4.M5.AUX.2 violations; M4 land is co-expanded by 76 dbu on each side to maintain 44 dbu V4.M4 enclosure."
+}

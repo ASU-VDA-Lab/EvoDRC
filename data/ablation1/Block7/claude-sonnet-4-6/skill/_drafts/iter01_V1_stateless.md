@@ -1,0 +1,35 @@
+**Operation mix and co-movement pattern**
+
+Every trial in the measured history touches V1 as part of a multi-layer move that always includes M1 and M2, and in several cases also M3 and V2 (trial:i01.ug.Block7_union_row12.02, trial:i01.ug.Block7_union_row9.21, trial:i01.ug.leaf_0024.25). V1 is never repositioned in isolation. This is consistent with V1.AUX.1 and V1.M2.AUX.2, which require V1 to remain inside both M1 and M2 and to match M2 width in the perpendicular direction: moving V1 alone would break those containment relationships. All repairs therefore apply `move_instance` to every instance that carries a V1 together with the M1 and M2 cells that bound it.
+
+**M2 polygon resizing accompanies instance moves**
+
+Several trials pair instance moves with `resize_end` operations on M2 polygons. In trial:i01.ug.Block7_union_row3.15 an instance is moved −36 dbu in x while M2 polygon p3379 is extended +49 dbu at its high end. In trial:i01.ug.leaf_0002.23 a +72 dbu instance move is paired with a +128 dbu high-end extension on p3695. In trial:i01.ug.leaf_0008.24 a +40 dbu instance move accompanies a +164 dbu extension on p3771. The resize magnitude is consistently larger than the paired move delta: M2 end-cap extension must cover both the displacement of the via and the 5 nm M2 enclosure demanded by V1.M2.EN.2 (which requires at least 5 nm on both opposite sides, or 5 & 0 nm on coincident-edge vias). Do not treat the resize delta as interchangeable with the move delta; they serve different geometric goals.
+
+**Dominant x-axis move magnitudes and their rule basis**
+
+The most frequently applied x-axis delta across all accepted trials is 36 dbu (trial:i01.ug.Block7_union_row11.01, trial:i01.ug.Block7_union_row15.05, trial:i01.ug.Block7_union_row18.08, trial:i01.ug.Block7_union_row20.10, trial:i01.ug.Block7_union_row22.12, trial:i01.ug.Block7_union_row23.13, trial:i01.ug.Block7_union_row24.14, trial:i01.ug.Block7_union_row4.16, trial:i01.ug.Block7_union_row5.17, trial:i01.ug.Block7_union_row8.20, trial:i01.ug.Block7_union_row9.21, and others). 36 dbu clears the 18 nm same-track projection spacing required by V1.S.1 and also exceeds the 17 nm projection limit used in the mask geometry check. The 28 dbu delta (trial:i01.ug.Block7_union_row6.18, trial:i01.ug.Block7_union_row7.19, trial:i01.ug.Block7_union_row4.16 for i1573) is the next tier and still satisfies V1.W.1's 18 nm minimum width. Larger deltas of 40 dbu (trial:i01.ug.Block7_union_row13.03, trial:i01.ug.Block7_union_row7.19 for i1442), 64 dbu (trial:i01.ug.Block7_union_row8.20 for i1405 and i1921), 72 dbu (trial:i01.ug.Block7_union_row23.13 for i0678, trial:i01.ug.leaf_0002.23, trial:i01.ug.leaf_0024.25), and 108 dbu (trial:i01.ug.Block7_union_row7.19 for i1446, trial:i01.ug.Block7_union_row9.21 for i1117, trial:i01.ug.leaf_0008.24 for i1968) are applied where greater clearance is needed, consistent with the 27 nm parallel-track not-aligned spacing in V1.S.1 and the 23 nm euclidean corner spacing in V1.S.2. The small 4 dbu nudge seen in trial:i01.ug.leaf_0001.22 and trial:i01.ug.Block7_union_row21.11 represents a fine-pitch correction rather than a full track relocation.
+
+**Y-axis moves and their rule basis**
+
+Y-axis corrections appear in a subset of trials. In trial:i01.ug.Block7_union_row12.02 polygons p3694 is extended and compressed by ±8 dbu at both y ends alongside an 8 dbu y-move of paired instances i1356 and i1358. In trial:i01.ug.Block7_union_row14.04 instances i0894 and i0920 are moved +64 dbu in y with p3576 extended +64 dbu at its high y end, while a separate pair i0519/i0524 is moved −12 dbu. In trial:i01.ug.Block7_union_row19.09 instances i0949 and i0950 are moved −52 dbu in y. In trial:i01.ug.Block7_union_row22.12 instance i0132 is moved [+36, −48] as a combined x+y displacement. In trial:i01.ug.Block7_union_row23.13 instance i0041 is moved [−36, +44] while trial:i01.ug.leaf_0024.25 moves i0347 by [+72, +44]. Y-axis moves address enclosure deficits along the M2 length direction: V1.M1.EN.1 requires M1 enclosure of 5 nm and 2 nm on opposite sides, and V1.M2.EN.2 requires 5 & 5 nm or 5 & 0 nm enclosure by M2, both measured by projection which is sensitive to y-position.
+
+**Gating criterion: connectivity preservation dominates**
+
+All 27 trials were accepted (`decision: gated_in`). The operative condition in every case is `conn_preserved: true` and `n_new_out_of_crop: 0`. Introducing new in-crop violations does not block acceptance: trial:i01.ug.Block7_union_row21.11 introduced 9 new in-crop violations and was still accepted; trial:i01.ug.Block7_union_row22.12 introduced 2, trial:i01.ug.Block7_union_row13.03 introduced 1, and trial:i01.ug.leaf_0002.23 introduced 2 — all gated in. Never reject a repair solely because it introduces in-crop violations, provided connectivity is preserved and no new out-of-crop violations appear.
+
+**Single-operation trials are sufficient when the violation is local**
+
+Three trials apply exactly one operation and are accepted: trial:i01.ug.leaf_0001.22 (one `move_instance` of +4 dbu), trial:i01.ug.Block7_union_row6.18 (one `move_instance` of +28 dbu), and trial:i01.ug.Block7_union_row21.11 (one `move_instance` of +4 dbu). Do not pad a repair with redundant operations when the violation geometry is already resolved by a single move.
+
+**Op count scales with the number of instances sharing the violating geometry**
+
+Trials with many instances contributing to the same V1 spacing or enclosure violation require moving all contributors together. trial:i01.ug.Block7_union_row9.21 uses 9 operations covering 7 instance moves plus 2 polygon operations across a wide locus (x: 3184–18288 dbu). trial:i01.ug.Block7_union_row12.02 uses 9 operations with both x and y adjustments. Conversely, tightly bounded violations such as trial:i01.ug.leaf_0001.22 (locus 7072–7920 × 2268–3132 dbu) require only 1 operation. Match op count to the spatial extent and instance count of the violation.
+
+**resize_end axis must match the direction of the enclosure deficit**
+
+In trial:i01.ug.Block7_union_row12.02 the resize operations on p3694 are along the y-axis (`axis: y`) consistent with adjusting the M2 length along the track direction. In trial:i01.ug.Block7_union_row3.15 the resize is along x (`axis: x`, `end: high`) consistent with extending M2 in the width direction. In trial:i01.ug.Block7_union_row24.14 the M2 polygon p3058 is extended +36 dbu at its high x end to maintain enclosure after a +36 dbu instance move. Apply `resize_end` on the axis perpendicular to the direction in which enclosure is violated.
+
+**All geometry is orthogonal**
+
+The NONORTHOGONAL rule applies to V1 as listed in the deck. No trial applies a diagonal resize or move that would produce non-90-degree edges. All deltas in the measured history are along x or y independently (trial:i01.ug.Block7_union_row22.12 and trial:i01.ug.leaf_0024.25 apply combined x+y moves to a single instance but each component is axis-aligned). Never introduce a resize_end or move_instance that would produce an edge at any angle other than 0 or 90 degrees on V1, M1, or M2.

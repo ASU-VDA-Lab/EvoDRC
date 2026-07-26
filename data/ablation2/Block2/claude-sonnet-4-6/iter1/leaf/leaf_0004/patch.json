@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0127", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0127 right by 36 dbu so its M1 land no longer straddles the std-cell M1 step at y=3420, clearing the non-coincident V0 top-edge that caused V0.M1.AUX.3."
+}

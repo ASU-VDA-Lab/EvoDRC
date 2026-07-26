@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0410", "delta_dbu": [104, 0]},
+    {"op": "resize_end", "polygon_id": "p2020", "axis": "x", "end": "high", "delta_dbu": 128}
+  ],
+  "explanation": "Moves VIA_VIA12 i0410 rightward by 104 dbu so its M1 land left edge (now x=11916) aligns with the V0 _ptemp_6 right edge, removing the merged-M1 step that left V0 bottom corners interior to M1 and triggered V0.M1.AUX.3; extends M2 stripe p2020 high-x end by 128 dbu to maintain full M2 land overlap with the repositioned via."
+}

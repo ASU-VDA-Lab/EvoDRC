@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -40},
+    {"op": "resize", "polygon_id": "p897", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p896", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p895", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p894", "axis": "y", "delta_dbu": -64}
+  ],
+  "explanation": "Fixes 8 outer V2.M3.AUX.2 violations by shrinking VIA_VIA23_1_3_36_36 M3 land from local y±56 to ±36 dbu and shrinking top-level M3 polygons p894-p897 from height 136 to 72 dbu, so that in the wing regions (x∈[1948,1968] and x∈[2288,2308]) where VIA_VIA34's M3 does not reach, the merged M3 y-edges become flush with the V2 cut y-edges at ±36 dbu."
+}

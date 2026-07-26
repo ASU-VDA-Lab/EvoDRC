@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1968", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p3771", "axis": "x", "end": "high", "delta_dbu": 164},
+    {"op": "move_instance", "inst_id": "i1964", "delta_dbu": [40, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i1968 right by 108 dbu (extending M2 polygon p3771 to maintain connectivity) to eliminate the M1 land protrusion that caused M1.S.4/S.5/S.6 violations against frozen std-cell M1; moves VIA_VIA12 i1964 right by 40 dbu to shift its M1 land clear of the frozen V0 bounding box, resolving the V0.M1.AUX.3 convex-corner mismatch."
+}

@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block1_union_row9",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0195", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0245", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Clears three V0.M1.AUX.3 violations by shifting each offending VIA_VIA12 instance +36 dbu in x, so the VIA12 M1 land no longer x-overlaps the frozen std-cell V0 pin; this eliminates the merged-M1 y-extent mismatch at each V0 convex corner and was verified by DRC preview (all 3 cleared, 0 new) and connectivity preview (824/824 seeds preserved)."
+}

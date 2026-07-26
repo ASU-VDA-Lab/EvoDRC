@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block7_union_row14",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0920", "delta_dbu": [0, 64]},
+    {"op": "move_instance", "inst_id": "i0874", "delta_dbu": [8, 0]},
+    {"op": "resize_end", "polygon_id": "p3200", "axis": "x", "end": "high", "delta_dbu": 8},
+    {"op": "move_instance", "inst_id": "i0915", "delta_dbu": [8, 0]},
+    {"op": "resize_end", "polygon_id": "p3215", "axis": "x", "end": "high", "delta_dbu": 8},
+    {"op": "resize_end", "polygon_id": "p3515", "axis": "y", "end": "high", "delta_dbu": 8}
+  ],
+  "explanation": "Violations v0048/v0052/v0055/v0062/v0063/v0117 are cleared by moving VIA_VIA12 instance i0920 up 64 dbu; v0108 and v0109 are cleared by moving VIA_VIA12 instances i0874 and i0915 right 8 dbu each, with companion M2 resize_end ops on p3200 and p3215 (high-x end, +8 dbu) to preserve M2 connectivity; v0114 is cleared by extending the top edge of M2 polygon p3515 upward by 8 dbu."
+}

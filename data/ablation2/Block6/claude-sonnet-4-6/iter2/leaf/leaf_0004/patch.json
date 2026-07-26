@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0446", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0446 rightward by 72 dbu so its M1 land (now x=14508–14580) no longer overlaps the V0 pin x-range (14436–14508), clearing V0.M1.AUX.3 at (14436,6588,14508,6660) with no new violations."
+}

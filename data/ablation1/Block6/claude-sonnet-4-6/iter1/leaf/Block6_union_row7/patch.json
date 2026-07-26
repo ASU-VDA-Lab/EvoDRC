@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block6_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0093", "delta_dbu": [12, 0]},
+    {"op": "move_instance", "inst_id": "i0074", "delta_dbu": [-40, 0]},
+    {"op": "resize_end", "polygon_id": "p1920", "axis": "x", "end": "low", "delta_dbu": 60}
+  ],
+  "explanation": "Moved i0093 (VIA_VIA12) right by 12dbu: new M1 land x:[8796,8868] creates 108dbu gap from _ptemp_14 right edge at x=8688, clearing M1.S.2 (v0029). Moved i0074 (VIA_VIA12) left by 40dbu: new M1 land x:[11624,11696] creates 128dbu gap to _ptemp_25 left edge at x=11824, clearing M1.S.4 (v0034). Extended p1920 M2 polygon low-x end by 60dbu to x=11604 to maintain M2 connectivity for moved i0074 (new M2 land left at x=11624 is covered). Op 4 (delete_instance i0122) was dropped: connectivity preview confirmed it would break 2 pin endpoints, so v0009 (V0.M1.AUX.3) is unfixable. v0010 and v0048 and v0049 are structurally unfixable as noted. DRC preview confirmed 4 violations cleared (v0029, v0048, v0034, v0049 — note v0048/v0049 V1.M1.EN.1 were also resolved by the via moves), 0 new violations introduced, and full connectivity preserved across all 765 seeds."
+}

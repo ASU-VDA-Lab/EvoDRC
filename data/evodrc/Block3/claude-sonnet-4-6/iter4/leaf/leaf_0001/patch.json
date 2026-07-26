@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0099", "delta_dbu": [-76, 0]},
+    {"op": "resize_end", "polygon_id": "p1207", "axis": "x", "end": "low", "delta_dbu": 132}
+  ],
+  "explanation": "Moved via i0099 (VIA_VIA12) left by 76 dbu so its M1 right edge (x=2984) clears the stdcell V0 left edge (x=2988) eliminating the non-coincident convex corner for V0.M1.AUX.3, and increases the M1 tip-to-side gap to 112 dbu (>100 dbu threshold) clearing M1.S.2; p1207 (M2) is extended leftward by 132 dbu to restore M2 connectivity to the moved via."
+}

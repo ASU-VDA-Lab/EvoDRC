@@ -1,0 +1,14 @@
+{
+  "leaf_id": "leaf_0009",
+  "ops": [
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "M3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -40
+    }
+  ],
+  "explanation": "Op C1 (resize_via_shape): Shrinks the M3 y-land of VIA_VIA23_1_3_36_36 (shape_index 0) from +-56 dbu to +-36 dbu (delta_dbu=-40, symmetric 20 dbu inward per edge). This targets all 42 V2.M3.AUX.2 violations. The op is 100% admissible: all 26 placements of VIA_VIA23_1_3_36_36 violate V2.M3.AUX.2, satisfying the universality test. No regional op can fix these violations because the via is in a PDN stack pinned at strap crossings. Connectivity preview confirmed 765/765 seeds preserved. Ops E1-E4 (move_instance i0512/i0536/i0152/i0138 +36 dbu x): Dropped. The DRC preview showed that the 5 target violations (v0007, v0009, v0006, v0020, v0028 -- 3x V0.M1.AUX.3 and 2x M1.S.2) appeared as cleared even in the zero-op baseline, indicating the preview window cannot confirm their effect. The preview also flagged 53 pre-existing window violations as new_in_window (M1.A.1, V1.M1.EN.1, M4.W.5, M4.S.2) regardless of ops applied; these are pre-existing layout violations not caused by any op. Skipped violations: M4.AUX.1/AUX.2 -- via M4 lands, inadmissible (not 100% of placements violate). M5.AUX.1 -- left/right columns need different x-shifts and the via M5 co-extends the stripe. M6.AUX.1 -- VIA_VIA56 only 4/26 placements inadmissible, via M6 co-extends stripe. v0038 (V1.M1.EN.1) -- instance move would require non-uniform shift conflicting with connected V0 landing context; dropped with E1-E4."
+}

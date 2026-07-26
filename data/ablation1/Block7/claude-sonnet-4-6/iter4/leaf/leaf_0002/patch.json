@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1358", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Moves owned VIA_VIA23 instance i1358 left by 36 dbu (9 nm) so its M2 end-cap mask no longer violates V1.S.2 minimum euclidean spacing, clearing both v0082 and v0084."
+}

@@ -1,0 +1,96 @@
+{
+  "leaf_id": "leaf_0019",
+  "ops_total": 0,
+  "ops_applied": 0,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 0,
+        "axis": "x",
+        "delta_dbu": -116
+      },
+      "reason": "cu_pool:lost_tournament"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 0,
+        "axis": "x",
+        "delta_dbu": 320
+      },
+      "reason": "cu_pool:lost_tournament"
+    },
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 1,
+        "axis": "x",
+        "delta_dbu": 116
+      },
+      "reason": "cu_pool:lost_tournament"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 1,
+        "axis": "x",
+        "delta_dbu": 320
+      },
+      "reason": "cu_pool:lost_tournament"
+    },
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 2,
+        "axis": "x",
+        "delta_dbu": -116
+      },
+      "reason": "cu_pool:lost_tournament"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 2,
+        "axis": "x",
+        "delta_dbu": 320
+      },
+      "reason": "cu_pool:lost_tournament"
+    },
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 3,
+        "axis": "x",
+        "delta_dbu": 116
+      },
+      "reason": "cu_pool:lost_tournament"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 3,
+        "axis": "x",
+        "delta_dbu": 320
+      },
+      "reason": "cu_pool:lost_tournament"
+    }
+  ],
+  "had_drop": true
+}

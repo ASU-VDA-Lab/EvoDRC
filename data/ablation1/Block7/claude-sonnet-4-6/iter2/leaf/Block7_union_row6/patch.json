@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block7_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1231", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1264", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1886", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1965", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1907", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "All 5 V0.M1.AUX.3 violations are cleared by moving each offending VIA_VIA12 instance RIGHT 36 dbu, shifting the via M1 land so its left edge aligns with the V0 contact's right edge and eliminates the non-coincident convex corner condition."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p957", "axis": "x", "end": "low", "delta_dbu": -4}
+  ],
+  "explanation": "Clears v0020 (M4.S.4) by moving p957's left edge from x=4720 to x=4724, increasing the M4 tip-to-tip gap from 156 dbu (39 nm) to 160 dbu (40 nm); right edge at x=4948 is unchanged, preserving the VIA_VIA45 M4 land connection."
+}

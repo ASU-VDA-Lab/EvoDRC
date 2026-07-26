@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [{"op": "move_instance", "inst_id": "i0085", "delta_dbu": [36, 0]}],
+  "explanation": "Moves via instance i0085 (VIA_VIA12, originally at origin (3780, 2916)) by +36 dbu in x to (3816, 2916). After the move, the V1 cut's left edge at x=3780 coincides with M2 polygon p1056's right edge at x=3780, satisfying V1.M2.AUX.2's requirement for at least 2 coincident M2 boundary edges. The approved plan to resize p1056 by +72 dbu in x was tested but failed to clear the violation because resizing the M2 wire alone did not create the required coincident x-direction edges between the V1 cut and M2. Moving the via so its V1 cut's left edge aligns with p1056's right edge provides the required second coincident edge (top y-edge was already coincident via VIA12's own M2 enclosure), clearing V1.M2.AUX.2 with no new violations and full connectivity preservation."
+}

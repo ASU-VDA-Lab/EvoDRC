@@ -1,0 +1,20 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0012", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i0117", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0131", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0017", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0019", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0011", "delta_dbu": [72, 0]},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -40, "group": "v2m3aux2_fix"},
+    {"op": "resize", "polygon_id": "p891", "axis": "y", "delta_dbu": -64, "group": "v2m3aux2_fix"},
+    {"op": "resize", "polygon_id": "p892", "axis": "y", "delta_dbu": -64, "group": "v2m3aux2_fix"},
+    {"op": "resize", "polygon_id": "p893", "axis": "y", "delta_dbu": -64, "group": "v2m3aux2_fix"},
+    {"op": "resize", "polygon_id": "p894", "axis": "y", "delta_dbu": -64, "group": "v2m3aux2_fix"},
+    {"op": "resize", "polygon_id": "p895", "axis": "y", "delta_dbu": -64, "group": "v2m3aux2_fix"},
+    {"op": "resize", "polygon_id": "p896", "axis": "y", "delta_dbu": -64, "group": "v2m3aux2_fix"},
+    {"op": "resize", "polygon_id": "p897", "axis": "y", "delta_dbu": -64, "group": "v2m3aux2_fix"}
+  ],
+  "explanation": "Fixes 14 of 21 V2.M3.AUX.2 violations by atomically shrinking VIA_VIA23_1_3_36_36 M3 land from ±56 to ±36 dbu in y (delta=-40) and co-resizing the 7 coupled top-level M3 routing polygons p891–p897 by -64 dbu in y so merged M3 matches the V2 cut width; fixes 5 V0.M1.AUX.3 violations by moving VIA12 instances i0011/i0017/i0019/i0131 by +72 dbu and i0117 by +36 dbu in x to remove the VIA12 M1 land from V0 contact regions; and clears M1.S.2 + V1.M1.EN.1 at i0012 by moving it -36 dbu in x."
+}

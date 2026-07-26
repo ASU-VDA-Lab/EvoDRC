@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op":"resize","polygon_id":"p1402","axis":"y","delta_dbu":128,"group":"g_v0056_m6aux1"},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"M6","shape_index":0,"axis":"y","delta_dbu":128,"group":"g_v0056_m6aux1"},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_1_66_58","layer_name":"M6","shape_index":0,"axis":"y","delta_dbu":128,"group":"g_v0056_m6aux1"}
+  ],
+  "explanation": "Expands the M6 horizontal stripe p1402 and both VIA_VIA56 M6 lands by +128 dbu in y to move their horizontal edges from off-grid positions (y=2240, y=2880) to on-grid positions (y=2176=17x128, y=2944=23x128), clearing M6.AUX.1 violation v0056; all three ops are grouped atomically since each alone leaves off-grid M6 vertices from the other contributors."
+}

@@ -1,0 +1,31 @@
+## Observed Repair Strategy and Gate Behavior
+
+All nine trials recorded in the history were accepted by the `unit_gate` channel with `decision: "gated_in"` (trial:i01.ug.Block5_union_row3.00, trial:i01.ug.Block5_union_row6.01, trial:i01.ug.leaf_0001.02, trial:i01.ug.leaf_0002.03, trial:i01.ug.leaf_0005.04, trial:i01.ug.leaf_0006.05, trial:i02.ug.Block5_union_row6.00, trial:i02.ug.leaf_0002.02, trial:i03.ug.leaf_0002.01). In every case `conn_preserved` was `true` and the stated reason for acceptance was `conn_preserved`. The gate does not require DRC cleanliness as a precondition for acceptance: trial:i03.ug.leaf_0002.01 was accepted despite introducing one new in-crop violation (`n_new_in_crop: 1`). Do not treat gate acceptance as evidence that all DRC errors have been resolved.
+
+## Layer Co-modification Pattern
+
+Every accepted trial touched exactly the same set of layers: M1, M2, and V1 (trial:i01.ug.Block5_union_row3.00, trial:i01.ug.leaf_0001.02, trial:i01.ug.leaf_0002.03, trial:i01.ug.leaf_0005.04, trial:i01.ug.leaf_0006.05, trial:i02.ug.Block5_union_row6.00, trial:i02.ug.leaf_0002.02, trial:i03.ug.leaf_0002.01). Never attempt to move an M1 polygon or instance without simultaneously adjusting the co-located V1 via and the M2 segment above it. Isolated single-layer edits to M1 have no measured precedent in this history and would risk violating V0.M1.EN.1 (5 nm enclosure on two opposite sides), V0.M1.AUX.3 (V0 must match M1 width in the perpendicular direction), and V1.M1.EN.1 (5 & 2 nm enclosure of V1 by M1).
+
+## Move Delta Magnitudes
+
+The dominant x-axis move delta applied to M1-bearing instances is 36 dbu, observed in trial:i01.ug.Block5_union_row3.00 (instances i0117, i0131, delta +36), trial:i01.ug.leaf_0001.02 (instance i0011, delta +36), trial:i01.ug.leaf_0002.03 (instances i0056 +36 and i0103 −36), trial:i01.ug.leaf_0005.04 (instance i0017 +36), trial:i01.ug.leaf_0006.05 (instance i0012 +36), and trial:i03.ug.leaf_0002.01 (instance i0111 +36). Larger multiples of 36 dbu also appear: 72 dbu in trial:i02.ug.leaf_0002.02 (instance i0017) and 104 dbu in trial:i02.ug.Block5_union_row6.00 (instances i0025, i0019). The small delta of 4 dbu in trial:i01.ug.Block5_union_row6.01 is the only sub-36 instance move recorded; the same unit (Block5_union_row6) later required a 104 dbu correction in trial:i02.ug.Block5_union_row6.00, suggesting the 4 dbu move was insufficient to resolve the underlying violation. Prefer multiples of 36 dbu for instance moves on M1. The M1.S.1 minimum side-to-side spacing is 18 nm and M1.W.1 minimum width is 18 nm; 36 dbu aligns with one full pitch increment under those rules.
+
+## Resize Operations
+
+`resize_end` operations on M1 polygons are always performed on the `high` end of the `x` axis. This is confirmed by trial:i01.ug.Block5_union_row3.00 (polygon p967, axis x, high end, +36 dbu), trial:i01.ug.leaf_0001.02 (polygon p974, axis x, high end, +72 dbu), and trial:i02.ug.Block5_union_row6.00 (polygon p955, axis x, high end, +20 dbu). No `low`-end or y-axis resize has been recorded for M1. The +20 dbu resize in trial:i02.ug.Block5_union_row6.00 is the only sub-36 polygon resize, applied in conjunction with 104 dbu instance moves; it appears to fine-tune an M1 tip to maintain V1.M1.EN.1 (2 nm minimum on one side) or M1.S.2 (25 nm tip-to-side spacing) after the large instance displacement.
+
+## Unit Recurrence and Iteration Escalation
+
+Unit `leaf_0002` appears in three consecutive iterations: trial:i01.ug.leaf_0002.03 (iter 1, +36/−36 dbu paired instance moves), trial:i02.ug.leaf_0002.02 (iter 2, +72 dbu single instance move), and trial:i03.ug.leaf_0002.01 (iter 3, +36 dbu single instance move, 1 new in-crop violation). The same unit required re-repair across all three measured iterations without reaching zero new violations by iter 3. When a unit appears for the third consecutive iteration, the repair has not yet converged; expect at least one residual in-crop DRC marker to persist.
+
+## New In-Crop Violation at Iteration 3
+
+Trial:i03.ug.leaf_0002.01 is the only record with `n_new_in_crop: 1`. The operation was a single +36 dbu x-axis instance move (i0111) touching M1, M2, and V1. The new violation was introduced inside the locus crop `[1728, 3148, 9072, 7652]` — the widest crop region recorded across all trials. The co-presence of M1, V1, and M2 modifications and a large crop area means the new violation could be attributable to any of: M1.S.1/M1.S.2/M1.S.3 spacing between a displaced M1 edge and an adjacent polygon, V0.M1.EN.1 or V1.M1.EN.1 enclosure change caused by instance motion, or M1.A.1 area reduction if a tip-to-tip merge was broken. Moving instance i0111 by a full pitch multiple did not avoid introducing the new marker; subsequent repair targeting the same unit must account for this residual.
+
+## Corner-to-Corner and Area Constraints
+
+No trial in this history was flagged or rejected on account of M1.S.6 (20 nm corner-to-corner) or M1.A.1 (504 nm² minimum area), but all accepted operations involved instance moves and tip resizes on the x axis that alter M1 polygon boundaries. M1.A.1 requires a polygon to cover at least 504 nm². An M1 stub covering a single V0 (V0.M1.AUX.3 requires the stub to be exactly as wide as the via in the perpendicular direction) at 18 nm minimum width needs a length of at least 28 nm to satisfy M1.A.1 (18 × 28 = 504). Any resize operation that shortens an M1 tip below this length will trigger M1.A.1.
+
+## Redundant Island Avoidance
+
+M1.R.0 flags an M1 island enclosing exactly one small V0 when it sits near a large empty M1 region (>= 500 nm wide, area > 2.5 µm², expanded by 400 nm). No trial in this history triggered or resolved an M1.R.0 marker. The large crop in trial:i03.ug.leaf_0002.01 (`[1728, 3148, 9072, 7652]`, approximately 7.3 µm × 4.5 µm) spans a region where such empty-area conditions are geometrically plausible; the single-instance move recorded there did not resolve the in-crop marker and the rule that generated it is not identified in the record.

@@ -1,0 +1,11 @@
+**V4.M5.AUX.2 repair: shrink M5 in y-axis on VIA_VIA45 cells**
+
+For VIA_VIA45_1_2_58_58 cell targets, V4.M5.AUX.2 violations (V4 must exactly match M5 width perpendicular to M5 length) are resolved by resizing the M5 shape inward along the y-axis. A single resize_via_shape operation with axis=y and delta_dbu=-88 on M5 shape_index 0 eliminated 56 total violations across two windows (trial:i01.cu.def:VIA_VIA45_1_2_58_58.00, applied, delta_total=-56). This operation touches layers M4, M5, and V4 and preserves connectivity.
+
+**VIA_VIA56 / M5 interaction: prefer y-axis V5 resize over x-axis V5 move+resize**
+
+For VIA_VIA56_2_2_66_58 targets where M5 is a touched layer, two competing repair strategies were evaluated. Attempting to move and resize all four V5 shapes along the x-axis (eight ops total: alternating move_via_shape ±116 dbu and resize_via_shape +320 dbu) produced a delta_total of only -16 and lost the tournament (trial:i01.cu.def:VIA_VIA56_2_2_66_58.01, lost_tournament). Resizing all four V5 shapes along the y-axis by +248 dbu each (four resize_via_shape ops, group v5_m6_aux2_fix) produced delta_total=-32 and was applied (trial:i01.cu.def:VIA_VIA56_2_2_66_58.02, applied). Use the y-axis resize strategy for VIA_VIA56_2_2_66_58; do not use x-axis move+resize on V5 shapes for this cell type.
+
+**General M5 repair guidance from iteration 1**
+
+All three trials in this iteration preserved connectivity (conn_preserved=true). Repairs in the cu_pool channel at locus [1728,2068,15336,15216] in Block6 operate on two overlapping evaluation windows (unit:leaf_0019 and unit:leaf_0020); both windows must improve for a repair to win the tournament. The applied y-axis M5 shrink (trial:i01.cu.def:VIA_VIA45_1_2_58_58.00) delivered symmetric per-window reductions (-30, -26), while the losing x-axis V5 strategy (trial:i01.cu.def:VIA_VIA56_2_2_66_58.01) delivered only symmetric -8/-8. Higher absolute delta per operation is the distinguishing factor between winner and loser at this locus.

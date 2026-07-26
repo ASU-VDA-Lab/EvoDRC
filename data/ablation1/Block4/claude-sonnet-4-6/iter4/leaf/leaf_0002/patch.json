@@ -1,0 +1,20 @@
+{
+  "leaf_id": "leaf_0002",
+  "explanation": "Repair 6 V5.M6.AUX.2 violations by adjusting V5 cut geometry in two via cell definitions (VIA_VIA56_2_2_66_58 and VIA_VIA56_2_1_66_58). Each V5 cut is moved to center y=0 then symmetrically expanded to y=[-320,+320] so its y-edges coincide with the merged M6 enclosure boundary (absolute y=2240 and y=2880). M5 land is extended by delta_dbu=248 (half=124 per side) to fully enclose the expanded V5 cuts. Both cells are =100% admissible for V5.M6.AUX.2 (shared-target PASS). Declared debt: 8 in-window violations (M1.A.1 x3, V1.M1.EN.1 x3, M4.W.5 x1, M4.S.2 x1) at spatially distant, unmodified layers; block-wide harness measurement is the binding judge per doctrine G4.",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "M5", "shape_index": 0, "axis": "y", "delta_dbu": 248},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": -132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": 512},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": -132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": 512},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 2, "axis": "y", "delta_dbu": 132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 2, "axis": "y", "delta_dbu": 512},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 3, "axis": "y", "delta_dbu": 132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 3, "axis": "y", "delta_dbu": 512},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "M5", "shape_index": 0, "axis": "y", "delta_dbu": 248},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": -132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": 512},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": 132},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": 512}
+  ]
+}

@@ -1,0 +1,11 @@
+**Via cell horizontal V5 shape widening reduces M6-region violations**
+
+Widening V5 shapes in x within a via cell simultaneously reduces violations across multiple units sharing that cell. In trial i01.cu.def:VIA_VIA56_2_2_66_58.02, four V5 shapes inside cell VIA_VIA56_2_2_66_58 were repositioned horizontally by ±116 dbu and resized +320 dbu in x; the fix was applied (conn_preserved=true) and cut violations by 8 in leaf_0019 (139→131) and 8 in leaf_0020 (154→146), totalling −16. The touched layers were M5, M6, and V5, confirming that the improvement is tied to V5/M6 enclosure rules V5.M6.EN.2 and V5.M6.AUX.2. Resize via cell V5 shapes in x when multiple units share the via cell and show correlated M6-enclosure violations (trial i01.cu.def:VIA_VIA56_2_2_66_58.02).
+
+**Unit-gate channel gates on connectivity, not on new in-crop violation count**
+
+The unit_gate channel accepts (gated_in) a trial when conn_preserved=true regardless of how many new violations appear within the crop window. In trial i01.ug.leaf_0020.09, asymmetric resize_end moves on M6 polygons p2107 (low end −96 dbu, high end +32 dbu) and p2106 (low end −16 dbu, high end +112 dbu) introduced 55 new in-crop violations yet the trial was gated_in. Do not treat a non-zero n_new_in_crop as a rejection signal for unit_gate decisions; connectivity preservation is the gating criterion (trial i01.ug.leaf_0020.09).
+
+**Asymmetric M6 end resizing within a unit-gate trial**
+
+Move M6 polygon ends asymmetrically when correcting track-alignment or enclosure errors that require both shortening one end and extending the other. Trial i01.ug.leaf_0020.09 applied four resize_end ops across two polygons in locus [1728,3148,15336,14608]: low-end contraction and high-end extension magnitudes differed on both p2107 and p2106. The trial preserved all connections (conn_preserved=true, n_new_out_of_crop=0), establishing that net-length changes of this asymmetric kind are connection-safe on M6 when the opposing end is compensated (trial i01.ug.leaf_0020.09).

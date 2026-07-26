@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [0, 48]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0177 up by 48 dbu (12 nm), increasing the M1 land clearance to frozen std-cell M1 geometry (_ptemp_2 top at y=27780 and _ptemp_3 corner at (19368,27828)) to exactly meet the M1.S.4/S.5 threshold of 124 dbu and M1.S.6 corner threshold of 80 dbu, clearing all four violations (v0029, v0031, v0032, v0033)."
+}

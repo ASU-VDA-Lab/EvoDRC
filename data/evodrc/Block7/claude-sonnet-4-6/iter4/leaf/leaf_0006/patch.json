@@ -1,0 +1,526 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0235",
+      "delta_dbu": [
+        -108,
+        0
+      ]
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2624",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2624",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2475",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2475",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2629",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2629",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -41
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2474",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2474",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2628",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2628",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2468",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2468",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2525",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2525",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2396",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2396",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2540",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2540",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2380",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2380",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -41
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2539",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2539",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2379",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2379",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2577",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2577",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2613",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2613",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2575",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2575",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2608",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2608",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2610",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2610",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2551",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2551",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2786",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2786",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2785",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2785",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2784",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2784",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -41
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2734",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2734",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2733",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2733",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2732",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2732",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2835",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2835",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2697",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2697",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2928",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2928",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -41
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2819",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2819",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2686",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2686",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2896",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2896",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -41
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2795",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2795",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -41
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2929",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2929",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -41
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2837",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2837",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2727",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2727",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2840",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2840",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2816",
+      "axis": "y",
+      "end": "low",
+      "delta_dbu": -32
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p2816",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": -41
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "M3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -40
+    }
+  ],
+  "explanation": "Violation v0022 M1.S.2 at bbox (15768,22860,15840,22904): i0235 (VIA_VIA12) M1 land right edge at x=15768 is only 72 dbu (18nm) from the AND2x2 M1 right-finger left edge at x=15840, violating M1.S.2 (100 dbu = 25nm). The approved plan of dx=-36 was found to introduce a new M1.S.2 violation at (15588,22860,15660,22904) because the AND2x2 M1 polygon has a notch at y>=22860 with a left piece whose right edge is at x=15588; any move that brings i0235 M1 left (originally at 15696) within 100 dbu of 15588 creates a new violation on the left side. The notch is only 252 dbu wide (15840-15588) while the via M1 land (72 dbu) plus two 100 dbu clearances requires 272 dbu, making it impossible to place i0235 M1 in the notch without violating one side. Moving i0235 left by 108 dbu instead (to origin x=15624) places the M1 land at x=15588-15660, where the M1 merges with AND2x2 bottom bar (full-width from x=15516-15912 below y=22860), and at y>22860 the left side clears AND2x2 left piece (right at 15588, gap to i0235 M1 left at 15588 = 0, merged) while the right side at x=15660 is 180 dbu from AND2x2 right piece at x=15840 (180 dbu > 100 dbu). Resizes VIA_VIA23_1_3_36_36 M3 land from y=\u00b156 to y=\u00b136 dbu (matching V2 cut height) to satisfy V2.M3.AUX.2 coincident-edge requirement, and symmetrically trims 36 co-located top-level M3 stub polygons to the same 72 dbu height; together clearing 72 additional V2.M3.AUX.2/M3.S.2/M1 violations. All 3325 connectivity seeds verified."
+}

@@ -1,0 +1,49 @@
+## Repair Operation Patterns
+
+Every trial in iteration 1 was accepted with decision `gated_in`. Connectivity was preserved (`conn_preserved=true`) and no violations escaped the crop boundary (`n_new_out_of_crop=0`) in all 26 trials (trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26). The gating rule is: accept whenever `conn_preserved=true` AND `n_new_out_of_crop=0`, regardless of whether new violations are introduced inside the crop.
+
+New in-crop violations do not block acceptance. Trial trial:i01.ug.Block7_union_row21.11 introduced 9 new in-crop violations (`n_new_in_crop=9`) via a single 4 dbu x-move yet was accepted. Trials trial:i01.ug.Block7_union_row22.12, trial:i01.ug.Block7_union_row24.14, and trial:i01.ug.leaf_0002.23 each introduced 2 new in-crop violations and were accepted. Trial trial:i01.ug.Block7_union_row13.03, trial:i01.ug.Block7_union_row19.09, trial:i01.ug.Block7_union_row4.16, trial:i01.ug.Block7_union_row5.17, and trial:i01.ug.leaf_0024.25 each introduced 1 new in-crop violation and were accepted. Never allow `n_new_out_of_crop > 0`; the constraint on in-crop count is not enforced at this gate.
+
+## Dominant Operation: move_instance
+
+`move_instance` is the primary repair operation and appears in every trial. Apply x-axis instance moves as the first repair action for spacing violations. The most frequent displacement is ±36 dbu: positive 36 dbu moves appear in trial:i01.ug.Block7_union_row11.01, trial:i01.ug.Block7_union_row12.02, trial:i01.ug.Block7_union_row15.05, trial:i01.ug.Block7_union_row18.08, trial:i01.ug.Block7_union_row22.12, trial:i01.ug.Block7_union_row24.14, trial:i01.ug.Block7_union_row4.16, trial:i01.ug.Block7_union_row5.17, trial:i01.ug.Block7_union_row9.21; negative 36 dbu moves appear in trial:i01.ug.Block7_union_row10.00, trial:i01.ug.Block7_union_row16.06, trial:i01.ug.Block7_union_row3.15, trial:i01.ug.Block7_union_row5.17, trial:i01.ug.Block7_union_row9.21, trial:i01.ug.Block7_union_row23.13.
+
+Secondary x-move magnitudes used in accepted trials: 28 dbu (trial:i01.ug.Block7_union_row4.16, trial:i01.ug.Block7_union_row6.18), 40 dbu (trial:i01.ug.Block7_union_row16.06, trial:i01.ug.Block7_union_row20.10, trial:i01.ug.leaf_0008.24), 44 dbu (trial:i01.ug.Block7_union_row20.10), 56 dbu (trial:i01.ug.Block7_union_row9.21), 64 dbu (trial:i01.ug.Block7_union_row8.20), 72 dbu (trial:i01.ug.Block7_union_row23.13, trial:i01.ug.leaf_0002.23, trial:i01.ug.leaf_0024.25, trial:i01.ug.leaf_0095.26), 108 dbu (trial:i01.ug.Block7_union_row7.19, trial:i01.ug.Block7_union_row9.21, trial:i01.ug.leaf_0008.24). Use larger magnitudes (64–108 dbu) when multiple instances must be relocated together across a wider locus.
+
+Y-axis instance moves are used when the repair locus spans multiple tracks or when vertical spacing adjustments are required alongside horizontal shifts. Y-move magnitudes in accepted trials: +8 dbu (trial:i01.ug.Block7_union_row12.02), -12 dbu (trial:i01.ug.Block7_union_row14.04), +44 dbu (trial:i01.ug.Block7_union_row23.13, trial:i01.ug.leaf_0024.25, trial:i01.ug.leaf_0095.26), -48 dbu (trial:i01.ug.Block7_union_row22.12), -52 dbu (trial:i01.ug.Block7_union_row19.09), +64 dbu (trial:i01.ug.Block7_union_row14.04). Move both instances of a pair by the same y-delta to preserve their relative alignment, as demonstrated in trial:i01.ug.Block7_union_row12.02 (two instances each +8 dbu y), trial:i01.ug.Block7_union_row14.04 (two instances each -12 dbu y), trial:i01.ug.Block7_union_row19.09 (two instances each -52 dbu y).
+
+## resize_end Operations on M2 Polygons
+
+Use `resize_end` on the x-high end of M2 polygons to extend metal tip reach after an instance has been relocated, or to correct enclosure requirements for V1 and V2. `resize_end` on x-high appears with deltas of: +4 dbu (trial:i01.ug.Block7_union_row13.03), +16 dbu (trial:i01.ug.Block7_union_row7.19), +36 dbu (trial:i01.ug.Block7_union_row24.14, trial:i01.ug.leaf_0024.25), +48 dbu (trial:i01.ug.Block7_union_row14.04), +49 dbu (trial:i01.ug.Block7_union_row3.15), +50 dbu (trial:i01.ug.Block7_union_row10.00), +52 dbu (trial:i01.ug.leaf_0024.25), +56 dbu (trial:i01.ug.Block7_union_row12.02), +128 dbu (trial:i01.ug.leaf_0002.23), +164 dbu (trial:i01.ug.leaf_0008.24).
+
+`resize_end` on x-low appears with delta -36 dbu at the low end (trial:i01.ug.Block7_union_row9.21). Polygon translation (`op=move`) along x by +56 dbu was used once (trial:i01.ug.Block7_union_row9.21, polygon p2720).
+
+Y-axis `resize_end` operations adjust vertical extents of M2 polygons: +8 dbu high and -8 dbu low on the same polygon simultaneously (trial:i01.ug.Block7_union_row12.02, polygon p3694 — both ends moved by equal magnitude to shift the polygon without changing its height), +20 dbu high (trial:i01.ug.leaf_0024.25), +44 dbu high (trial:i01.ug.leaf_0024.25), +64 dbu high (trial:i01.ug.Block7_union_row14.04). Apply paired high/low y resizes of equal magnitude to translate a polygon vertically when a direct move of the polygon is not available.
+
+## Multi-Layer Coordination
+
+M2 repairs always involve simultaneous adjustments to M1 and V1 because M2 shapes are driven by instance placement shared with M1 and connected through V1. Every trial touches at least ["M1","M2","V1"]. When the repair locus involves M3 or V2 connections, those layers are also touched: trial:i01.ug.Block7_union_row12.02, trial:i01.ug.Block7_union_row13.03, trial:i01.ug.Block7_union_row14.04, trial:i01.ug.Block7_union_row19.09, trial:i01.ug.Block7_union_row9.21 all touch ["M1","M2","M3","V1","V2"]; trial:i01.ug.leaf_0024.25 touches ["M1","M2","M3","V1"]. Do not repair M2 spacing or enclosure in isolation; always plan the full stack from M1 through the highest metal layer present in the locus.
+
+## Operation Count and Locus Size
+
+Trials with small loci (single-cell, ~848×864 dbu or smaller) use 1–3 ops: trial:i01.ug.leaf_0001.22 (1 op, locus 848×864 dbu), trial:i01.ug.Block7_union_row11.01 (2 ops), trial:i01.ug.Block7_union_row3.15 (2 ops). Trials with wider loci (>10000 dbu span) use up to 9 ops: trial:i01.ug.Block7_union_row12.02 (9 ops, locus 19728×864 dbu), trial:i01.ug.Block7_union_row9.21 (9 ops, locus 15104×864 dbu). Scale the number of move_instance and resize_end operations to the number of instances present in the locus.
+
+## V1 and V2 Enclosure Constraints
+
+Rules V1.M2.EN.2 and V1.M2.AUX.2 require M2 to enclose V1 by at least 5 nm on two opposite sides, with V1 exactly matching M2 width in the perpendicular direction. Rule V2.M2.EN.1 requires M2 to enclose V2 by at least 5 nm on at least two opposite sides. After any move_instance or resize_end operation that repositions an M2 polygon relative to its via, verify enclosure on both axis pairs. Trials that combined instance moves with resize_end on the x-high end (trial:i01.ug.Block7_union_row3.15, trial:i01.ug.Block7_union_row10.00, trial:i01.ug.Block7_union_row12.02, trial:i01.ug.Block7_union_row14.04, trial:i01.ug.leaf_0002.23, trial:i01.ug.leaf_0008.24) restored enclosure after the move displaced the via relative to the metal end.
+
+## Spacing Rule Edge-Length Classification
+
+M2.S.1 applies only to edge pairs where both edges exceed 36 nm (side-to-side, 18 nm minimum). M2.S.2 applies when one edge is ≤36 nm (tip) and the other is >36 nm (side), requiring 25 nm tip-to-side clearance. M2.S.3 requires 27 nm between tip pairs both in the 24–36 nm range. M2.S.4 requires 31 nm between tip pairs both under 24 nm. M2.S.5 requires 31 nm when one tip is 24–36 nm and the other is under 24 nm. M2.S.6 applies euclidian corner-to-corner measurement at 20 nm — gaps missed by projection-mode checks can still fail here. When moving instances, the applicable spacing rule depends on the post-move edge lengths of the affected polygons; resize_end operations that change edge length can shift a violation from one rule category to another. All spacing repairs in this iteration were resolved while maintaining conn_preserved=true (all 26 trials).
+
+## M2.S.7 and M2.S.8 Compound Rules
+
+M2.S.7 forbids a tip-to-tip gap of exactly 18 nm co-located with a side-to-side spacing ≤32 nm, and requires parallel run length ≥35 nm when side spacing is ≤32 nm. M2.S.8 requires that diagonal center-to-center distances between tip-to-tip gaps on different tracks are ≥80 nm (euclidian). These rules interact with instance pitch: the 36 dbu x-displacements applied in the majority of trials (trial:i01.ug.Block7_union_row11.01, trial:i01.ug.Block7_union_row15.05, trial:i01.ug.Block7_union_row18.08 and others) alter inter-track gap alignment and therefore affect M2.S.7 and M2.S.8 compliance. Apply resize_end on x-high ends when a move_instance alone changes run length without adequately addressing the tip-to-tip gap position.
+
+## Minimum Width and Area
+
+M2.W.1 requires 18 nm minimum width. M2.A.1 requires minimum area of 504 nm^2 (equivalent to an 18×28 nm rectangle at minimum dimensions). Never shrink an M2 polygon end via resize_end to a dimension that violates either constraint. The x-high resize_end deltas in this iteration are all positive (extending, not shrinking), consistent with avoiding width and area violations (trial:i01.ug.Block7_union_row7.19 through trial:i01.ug.leaf_0008.24). The single x-low resize at -36 dbu (trial:i01.ug.Block7_union_row9.21) was paired with a +56 dbu polygon move, leaving the polygon extent net-positive in that direction.
+
+## Non-Orthogonal Geometry
+
+Never introduce non-orthogonal M2 edges. All operations in this iteration are rectilinear: move_instance displaces entire instances without rotation, and resize_end extends or contracts edges along x or y axes only. No diagonal or angled M2 edges were introduced across all 26 accepted trials.

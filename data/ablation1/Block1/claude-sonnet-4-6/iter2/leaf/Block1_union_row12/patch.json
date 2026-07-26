@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block1_union_row12",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p1216", "axis": "x", "end": "high", "delta_dbu": 132}
+  ],
+  "explanation": "Extends p1216's M4 right edge from x=8356 to x=8488, widening the parallel run length of the gap polygon between p1216 top (y=14496) and the combined i0052-M4-land/p1177 bottom (y=14592) from 48 dbu to 180 dbu (above the 176 dbu = 44 nm M4.S.5 threshold), clearing violation v0105; v0104 has no net-reducing fix available."
+}

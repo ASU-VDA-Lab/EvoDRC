@@ -1,0 +1,134 @@
+{
+  "case_name": "Block3",
+  "design_type": "block",
+  "total_violations": 4,
+  "total_rules_violated": 3,
+  "rules": {
+    "V0.M1.AUX.3": {
+      "violation_count": 2,
+      "description": "V0.M1.AUX.3 : V0 must exactly be the same width as M1 along the direction perpendicular to the M1 length.",
+      "violations": [
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              9684,
+              5508
+            ],
+            [
+              9684,
+              5580
+            ],
+            [
+              9756,
+              5580
+            ],
+            [
+              9756,
+              5508
+            ]
+          ],
+          "bbox": [
+            9684,
+            5508,
+            9756,
+            5580
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2988,
+              7380
+            ],
+            [
+              2988,
+              7452
+            ],
+            [
+              3060,
+              7452
+            ],
+            [
+              3060,
+              7380
+            ]
+          ],
+          "bbox": [
+            2988,
+            7380,
+            3060,
+            7452
+          ]
+        }
+      ]
+    },
+    "M4.AUX.2": {
+      "violation_count": 1,
+      "description": "M4.AUX.2 : Minimum width M4 tracks must lie along the horizontal routing tracks at a spacing of 2N x minimum metal width + offset from the origin.",
+      "violations": [
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2688,
+              9744
+            ],
+            [
+              2688,
+              9840
+            ],
+            [
+              3104,
+              9840
+            ],
+            [
+              3104,
+              9744
+            ]
+          ],
+          "bbox": [
+            2688,
+            9744,
+            3104,
+            9840
+          ]
+        }
+      ]
+    },
+    "M5.AUX.1": {
+      "violation_count": 1,
+      "description": "M5.AUX.1 : M5 vertical edges must be at a grid of 24 nm.",
+      "violations": [
+        {
+          "type": "polygon",
+          "bbox": [
+            1888,
+            2068,
+            2368,
+            10892
+          ],
+          "vertices": [
+            [
+              1888,
+              2068
+            ],
+            [
+              1888,
+              10892
+            ],
+            [
+              2368,
+              10892
+            ],
+            [
+              2368,
+              2068
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

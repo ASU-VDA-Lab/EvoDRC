@@ -1,0 +1,47 @@
+{
+  "case": "Block2",
+  "design_state": "a1a0a882d777486446d6d0f6ddb307193102fc35131236a058146693163ddebb",
+  "failed_trials": [],
+  "iter": 1,
+  "n_appended_new": 33,
+  "n_cu_pool": 2,
+  "n_failed_trials": 0,
+  "n_records": 11,
+  "n_unit_gate": 9,
+  "n_unmapped": 1,
+  "per_layer": {
+    "M1": 7,
+    "M2": 8,
+    "M3": 2,
+    "M4": 3,
+    "M5": 2,
+    "V1": 7,
+    "V2": 1,
+    "V3": 1,
+    "V4": 2
+  },
+  "touched_layers": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "V1",
+    "V2",
+    "V3",
+    "V4"
+  ],
+  "trial_ids": [
+    "i01.cu.def:VIA_VIA23_1_3_36_36.00",
+    "i01.cu.def:VIA_VIA45_1_2_58_58.01",
+    "i01.ug.Block2_union_row1.00",
+    "i01.ug.Block2_union_row3.01",
+    "i01.ug.Block2_union_row5.02",
+    "i01.ug.leaf_0001.03",
+    "i01.ug.leaf_0004.04",
+    "i01.ug.leaf_0007.05",
+    "i01.ug.leaf_0011.06",
+    "i01.ug.leaf_0012.07",
+    "i01.ug.leaf_0013.08"
+  ]
+}

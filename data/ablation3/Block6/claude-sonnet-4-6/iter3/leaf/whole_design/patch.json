@@ -1,0 +1,22 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p2071", "axis": "x", "end": "high", "delta_dbu": 152},
+    {"op": "move_instance", "inst_id": "i0536", "delta_dbu": [96, 0]},
+    {"op": "resize_end", "polygon_id": "p2020", "axis": "x", "end": "high", "delta_dbu": 116},
+    {"op": "move_instance", "inst_id": "i0410", "delta_dbu": [96, 0]},
+    {"op": "resize_end", "polygon_id": "p2072", "axis": "x", "end": "high", "delta_dbu": 152},
+    {"op": "move_instance", "inst_id": "i0446", "delta_dbu": [96, 0]},
+    {"op": "resize_end", "polygon_id": "p2086", "axis": "x", "end": "high", "delta_dbu": 152},
+    {"op": "move_instance", "inst_id": "i0361", "delta_dbu": [96, 0]},
+    {"op": "resize_end", "polygon_id": "p1946", "axis": "x", "end": "high", "delta_dbu": 116},
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [96, 0]},
+    {"op": "resize_end", "polygon_id": "p1903", "axis": "x", "end": "high", "delta_dbu": 116},
+    {"op": "move_instance", "inst_id": "i0093", "delta_dbu": [96, 0]},
+    {"op": "resize_end", "polygon_id": "p1991", "axis": "x", "end": "high", "delta_dbu": 116},
+    {"op": "move_instance", "inst_id": "i0015", "delta_dbu": [96, 0]},
+    {"op": "move_instance", "inst_id": "i0404", "delta_dbu": [96, 0]},
+    {"op": "move_instance", "inst_id": "i0471", "delta_dbu": [96, 0]}
+  ],
+  "explanation": "Extended 7 M2 routing polygons (p2071, p2020, p2072, p2086, p1946, p1903, p1991) rightward to cover shifted via positions, then moved 9 VIA_VIA12 instances +96 dbu in x to clear M1.S.2, M1.S.6, V1.M1.EN.1, and V0.M1.AUX.3 violations caused by insufficient tip-to-side spacing and enclosure failures at their original landing sites."
+}

@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0013",
+  "ops": [],
+  "explanation": "No net-reducing legal fix found: PDN column AUX violations (V2.M3.AUX.2, V4.M5.AUX.2, M4.AUX.1 etc.) are structurally unfixable—growing VIA_VIA23_1_3_36_36 M2/V2 to match merged M3 at ±68 dbu causes 117 new V1.M2.AUX.2 violations from VIA_via1 bus cuts, and the isolated M4.S.5 regional fix on p2313 cleared 16 violations but introduced 147 new ones."
+}

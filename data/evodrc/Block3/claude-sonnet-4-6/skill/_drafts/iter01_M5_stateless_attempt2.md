@@ -1,0 +1,9 @@
+## Via-Driven M5 Violations: Resize V4 and Co-Adjust M4
+
+The single measured repair (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01) addressed M5-window violations originating in a via cell (def:VIA_VIA45_1_2_58_58) by operating exclusively on V4 and M4 shapes, not on M5 shapes directly. The repair applied five operations: two `move_via_shape` on V4 along x (offsets -116 dbu and +116 dbu) followed by two `resize_via_shape` on V4 along x (384 dbu each), plus one `resize_via_shape` on M4 along x (152 dbu). This reduced total M5-window violations by 18 across two units (unit:leaf_0018: 32→22; unit:leaf_0019: 35→27) and was accepted with connectivity preserved (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01).
+
+When M5 violations are traceable to a via cell, resize V4 shapes symmetrically on the x-axis and co-resize the underlying M4 shape to maintain enclosure relationships; do not adjust M5 shapes directly in such cases (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01).
+
+The V4 resize of 384 dbu per shape on x is consistent with satisfying V4.M5.AUX.2 (V4 width must equal M5 width perpendicular to M5 run direction) and V4.M5.EN.2 (minimum 11 nm enclosure of V4 by M5 on two opposite sides). Always resize both V4 shapes in a via cell symmetrically on the same axis when correcting these enclosure rules, as the asymmetric move offsets (-116 dbu and +116 dbu) combined with equal resizes maintained the via center while expanding its footprint to match the M5 envelope (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01).
+
+Co-adjusting M4 (152 dbu x resize) alongside V4 changes preserved connectivity in this repair; omitting the M4 adjustment risks introducing violations on M4-side enclosure rules (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01).

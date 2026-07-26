@@ -1,0 +1,27 @@
+## Width constraints
+
+Rule M5.W.1 requires a minimum horizontal width of 24 nm (projection check along 90-degree edges). Rule M5.W.2 caps horizontal width at 480 nm. Rule M5.W.3 blocks horizontal widths that are exact even-integer multiples of 24 nm: 48, 96, 144, 192, 240, 288, 336, 384, 432, and 480 nm are each forbidden. Rule M5.W.4 additionally blocks 72, 168, 264, 360, and 456 nm, which cause a polygon to span an even number of minimum-width routing tracks horizontally. Together, M5.W.3 and M5.W.4 eliminate a large fraction of candidate widths in the [24, 480] nm range; only widths that appear in neither forbidden set are legal. Rule M5.W.5 requires a minimum vertical width of 44 nm (euclidean check along 0-degree edges).
+
+## Spacing constraints
+
+Rule M5.S.1 enforces a 24 nm minimum horizontal spacing between any two M5 polygon edges (projection, 90-degree edges), with a secondary catch-all 1 dbu general separation check. Rule M5.S.2 requires 40 nm minimum vertical spacing between M5 polygon edges (0-degree edges). Rule M5.S.3 catches tip-to-tip spacing for polygons on adjacent tracks that do not share a parallel run length—minimum is 40 nm. Rule M5.S.4 covers the complementary case (polygons sharing a parallel run length on adjacent tracks), also requiring 40 nm tip-to-tip. Rule M5.S.5 requires a minimum parallel run length of 44 nm whenever two M5 polygons on adjacent tracks share a 24 nm horizontal gap.
+
+## Grid and track placement
+
+Rule M5.AUX.1 requires all M5 vertical edges (edges at 90 degrees) to land on a 24 nm x-grid. M5.AUX.2 further restricts minimum-width (1x) M5 tracks: their centerlines must fall on vertical routing tracks separated by 192 dbu with a 48 dbu offset from the origin, giving valid centerline x-coordinates of 48, 240, 432, 624, … nm. The selection predicate uses a base of 96 dbu, so only polygons whose left and right edges are both multiples of 96 dbu are subject to the track check; min-width shapes that do not satisfy the base alignment are excluded from M5.AUX.2 evaluation.
+
+Rule M5.AUX.3 rejects any M5 polygon with a hull corner whose interior angle falls strictly between 0 and 90 degrees—equivalently, M5 must not bend. The NONORTHOGONAL block rejects any M5 edge whose angle falls outside exactly 0 or 90 degrees. Both checks are structural: L-shaped or otherwise non-rectilinear M5 geometry fails at rule-evaluation time, not at repair time. In trial:i01.ug.whole_design.00, M5 was listed in touched_layers but received zero polygon or instance operations; the trial was accepted (gated_in, conn_preserved=true), confirming that the existing M5 geometry satisfied M5.AUX.3 and the NONORTHOGONAL constraint without any modification.
+
+Rule M5.AUX.4 prevents the outside vertical edge of a wide M5 polygon from coinciding with a routing track edge. A polygon is classified as wide when erosion by 13 nm horizontally leaves a non-empty remainder. The rule projects 1x routing track bands vertically across the full layout extent and rejects any wide-polygon vertical edge that falls inside one of those bands.
+
+## Via enclosure — V4
+
+Rule V4.M5.EN.2 fires when a V4 via is inside M5 but the enclosure is less than 11 nm in both the horizontal direction (sized(-11 nm, 0) test) and the vertical direction (sized(0, -11 nm) test) simultaneously; enclosure of at least 11 nm along either axis pair is sufficient to pass. Rule V4.M5.AUX.2 classifies a V4 as a violation if it lies outside M5, or if it lies inside M5 but has fewer than two edges coincident with M5 edges—the coincident-edge count encodes the constraint that the via width exactly matches M5 width in the direction perpendicular to the M5 routing direction. V4 does not appear in the touched_layers set of trial:i01.ug.whole_design.00, so no V4-related DRC outcome is directly demonstrated by the available history.
+
+## Via enclosure — V5
+
+Rule V5.M5.EN.1 mirrors V4.M5.EN.2: a V5 inside M5 must be enclosed by at least 11 nm on at least one pair of opposite sides (horizontal or vertical). In trial:i01.ug.whole_design.00, V5 is listed as a touched layer alongside M5 and M6. The 24 operations in that trial moved M6 polygon instances along the y-axis (delta_dbu values of -64, +32, +16, -16, -32, -64 dbu). No V5 polygon operations appear in the ops list, indicating that V5 geometry was not explicitly repositioned; the V5 touches arose from M6 and instance moves interacting with V5 in the design hierarchy. The accepted outcome (conn_preserved=true, gated_in) confirms that the existing V5-to-M5 enclosure was sufficient without separate M5 adjustment.
+
+## Repair strategy observations from available history
+
+Trial trial:i01.ug.whole_design.00 is the sole measured record for M5 in iteration 1. It covers a unit_gate channel repair on Block7, locus [0, 0, 30440, 30440]. The repair made 24 operations, all in the m6_snap group: six M6 polygon y-axis moves (polygons p3806, p3803, p3805, p3802, p3804, p3801) and eighteen instance y-axis moves. M5 was listed in touched_layers and received zero direct polygon or instance operations. Connectivity was preserved and the trial was accepted. This record establishes that M6 y-axis grid-snapping operations did not require any compensating M5 moves in this case, and that the pre-existing M5 track placement was compatible with the post-snap M6 and V5 configuration.

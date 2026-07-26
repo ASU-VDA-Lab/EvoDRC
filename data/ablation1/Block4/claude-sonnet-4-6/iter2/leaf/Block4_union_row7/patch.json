@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block4_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0153", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p1595", "axis": "x", "end": "high", "delta_dbu": 52}
+  ],
+  "explanation": "Moved VIA_VIA12 i0153 right by 108 dbu to clear M1 tip-to-side spacing (v0012), V1 M1 enclosure (v0017), and V0 M1 convex-corner (v0005) violations; extended M2 segment p1595 by 52 dbu to restore connectivity after the via move."
+}

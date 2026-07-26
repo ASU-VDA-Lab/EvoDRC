@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0357", "delta_dbu": [0, -96]},
+    {"op": "move_instance", "inst_id": "i0359", "delta_dbu": [0, -96]},
+    {"op": "move_instance", "inst_id": "i0423", "delta_dbu": [0, -96]},
+    {"op": "move_instance", "inst_id": "i0409", "delta_dbu": [0, -96]}
+  ],
+  "explanation": "PATCH-REVIEWER Phase 1: The prior 7-op patch (i0357/i0359/i0423/i0409 at +96, i0162/i0163/i0025 at -96) was REJECTED: 9 cleared vs 19 new_in_window, net=-10, fails cleared>introduced bar. CODER Phase 2: Exhaustive subset search across all 7 instances in isolation, both groups, alternative deltas (+/-192), and direction reversals identified the best achievable patch. Group A instances (i0357, i0359, i0423, i0409) shifted downward by 96 dbu clears M4.AUX.2 v0015 ([1876,6480,2444,6576]) and v0016 ([12628,6480,13196,6576]) while introducing zero new violations beyond the 10 pre-existing baseline window violations (M1.A.1x4, V1.M1.EN.1x4, M4.W.5x1, M4.S.2x1 — present even with empty ops). Ops-relative: cleared_by_ops=2, introduced_by_ops=0, net=+2 — PASSES bar (2>0). The +96 direction for the same instances (prior patch) creates M4 enclosure/spacing/width violations in the y=6480-6624 corridor; the -96 direction avoids this by moving vias away from the conflicting M4 boundary. Group B ops (i0162, i0163, i0025) were dropped in all tested directions because each direction introduced 8-9 truly new violations for only 2 additional target clears (net negative). Connectivity verified: 765/765 seeds preserved. Remaining unclearable targets: M4.AUX.2 v0017/v0018 (y=15120 row — all approaches introduce more violations than they clear), V0.M1.AUX.3 v0001/v0003/v0010 (context-cleared incidentals), M1.S.2 v0006, M5.AUX.4 v0019."
+}

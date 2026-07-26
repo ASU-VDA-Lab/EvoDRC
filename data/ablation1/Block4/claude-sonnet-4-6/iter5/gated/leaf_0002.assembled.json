@@ -1,0 +1,42 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops_total": 0,
+  "ops_applied": 0,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "resize",
+        "polygon_id": "p1402",
+        "axis": "y",
+        "delta_dbu": 128,
+        "group": "g_v0056_m6aux1"
+      },
+      "reason": "cu_pool:rejected_net_positive"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "M6",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": 128,
+        "group": "g_v0056_m6aux1"
+      },
+      "reason": "cu_pool:rejected_net_positive"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_1_66_58",
+        "layer_name": "M6",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": 128,
+        "group": "g_v0056_m6aux1"
+      },
+      "reason": "cu_pool:rejected_net_positive"
+    }
+  ],
+  "had_drop": true
+}

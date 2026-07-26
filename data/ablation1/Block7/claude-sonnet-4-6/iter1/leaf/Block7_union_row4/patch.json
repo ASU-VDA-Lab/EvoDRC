@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row4",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1494", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1491", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1573", "delta_dbu": [28, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i1494 and i1491 right by 36 dbu to shift their M1 lands away from the frozen std-cell V0 convex corners, clearing V0.M1.AUX.3 violations v0048 and v0089. Moved i1573 right by 28 dbu to widen the M1 tip-to-side gap from 72 dbu (18 nm) to 100 dbu (25 nm), clearing M1.S.2 violation v0100."
+}

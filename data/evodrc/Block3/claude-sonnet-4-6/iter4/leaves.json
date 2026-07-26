@@ -1,0 +1,52 @@
+{
+  "iter": 4,
+  "block_bounds_dbu": [
+    0,
+    0,
+    12696,
+    12696
+  ],
+  "violations": [
+    {
+      "violation_id": "v0001",
+      "rule_id": "V0.M1.AUX.3",
+      "bbox": [
+        2988,
+        7380,
+        3060,
+        7452
+      ]
+    },
+    {
+      "violation_id": "v0002",
+      "rule_id": "M1.S.2",
+      "bbox": [
+        3060,
+        7336,
+        3096,
+        7380
+      ]
+    }
+  ],
+  "leaves": [
+    {
+      "leaf_id": "leaf_0001",
+      "bbox_dbu": [
+        1728,
+        3148,
+        11016,
+        9812
+      ],
+      "violation_ids": [
+        "v0001",
+        "v0002"
+      ],
+      "rule_counts": {
+        "V0.M1.AUX.3": 1,
+        "M1.S.2": 1
+      },
+      "n_viol": 2
+    }
+  ],
+  "count": 1
+}

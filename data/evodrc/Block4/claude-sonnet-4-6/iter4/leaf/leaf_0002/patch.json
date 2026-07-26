@@ -1,0 +1,17 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move", "polygon_id": "p1341", "axis": "x", "delta_dbu": 32, "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [32, 72], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0223", "delta_dbu": [32, 24], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0141", "delta_dbu": [32, -24], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0150", "delta_dbu": [32, 24], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0138", "delta_dbu": [32, -24], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0237", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0214", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0104", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0134", "delta_dbu": [0, -24]}
+  ],
+  "explanation": "Move p1341 by +32 dbu in x to place M5 edges on the 96-dbu grid (fixes M5.AUX.1); move each VIA45 instance by +32x and a small y-delta so that its M4 land y-edges land on the 96-dbu AUX grid (fixes M4.AUX.1 for all 5 via groups); move matching VIA34 instances by the same y-delta (no x shift) to co-locate M4 lands and preserve M3/M4/M2/M2-to-stripe connectivity. Declared debt: ~10 moved V4.M5.AUX.2 at new V4 cut positions and 2 M4.AUX.2 at via groups 4-5 (structurally unavoidable due to x-offset between VIA45 and VIA34 M4 land edges)."
+}

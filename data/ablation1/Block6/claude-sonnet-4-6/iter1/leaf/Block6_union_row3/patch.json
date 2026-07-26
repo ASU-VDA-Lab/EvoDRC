@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block6_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0471", "delta_dbu": [0, 48]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0471 upward by 48 dbu to increase the corner-to-corner M1 spacing between its M1 land and the adjacent std-cell M1 pin above the M1.S.6 20 nm minimum, clearing violations v0035 and v0036; the three V0.M1.AUX.3 violations (v0019, v0007, v0005) remain unfixed as confirmed by prior DRC preview to be unresolvable by block-level via moves."
+}

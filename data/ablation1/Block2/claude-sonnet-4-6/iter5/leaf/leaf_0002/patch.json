@@ -1,0 +1,17 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0109", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0097", "delta_dbu": [0, -72]},
+    {"op": "move_instance", "inst_id": "i0091", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0096", "delta_dbu": [0, -48]},
+    {"op": "add_polygon", "layer_name": "M3", "points": [[1948, 4204], [2308, 4204], [2308, 4252], [1948, 4252]]},
+    {"op": "move_instance", "inst_id": "i0072", "delta_dbu": [0, -96]},
+    {"op": "move_instance", "inst_id": "i0064", "delta_dbu": [0, -96]},
+    {"op": "add_polygon", "layer_name": "M3", "points": [[1948, 6316], [2308, 6316], [2308, 6412], [1948, 6412]]},
+    {"op": "move_instance", "inst_id": "i0073", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0068", "delta_dbu": [0, 48]},
+    {"op": "add_polygon", "layer_name": "M3", "points": [[1948, 8708], [2308, 8708], [2308, 8756], [1948, 8756]]}
+  ],
+  "explanation": "Repaired 4 clusters of M4 AUX/spacing violations by moving VIA34 and VIA45 instances to on-grid, on-track M4 positions. Cluster 1 (y~2160, 12 violations): i0109 and i0097 moved to origin y=2160 so their M4 lands coincide at y=(2112,2208), eliminating the L-shaped merged M4 that caused AUX.1/3, S.4, and V3.M4.AUX.2 violations. Clusters 2/3/4 (1 violation each): moved corresponding VIA34/VIA45 pairs to align M4 lands on the 96-dbu edge grid and 192-dbu center track; added M3 extension polygons below/above p964, p963, and p962 to maintain 5nm V3 enclosure at the new via positions."
+}

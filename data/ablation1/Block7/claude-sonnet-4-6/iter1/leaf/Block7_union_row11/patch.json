@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row11",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1828", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1728", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Both V0.M1.AUX.3 violations (v0054 at VIA i1828, v0064 at VIA i1728) are cleared by moving the two VIA_VIA12 instances +36 dbu in X to align their V1 cut/M1 land geometry with the std-cell M1 edges, eliminating the convex non-coincident V0 corners that triggered the rule."
+}

@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0152", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0101", "delta_dbu": [0, 48]}
+  ],
+  "explanation": "Clears v0006 and v0009 (M4.AUX.1) by co-moving each VIA_VIA45 and VIA_VIA34 pair to the nearest legal M4 track center (mod 192 = 48 dbu): i0177+i0152 shift -48 dbu in y (4320→4272) and i0078+i0101 shift +48 dbu in y (8640→8688), aligning merged M4 edges to the 96 dbu grid without introducing new violations."
+}

@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": 40},
+    {"op": "move_instance", "inst_id": "i0071", "delta_dbu": [0, 36]},
+    {"op": "move_instance", "inst_id": "i0063", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1036", "axis": "x", "end": "high", "delta_dbu": 56}
+  ],
+  "explanation": "Expands VIA_VIA23_1_3_36_36 M3 land from ±16 to ±36 dbu to attempt V2.M3.AUX.2 fix; moves VIA23 i0071 +36y to clear M2.S.7 (v0005) by increasing gap to frozen M2 stripe; moves VIA12 i0063 +36x clearing M1.S.2/M1.W.1/V1.M1.EN.1/V0.M1.AUX.3 (v0001-v0004,v0006); extends p1036 M2 right edge +56 to cover i0063 M2 land at new position."
+}

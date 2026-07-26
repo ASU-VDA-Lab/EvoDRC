@@ -1,0 +1,17 @@
+**Dominant repair operation: x-axis instance moves.**
+All nine unit-gate trials touching M2 in iteration 1 achieved `decision: gated_in` with zero net new violations (`n_new_in_crop: 0`, `n_new_out_of_crop: 0`) and preserved connectivity (`conn_preserved: true`). The most common single operation is a positive x-axis `move_instance` of 36 dbu, applied in trials i01.ug.Block4_union_row1.00, i01.ug.Block4_union_row6.05, i01.ug.leaf_0020.09, and i01.ug.leaf_0021.10. Smaller positive moves of 12, 28, and 37 dbu also reached zero-delta outcomes in trials i01.ug.Block4_union_row10.01, i01.ug.Block4_union_row2.02, and i01.ug.Block4_union_row5.04. Negative x moves of -28 dbu succeed as well (trial i01.ug.Block4_union_row7.06). Apply x-axis instance displacement as the primary M2 repair lever; both directions are valid.
+
+**Multi-instance moves are safe and effective.**
+Trials i01.ug.Block4_union_row2.02 (3 ops), i01.ug.Block4_union_row5.04 (4 ops), i01.ug.Block4_union_row6.05 (3 ops), and i01.ug.Block4_union_row7.06 (5 ops) each displaced two to five instances simultaneously while touching M1, M2, and V1 — all gated in with zero net violations. Moving multiple instances in a single repair group does not introduce inter-instance conflicts on M2 at these delta magnitudes.
+
+**Polygon x-end resizes accompany instance moves without introducing new violations.**
+Trial i01.ug.leaf_0008.08 extended polygon p1604 by +92 dbu at the high-x end alongside a +36 dbu instance move, remaining at zero DRC delta. Trial i01.ug.Block4_union_row7.06 extended p1395 by +172 dbu at the high-x end while moving two instances by -28 dbu and shifting two further polygons by -28 dbu in x. Both repairs were gated in. Use `resize_end` on M2 polygons at the high-x end when a wire endpoint must reach a shifted via landing; magnitudes up to +172 dbu are safe in these contexts.
+
+**Coordinated M2 y-shrinks are load-bearing for V2.M2 enclosure repair.**
+Trial i01.cu.def:VIA_VIA23_1_3_36_36.00 (`decision: applied`) shrank twelve M2 polygons (p1411–p1422) by -64 dbu in y together with a -40 dbu y-resize of the M3 via shape, achieving a net reduction of 24 violations (`delta_total: -24`). Trial i01.cu.def:VIA_VIA23_1_3_36_36.01 (`decision: lost_tournament`) performed only the M3 via shape resize without any M2 polygon shrinks and achieved zero reduction (`delta_total: 0`). The M2 y-shrinks, not the M3 via resize alone, drove the improvement; always pair M2 polygon y-shrinks with the M3/V2 via adjustment when targeting V2.M2 enclosure violations.
+
+**Connectivity is preserved across all M2 repair strategies in this iteration.**
+Every trial in iteration 1 that touched M2 — whether via instance moves, polygon x-end resizes, or y-shrinks — reported `conn_preserved: true`. No repair operation in this iteration severed a net. This holds across single-op and multi-op repairs, across unit-gate and cu-pool channels, and across move magnitudes from 12 to 172 dbu.
+
+**Touched-layer scope for M2 repairs.**
+The majority of unit-gate repairs touch exactly {M1, M2, V1}, confirming that M2 repairs routinely co-displace M1 geometry and V1 via placements as a group. Trial i01.ug.Block4_union_row7.06 additionally touched M3 and M4, and the cu-pool trial i01.cu.def:VIA_VIA23_1_3_36_36.00 touched {M2, M3, V2}. When an M2 repair extends to upper metal layers, include the corresponding vias and the immediately adjacent metal layer in the operation group.

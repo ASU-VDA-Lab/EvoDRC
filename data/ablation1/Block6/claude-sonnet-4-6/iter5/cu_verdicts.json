@@ -1,0 +1,125 @@
+{
+ "strip": {
+  "leaf_0003": [
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": -64, \"group\": \"m5_fix\", \"layer_name\": \"M5\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA56_2_2_66_58\", \"delta_dbu\": -64, \"group\": \"m5_fix\", \"layer_name\": \"M5\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"delta_dbu\": -16, \"group\": \"m5_fix\", \"op\": \"move\", \"polygon_id\": \"p1682\"}]",
+   "[{\"axis\": \"x\", \"delta_dbu\": 32, \"group\": \"m5_fix\", \"op\": \"move\", \"polygon_id\": \"p1683\"}]"
+  ]
+ },
+ "winners": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58",
+    "def:VIA_VIA56_2_2_66_58"
+   ],
+   "ops": [
+    {
+     "op": "move",
+     "polygon_id": "p1683",
+     "axis": "x",
+     "delta_dbu": 32,
+     "group": "m5_fix"
+    },
+    {
+     "op": "move",
+     "polygon_id": "p1682",
+     "axis": "x",
+     "delta_dbu": -16,
+     "group": "m5_fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -64,
+     "group": "m5_fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -64,
+     "group": "m5_fix"
+    }
+   ],
+   "attributed_to": "leaf_0003"
+  }
+ ],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58",
+    "def:VIA_VIA56_2_2_66_58"
+   ],
+   "conflict_keys": [
+    "polygon:p1682",
+    "polygon:p1683",
+    "via_cell:VIA_VIA45_1_2_58_58",
+    "via_cell:VIA_VIA56_2_2_66_58"
+   ],
+   "group": "m5_fix",
+   "atomic": true,
+   "ops": [
+    {
+     "op": "move",
+     "polygon_id": "p1683",
+     "axis": "x",
+     "delta_dbu": 32,
+     "group": "m5_fix"
+    },
+    {
+     "op": "move",
+     "polygon_id": "p1682",
+     "axis": "x",
+     "delta_dbu": -16,
+     "group": "m5_fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -64,
+     "group": "m5_fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA56_2_2_66_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -64,
+     "group": "m5_fix"
+    }
+   ],
+   "proposers": [
+    "leaf_0003"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0002",
+     "before": 110,
+     "after": 110,
+     "delta": 0
+    },
+    {
+     "window": "unit:leaf_0003",
+     "before": 121,
+     "after": 119,
+     "delta": -2
+    }
+   ],
+   "delta_total": -2,
+   "conn_preserved": true,
+   "decision": "applied"
+  }
+ ]
+}

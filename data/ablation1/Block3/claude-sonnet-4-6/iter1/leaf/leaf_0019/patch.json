@@ -1,0 +1,16 @@
+{
+  "leaf_id": "leaf_0019",
+  "ops": [
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "x", "delta_dbu": -144},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "x", "delta_dbu": 288},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "x", "delta_dbu": 288},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "x", "delta_dbu": 144},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "x", "delta_dbu": 288},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 0, "axis": "x", "delta_dbu": -116},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 0, "axis": "x", "delta_dbu": 384},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 1, "axis": "x", "delta_dbu": 116},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 1, "axis": "x", "delta_dbu": 384},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M4", "shape_index": 0, "axis": "x", "delta_dbu": 152}
+  ],
+  "explanation": "Expanded V2 cuts in VIA_VIA23_1_3_36_36 to span the full M3 land width (each cut moved/resized to -180..+180 in x) clearing all 12 V2.M3.AUX.2 violations; expanded V4 cuts in VIA_VIA45_1_2_58_58 to span the full M5 land width (-240..+240 in x) with M4 land grown to ±284 clearing all 8 V4.M5.AUX.2 violations."
+}

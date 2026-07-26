@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move", "polygon_id": "p2877", "axis": "x", "delta_dbu": 8},
+    {"op": "move_instance", "inst_id": "i1706", "delta_dbu": [8, 0]},
+    {"op": "move_instance", "inst_id": "i1738", "delta_dbu": [8, 0]}
+  ],
+  "explanation": "M3.S.2 tip-to-side spacing violation between frozen p2896 (right edge x=24676) and editable p2877 (left edge x=24768) cleared by moving p2877 and its co-owned VIA_VIA23 instances (i1706, i1738) rightward 8 dbu, increasing the M3-to-M3 gap from 92 dbu (23 nm) to 100 dbu (25 nm minimum)."
+}

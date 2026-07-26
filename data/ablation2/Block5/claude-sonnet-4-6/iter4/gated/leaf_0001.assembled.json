@@ -1,0 +1,79 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops_total": 0,
+  "ops_applied": 3,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA45_1_2_58_58",
+        "layer_name": "V4",
+        "shape_index": 0,
+        "axis": "x",
+        "delta_dbu": 152,
+        "group": "fix_via45"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA45_1_2_58_58",
+        "layer_name": "V4",
+        "shape_index": 1,
+        "axis": "x",
+        "delta_dbu": 152,
+        "group": "fix_via45"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA45_1_2_58_58",
+        "layer_name": "M4",
+        "shape_index": 0,
+        "axis": "x",
+        "delta_dbu": 152,
+        "group": "fix_via45"
+      },
+      "reason": "cu_pool:applied"
+    }
+  ],
+  "had_drop": true,
+  "cu_pool": [
+    {
+      "target": "def:VIA_VIA45_1_2_58_58",
+      "role": "winner",
+      "ops": [
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA45_1_2_58_58",
+          "layer_name": "V4",
+          "shape_index": 0,
+          "axis": "x",
+          "delta_dbu": 152,
+          "group": "fix_via45"
+        },
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA45_1_2_58_58",
+          "layer_name": "V4",
+          "shape_index": 1,
+          "axis": "x",
+          "delta_dbu": 152,
+          "group": "fix_via45"
+        },
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA45_1_2_58_58",
+          "layer_name": "M4",
+          "shape_index": 0,
+          "axis": "x",
+          "delta_dbu": 152,
+          "group": "fix_via45"
+        }
+      ]
+    }
+  ]
+}

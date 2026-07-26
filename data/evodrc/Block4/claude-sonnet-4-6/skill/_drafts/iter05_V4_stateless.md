@@ -1,0 +1,27 @@
+## Via geometry repairs (cu_pool channel)
+
+Resizing V4 shapes inside via cell definitions is the primary confirmed repair path for V4 violations. Trial i05.cu.def:VIA_VIA45_1_2_58_58.01 applied five operations to cell `VIA_VIA45_1_2_58_58` and reduced the total V4 violation count by 38 (28 in unit leaf_0001, 10 in unit leaf_0002), confirming that cell-level edits propagate across all placement instances of that cell simultaneously.
+
+**Paired move-then-resize pattern:** In trial i05.cu.def:VIA_VIA45_1_2_58_58.01, each V4 shape was treated with a move followed by a resize on the same axis (`move_via_shape` then `resize_via_shape`). Shape index 0 was moved −116 dbu in x before being resized +384 dbu in x; shape index 1 was moved +116 dbu in x before being resized +384 dbu in x. This anti-symmetric move (inward shift on the outer edge, outward shift on the inner edge) combined with the +384 dbu expansion on both shapes widens the via in the x direction while re-centering both shapes relative to the metal stack. Apply this paired pattern rather than a single net-delta resize when addressing V4.W.1 or V4.M4.EN.1/V4.M5.EN.2 violations inside reused via cell definitions.
+
+**M4 co-resize requirement:** Trial i05.cu.def:VIA_VIA45_1_2_58_58.01 included a +152 dbu x-axis resize of the M4 shape in the same cell as the V4 edits. This co-resize is necessary: V4.AUX.1 requires V4 to remain inside M4 and M5, and V4.M4.EN.1 requires at least 11 nm enclosure on two opposite sides. When V4 shapes are widened in x, the enclosing M4 shape must be widened by at least twice the enclosure margin (2 × 11 nm = 22 nm at minimum) to avoid introducing V4.AUX.1 or V4.M4.EN.1 violations. The +152 dbu M4 resize in trial i05.cu.def:VIA_VIA45_1_2_58_58.01 accompanied a +384 dbu V4 resize, satisfying the enclosure requirement.
+
+**V4.M5.AUX.2 width-matching constraint:** V4.M5.AUX.2 requires that V4 width perpendicular to the M5 length direction exactly match the M5 width in that direction. Trial i05.cu.def:VIA_VIA45_1_2_58_58.01 touched M5 (via the touched_layers list) without an explicit M5 resize operation listed among the five ops, which means the M5 geometry in that cell already matched the post-resize V4 width, or M5 was adjusted implicitly through instance placement. Do not resize V4 in the M5-perpendicular direction without confirming that the M5 shape in the same cell is widened by the identical amount; a mismatch triggers V4.M5.AUX.2 on every instance of the cell.
+
+## M5-alignment bulk moves (unit_gate channel)
+
+Trial i04.ug.leaf_0002.01 demonstrates the unit_gate channel's role in repositioning M5 polygons and downstream instances to realign the metal stack over V4. The operation set moved M5 polygon p1341 by +32 dbu in x (group `m5_align`), then moved six via/metal instances in the same group with coordinated x and y deltas, and moved five additional instances without group assignment. The channel gated this set in (`decision: gated_in`) because connectivity was preserved (conn_preserved=true) and no violations escaped the crop window (n_new_out_of_crop=0), while two new violations were introduced inside the crop (n_new_in_crop=2) for subsequent repair. Layers M3, M4, M5, V3, and V4 were all touched, consistent with a full-stack realignment.
+
+The `m5_align` group coordinates M5 and the attached instance positions in a single atomic step. Within that group in trial i04.ug.leaf_0002.01, y-deltas varied per instance (+72, +24, −24) while the x-delta was uniform (+32 dbu for the group), indicating that the group corrects both lateral offset and pitch simultaneously. Non-group instance moves in the same trial used y-deltas of +72, +24, −24, and 0 with zero x-delta, indicating independent y-correction passes applied after the group move.
+
+## Spacing rules (V4.S.1, V4.S.2, V4.S.3)
+
+All three spacing rules (V4.S.1, V4.S.2, V4.S.3) share the 33 nm threshold. V4.S.1 and V4.S.2 use projection-based measurement; V4.S.3 uses Euclidean corner-to-corner measurement. The cu_pool repair in trial i05.cu.def:VIA_VIA45_1_2_58_58.01 applied anti-symmetric moves (+116 and −116 dbu) to the two V4 shapes, which increases inter-shape spacing inside the cell while the +384 dbu resize increases each shape's width. Confirm that after resize, adjacent via cells placed at minimum pitch do not bring their outer V4 edges within 33 nm of each other; the cell-level resize propagates to all instances and can convert an intra-cell fix into an inter-instance spacing violation.
+
+## Width rule (V4.W.1)
+
+V4.W.1 sets 24 nm as the minimum V4 width along the M5 length direction. The +384 dbu per-shape resize applied in trial i05.cu.def:VIA_VIA45_1_2_58_58.01 expands V4 well above this minimum for the repaired cell. When adding new V4 shapes or sizing down existing ones for spacing relief, do not reduce width below 24 nm on the axis aligned with M5 length.
+
+## Non-orthogonal geometry
+
+The NONORTHOGONAL block fires on every layer including V4. No non-orthogonal V4 edges were introduced by either trial. All V4 move and resize operations in trial i04.ug.leaf_0002.01 and trial i05.cu.def:VIA_VIA45_1_2_58_58.01 used integer dbu deltas along cardinal axes only. Keep all V4 shape edits axis-aligned; diagonal or angled cuts on V4 will trigger GEOMETRY.NONORTHOGONAL on the v4 layer.

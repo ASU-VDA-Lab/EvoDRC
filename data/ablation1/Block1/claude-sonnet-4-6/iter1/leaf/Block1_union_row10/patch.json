@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block1_union_row10",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0065", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0041", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moving i0065 (VIA_VIA12) +36 dbu in x clears v0037 (V0.M1.AUX.3) by shifting its M1 land away from the frozen V0 corner overlap; moving i0041 (VIA_VIA12) +36 dbu in x clears v0048 (M1.S.2) and v0064 (V1.M1.EN.1) by widening the tip-to-side M1 gap to 33 nm and restoring the left M1 enclosure of V1 to 8 nm via merged frozen M1."
+}

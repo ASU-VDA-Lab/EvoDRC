@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0009",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M4", "shape_index": 0, "axis": "y", "delta_dbu": 88, "group": "chain_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 0, "axis": "y", "delta_dbu": 88, "group": "chain_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 1, "axis": "y", "delta_dbu": 88, "group": "chain_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA34_1_2_58_52", "layer_name": "V3", "shape_index": 0, "axis": "y", "delta_dbu": 88, "group": "chain_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA34_1_2_58_52", "layer_name": "V3", "shape_index": 1, "axis": "y", "delta_dbu": 88, "group": "chain_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA34_1_2_58_52", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": 48, "group": "chain_fix"}
+  ],
+  "explanation": "Cascaded via-shape expansion fixes V4.M5.AUX.2 while preventing secondary violations. VIA_VIA45 V4 cuts and M4 land expand from y:+/-48 to y:+/-92 dbu (delta=88): M4 height becomes 184 dbu = 46 nm, NOT an even multiple of 24 nm so M4.W.3 does not fire; V4 at +/-92 matches M5 at +/-92 clearing all 8 V4.M5.AUX.2 violations. To prevent V3.M4.AUX.2 (V3 cut edges no longer coincide with expanded M4), VIA_VIA34 V3 cuts also expand from y:+/-48 to y:+/-92 dbu (delta=88). To keep V3 enclosed by M3, VIA_VIA34 M3 land expands from y:+/-68 to y:+/-92 dbu (delta=48). All six ops grouped (chain_fix). DRC preview: cleared=11 (8xV4.M5.AUX.2 + 2xM4.AUX.1 + 1xM4.AUX.2), new_in_window=4 (4xM4.AUX.1 at shifted positions), net=+7. Connectivity: preserved=true, 167 seeds."
+}

@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move", "polygon_id": "p878", "axis": "x", "delta_dbu": 32, "group": "m5_fix"},
+    {"op": "move_instance", "inst_id": "i0001", "delta_dbu": [32, 0], "group": "m5_fix"},
+    {"op": "move_instance", "inst_id": "i0067", "delta_dbu": [32, 0], "group": "m5_fix"},
+    {"op": "move_instance", "inst_id": "i0113", "delta_dbu": [32, 0], "group": "m5_fix"},
+    {"op": "resize_end", "polygon_id": "p892", "axis": "y", "end": "low", "delta_dbu": 32},
+    {"op": "resize_end", "polygon_id": "p892", "axis": "y", "end": "high", "delta_dbu": -32}
+  ],
+  "explanation": "Fixes M5.AUX.1 violation v0030 by shifting M5 polygon p878 and coupled VIA45 instances i0001, i0067, i0113 by +32 dbu in x (atomic group m5_fix), and fixes V2.M3.AUX.2 violations v0005 and v0006 by symmetrically shrinking M3 polygon p892 by 32 dbu on each y-axis end, reducing its height from 136 to 72 dbu."
+}

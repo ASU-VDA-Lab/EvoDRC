@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0920", "delta_dbu": [0, 64]},
+    {"op": "resize_end", "polygon_id": "p3576", "axis": "y", "end": "low", "delta_dbu": -64}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0920 up 64 dbu (origin 6516,17100 → 6516,17164) to open sufficient M1 spacing to the std-cell M1 geometry below, clearing v0041/v0045/v0048/v0051/v0052; trims p3576 (M2) bottom edge from y=17064 to y=17128 to align with the repositioned V1 cut, clearing the V1.M2.AUX.2 violation v0103."
+}

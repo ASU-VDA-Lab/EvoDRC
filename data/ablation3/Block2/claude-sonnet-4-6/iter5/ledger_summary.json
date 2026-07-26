@@ -1,0 +1,17 @@
+{
+  "case": "Block2",
+  "design_state": "dd4c56d4958b581b0ae78bccec58161ddf0944c1ef09fe892aeb616300ea67e7",
+  "failed_trials": [],
+  "iter": 5,
+  "n_appended_new": 0,
+  "n_cu_pool": 0,
+  "n_failed_trials": 0,
+  "n_records": 1,
+  "n_unit_gate": 1,
+  "n_unmapped": 1,
+  "per_layer": {},
+  "touched_layers": [],
+  "trial_ids": [
+    "i05.ug.whole_design.00"
+  ]
+}

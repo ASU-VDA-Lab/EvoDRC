@@ -1,0 +1,40 @@
+# RULE V5.W.1 (deck lines 929-929)
+v5.width(24.nm).output("V5.W.1", "V5.W.1 : Minimum width of a V5 instance along the length of M6 is 24 nm.")
+
+# RULE V5.S.1 (deck lines 930-932)
+v5_same = v5.interacting(m5.interacting(v5, 2) + m6.interacting(v5, 2))
+v5_same.space(33.nm, projection).output("V5.S.1", "V5.S.1 : Minimum spacing between V5 instances on the same net is 33 nm.")
+
+# RULE V5.S.2 (deck lines 930-934)
+v5_same = v5.interacting(m5.interacting(v5, 2) + m6.interacting(v5, 2))
+v5_diff = v5.not_interacting(m5.interacting(v5, 2) + m6.interacting(v5, 2))
+v5_diff.space(33.nm, projection).output("V5.S.2", "V5.S.2 : Minimum spacing between V5 instances on different nets is 33 nm.")
+v5_same.separation(v5_diff, 33.nm, projection).output("V5.S.2", "V5.S.2 : Minimum spacing between V5 instances on different nets is 33 nm.")
+
+# RULE V5.S.3 (deck lines 935-936)
+v5_s2_proj = v5.space(33.nm, projection).polygons
+v5.space(33.nm, euclidian).polygons.not_interacting(v5_s2_proj).output("V5.S.3", "V5.S.3 : Minimum corner-to-corner spacing between two V5 instances is 33 nm.")
+
+# RULE V5.M5.EN.1 (deck lines 937-937)
+v5.inside(m5).interacting(v5 - m5.sized(-11.nm, 0)).interacting(v5 - m5.sized(0, -11.nm)).output("V5.M5.EN.1", "V5.M5.EN.1 : Minimum enclosure of V5 by M5 on at least two opposite sides is 11 nm.")
+
+# RULE V5.M6.EN.2 (deck lines 938-938)
+v5.inside(m6).interacting(v5 - m6.sized(-11.nm, 0)).interacting(v5 - m6.sized(0, -11.nm)).output("V5.M6.EN.2", "V5.M6.EN.2 : Minimum enclosure of V5 by M6 on two opposite sides is 11 nm.")
+
+# RULE V5.AUX.1 (deck lines 939-939)
+v5.not_inside(m5 & m6).output("V5.AUX.1", "V5.AUX.1 : V5 must be inside M5 and M6.")
+
+# RULE V5.M6.AUX.2 (deck lines 940-944)
+v5_aux2_out = v5.not_inside(m6)
+v5_aux2_in = v5.inside(m6)
+v5_aux2_coinc = v5_aux2_in.edges.and(m6.edges)
+v5_aux2_ok = v5_aux2_in.interacting(v5_aux2_coinc, 2)
+(v5_aux2_out + v5_aux2_in - v5_aux2_ok).merged.output("V5.M6.AUX.2", "V5.M6.AUX.2 : V5 must exactly be the same width as M6 along the direction perpendicular to the M6 length.")
+
+# NONORTHOGONAL BLOCK (deck lines 1136-1141) -- applies to every layer
+all_drawing = [ :nwell, :fin, :gate, :gcut, :active, :sdt, :nselect, :pselect, :slvt, :lvt, :sramdrc, :sramvt, :dummy, :lig, :lisd, :v0, :m1, :v1, :m2, :v2, :m3, :v3, :m4, :v4, :m5, :v5, :m6, :v6, :m7, :v7, :m8, :v8, :m9, :v9, ]
+  all_drawing.each do |dwg|
+    layer = binding.local_variable_get(dwg)
+    nonortho_edges = layer.edges.with_angle(1..89) + layer.edges.with_angle(91..179) + layer.edges.with_angle(-179..-91) + layer.edges.with_angle(-89..-1)
+    nonortho_edges.output("#{dwg}.GEOMETRY.NONORTHOGONAL" , "GEOMETRY.NONORTHOGONAL on layer #{dwg}")
+  end

@@ -1,0 +1,18 @@
+{
+  "leaf_id": "leaf_0012",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"V4","shape_index":0,"axis":"x","delta_dbu":152,"group":"via45-v4m5"},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"V4","shape_index":1,"axis":"x","delta_dbu":152,"group":"via45-v4m5"},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M4","shape_index":0,"axis":"x","delta_dbu":152,"group":"via45-v4m5"},
+    {"op":"move_instance","inst_id":"i0097","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0092","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0064","delta_dbu":[0,96]},
+    {"op":"move_instance","inst_id":"i0072","delta_dbu":[0,96]},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA23_1_3_36_36","layer_name":"M3","shape_index":0,"axis":"y","delta_dbu":-40,"group":"via23-m3"},
+    {"op":"resize","polygon_id":"p965","axis":"y","delta_dbu":-64,"group":"via23-m3"},
+    {"op":"resize","polygon_id":"p964","axis":"y","delta_dbu":-64,"group":"via23-m3"},
+    {"op":"resize","polygon_id":"p963","axis":"y","delta_dbu":-64,"group":"via23-m3"},
+    {"op":"resize","polygon_id":"p962","axis":"y","delta_dbu":-64,"group":"via23-m3"}
+  ],
+  "explanation": "Fixes V4.M5.AUX.2 by expanding VIA_VIA45_1_2_58_58 V4 cuts and M4 land (+76 dbu per side) so merged V4 spans the full M5 stripe width; fixes M4.AUX.1/AUX.2 at y=4320 and y=6480 by co-moving VIA45+VIA34 pairs (i0097+i0092 by -48, i0064+i0072 by +96) to on-grid sites without creating L-shaped M4 mergers; fixes V2.M3.AUX.2 outer cuts by shrinking VIA_VIA23_1_3_36_36 M3 land (-40 dbu in y) and four top-level M3 pads to match V2 y-extent. Clears 19 of 25 target violations; 6 remaining are admitted (4 center-cut V2.M3.AUX.2 blocked by VIA34 M3, 2 M5.AUX.1 requiring inadmissible die-spanning p938 move). Connectivity preserved (317/317 seeds)."
+}

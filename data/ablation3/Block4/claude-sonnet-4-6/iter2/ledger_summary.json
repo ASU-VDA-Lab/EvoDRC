@@ -1,0 +1,26 @@
+{
+  "case": "Block4",
+  "design_state": "dd3c28c944bb2e0107998e9b3817c449de8432c8a8190aa7c4cf43c717a1e1e6",
+  "failed_trials": [],
+  "iter": 2,
+  "n_appended_new": 3,
+  "n_cu_pool": 1,
+  "n_failed_trials": 0,
+  "n_records": 2,
+  "n_unit_gate": 1,
+  "n_unmapped": 1,
+  "per_layer": {
+    "M2": 1,
+    "M3": 1,
+    "V2": 1
+  },
+  "touched_layers": [
+    "M2",
+    "M3",
+    "V2"
+  ],
+  "trial_ids": [
+    "i02.cu.def:VIA_VIA23_1_3_36_36.00",
+    "i02.ug.whole_design.00"
+  ]
+}

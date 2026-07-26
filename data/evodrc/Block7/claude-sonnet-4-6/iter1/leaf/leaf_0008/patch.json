@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1968", "delta_dbu": [108, 0]},
+    {"op": "move_instance", "inst_id": "i1964", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i1968 right by 108 dbu (to origin 16992,6660) to separate its M1 land from the spacing-violating proximity cluster near _ptemp_52/_ptemp_53, clearing M1.S.4/S.5/S.6 violations v0125/v0156/v0157/v0189/v0190; moves VIA_VIA12 i1964 right by 36 dbu (to origin 16920,6300) to shift its M1 land out of the frozen V0 x-range, clearing V0.M1.AUX.3 violation v0029."
+}

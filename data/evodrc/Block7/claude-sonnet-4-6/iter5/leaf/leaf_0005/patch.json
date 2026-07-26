@@ -1,0 +1,114 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {
+      "op": "move",
+      "polygon_id": "p2216",
+      "axis": "x",
+      "delta_dbu": 32
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1469",
+      "delta_dbu": [
+        32,
+        -64
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1362",
+      "delta_dbu": [
+        32,
+        16
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0723",
+      "delta_dbu": [
+        32,
+        -32
+      ]
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2215",
+      "axis": "x",
+      "delta_dbu": -16
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1666",
+      "delta_dbu": [
+        -16,
+        -64
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1139",
+      "delta_dbu": [
+        -16,
+        16
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0656",
+      "delta_dbu": [
+        -16,
+        -32
+      ]
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2214",
+      "axis": "x",
+      "delta_dbu": 32
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i2012",
+      "delta_dbu": [
+        32,
+        -64
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1765",
+      "delta_dbu": [
+        32,
+        16
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0123",
+      "delta_dbu": [
+        32,
+        -32
+      ]
+    },
+    {
+      "op": "move",
+      "polygon_id": "p3806",
+      "axis": "y",
+      "delta_dbu": -64
+    },
+    {
+      "op": "move",
+      "polygon_id": "p3805",
+      "axis": "y",
+      "delta_dbu": 16
+    },
+    {
+      "op": "move",
+      "polygon_id": "p3804",
+      "axis": "y",
+      "delta_dbu": -32
+    }
+  ],
+  "explanation": "OP2 (M5.AUX.1, v0335-v0337): M5 stripe polygons p2216/p2215/p2214 and their associated VIA56 (M5-M6 via) instances are moved in x so that all M5 polygon left/right edges land on the 96 dbu grid. p2216 x: 1888..2368 -> 1920..2400 (+32); p2215 x: 12688..13168 -> 12672..13152 (-16); p2214 x: 23488..23968 -> 23520..24000 (+32). VIA56 instances receive combined [dx, dy] deltas covering both M5 x-alignment (OP2) and M6 y-alignment (OP3) in a single move per instance. OP3 (M6.AUX.1, v0338-v0340): M6 horizontal stripe polygons p3806/p3805/p3804 are moved in y to align their edges to the 128 dbu grid. p3806 y: 2240..2880 -> 2176..2816 (-64); p3805 y: 13040..13680 -> 13056..13696 (+16); p3804 y: 23840..24480 -> 23808..24448 (-32). Result: 20 target violations cleared (6 M5.AUX.1 + M6.AUX.1 + related), 0 new violations introduced. Connectivity preserved (3325 seeds). OP1 (V1.M2.AUX.2, 117 violations) is deferred: the planned VIA_via1 resize would clear 117 target violations but introduce 110+ new violations (V1.S.2, M2.S.1, M1.S.2, etc.) making it net-negative; further analysis required."
+}

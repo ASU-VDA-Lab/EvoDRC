@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0012",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p938", "axis": "x", "end": "low", "delta_dbu": 64},
+    {"op": "resize_end", "polygon_id": "p938", "axis": "x", "end": "high", "delta_dbu": 128}
+  ],
+  "explanation": "Moves p938 M5 stripe x-edges onto the 96 dbu M5.AUX.1 grid (left: 1888→1824, right: 2368→2496), clearing M5.AUX.1 violations v0065 and v0066; declared debt: M5.W.4 at new width 672 dbu (168 nm) introduced at (1824,2068,2496,8732)."
+}

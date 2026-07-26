@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0015", "delta_dbu": [36, -48]},
+    {"op": "move_instance", "inst_id": "i0459", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0437", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Three VIA_VIA12 instances moved to remove their M1 lands from overlapping std-cell V0 contact areas: i0015 shifted right and down to clear V0.M1.AUX.3/V1.M1.EN.1/V1.M2.AUX.2/M1.S.2/V1.S.2/V0.S.2 violations near (8244,7428); i0459 and i0437 each shifted right by 36 dbu to clear V0.M1.AUX.3 violations at (10836,7380) and (12132,7380) respectively."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0010",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [4, 44]}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i1062 by [+4, +44] dbu (new origin 14728, 17460) to clear M1.S.2 (v0038), V1.S.2 x2 (v0094/v0095), V1.M1.EN.1 (v0110), and V1.M2.AUX.2 (v0118) by increasing spacing from p3793 M1 stripe and adjacent V1 background cuts; x-offset of 4 dbu avoids 3 of 5 new M1 spacing violations compared to pure y-shift. DECLARED DEBT: 2 new M1 violations introduced (see trace)."
+}

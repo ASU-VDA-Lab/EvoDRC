@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0022",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0100", "delta_dbu": [3, 0]}
+  ],
+  "explanation": "Cleared M1.S.6 corner-to-corner spacing violations v0055 and v0056 by moving VIA_VIA12 instance i0100 +3 dbu in x, increasing the diagonal clearance between i0100's M1 land top-left corner and the frozen std-cell _ptemp_3 M1 bottom-right corner from ~77.3 dbu to ~101.4 dbu, exceeding the 80 dbu (20 nm) threshold."
+}

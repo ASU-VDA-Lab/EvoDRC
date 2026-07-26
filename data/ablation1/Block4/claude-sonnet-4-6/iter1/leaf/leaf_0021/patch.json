@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0021",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0038", "delta_dbu": [36, 44]}
+  ],
+  "explanation": "Instance i0038 (VIA_VIA12) at origin (12132, 11700) was violating rule V0.M1.AUX.3 due to spacing overlap with the bounding box (12060, 11700, 12132, 11772). Moving it by delta [36, 44] to (12168, 11744) clears the spacing violation while preserving all 588 connectivity seeds."
+}

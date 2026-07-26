@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0179", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0106", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0179 and i0106 each by +36 dbu in X to clear V0.M1.AUX.3 spacing violations at their original origins (4788, 5220) and (4788, 9900), shifting both to x=4824 without introducing new violations or altering connectivity."
+}

@@ -1,0 +1,28 @@
+{
+  "iter": 5,
+  "case": "Block5",
+  "units": [
+    {
+      "unit_id": "leaf_0001",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0001"
+      ],
+      "bbox_dbu": [
+        1728,
+        3148,
+        9072,
+        7652
+      ],
+      "violation_ids": [
+        "v0001",
+        "v0002"
+      ],
+      "n_viol": 2
+    }
+  ],
+  "n_union": 0,
+  "quarantined": [],
+  "count": 1
+}

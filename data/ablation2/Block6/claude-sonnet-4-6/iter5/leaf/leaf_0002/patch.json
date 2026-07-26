@@ -1,0 +1,16 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0361", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p2086", "axis": "x", "end": "high", "delta_dbu": 192},
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1946", "axis": "x", "end": "high", "delta_dbu": 156},
+    {"op": "move_instance", "inst_id": "i0159", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0112", "delta_dbu": [-30, 0]},
+    {"op": "move_instance", "inst_id": "i0384", "delta_dbu": [0, 25]},
+    {"op": "move_instance", "inst_id": "i0173", "delta_dbu": [0, -45]},
+    {"op": "move_instance", "inst_id": "i0528", "delta_dbu": [0, 25]},
+    {"op": "move_instance", "inst_id": "i0027", "delta_dbu": [0, -45]}
+  ],
+  "explanation": "All 16 target violations cleared (3x V0.M1.AUX.3, 3x M1.S.2, 2x V1.M1.EN.1, 4x V5.M5.EN.1, 4x V5.M6.AUX.2) by moving VIA_VIA12 instances to resolve M1 spacing/enclosure, extending M2 bridges for continuity, and adjusting VIA_VIA56 y-positions by 25/-45 dbu to achieve V5 y-enclosure >= 45 dbu in M5; connectivity preserved across all 765 seeds."
+}

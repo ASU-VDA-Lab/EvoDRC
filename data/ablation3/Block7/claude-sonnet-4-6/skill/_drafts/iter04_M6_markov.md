@@ -1,0 +1,35 @@
+**Observed repair patterns**
+
+Two accepted repair sessions have been recorded for M6 in Block7, channel unit_gate, locus [0, 0, 30440, 30440]: 24 operations in trial:i01.ug.whole_design.00 (iteration 1) and 162 operations in trial:i04.ug.whole_design.00 (iteration 4). Both completed with conn_preserved=true and decision=gated_in. The iteration-1 session touched M5, M6, and V5; the iteration-4 session touched M3, M4, M5, M6, V3, V4, and V5.
+
+**Both x-axis and y-axis polygon moves appear in M6 repair operations**
+
+Trial:i01.ug.whole_design.00 applied six y-axis moves to M6 polygons (p3806, p3803, p3805, p3802, p3804, p3801) with deltas −64, +32, +16, −16, −32, and −64 dbu. Trial:i04.ug.whole_design.00 applied six x-axis moves to M6 polygons (p2213, p2216, p2212, p2215, p2211, p2214) with deltas +32, +32, −16, −16, −64, and −64 dbu. All deltas in both trials are multiples of 16 dbu, consistent with the shared 16 dbu granularity of the M6.AUX.1 32 nm horizontal-edge grid, the M6.AUX.2 256 dbu pitch / 64 dbu offset / 128 dbu base structure, and the M6.S.1/S.2 spacing floors. No resize or vertex-edit operations appeared in either record. Apply snap corrections in the axis appropriate to the violation — y-axis for routing-track alignment (M6.AUX.1, M6.AUX.2), x-axis for horizontal position alignment — in multiples of 16 dbu (trial:i01.ug.whole_design.00, trial:i04.ug.whole_design.00).
+
+**Co-moving instances is required for connectivity preservation**
+
+In trial:i01.ug.whole_design.00, each of six y-axis polygon moves was accompanied by three instance moves carrying delta [0, dy] equal to the polygon's y-delta, for 18 instance moves across instances i1469, i1666, i2012, i1524, i1693, i2026, i1362, i1139, i1765, i1336, i1124, i1762, i0723, i0656, i0123, i0726, i0664, and i0121. In trial:i04.ug.whole_design.00, the same 18 instances received pure [dx, 0] co-moves whose dx matched the x-delta of their associated M6 polygon. Trial:i04 additionally includes instances moved with [dx, dy] deltas — where dx matches the associated M6 polygon's x-delta and dy is a non-zero y offset — and instances moved with pure [0, dy] deltas, reflecting co-adjustment requirements propagated through M3, M4, V3, and V4. All 162 operations in trial:i04.ug.whole_design.00 and all 24 in trial:i01.ug.whole_design.00 produced conn_preserved=true. Move all instances attached to a translated M6 polygon with a delta whose axis-matching component equals the polygon's own delta; additional y-components may be needed when deeper-stack layers require simultaneous adjustment (trial:i01.ug.whole_design.00, trial:i04.ug.whole_design.00).
+
+**V5, M5, and the deeper layer stack require co-adjustment when M6 moves**
+
+touched_layers in trial:i01.ug.whole_design.00 listed M5, M6, and V5. In trial:i04.ug.whole_design.00, touched_layers expanded to M3, M4, M5, M6, V3, V4, and V5. V5.M6.EN.2 requires M6 to enclose V5 by at least 11 nm on two opposite sides; V5.M6.AUX.2 requires the V5 width perpendicular to M6 length to exactly match the M6 width in that direction. Both rules create geometric dependencies between V5 position/width and M6 position. When translating M6 polygons, propagate the delta to attached V5 vias and M5 segments; as confirmed in trial:i04.ug.whole_design.00, connectivity requirements can extend co-adjustment further through V4, M4, V3, and M3.
+
+**Width rules are not independently violated by pure translation**
+
+M6.W.1 sets minimum vertical width at 32 nm; M6.W.2 sets maximum at 640 nm; M6.W.3 forbids vertical widths that are even-integer multiples of 32 nm (64, 128, 192, 256, 320, 384, 448, 512, 576, and 640 nm); M6.W.4 additionally forbids widths of 96, 224, 352, 480, and 608 nm; M6.W.5 sets minimum horizontal width at 44 nm. In neither trial:i01.ug.whole_design.00 nor trial:i04.ug.whole_design.00 were any width modifications applied — each polygon move shifted all edges of the polygon by the same axis-aligned delta, leaving both vertical and horizontal width unchanged. Pure axis-aligned translation cannot introduce W.1 through W.5 violations in a polygon that was already width-compliant.
+
+**Spacing rules bound the set of valid snap deltas**
+
+M6.S.1 requires vertical edge spacing of at least 32 nm; M6.S.2 requires horizontal edge spacing of at least 40 nm; M6.S.3 and M6.S.4 each require tip-to-tip spacing of at least 40 nm on adjacent tracks (with and without shared parallel run length); M6.S.5 requires minimum parallel run length of 44 nm. The snap deltas chosen in both trials satisfied all spacing rules (decision=gated_in in trial:i01.ug.whole_design.00 and trial:i04.ug.whole_design.00). For y-axis moves, snap deltas must not bring any M6 horizontal edge within 32 nm of a parallel M6 edge at an adjacent vertical position (M6.S.1). For x-axis moves, snap deltas must not bring any M6 vertical edge within 40 nm of a parallel M6 vertical edge (M6.S.2).
+
+**Grid rule structure for M6.AUX.1 and M6.AUX.2**
+
+M6.AUX.1 checks that M6 horizontal edges lie on a 32 nm vertical grid. M6.AUX.2 checks that minimum-width (1x) M6 polygons — those that survive the erosion `m6.sized(0, -17.nm).sized(0, 17.nm)` and are not interacting with wide polygons — have their centerlines satisfying `(centerline_y − 64 dbu) mod 256 dbu = 0`, subject to the additional condition that both the top and bottom y-coordinates of the polygon are divisible by 128 dbu (the base_dbu check). Y-axis snap deltas in trial:i01.ug.whole_design.00 — all multiples of 16 dbu — resolve both the 32 nm edge-grid condition and the centerline-grid condition simultaneously when applied to off-grid 1x polygons. X-axis moves in trial:i04.ug.whole_design.00 do not affect horizontal edge y-positions and therefore do not interact with M6.AUX.1 or M6.AUX.2; their accepted deltas of +32, −16, and −64 dbu satisfied M6.S.2 and V5.M6.EN.2 constraints without disturbing the y-axis grid alignment established by earlier iterations.
+
+**Bend and orthogonality constraints are preserved by translation**
+
+M6.AUX.3 flags M6 polygons that contain any interior corner with angle in the 0°–90° range (bends). GEOMETRY.NONORTHOGONAL flags any edge with angle in (1°–89°), (91°–179°), (−179°–−91°), or (−89°–−1°). In both trial:i01.ug.whole_design.00 and trial:i04.ug.whole_design.00, no op modified polygon shape; pure axis-aligned translation shifts all vertices by the same (dx, dy) and cannot introduce new bends or non-orthogonal edges in a polygon that was already orthogonal and unbent before the move.
+
+**Wide-polygon track-edge constraint is not triggered by 1x snapping**
+
+M6.AUX.4 prohibits the outer horizontal edge of any wide M6 polygon from being co-linear with any 1x routing track edge. The repair operations in trial:i01.ug.whole_design.00 and trial:i04.ug.whole_design.00 performed no edits to wide polygons. Both repairs were accepted without M6.AUX.4 violations, confirming that snapping 1x polygons — whether by y-axis or x-axis translation — does not generate M6.AUX.4 errors when wide polygons are left in place.

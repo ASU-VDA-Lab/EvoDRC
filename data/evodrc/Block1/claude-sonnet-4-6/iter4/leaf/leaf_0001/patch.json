@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0181", "delta_dbu": [-76, 0]}
+  ],
+  "explanation": "Moves via i0181 (VIA_VIA45) left by 76 dbu to increase the M4 spacing gap from 84 dbu (21 nm) to 160 dbu (40 nm), exactly meeting the M4.S.4 minimum tip-to-tip spacing threshold."
+}

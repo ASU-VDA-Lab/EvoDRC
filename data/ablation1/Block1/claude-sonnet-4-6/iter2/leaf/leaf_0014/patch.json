@@ -1,0 +1,26 @@
+{
+  "leaf_id": "leaf_0014",
+  "ops": [
+    {"op": "resize", "polygon_id": "p1509", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1503", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1502", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1456", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1452", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1463", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1529", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1527", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1524", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1425", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1422", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1421", "axis": "y", "delta_dbu": -64},
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "M3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -40
+    }
+  ],
+  "explanation": "Clears 24 of 36 V2.M3.AUX.2 violations by bringing the M3 extent at each VIA_VIA23_1_3_36_36 placement into exact coincidence with the V2 cut Y-edges. The rule requires V2 cut edges to be coincident with M3 boundary edges; currently both the top-level M3 routing polygons (±68 dbu from via center) and the VIA_VIA23 cell M3 land (±56 dbu) extend beyond the V2 cut extent (±36 dbu), so no coincident edges exist. The fix uses two complementary operations: (1) twelve 'resize' ops on the top-level M3 routing polygons (p1421, p1422, p1425, p1452, p1456, p1463, p1502, p1503, p1509, p1524, p1527, p1529) shrink each from 136 dbu tall (±68) to 72 dbu tall (±36), delta_dbu=-64 symmetric; (2) one 'resize_via_shape' on VIA_VIA23_1_3_36_36 M3 land shrinks from ±56 to ±36, delta_dbu=-40. Both are required because the merged M3 is the union of all M3 sources; only when both the routing polygon and the via cell land are at ±36 does their union equal ±36, giving V2 cut edges coincident M3 boundary edges. The 12 remaining center V2 cut violations (x=[2092,2164] and x=[12892,12964] at all 6 rows) are geometrically unfixable: VIA_VIA34_1_2_58_52 instances are co-located at all 12 VIA_VIA23 positions and have M3 land at ±68 dbu (required by V3.M3.EN.1 — V3 cuts at ±48 need 5 nm = 20 dbu enclosure), so the merged M3 at the center-cut x-range is always dominated by VIA_VIA34 at ±68, preventing coincident edges at ±36. The 64 other target violations are not fixable: V4.M5.AUX.2 and V5.M6.AUX.2 face multi-cut coincidence impossibility; M5.AUX.1 and M6.AUX.1 arise from off-grid instance placements; M4.AUX.1, M4.AUX.2, M4.S.5, V1.M1.EN.1 are below the 100% threshold or involve structure edits that would violate other rules. Side-effect analysis: new M3 height 72 dbu = 18 nm = M3.W.1 minimum (legal); M3 area 360x72=25920 dbu2 >> 504 nm2 minimum; shrinking M3 only increases spacing to neighbors so no M3.S.* violations; no adjacent M3 routing wires touch the top/bottom edges of any modified polygon so connectivity is preserved; V3.M3.EN.1 unaffected since VIA_VIA34 M3 land is unchanged."
+}

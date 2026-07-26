@@ -1,0 +1,35 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops_total": 0,
+  "ops_applied": 1,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA23_1_3_36_36",
+        "layer_name": "V2",
+        "shape_index": 1,
+        "axis": "x",
+        "delta_dbu": -144
+      },
+      "reason": "cu_pool:applied"
+    }
+  ],
+  "had_drop": true,
+  "cu_pool": [
+    {
+      "target": "def:VIA_VIA23_1_3_36_36",
+      "role": "winner",
+      "ops": [
+        {
+          "op": "move_via_shape",
+          "cell_name": "VIA_VIA23_1_3_36_36",
+          "layer_name": "V2",
+          "shape_index": 1,
+          "axis": "x",
+          "delta_dbu": -144
+        }
+      ]
+    }
+  ]
+}

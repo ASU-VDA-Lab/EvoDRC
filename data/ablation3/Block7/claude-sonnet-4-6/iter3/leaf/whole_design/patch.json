@@ -1,0 +1,7 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p2279", "axis": "x", "end": "high", "delta_dbu": 232}
+  ],
+  "explanation": "Fixes the single M4.S.5 violation by extending M4 polygon p2279's right edge 232 dbu rightward (x: 240..1956 → 240..2188), creating sufficient parallel-run overlap with adjacent-track M4 polygon p2313 (x=1984..2116, y=20928..21024); DRC preview confirms 1 violation cleared, 0 new introduced, all 3325 connectivity seeds preserved."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1358", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moving via i1358 (VIA_VIA23) +36 dbu in x aligns its M3 land with p2347, clearing the M3.S.2 tip-to-side spacing violation (v0076) and V2.M3.AUX.2 coincident-edge enclosure violation (v0253); 2 of 4 target violations cleared with no new violations introduced and full connectivity preserved."
+}

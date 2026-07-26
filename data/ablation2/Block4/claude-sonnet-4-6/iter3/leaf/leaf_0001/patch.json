@@ -1,0 +1,27 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move", "polygon_id": "p1343", "axis": "x", "delta_dbu": 32, "group": "m5_left"},
+    {"op": "move", "polygon_id": "p1342", "axis": "x", "delta_dbu": -16},
+    {"op": "move_instance", "inst_id": "i0234", "delta_dbu": [32, 0], "group": "m5_left"},
+    {"op": "move", "polygon_id": "p1402", "axis": "y", "delta_dbu": 64, "group": "m6_v5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": 512, "group": "m6_v5_fix"},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": -132, "group": "m6_v5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": 512, "group": "m6_v5_fix"},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": -132, "group": "m6_v5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 2, "axis": "y", "delta_dbu": 512, "group": "m6_v5_fix"},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 2, "axis": "y", "delta_dbu": 132,  "group": "m6_v5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 3, "axis": "y", "delta_dbu": 512, "group": "m6_v5_fix"},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 3, "axis": "y", "delta_dbu": 132,  "group": "m6_v5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": 512, "group": "m6_v5_fix"},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "V5", "shape_index": 0, "axis": "y", "delta_dbu": -132, "group": "m6_v5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": 512, "group": "m6_v5_fix"},
+    {"op": "move_via_shape",   "cell_name": "VIA_VIA56_2_1_66_58", "layer_name": "V5", "shape_index": 1, "axis": "y", "delta_dbu": 132,  "group": "m6_v5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": 64, "group": "v2_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M2", "shape_index": 0, "axis": "y", "delta_dbu": 64, "group": "v2_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "y", "delta_dbu": 64, "group": "v2_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "y", "delta_dbu": 64, "group": "v2_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "y", "delta_dbu": 64, "group": "v2_fix"}
+  ],
+  "explanation": "Snap M5 stripes (p1343/p1342) and M6 bus (p1402) to routing grids; expand VIA56 V5 cuts (resize +512 dbu then center-shift ±132) so each merged cut spans the full M6 y-range [2304,2944], satisfying V5.M6.AUX.2; expand VIA23 V2 cuts, M3 land, and M2 land from ±36 to ±68 in y to match the merged M3 extent, satisfying V2.M3.AUX.2. M4.AUX.1/2 declared debt (VIA45 M4 land admissibility 6/17 and 2/17, not 100%). Cascade: VIA23 M2 expansion introduces V1.M2.AUX.2 at via1 V1 cuts within VIA23 M2 x-footprint; net VDA (36 V2.M3.AUX.2 cleared minus 21 V1.M2.AUX.2 introduced) is +15 — accepted as architectural constraint of the PDN stack."
+}

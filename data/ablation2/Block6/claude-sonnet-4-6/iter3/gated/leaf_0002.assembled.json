@@ -1,0 +1,268 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops_total": 3,
+  "ops_applied": 15,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "move_instance",
+        "instance_id": "i0380",
+        "delta_dbu": [
+          0,
+          -64
+        ],
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "move_instance",
+        "instance_id": "i0538",
+        "delta_dbu": [
+          0,
+          -64
+        ],
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "move_instance",
+        "instance_id": "i0165",
+        "delta_dbu": [
+          0,
+          16
+        ],
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "move_instance",
+        "instance_id": "i0031",
+        "delta_dbu": [
+          0,
+          16
+        ],
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": -132,
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 1,
+        "axis": "y",
+        "delta_dbu": -132,
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 2,
+        "axis": "y",
+        "delta_dbu": 132,
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "move_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 3,
+        "axis": "y",
+        "delta_dbu": 132,
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": 512,
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 1,
+        "axis": "y",
+        "delta_dbu": 512,
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 2,
+        "axis": "y",
+        "delta_dbu": 512,
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA56_2_2_66_58",
+        "layer_name": "V5",
+        "shape_index": 3,
+        "axis": "y",
+        "delta_dbu": 512,
+        "group": "g1"
+      },
+      "reason": "cu_pool:applied"
+    }
+  ],
+  "had_drop": true,
+  "cu_pool": [
+    {
+      "target": "def:VIA_VIA56_2_2_66_58",
+      "role": "winner",
+      "ops": [
+        {
+          "op": "move_instance",
+          "instance_id": "i0380",
+          "delta_dbu": [
+            0,
+            -64
+          ],
+          "group": "g1"
+        },
+        {
+          "op": "move_instance",
+          "instance_id": "i0538",
+          "delta_dbu": [
+            0,
+            -64
+          ],
+          "group": "g1"
+        },
+        {
+          "op": "move_instance",
+          "instance_id": "i0165",
+          "delta_dbu": [
+            0,
+            16
+          ],
+          "group": "g1"
+        },
+        {
+          "op": "move_instance",
+          "instance_id": "i0031",
+          "delta_dbu": [
+            0,
+            16
+          ],
+          "group": "g1"
+        },
+        {
+          "op": "move_via_shape",
+          "cell_name": "VIA_VIA56_2_2_66_58",
+          "layer_name": "V5",
+          "shape_index": 0,
+          "axis": "y",
+          "delta_dbu": -132,
+          "group": "g1"
+        },
+        {
+          "op": "move_via_shape",
+          "cell_name": "VIA_VIA56_2_2_66_58",
+          "layer_name": "V5",
+          "shape_index": 1,
+          "axis": "y",
+          "delta_dbu": -132,
+          "group": "g1"
+        },
+        {
+          "op": "move_via_shape",
+          "cell_name": "VIA_VIA56_2_2_66_58",
+          "layer_name": "V5",
+          "shape_index": 2,
+          "axis": "y",
+          "delta_dbu": 132,
+          "group": "g1"
+        },
+        {
+          "op": "move_via_shape",
+          "cell_name": "VIA_VIA56_2_2_66_58",
+          "layer_name": "V5",
+          "shape_index": 3,
+          "axis": "y",
+          "delta_dbu": 132,
+          "group": "g1"
+        },
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA56_2_2_66_58",
+          "layer_name": "V5",
+          "shape_index": 0,
+          "axis": "y",
+          "delta_dbu": 512,
+          "group": "g1"
+        },
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA56_2_2_66_58",
+          "layer_name": "V5",
+          "shape_index": 1,
+          "axis": "y",
+          "delta_dbu": 512,
+          "group": "g1"
+        },
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA56_2_2_66_58",
+          "layer_name": "V5",
+          "shape_index": 2,
+          "axis": "y",
+          "delta_dbu": 512,
+          "group": "g1"
+        },
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA56_2_2_66_58",
+          "layer_name": "V5",
+          "shape_index": 3,
+          "axis": "y",
+          "delta_dbu": 512,
+          "group": "g1"
+        }
+      ]
+    }
+  ]
+}

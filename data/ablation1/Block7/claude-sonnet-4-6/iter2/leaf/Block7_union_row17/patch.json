@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row17",
+  "ops": [
+    {"op": "move", "polygon_id": "p3631", "axis": "y", "delta_dbu": 57},
+    {"op": "move_instance", "inst_id": "i0794", "delta_dbu": [0, 57]},
+    {"op": "move_instance", "inst_id": "i0810", "delta_dbu": [0, 57]}
+  ],
+  "explanation": "Moves the M2 D-polygon p3631 and its enclosing VIA_VIA12 (i0794) and VIA_VIA23 (i0810) upward by 57 dbu (+14.25 nm) to open the M2 tip-to-tip gap from 72 dbu to 129 dbu, clearing M2.S.7 violation v0100. This delta satisfies both M2.S.7 clauses: the vertical edge gap (129 dbu) is NOT < 129 dbu, and the bbox_width of any resulting gap polygon is >= 140 dbu. Connectivity is preserved (all 3325 seeds intact). V0.M1.AUX.3 (5 violations) and M1.S.6 (2 violations) remain unfixed — see trace.md for declared debt."
+}

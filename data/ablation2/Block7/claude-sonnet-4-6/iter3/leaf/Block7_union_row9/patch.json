@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row9",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1117", "delta_dbu": [68, 0]},
+    {"op": "move_instance", "inst_id": "i1150", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i1117 right by 68 dbu so its M1 land no longer straddles y=11700 within V0 bbox (11412–11484), clearing v0010; moves VIA_VIA12 i1150 right by 36 dbu for the same reason at v0006."
+}

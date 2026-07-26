@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0009",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p2328", "axis": "y", "end": "high", "delta_dbu": -20}
+  ],
+  "explanation": "Shrinks M3 polygon p2328's high-y end by 20 dbu (y=15336 → y=15316), reducing the overlap with i0520's M3 land (x=[25960,25992], y=[15244,15316], 72 dbu tall). For y=[15316,15336], only i0520's M3 land exists at x=[25960,26032], making x=25960 the left boundary of the merged M3 shape over the V2 cut's top strip — satisfying the coincident-boundary condition for V2.M3.AUX.2 (v0155 cleared). The original large L-shape overlap (92 dbu) was causing M3.W.1 with delta=-92; delta=-20 preserves a clean L-union with no width violations. The new_in_window M2.S.7 at [25940,15156,26052,15264] is a pre-existing violation present in the baseline crop (confirmed by empty-ops DRC run) and is NOT introduced by this op. M2.S.2 (v0093) and M2.S.7 (v0099) at [25940,15336,26052,15408] are irresolvable M2 spacing violations involving via i0520's fixed M2 land geometry — modifying them would break connectivity. DRC preview: cleared=[V2.M3.AUX.2], new_in_window=[M2.S.7 pre-existing]. Connectivity: all 3325 seeds preserved."
+}

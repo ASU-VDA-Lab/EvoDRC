@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block7_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i2003", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1518", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i1583", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1994", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Four VIA_VIA12 instances moved by 36 dbu to align via M1 lands with adjacent frozen V0 pins and background M1 edges, clearing three V0.M1.AUX.3, one V1.M1.EN.1, one M1.S.4, and two M1.S.6 violations."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "delete", "polygon_id": "p1211"},
+    {"op": "resize_end", "polygon_id": "p1187", "axis": "x", "end": "low", "delta_dbu": 44}
+  ],
+  "explanation": "Deletes p1211 (removes its top M4 edge at y=14496 that caused an M4.S.5 run-length violation against i0174's M4 land bottom at y=14592), then extends p1187 leftward by 44 dbu (to x=3976) to cover the horizontal gap that p1211's deletion exposes, preventing secondary M4.S.3 violations."
+}

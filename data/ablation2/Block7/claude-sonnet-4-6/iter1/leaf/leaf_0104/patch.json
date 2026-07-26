@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0104",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M5", "shape_index": 0, "axis": "y", "delta_dbu": -88}
+  ],
+  "explanation": "Shrinks the M5 enclosure shape on VIA_VIA45_1_2_58_58 by 88 dbu in y (44 dbu per side, reducing half-height from 92 to 48), aligning M5 y-edges with the V4 cut y-edges at ±48 dbu and clearing 72 V4.M5.AUX.2 violations; also clears 6 M5.AUX.1 violations at the cost of 3 new M5.AUX.1 violations, for an effective net reduction of 75 violations."
+}

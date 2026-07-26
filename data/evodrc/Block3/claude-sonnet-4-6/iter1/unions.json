@@ -1,0 +1,309 @@
+{
+  "iter": 1,
+  "case": "Block3",
+  "units": [
+    {
+      "unit_id": "Block3_union_row1",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0001",
+        "leaf_0002",
+        "leaf_0003"
+      ],
+      "bbox_dbu": [
+        6856,
+        2268,
+        10512,
+        3132
+      ],
+      "violation_ids": [
+        "v0004",
+        "v0019",
+        "v0022",
+        "v0028",
+        "v0007",
+        "v0023",
+        "v0029"
+      ],
+      "n_viol": 7
+    },
+    {
+      "unit_id": "Block3_union_row2",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0004",
+        "leaf_0005"
+      ],
+      "bbox_dbu": [
+        7288,
+        3348,
+        10512,
+        4212
+      ],
+      "violation_ids": [
+        "v0008",
+        "v0001"
+      ],
+      "n_viol": 2
+    },
+    {
+      "unit_id": "leaf_0009",
+      "kind": "union",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0009"
+      ],
+      "bbox_dbu": [
+        6480,
+        6208,
+        7164,
+        6372
+      ],
+      "violation_ids": [
+        "v0021"
+      ],
+      "n_viol": 1
+    },
+    {
+      "unit_id": "Block3_union_row5",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0010",
+        "leaf_0011"
+      ],
+      "bbox_dbu": [
+        3400,
+        6588,
+        8352,
+        7452
+      ],
+      "violation_ids": [
+        "v0009",
+        "v0011",
+        "v0020"
+      ],
+      "n_viol": 3
+    },
+    {
+      "unit_id": "leaf_0012",
+      "kind": "union",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0012"
+      ],
+      "bbox_dbu": [
+        3400,
+        7668,
+        5976,
+        8532
+      ],
+      "violation_ids": [
+        "v0012"
+      ],
+      "n_viol": 1
+    },
+    {
+      "unit_id": "leaf_0013",
+      "kind": "union",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0013"
+      ],
+      "bbox_dbu": [
+        6696,
+        9376,
+        8048,
+        9612
+      ],
+      "violation_ids": [
+        "v0027",
+        "v0032"
+      ],
+      "n_viol": 2
+    },
+    {
+      "unit_id": "Block3_union_row8",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0014",
+        "leaf_0015",
+        "leaf_0016",
+        "leaf_0017"
+      ],
+      "bbox_dbu": [
+        6424,
+        9828,
+        10080,
+        10692
+      ],
+      "violation_ids": [
+        "v0010",
+        "v0018",
+        "v0026",
+        "v0033",
+        "v0006",
+        "v0013"
+      ],
+      "n_viol": 6
+    },
+    {
+      "unit_id": "leaf_0006",
+      "kind": "multi",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0006"
+      ],
+      "bbox_dbu": [
+        4264,
+        4428,
+        4896,
+        10692
+      ],
+      "violation_ids": [
+        "v0014",
+        "v0015"
+      ],
+      "n_viol": 2
+    },
+    {
+      "unit_id": "leaf_0007",
+      "kind": "multi",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0007"
+      ],
+      "bbox_dbu": [
+        8152,
+        4428,
+        9000,
+        6372
+      ],
+      "violation_ids": [
+        "v0003",
+        "v0016"
+      ],
+      "n_viol": 2
+    },
+    {
+      "unit_id": "leaf_0008",
+      "kind": "multi",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0008"
+      ],
+      "bbox_dbu": [
+        9232,
+        5508,
+        10080,
+        8532
+      ],
+      "violation_ids": [
+        "v0002",
+        "v0005",
+        "v0024",
+        "v0025",
+        "v0030",
+        "v0031"
+      ],
+      "n_viol": 6
+    },
+    {
+      "unit_id": "leaf_0018",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0018"
+      ],
+      "bbox_dbu": [
+        1728,
+        2068,
+        11016,
+        10892
+      ],
+      "violation_ids": [
+        "v0034",
+        "v0035",
+        "v0036",
+        "v0040",
+        "v0041",
+        "v0042",
+        "v0046",
+        "v0047",
+        "v0048",
+        "v0052",
+        "v0053",
+        "v0054",
+        "v0058",
+        "v0059",
+        "v0060",
+        "v0061",
+        "v0062",
+        "v0063",
+        "v0066",
+        "v0067",
+        "v0070",
+        "v0071",
+        "v0074",
+        "v0075",
+        "v0078",
+        "v0079",
+        "v0081",
+        "v0084",
+        "v0088",
+        "v0089"
+      ],
+      "n_viol": 30
+    },
+    {
+      "unit_id": "leaf_0019",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0019"
+      ],
+      "bbox_dbu": [
+        1728,
+        3148,
+        11016,
+        9812
+      ],
+      "violation_ids": [
+        "v0017",
+        "v0037",
+        "v0038",
+        "v0039",
+        "v0043",
+        "v0044",
+        "v0045",
+        "v0049",
+        "v0050",
+        "v0051",
+        "v0055",
+        "v0056",
+        "v0057",
+        "v0064",
+        "v0065",
+        "v0068",
+        "v0069",
+        "v0072",
+        "v0073",
+        "v0076",
+        "v0077",
+        "v0080",
+        "v0082",
+        "v0083",
+        "v0085",
+        "v0086",
+        "v0087"
+      ],
+      "n_viol": 27
+    }
+  ],
+  "n_union": 4,
+  "quarantined": [],
+  "count": 12
+}

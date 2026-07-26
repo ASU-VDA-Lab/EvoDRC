@@ -1,0 +1,123 @@
+Reading the new record and composing the updated knowledge body now.
+
+The iteration 3 trial (i03.ug.whole_design.00) is a pure-x repair: 12 via instances all moved +72 dbu in x, 11 routing polygons had their high-x end extended by amounts that range from +36 dbu to +128 dbu — both smaller and larger than the +72 dbu via delta. This contradicts the iteration 2 framing that said extensions were "each larger than" the via delta, so that claim must be dropped and replaced with the broader measured range.
+
+---
+
+## Per-rule recipes
+
+### Family A: M1-via cluster (V0.M1.AUX.3, M1.S.2, M1.S.6, V1.M1.EN.1)
+
+These four rules often cluster around a VIA_VIA12 instance placed where local M1 geometry fails width-matching, spacing, or enclosure constraints. A single site usually fires one to three of them -- not necessarily all four -- and a single via move clears only those rules violated at that site; the reference design's 37-violation block saw 18 of 37 violations in this family, with 3 out of 12 VIA12 moves each clearing 2-3 distinct rules simultaneously while the other 9 moves each cleared exactly one rule (seed, reference-design-verified).
+
+**Rule semantics (ASAP7 rule deck).** V0.M1.AUX.3: V0 must exactly match M1 width perpendicular to M1 length; M1 runs horizontally so the V0 y-extent must equal the M1 y-extent at the landing location (seed, reference-design-verified). V1.M1.EN.1 (deck hgood/vgood construction; description "5 & 2 nm"): on ONE pair of opposite sides -- either the x-pair or the y-pair -- BOTH sides must be >= 2 nm (8 dbu) AND at least ONE of the two >= 5 nm (20 dbu); fires when NEITHER pair achieves this on the merged M1 (seed, reference-design-verified). M1.S.2: tip-to-side spacing >= 25 nm (100 dbu) when one edge is <= 36 nm and the other > 36 nm (seed, reference-design-verified). M1.S.6: corner-to-corner spacing >= 20 nm (80 dbu) (seed, reference-design-verified).
+
+**Root cause pattern.** A VIA_VIA12 (cell = M1 land + M2 land + V1 cut; it does NOT contain V0 -- V0 (layer 18) is the std-cell contact level below, and V0.M1.AUX.3 is checked on the MERGED M1 around it) is placed at a coordinate where the merged M1 has an edge mismatch or insufficient extension. Moving the via to a nearby M1-valid position -- observed move shapes include pure-x (e.g. +64 dbu, +72 dbu, +136 dbu), pure-y (e.g. +68 dbu), and two-axis (e.g. (+72,-108) dbu) -- or extending the M2-level routing clears multiple rules at once (seed, reference-design-verified). Examples A2 and A3 each clear 3 rules per move; A5 clears 2; A1 and A4 each clear 1; all four outcomes are equally normal and a single-rule fix requires no further action (seed, reference-design-verified).
+
+---
+
+**Recipe -- Co-lateral via-and-pad slide** (seed, reference-design-verified):
+
+**Step 1.** For each violation in this family, locate the VIA_VIA12 instance whose bounding box overlaps or abuts the violation bbox.
+
+**Step 2.** Determine the required lateral delta. The new position must satisfy: V0 y-extent == M1 y-extent at the landing point (V0.M1.AUX.3). For V1.M1.EN.1 the deck requires, on ONE pair of opposite sides (x-pair or y-pair): BOTH sides >= 8 dbu (2 nm) AND at least one >= 20 dbu (5 nm). The VIA_VIA12 cell's own M1 land supplies exactly 8 dbu on both y-sides (land y = +/-44 vs cut +/-36) but 0 on x, so the merged M1 must either lift ONE y-side to >= 20 dbu, or give the x-pair (>= 8 dbu one side, >= 20 dbu the other). Repairs in the reference design aimed for >= 20 dbu on BOTH x-sides -- a conservative working target, sufficient but stricter than the rule minimum. M1.S.2 and M1.S.6 are incidentally cleared when the via moves away from the neighbor causing the tip/corner proximity (seed, reference-design-verified).
+
+**Step 3.** Apply the delta to VIA_VIA12.
+
+**Step 4.** If a VIA_VIA23 is co-located at the same (x, y) (stacked via), decide PER LEVEL -- co-located vias do NOT always travel together (seed, reference-design-verified). Three cases are confirmed:
+
+(a) COUPLED case: if the M2 landing must move with the V1 fix (the M2 polygon itself is co-moved), move VIA23 by the same delta (verified: the stacked pair at (5652,5220) both moved +64 in x, together with the associated top-level M2 pad and M3 routing polygons) (seed, reference-design-verified).
+
+(b) ANCHOR case: if VIA23's own levels (M2-M3) remain correctly aligned at the original coordinate, leave VIA23 in place and move only VIA12 (verified: VIA12 (3204,1980)->(3340,1980) +136 while the co-located VIA23 stayed at (3204,1980) as the M2-M3 anchor) (seed, reference-design-verified).
+
+(c) PARTIAL case: the two may share one axis and split the other (verified: at (6228,2340) both took +8 in y, but VIA12 took +36 in x while VIA23 took 0) (seed, reference-design-verified).
+
+Pre-move check (the deciding question): after moving VIA12, does the V2 level at the OLD position still need VIA23 there to reach M3, and does VIA23's own alignment stay legal? If yes to both -- anchor case, do not move VIA23. The final clean pair shows this anchor pattern explicitly (seed, reference-design-verified).
+
+**Step 5.** Re-establish landing coverage at the via's new position. The via's own M1/M2 lands travel inside the instance; what may need editing are the top-level M2 (layer 20) landing/routing polygons and M3 for the VIA23 level (Step 6). In the reference repair, zero top-level M1 (layer 19) polygons were touched (seed, reference-design-verified). An isolated landing pad can simply move by the same delta; a pad attached to a routing stub is typically reshaped or end-extended, and its delta need not equal the via's (observed: the via at (6228,2340) moved (+36,+8) while its M2 pad moved (+92,+8)) (seed, reference-design-verified). Never break metal continuity in the process (seed, reference-design-verified).
+
+**Step 6.** VIA_VIA23 is the M2-M3 via: after any VIA23 move, both levels need coverage. If it now falls outside the M2 routing polygon (layer M2), move or extend the M2 polygon to cover it; likewise verify the M3 side still covers the via at its new location (M3 coverage loss is a connectivity break the window DRC may not flag) (seed, reference-design-verified). Two observed modes on whichever affected level:
+
+(a) Co-move: the polygon translates by the same delta as the via (observed on both an M2 pad and an M3 routing polygon in worked example A1) (seed, reference-design-verified).
+
+(b) Extend: one edge is stretched to reach the new via position (observed on M2 in example A2 and on M3 in example A4) (seed, reference-design-verified).
+
+**Enclosure check operates on merged metal.** The DRC engine evaluates the merged M1 shape at the via's new position, not any single polygon. Do not re-derive enclosure from any single polygon alone; the relocated via's own M1 land merges with the M1 already present at the new position, and the merged result is what the checker evaluates. In worked example A2 no top-level M1 polygon was edited and V1.M1.EN.1 still closed because the relocated via's own M1 land supplied the needed enclosure on the merged shape (seed, reference-design-verified).
+
+---
+
+**Worked example A1** (V0.M1.AUX.3 at [5580,5220,5652,5292]):
+Via at (5652,5220); violation at boundary where V0 width != M1 width.
+Delta: (+64, 0) dbu = 16 nm in +x.
+VIA12 moves (5652,5220)->(5716,5220); VIA23 co-moves same delta.
+M2 landing pad polygon (92x72 dbu, layer 20 = M2) moves (5560,5184)->(5624,5184), same delta (this is VIA23's lower land level / VIA12's upper).
+M3 routing polygon (72x3156 dbu, layer 30 = M3) moves (5616,5184)->(5680,5184), same delta (VIA23's upper level).
+
+**Worked example A2** (multi-rule single-move, delta +136 dbu in x):
+VIA12 at (3204,1980) moves to (3340,1980).
+This single move clears:
+  V0.M1.AUX.3 at [3204,1980,3276,2052]
+  V1.M1.EN.1 at [3168,1944,3240,2016]
+  M1.S.2 at [3072,1936,3168,2024] -- the marker ends exactly at the old M1 land's left edge (3168, land y 1936..2024); the +136 move carries the land away from the tip-to-side conflict.
+M2 routing polygon (layer 20 = M2, at (2880,1944)-(3240,2016)) extended: right edge from x=3240 to x=3336 (+96 dbu = 24 nm) -- this re-covers the via's M2 land at its new x. No top-level M1 polygon was edited: V1.M1.EN.1 closes because the relocated via's own M1 land merges with the M1 already present at the new position; the final state is host-verified DRC-clean (seed, reference-design-verified).
+
+**Worked example A3** (three-rule single-move, delta +136 dbu in x):
+VIA12 at (2340,3060) moves to (2476,3060).
+This single move clears:
+  V0.M1.AUX.3 at [2340,3060,2412,3132]
+  V1.M1.EN.1 at [2304,3024,2376,3096]
+  M1.S.2 at [2208,3016,2304,3104]
+
+**Worked example A4** (V1.M1.EN.1 + M3 extend, delta (0,+68) dbu):
+VIA12 at (5364,5724) moves to (5364,5792); VIA23 co-moves same delta.
+Clears V1.M1.EN.1 at [5328,5688,5400,5760].
+M3 polygon (layer 30 = M3, at (5328,4896)-(5400,5760)) top edge extended from y=5760 to y=5816 to cover the via's M3 level at its new y (VIA23 is M2-M3).
+
+**Worked example A5** (M1.S.2 + V1.M1.EN.1 near x=6228, coordinated multi-object):
+M2 polygon (92x72 dbu, layer 20 = M2) at (6136,2304) moves to (6228,2312), delta (+92,+8).
+VIA12 at (6228,2340) moves to (6264,2348), delta (+36,+8).
+VIA23 at (6228,2340) moves to (6228,2348), delta (0,+8).
+Clears M1.S.2 at [6120,2296,6192,2384] and V1.M1.EN.1 at [6192,2304,6264,2376].
+Note: VIA12 and VIA23 were co-located (stacked) at (6228,2340) before the repair; the repair deliberately split them in x (+36 vs 0) while both shared the +8 y-delta -- the PARTIAL case of Step 4(c). Co-location before a repair does not imply co-movement during it (seed, reference-design-verified).
+
+**Connectivity preservation (Family A).** The via's own M1/M2 lands travel with the instance, so the V1 cut never leaves its lands. Top-level M2 pads/routing are co-moved or end-extended so the via's M2 land stays merged with its net; the VIA23 level likewise keeps M2 AND M3 coverage. Via cell definitions are not touched; only instance placements and top-level M2/M3 polygons change (seed, reference-design-verified).
+
+---
+
+## Iteration 2 measured facts (trial:i02.ug.whole_design.00)
+
+A whole-design repair (locus [0,0,11992,11992], 45 ops) across M1, M2, M3, M4, M5, V1, V2, V3, and V4 preserved connectivity in a single pass (trial:i02.ug.whole_design.00). Key patterns from this trial:
+
+**Common x-shift with per-group y-adjustment.** Twenty-four VIA instances were moved with a common +32 dbu x-component; their y-components varied by group: 0 dbu (i0119, i0110, i0098), -48 dbu (i0107, i0092, i0097), -96 dbu (i0079, i0072, i0064), +48 dbu (i0080, i0073, i0068), +72 dbu (i0088, i0095, i0099, i0059, i0070, i0061), -72 dbu (i0090, i0091, i0111, i0076, i0069, i0066). Two additional instances (i0086, i0063) moved +72 dbu in x only (trial:i02.ug.whole_design.00).
+
+**Eight routing polygons (p958-p965) each moved in y to match their instance group's y-delta and had their high-x end extended by +32 dbu.** Two further routing polygons (p1065, p1036) had their high-x ends extended by +116 dbu and +80 dbu respectively, both larger than the +72 dbu via delta (trial:i02.ug.whole_design.00). Two polygons (p937, p938) were purely translated by +32 dbu in x without resize (trial:i02.ug.whole_design.00).
+
+**Nine-layer coordinated repair is connectivity-preserving.** The 45-op transaction touched M1 through M5 and V1 through V4 simultaneously with conn_preserved=true (trial:i02.ug.whole_design.00). Large coordinated repairs spanning many routing levels are achievable as a single connectivity-preserving pass.
+
+---
+
+## Iteration 3 measured facts (trial:i03.ug.whole_design.00)
+
+A whole-design repair (locus [0,0,11992,11992], 23 ops) touching only M1, M2, and V1 preserved connectivity (trial:i03.ug.whole_design.00). Key patterns:
+
+**Pure-x uniform via shift.** Twelve VIA instances (i0063, i0086, i0132, i0027, i0159, i0152, i0083, i0103, i0127, i0115, i0034, i0018) each moved exactly +72 dbu in x with zero y-component (trial:i03.ug.whole_design.00). No y-adjustment was needed, confirming that horizontal-only repairs are a valid and complete repair shape when the underlying violations are purely x-axis geometry failures.
+
+**Routing polygon extension amounts span a range both above and below the via delta.** Eleven routing polygon high-x ends were extended by: +36 dbu (p1045), +84 dbu (p1036, p1065), +92 dbu (p1034), and +128 dbu (p1052, p1053, p1057, p1059, p1060, p1063, p1040) (trial:i03.ug.whole_design.00). The via delta in this trial was +72 dbu; the extension for p1045 (+36 dbu) is smaller than the via delta and the extensions for p1052-p1063 group (+128 dbu) are larger. Routing polygon extension amounts are set by the polygon's own geometry -- specifically how far short of the via's new landing position the polygon's existing high-x edge falls -- and are not constrained to equal, exceed, or be less than the via delta (trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00).
+
+**Three-layer repair suffices when higher-level connectivity is unaffected.** Unlike iteration 2's nine-layer repair, this 23-op trial required changes only on M1, M2, and V1 while remaining connectivity-preserving (trial:i03.ug.whole_design.00). Repair scope scales to the minimum set of layers whose geometry is actually violated; no higher layer needs to be touched unless its coverage or spacing is compromised by the via move.
+
+---
+
+## Final-pair measured facts (reference-design tail evidence)
+
+Provenance: these facts come from the final-pair comparison of the reference design's initial layout against its repaired final layout, plus the BEFORE and AFTER DRC reports. Every coordinate and delta cited in this document is quoted inline from that pair.
+
+Moving via instances without touching cell definitions is sufficient to clear V0.M1.AUX.3, V1.M1.EN.1, M1.S.2, and M1.S.6, provided metal polygons are co-moved or extended to maintain coverage (seed, reference-design-verified).
+
+A single via move can simultaneously clear violations under 3 different rules; confirmed in worked example A3, where one VIA12 move clears V0.M1.AUX.3, V1.M1.EN.1, and M1.S.2 at once (seed, reference-design-verified).
+
+---
+
+## Case notes (reference-design tail evidence)
+
+Multi-rule single-fix frequency: in this block, 3 out of 12 VIA12 moves each cleared violations from 2-3 distinct rules (seed, reference-design-verified). When spatial clustering shows overlapping violation bboxes from different rules at the same location, treat them as one compound fix (seed, reference-design-verified). A single rule can also double-report one physical site through deck rule variants: the two M1.S.6 markers [6408,3457,6480,3499] and [6405,3464,6483,3492] outline the same corner pair, so marker count can exceed physical site count (seed, reference-design-verified).

@@ -1,0 +1,11 @@
+{
+  "iter": 4,
+  "start_violations": 38,
+  "end_violations": 23,
+  "repair_rate": 0.39473684210526316,
+  "new_violation_count": 9,
+  "connectivity": "preserved",
+  "drc_total_after": 23,
+  "input_drc": "./data/evodrc/Block6/claude-sonnet-4-6/iter4/input/Block6.drc.json",
+  "repaired_drc": "./data/evodrc/Block6/claude-sonnet-4-6/iter4/repaired/Block6.drc.json"
+}

@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [],
+  "explanation": "No safe repair exists: the i0213 move to clear M1.S.2 (v0002) introduces net-new M1.A.1, V1.M1.EN.1, M2.S.4, and M2.S.7 violations (DRC-preview confirmed net-negative); the p1341 x-shift to clear M5.AUX.1 requires co-moving all 17 VIA_VIA45 block-wide instances, which exceeds this crop window's scope and would be net-negative globally."
+}

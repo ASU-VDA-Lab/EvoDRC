@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [104, 0]},
+    {"op": "resize_end", "polygon_id": "p1226", "axis": "x", "end": "high", "delta_dbu": 128}
+  ],
+  "explanation": "V0.M1.AUX.3 fires because VIA_VIA12 i0239's M1 land extends above y=5580 (V0 top edge), creating a gap in the merged M1 outer boundary at y=5580 for x=9652-9724. Moving i0239 right by 104 dbu shifts its M1 land to x=9756-9828 so the V0 top edge (x=9684-9756) is fully coincident with the merged M1 outer edge at y=5580; p1226 is extended +128 dbu in x to maintain M2 overlap with the relocated via."
+}

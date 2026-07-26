@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0031",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0044", "delta_dbu": [36, 0]},
+    {"op": "resize", "polygon_id": "p1390", "axis": "x", "delta_dbu": 36}
+  ],
+  "explanation": "Cleared v0010 (V0.M1.AUX.3) by moving VIA_VIA12 instance i0044 +36 dbu in x so its M1 land shifts from x=[12960,13032] to x=[12996,13068], eliminating M1 material below y=13860 in the V0 pin's x-range and restoring the M1 edge coincidence that kills the convex corner; resized M2 polygon p1390 +36 dbu in x to maintain adequate M2 enclosure of the relocated V1 cut."
+}

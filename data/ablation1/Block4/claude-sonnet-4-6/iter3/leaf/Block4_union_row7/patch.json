@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block4_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0040", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0026", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Both V0.M1.AUX.3 violations fire because VIA_VIA12 M1 lands (i0040 at origin 9972,9540 and i0026 at 12132,9540) extend below y=9540 into the std-cell M1 notch, destroying the merged-M1 boundary that V0 pin bottom edges must be coincident with. Shifting each via +36 dbu in X moves the tooth out of the respective V0 pin x-ranges (9900..9972 and 12060..12132), restoring the M1 boundary at y=9540 and clearing both violations with no new violations introduced."
+}

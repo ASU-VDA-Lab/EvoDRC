@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block7_union_row13",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0507", "delta_dbu": [40, 0]},
+    {"op": "move_instance", "inst_id": "i0520", "delta_dbu": [40, 0]},
+    {"op": "move_instance", "inst_id": "i1059", "delta_dbu": [40, 0]},
+    {"op": "move_instance", "inst_id": "i0482", "delta_dbu": [40, 0]},
+    {"op": "resize_end", "polygon_id": "p3526", "axis": "x", "end": "high", "delta_dbu": 4}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0507/i0520 right 40 dbu clearing V0.M1.AUX.3 (v0038) and M1.S.6 (v0168/v0169); moved i1059 right 40 dbu clearing V0.M1.AUX.3 (v0012); moved i0482 right 40 dbu clearing V0.M1.AUX.3 (v0015); extended p3526 HIGH x by 4 dbu to cover via M2 land."
+}

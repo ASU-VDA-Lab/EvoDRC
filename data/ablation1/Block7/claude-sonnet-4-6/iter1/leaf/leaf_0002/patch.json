@@ -1,0 +1,4 @@
+{"leaf_id": "leaf_0002", "ops": [
+  {"op": "move_instance", "inst_id": "i1646", "delta_dbu": [72, 0]},
+  {"op": "resize_end", "polygon_id": "p3695", "axis": "x", "end": "high", "delta_dbu": 128}
+], "explanation": "Moved VIA_VIA12 i1646 right 72 dbu so its M1 land falls entirely within the ptemp_12 right-column coverage, eliminating the non-coincident convex corner on V0 pin _ptemp_6 that triggered V0.M1.AUX.3. Extended M2 polygon p3695's right edge 128 dbu to restore M2 connectivity to i1646's new position."}

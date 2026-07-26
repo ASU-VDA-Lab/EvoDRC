@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block5_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0117", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p967", "axis": "x", "end": "high", "delta_dbu": 36},
+    {"op": "move_instance", "inst_id": "i0131", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0117 and i0131 rightward by 36 dbu so their M1 lands no longer straddle the respective V0 pin x-ranges, eliminating the merged-M1 L-step that created free V0 corners triggering V0.M1.AUX.3; resized M2 polygon p967 rightward by 36 dbu to maintain 56 dbu M2 overlap with i0117's shifted land."
+}

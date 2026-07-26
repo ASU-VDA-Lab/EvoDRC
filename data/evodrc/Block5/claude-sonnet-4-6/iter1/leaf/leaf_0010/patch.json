@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0010",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0113", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0099", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0001", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0002", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0067", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0070", "delta_dbu": [0, -24]}
+  ],
+  "explanation": "Moves paired VIA34+VIA45 instances (i0099+i0113, i0002+i0001, i0070+i0067) in y to align M4 horizontal edges on the 96-dbu grid, clearing three M4.AUX.1 violations (v0060, v0062, v0063) across the three via clusters."
+}

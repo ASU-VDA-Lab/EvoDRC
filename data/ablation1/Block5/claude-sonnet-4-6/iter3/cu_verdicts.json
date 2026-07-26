@@ -1,0 +1,69 @@
+{
+ "strip": {
+  "leaf_0001": [
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -40, \"layer_name\": \"M3\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]"
+  ]
+ },
+ "winners": [
+  {
+   "target": "def:VIA_VIA23_1_3_36_36",
+   "target_keys": [
+    "def:VIA_VIA23_1_3_36_36"
+   ],
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "M3",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -40
+    }
+   ],
+   "attributed_to": "leaf_0001"
+  }
+ ],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA23_1_3_36_36",
+   "target_keys": [
+    "def:VIA_VIA23_1_3_36_36"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA23_1_3_36_36"
+   ],
+   "group": null,
+   "atomic": false,
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "M3",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -40
+    }
+   ],
+   "proposers": [
+    "leaf_0001"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0001",
+     "before": 18,
+     "after": 10,
+     "delta": -8
+    },
+    {
+     "window": "unit:leaf_0002",
+     "before": 16,
+     "after": 16,
+     "delta": 0
+    }
+   ],
+   "delta_total": -8,
+   "conn_preserved": true,
+   "decision": "applied"
+  }
+ ]
+}

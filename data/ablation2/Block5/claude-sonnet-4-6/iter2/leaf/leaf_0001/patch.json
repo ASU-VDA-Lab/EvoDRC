@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0012", "delta_dbu": [32, 0]}
+  ],
+  "explanation": "Move VIA_VIA12 instance i0012 by +32 dbu in X to shift its M1 landing pad left edge from x=5188 to x=5220, aligning it with the right edge of the V0 shape. This eliminates the V0.M1.AUX.3 DRC violation by removing the non-coincident horizontal edge overlap."
+}

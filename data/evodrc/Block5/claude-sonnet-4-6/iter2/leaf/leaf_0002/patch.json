@@ -1,0 +1,16 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move", "polygon_id": "p879", "axis": "x", "delta_dbu": 32},
+    {"op": "resize", "polygon_id": "p879", "axis": "y", "delta_dbu": 96},
+    {"op": "move_instance", "inst_id": "i0114", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0112", "delta_dbu": [32, -48]},
+    {"op": "move_instance", "inst_id": "i0073", "delta_dbu": [32, 96]},
+    {"op": "move_instance", "inst_id": "i0062", "delta_dbu": [32, 48]},
+    {"op": "move_instance", "inst_id": "i0105", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0075", "delta_dbu": [0, 96]},
+    {"op": "move_instance", "inst_id": "i0076", "delta_dbu": [0, 48]},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "x", "delta_dbu": 144}
+  ],
+  "explanation": "Fixed M5.AUX.1 by snapping p879 x-edges to the 96 dbu grid (move +32 in x) and extending p879 y-coverage (+96 symmetric); fixed M4.AUX.1/M4.AUX.2 by moving co-located VIA34 (i0105, i0075, i0076) and VIA45 (i0112, i0073, i0062) instances to on-track y-positions; fixed V2.M3.AUX.2 by translating the center V2 cut of VIA_VIA23_1_3_36_36 (+144 in x) so it merges with the right V2 cut, making all V2 cut edges coincident with M3 land edges. All 17 target violations cleared; 6 new V4.M5.AUX.2 violations introduced as declared debt from the VIA45 x-shift."
+}

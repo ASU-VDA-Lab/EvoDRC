@@ -1,0 +1,14 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "M3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -30
+    }
+  ],
+  "explanation": "VIA_VIA23_1_3_36_36 has an M3 land shape (shape_index=0) that extends to y=\u00b156 dbu while the V2 cuts only reach y=\u00b136 dbu. V2.M3.AUX.2 requires V2 cut y-edges to be flush with M3 y-edges. Shrinking M3 symmetrically by delta_dbu=-30 (15 dbu per side) brings M3 to y=\u00b141, making M3 flush with the V2 cuts and clearing the rule. New M3 height = 82 dbu = 21 nm = minimum M3 width. Verified: DRC preview clears 78 additional V2.M3.AUX.2 violations (93 cleared vs 15 baseline), no new violations introduced, connectivity preserved (3325/3325 seeds)."
+}

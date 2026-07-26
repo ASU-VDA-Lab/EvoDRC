@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block1_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0482", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0507", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p1320", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i0496", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1321", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "Moves three VIA_VIA12 instances (i0482, i0507, i0496) rightward so each via's M1 land left edge aligns with the adjacent V0 pin's right edge, clearing V0.M1.AUX.3 (v0002, v0018, v0004), M1.S.2 (v0038), and V1.M1.EN.1 (v0055); extends M2 polygons p1320 and p1321 to maintain connectivity to the shifted via M2 lands."
+}

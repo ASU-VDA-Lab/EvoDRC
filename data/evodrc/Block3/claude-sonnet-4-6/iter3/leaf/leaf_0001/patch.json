@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0132", "delta_dbu": [-16, 0]}
+  ],
+  "explanation": "Moves via i0132 (VIA_VIA34) 16 dbu west to increase the M4 tip-to-tip gap from 144 dbu (36 nm) to 160 dbu (40 nm), exactly meeting the M4.S.3 minimum separation threshold and clearing violation v0003."
+}

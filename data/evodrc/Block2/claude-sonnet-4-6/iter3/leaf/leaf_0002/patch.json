@@ -1,0 +1,37 @@
+{
+ "ops": [
+  {
+   "op": "move_instance",
+   "inst_id": "i0095",
+   "delta_dbu": [
+    0,
+    72
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0099",
+   "delta_dbu": [
+    0,
+    72
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0069",
+   "delta_dbu": [
+    0,
+    -72
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0066",
+   "delta_dbu": [
+    0,
+    -72
+   ]
+  }
+ ],
+ "leaf_id": "leaf_0002"
+}

@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block6_union_row4",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0410", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p2020", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0319", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1990", "axis": "x", "end": "high", "delta_dbu": 56}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0410 and i0319 +36 dbu in x to clear M1.S.2 tip-to-side spacing violations against adjacent std-cell M1 pins and provide sufficient M1 context for V1.M1.EN.1 enclosure; extends M2 stripes p2020 and p1990 +56 dbu at their editable HIGH-x ends to maintain M2 land coverage over the moved vias."
+}

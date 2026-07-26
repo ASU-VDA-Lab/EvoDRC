@@ -1,0 +1,28 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move", "polygon_id": "p1683", "axis": "x", "delta_dbu": 32, "group": "m5_fix"},
+    {"op": "move", "polygon_id": "p1682", "axis": "x", "delta_dbu": -16, "group": "m5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M5", "shape_index": 0, "axis": "x", "delta_dbu": -64, "group": "m5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "M5", "shape_index": 0, "axis": "x", "delta_dbu": -64, "group": "m5_fix"},
+    {"op": "move", "polygon_id": "p2107", "axis": "y", "delta_dbu": 32, "group": "m6_fix"},
+    {"op": "move", "polygon_id": "p2106", "axis": "y", "delta_dbu": -16, "group": "m6_fix"},
+    {"op": "move_instance", "inst_id": "i0384", "delta_dbu": [0, 32], "group": "m6_fix"},
+    {"op": "move_instance", "inst_id": "i0528", "delta_dbu": [0, 32], "group": "m6_fix"},
+    {"op": "move_instance", "inst_id": "i0173", "delta_dbu": [0, -16], "group": "m6_fix"},
+    {"op": "move_instance", "inst_id": "i0027", "delta_dbu": [0, -16], "group": "m6_fix"},
+    {"op": "move_instance", "inst_id": "i0367", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0366", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0362", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0360", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0168", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0426", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0435", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0424", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0411", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0030", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0026", "delta_dbu": [0, 24]}
+  ],
+  "explanation": "22 ops across 4 fix groups. GROUP m5_fix: move M5 stripe p1683 +32 dbu in x (2656->2688, 3136->3168, both now on 96-dbu grid) and p1682 -16 dbu in x (13456->13440, 13936->13920); companion resize_via_shape on VIA_VIA45_1_2_58_58 M5 shape0 x by -64 and VIA_VIA56_2_2_66_58 M5 shape0 x by -64 (both 100% admissible) so via M5 lands remain inside shifted stripes — clears 2 M5.AUX.1. GROUP m6_fix: move M6 stripe p2107 +32 in y (3168->3200, 3808->3840, both on 128-dbu grid) and p2106 -16 in y (13968->13952, 14608->14592); move 4 VIA_VIA56 instances (i0384, i0528 by +32 in y; i0173, i0027 by -16 in y) so their V5 cuts maintain coincidence with shifted M6 stripe edges and no V5.M6.AUX.2 violations are introduced — clears 2 M6.AUX.1. GROUP M4 safe moves: move 12 VIA_VIA34/VIA_VIA45 instances at y=5400 (+24), y=7560 (-24), y=14040 (+24) in both clusters so M4 land y-edges land on 96-dbu grid — clears 6 M4.AUX.1 at those positions. Bonus: 3 V0.M1.AUX.3 and 2 M3.S.2 also cleared per DRC preview. Declared debt: 36 V2.M3.AUX.2 unfixable (expanding V2 in y beyond +/-36 dbu would violate V2.M2.EN since background M2 stubs match VIA_VIA23 M2 land extent exactly); 6 M4.AUX.1 unfixable (y=3240, 9720, 11880 positions: achieving y_center mod 96 == 48 also places M4 top edge at y mod 192 == 0, violating M4.AUX.2); 1 M3.S.2 at (3076,7492,3168,7628) unfixable (gap=92 dbu between p1831 and frozen p1812, via M3 protrudes to same right edge, via-def edit not admissible at 3/26). Net: 15 cleared, 0 genuine new violations introduced, 43 remaining."
+}

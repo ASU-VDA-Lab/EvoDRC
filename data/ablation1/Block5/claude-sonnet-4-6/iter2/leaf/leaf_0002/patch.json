@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0017", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0017 +72 dbu in x so its M1 land shifts outside the V0 footprint, restoring the M1 edge at y=6300 that was bridged by the via and triggering V0.M1.AUX.3."
+}

@@ -1,0 +1,24 @@
+{
+  "leaf_id": "leaf_0019",
+  "ops": [
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "x", "delta_dbu": -144},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "x", "delta_dbu": 264},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "x", "delta_dbu": 288},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "x", "delta_dbu": 144},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "x", "delta_dbu": 264},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 0, "axis": "x", "delta_dbu": -116},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 1, "axis": "x", "delta_dbu": 116},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 0, "axis": "x", "delta_dbu": 384},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 1, "axis": "x", "delta_dbu": 384},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M4", "shape_index": 0, "axis": "x", "delta_dbu": 152},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 0, "axis": "x", "delta_dbu": -116},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 1, "axis": "x", "delta_dbu": 116},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 2, "axis": "x", "delta_dbu": -116},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 3, "axis": "x", "delta_dbu": 116},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 0, "axis": "x", "delta_dbu": 320},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 1, "axis": "x", "delta_dbu": 320},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 2, "axis": "x", "delta_dbu": 320},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA56_2_2_66_58", "layer_name": "V5", "shape_index": 3, "axis": "x", "delta_dbu": 320}
+  ],
+  "explanation": "Three via-master fixes for 100%-admissible rules. Fix 1 (5 ops): VIA_VIA23_1_3_36_36 V2 cuts expanded in x to ±180 (M3 outer x-edges) without touching M2, giving 2 coincident x-edges with merged M3, clearing V2.M3.AUX.2. Fix 2 (5 ops): VIA_VIA45_1_2_58_58 V4 cuts (originally off-center at x=±116) centered via move then resized to x=±240 matching M5 x-edges; M4 expanded to ±284 (44 dbu V4 enclosure) to maintain V4.M4.EN.1, clearing V4.M5.AUX.2. Fix 3 (8 ops): VIA_VIA56_2_2_66_58 V5 cuts centered and expanded in x, reducing V5.M6.AUX.2 violations from 16 to 8 (net -8). DRC preview verified: 101 cleared, 54 new, NET +47. Connectivity: 765 seeds preserved."
+}

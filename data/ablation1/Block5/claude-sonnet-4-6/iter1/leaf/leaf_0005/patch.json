@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0017", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moving VIA_VIA12 instance i0017 by +36 dbu in x aligns its M1 land (x=[7092,7164]) with the frozen std-cell V0 pin edges, clearing M1.S.2 (gap to _ptemp_10 becomes 33 nm > 25 nm) and V1.M1.EN.1 (std-cell M1 at y=[6300,6372] provides 9 nm top enclosure of the V1 cut); V0.M1.AUX.3 at (7092,6300,7164,6372) cannot be resolved as it is intrinsic to frozen std-cell i0173."
+}

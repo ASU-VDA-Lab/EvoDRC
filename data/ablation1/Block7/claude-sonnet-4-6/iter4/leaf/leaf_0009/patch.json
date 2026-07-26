@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0009",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0235", "delta_dbu": [0, -44]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0235 (at origin (15732,22860)) downward by 44 dbu so its M1 land top edge shifts from y=22904 to y=22860. After the move, the M1 land spans x:[15696,15768] y:[22772,22860]. The AND2x2_ASAP7_75t_R internal M1 side edge at x=15840 starts at y=22860; with the VIA M1 land now ending exactly at y=22860, the TIP-to-SIDE projection length becomes zero and M1.S.2 (v0033) no longer fires. M2 connectivity is preserved: the new VIA M2 land at y:[22780,22852] still overlaps p3546 (M2 at y:[22824,22896]) and the co-located VIA_VIA23 (i0245, unmoved) M2 land at y:[22824,22896], maintaining the M1-M2-M3 stack. DRC preview: all_targets_cleared=true, new_in_window=[]. Connectivity preview: 3325 seeds verified, preserved=true."
+}

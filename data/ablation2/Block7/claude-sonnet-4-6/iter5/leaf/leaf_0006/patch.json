@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0235", "delta_dbu": [-32, -44]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0235 by (-32, -44) dbu to clear M1.S.2 violation v0026. The X component (-32) moves the right TIP edge of the via M1 land from x=15768 to x=15736, giving a gap of 104 dbu (26 nm) to the frozen std-cell M1 left edge at x=15840, which satisfies the 25 nm M1.S.2 tip-to-side requirement. The Y component (-44) shifts the via M1 land downward so its projection no longer overlaps with the std-cell hole right SIDE wall at x=15588, preventing a new M1.S.2 violation that would otherwise be introduced by the X move alone."
+}

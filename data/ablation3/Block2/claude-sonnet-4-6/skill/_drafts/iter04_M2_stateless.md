@@ -1,0 +1,21 @@
+**Via-cell M2 enclosure repair**
+
+The sole quantified violation reduction in this layer's history came from resizing M2 within the via cell `VIA_VIA23_1_3_36_36`: extending the M2 shape endpoint by +64 dbu along the y-axis (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00) reduced whole-design violations from 68 to 60 (delta = −8). The companion V2 shapes in that cell were simultaneously extended by the same +64 dbu on y. When a via cell produces enclosure violations under V2.M2.EN.1 or V1.M2.EN.2, extend the M2 cap shape in the direction of the deficient enclosure; trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 confirms that a symmetric +64 dbu y-axis grow on both the M2 and V2 shapes within the cell resolves the deficit while preserving connectivity.
+
+**M2 endpoint extension coupled with instance movement**
+
+Iterations 2, 3, and 4 all involve bulk horizontal displacement of cell instances combined with extending the high-x endpoint of M2 routing polygons that bridge between moved and stationary regions. In trial:i02.ug.whole_design.00, the predominant instance shift was +32 dbu in x (with a subset receiving additional ±48, ±72, or ±96 dbu y offsets); M2 polygon p1065 received a +116 dbu high-x extension and p1036 received +80 dbu. In trial:i03.ug.whole_design.00, instance i0063 was moved a further +36 dbu in x and polygon p1036 received an additional +84 dbu high-x extension. In trial:i04.ug.whole_design.00, eleven instances each received +72 dbu in x and eleven M2 polygons (p1065, p1045, p1026, p1052, p1053, p1040, p1063, p1034, p1057, p1059, p1060) each received +72 dbu high-x extensions. All three trials were accepted with `gated_in` / `conn_preserved` and zero new violations either inside or outside the crop window.
+
+The pattern across trials:i02, i03, i04 is: the M2 polygon endpoint extension must track the instance displacement to maintain enclosure under V1.M2.EN.2 and V1.M2.AUX.2. When the instance shift is uniform (all +72 dbu in trial:i04.ug.whole_design.00), the polygon endpoint extensions are also uniform (+72 dbu each); when instance shifts differ within a single trial (trial:i02.ug.whole_design.00 mixes +32, +72 shifts), the corresponding polygon extensions differ as well (+80 and +116 dbu for p1036 and p1065 respectively).
+
+**Resize-end on the high-x axis is the standard M2 extension primitive**
+
+Across all unit_gate trials, M2 geometry changes were always expressed as `resize_end` on axis `x` with `end: "high"` — never as full polygon moves or width changes. Apply `resize_end` on the high-x end to lengthen a horizontal M2 wire when the enclosing via shifts in +x; this preserves the wire's low-x anchor and via placement at the other end (trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, trial:i04.ug.whole_design.00).
+
+**Spacing and width rules: no violations triggered by the applied ops**
+
+None of the four accepted trials produced new M2.W.1, M2.S.1, M2.S.2, M2.S.3, M2.S.4, M2.S.5, M2.S.6, M2.S.7, M2.S.8, or M2.A.1 violations (all `n_new_in_crop: 0` in the unit_gate channel, and trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 reduced total violations without adding any). Extending M2 wire endpoints by amounts commensurate with the instance displacement (matching dbu for dbu at uniform displacements, as in trial:i04.ug.whole_design.00) does not induce side-to-side or tip-to-side spacing violations provided the surrounding wires move by the same offset — the uniform-shift structure of trial:i04.ug.whole_design.00 (all eleven instances and all eleven polygons displaced by exactly +72 dbu) produced zero new violations and demonstrates that coordinated bulk movement is safe.
+
+**Via cell scope**
+
+The cu_pool channel targeted a named via cell definition (`def:VIA_VIA23_1_3_36_36`) and the fix was applied directly to the cell's own shapes. The resulting `design_state` changed (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 records a new hash), confirming that reshaping the M2 and V2 layers inside a via cell definition propagates to all instances of that cell in the design. Fix M2 enclosure deficiencies at the cell-definition level rather than at individual instance sites when the same via cell type is responsible for repeated violations.

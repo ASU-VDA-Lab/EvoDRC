@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row13",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0856", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0396", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0347", "delta_dbu": [0, 44]}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0856 (+36x) and i0396 (+36x) to align their M1 land x-edges with the underlying V0 contact extents, clearing V0.M1.AUX.3, M1.S.2, and V1.M1.EN.1; moved i0347 (+44y) to shift its V1 cut above the interfering M2 land of adjacent VIA_VIA23 i0362, clearing V1.M2.AUX.2."
+}

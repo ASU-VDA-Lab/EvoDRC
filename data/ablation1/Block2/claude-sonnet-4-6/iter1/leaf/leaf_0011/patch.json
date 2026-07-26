@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0011",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0027", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "V0.M1.AUX.3 fired because VIA_VIA12 i0027 (origin 7380,8820) placed its M1 land at (7344,8776)-(7416,8864), extending above y=8820 in V0's x-range [7308,7380] and creating a convex non-coincident corner at (7380,8820). Moving i0027 right by 36 dbu to origin (7416,8820) shifts the M1 land to (7380,8776)-(7452,8864), clearing the V0 x-range interior so merged M1 top stays at y=8820 (from frozen _ptemp_11), making all V0 horizontal edges coincident and eliminating the convex corner."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1486", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i1486 right by 4 dbu to increase M1 tip-to-side spacing from 24 nm to 25 nm (clears M1.S.2) and align V1 cut with the frozen std-cell M1 boundary to achieve 9 nm top enclosure (clears V1.M1.EN.1)."
+}

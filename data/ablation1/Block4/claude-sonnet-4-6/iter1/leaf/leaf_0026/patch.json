@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0026",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -40},
+    {"op": "resize", "polygon_id": "p1406", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1407", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1408", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1409", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p1410", "axis": "y", "delta_dbu": -64}
+  ],
+  "explanation": "Op1 shrinks the M3 land in VIA_VIA23_1_3_36_36 from Y=+-56dbu to Y=+-36dbu so that the left and right V2 cuts (at X=108-180 and X=-180--108 in cell-local coords) each gain two coincident M3 Y-edges at +-36, satisfying V2.M3.AUX.2 for those cuts. Ops 2-6 shrink the five D-editable M3 tip polygons (p1406-p1410) by delta_dbu=-64 in Y so that their Y edges (e.g., p1410 from 3172-3308 to 3204-3276) exactly coincide with the V2 cut Y edges at their respective instance origins. The union of the resized VIA_VIA23 M3 land and each resized tip polygon then matches the V2 Y range exactly, providing the required coincident edges for the left and right V2 cuts. This clears 10 of 15 V2.M3.AUX.2 violations (v0040, v0042, v0049, v0051, v0058, v0060, v0067, v0069, v0076, v0078) covering the left and right V2 cuts at all five VIA_VIA23 instances. The center V2 cuts (v0041, v0050, v0059, v0068, v0077) remain unfixable because the center cut has no X-boundary coincidence with M3, and its two Y-edge coincidences do not satisfy the KLayout interacting(edge_collection, 2) threshold for V2.M3.AUX.2. M3.S.2 (v0029) also remains: shrinking p1410 to 72dbu height keeps it a narrow tip, and the 92dbu gap to p1432 still violates the 100dbu tip-to-side minimum. All other remaining violations (V4.M5.AUX.2, M4.AUX.1, M5.AUX.1, V0.M1.AUX.3) are declared debt as described in the trace. Connectivity is confirmed preserved (588/588 seeds)."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block3_union_row2",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0221", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0203", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0221 and i0203 right by 36 dbu to shift their M1 land tabs outside the V0 x-footprint, restoring the M1 step-edge coincidence at y=4140 needed to clear V0.M1.AUX.3 at both violations."
+}

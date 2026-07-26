@@ -1,0 +1,19 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op":"move","polygon_id":"p1059","axis":"x","delta_dbu":32},
+    {"op":"move_instance","inst_id":"i0173","delta_dbu":[32,72]},
+    {"op":"move_instance","inst_id":"i0147","delta_dbu":[32,24]},
+    {"op":"move_instance","inst_id":"i0083","delta_dbu":[32,-24]},
+    {"op":"move_instance","inst_id":"i0085","delta_dbu":[32,-72]},
+    {"op":"move_instance","inst_id":"i0151","delta_dbu":[0,72]},
+    {"op":"move_instance","inst_id":"i0192","delta_dbu":[0,24]},
+    {"op":"move_instance","inst_id":"i0096","delta_dbu":[0,-24]},
+    {"op":"move_instance","inst_id":"i0088","delta_dbu":[0,-72]},
+    {"op":"resize","polygon_id":"p1104","axis":"y","delta_dbu":144},
+    {"op":"resize","polygon_id":"p1103","axis":"y","delta_dbu":48},
+    {"op":"resize","polygon_id":"p1102","axis":"y","delta_dbu":48},
+    {"op":"resize","polygon_id":"p1101","axis":"y","delta_dbu":144}
+  ],
+  "explanation": "Moves M5 polygon p1059 +32 dbu in x and shifts VIA45 instances (+32 x, spread in y) to clear M5.AUX.1 violations; shifts VIA34 instances (y-only spread) and resizes M3 polygons p1101-p1104 in y to clear M4.AUX.1 violations. v0002 (V0.M1.AUX.3) is left unfixed as approved; 2 pre-existing M1/V1 violations in the crop window are unrelated to our edits."
+}

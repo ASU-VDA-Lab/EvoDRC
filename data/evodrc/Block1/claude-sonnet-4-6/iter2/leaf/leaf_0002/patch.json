@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0181", "delta_dbu": [-76, 0]},
+    {"op": "resize_end", "polygon_id": "p1154", "axis": "y", "end": "low", "delta_dbu": 44}
+  ],
+  "explanation": "Moves VIA_VIA45 instance i0181 left 76 dbu to increase the M4 tip-to-tip gap from 84 dbu (21 nm) to 160 dbu (40 nm), clearing v0092 M4.S.4; elongates M5 stripe p1154's real bottom end 44 dbu downward to eliminate the M5 corner spacing violations the via shift would otherwise expose."
+}

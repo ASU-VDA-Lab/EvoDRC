@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block6_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0015", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0459", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0437", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0446", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p2072", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0015, i0459, i0437, i0446 each +36 dbu in x to align each via's M1 land right edge with the corresponding frozen V0 pin right edge, clearing V0.M1.AUX.3 (v0021, v0008, v0011) and incidentally clearing M1.S.6 (v0037, v0038), M1.S.2 (v0027), and V1.M1.EN.1 (v0047); extended p2072 M2 polygon +92 dbu rightward to maintain M2 coverage over i0446's shifted M2 land."
+}

@@ -1,0 +1,5 @@
+{
+  "leaf_id": "Block7_union_row17",
+  "ops": [],
+  "explanation": "All 8 target violations in Block7_union_row17 are unfixable with the available patch grammar: the 5 V0.M1.AUX.3 violations (v0013, v0011, v0009, v0008, v0006) are caused by V0 shapes inside frozen stdcell geometry where the large stdcell M1 polygons merge with any via M1 added, hiding alignment edges and preventing the rule from clearing; the M2.S.7 violation (v0192) is caused by via-to-via tip-to-tip spacing (i0799 and i0794/i0810 at 18nm gap) where all move_instance ops on the 8 approved instances introduce new M1.S.2 or V2.M3.AUX.2 violations; and the 2 M1.S.6 violations (v0166, v0167) are intentionally left unfixed per plan. All 9 approved ops were removed to avoid introducing new violations."
+}

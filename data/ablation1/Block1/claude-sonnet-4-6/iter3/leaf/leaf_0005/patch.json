@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0041", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i0041 right by 72 dbu in x (from origin (11880, 12060) to (11952, 12060)). The violation V0.M1.AUX.3 was caused by the via's M1 landing pad (layer 19, [-36,-44] to [36,44]) overlapping the M1 routing polygon _ptemp_11 partially at y=[12016,12060], creating a concave notch in the merged M1 at y=12060. This notch removed M1 edge coverage from x=[11844,11916] at y=12060, making the V0 top edge (from BUFx2 instance i0563) non-coincident with M1 — the convex-corner condition for V0.M1.AUX.3 was met. Moving i0041 by +72 in x shifts the via's M1 footprint to x=[11916,11988], outside the V0 x-range [11844,11916], so the _ptemp_11 M1 inner step at y=12060 cleanly covers the V0 top edge."
+}

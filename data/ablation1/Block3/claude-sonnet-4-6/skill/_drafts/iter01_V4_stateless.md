@@ -1,0 +1,19 @@
+## Repair Strategy: Prefer M5 Resize Over Direct V4 Manipulation
+
+In the single recorded repair session on cell `VIA_VIA45_1_2_58_58`, two candidate strategies competed. The winning strategy (trial:i01.cu.def:VIA_VIA45_1_2_58_58.02) applied one operation — resizing M5 shape 0 by −88 dbu on the y-axis — and reduced total DRC violations by 20 (windows leaf_0018: 32→21, leaf_0019: 35→26). The losing strategy (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01) applied five operations — two V4 moves (±116 dbu on x), two V4 resizes (+384 dbu on x each), and one M4 resize (+152 dbu on x) — and reduced total violations by only 18 (leaf_0018: 32→22, leaf_0019: 35→27). Both strategies preserved connectivity. Do not default to direct V4 shape manipulation when M5 geometry adjustment is available; trial:i01.cu.def:VIA_VIA45_1_2_58_58.02 demonstrates that a single M5 resize outperforms a five-op V4+M4 move-and-resize sequence on the same locus.
+
+## M5 Y-Axis Shrink as a Primary Repair Lever
+
+The applied operation (trial:i01.cu.def:VIA_VIA45_1_2_58_58.02) shrinks M5 in the y-direction. Under rule V4.M5.AUX.2, V4 must be exactly the same width as M5 along the direction perpendicular to M5 length. Under rule V4.M5.EN.2, M5 must enclose V4 by at least 11 nm on two opposite sides. Shrinking M5 in y reduces the region where V4-to-M5 width mismatches (V4.M5.AUX.2) or insufficient enclosure margins (V4.M5.EN.2) are flagged. When violations cluster in two adjacent leaf windows sharing the same via cell, apply an M5 y-axis resize first; trial:i01.cu.def:VIA_VIA45_1_2_58_58.02 produced the largest single-operation violation reduction observed in this layer's history.
+
+## V4 Direct Move + Resize Produces Lower Yield Than Simpler Alternatives
+
+The five-op strategy in trial:i01.cu.def:VIA_VIA45_1_2_58_58.01 moved V4 shape 0 left by 116 dbu, then grew it +384 dbu on x; moved V4 shape 1 right by 116 dbu, then grew it +384 dbu on x; and grew M4 +152 dbu on x. Despite the larger operation count, this produced only −18 total reduction versus −20 for the one-op M5 shrink. The +384 dbu V4 x-resizes are large relative to V4.W.1's 24 nm minimum width and the 33 nm spacing floors in V4.S.1/V4.S.2/V4.S.3; such expansions risk pushing adjacent V4 instances into spacing violations even while fixing enclosure violations. Avoid multi-op V4 x-axis expansions when a single M5 adjustment resolves the same root violations more efficiently, as confirmed by trial:i01.cu.def:VIA_VIA45_1_2_58_58.01 losing the tournament.
+
+## Connectivity Safety
+
+Both competing strategies in this layer's history preserved connectivity (conn_preserved: true), including the five-op strategy that directly repositioned two V4 shapes (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01) and the one-op M5 resize (trial:i01.cu.def:VIA_VIA45_1_2_58_58.02). V4 operates as the via between M4 and M5; rule V4.AUX.1 requires V4 to lie inside both M4 and M5. The applied M5 shrink did not violate this containment constraint, confirming that moderate y-axis M5 reduction on a VIA_VIA45 cell does not break V4-AUX.1 coverage on this geometry.
+
+## Operation Count and Complexity
+
+The single-operation repair (trial:i01.cu.def:VIA_VIA45_1_2_58_58.02) outperformed the five-operation repair (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01) in both violation reduction (−20 vs −18) and simplicity. Prefer lower operation-count candidates when violation counts and loci are otherwise equivalent; the evidence from this layer supports the principle that fewer, more targeted operations produce better outcomes than multi-step V4 move-and-resize sequences on the same locus.

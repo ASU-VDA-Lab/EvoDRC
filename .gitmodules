@@ -1,0 +1,3 @@
+[submodule "DAC26_DRC_Benchmark"]
+	path = DAC26_DRC_Benchmark
+	url = https://github.com/ASU-VDA-Lab/DAC26_DRC_Benchmark.git

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [104, 0]},
+    {"op": "resize_end", "polygon_id": "p1226", "axis": "x", "end": "high", "delta_dbu": 128}
+  ],
+  "explanation": "Moves via i0239 (VIA_VIA12) right by 104 dbu to remove M1 land overlap with frozen std-cell V0 boundary (9684-9756, 5508-5580), clearing violation V0.M1.AUX.3; extends M2 polygon p1226 rightward by 128 dbu to maintain M2 coverage over the relocated via."
+}

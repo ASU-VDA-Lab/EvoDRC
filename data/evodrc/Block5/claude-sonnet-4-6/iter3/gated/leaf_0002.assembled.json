@@ -1,0 +1,24 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops_total": 4,
+  "ops_applied": 3,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "move_instance",
+        "inst_id": "i0073",
+        "delta_dbu": [
+          -32,
+          0
+        ]
+      },
+      "conflict_with_leaf": "leaf_0001",
+      "reason": "external_duplicate",
+      "claimants": [
+        "leaf_0001",
+        "leaf_0002"
+      ]
+    }
+  ],
+  "had_drop": true
+}

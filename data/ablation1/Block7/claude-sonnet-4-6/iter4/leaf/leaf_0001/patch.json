@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1140", "delta_dbu": [108, 0]},
+    {"op": "move_instance", "inst_id": "i1144", "delta_dbu": [60, 0]},
+    {"op": "resize_end", "polygon_id": "p3297", "axis": "x", "end": "low", "delta_dbu": -40},
+    {"op": "resize_end", "polygon_id": "p3696", "axis": "x", "end": "high", "delta_dbu": 108},
+    {"op": "resize_end", "polygon_id": "p2719", "axis": "y", "end": "high", "delta_dbu": -12}
+  ],
+  "explanation": "Moves VIA_VIA12 i1140 right 108 dbu so its M1 land clears the V0 pin x-range, eliminating the V0.M1.AUX.3 convex-corner; companion ops extend p3696 to reconnect M2, move i1144 and trim p3297 to maintain M2.S.4 spacing, and shorten p2719 to keep V2.M3.AUX.2 satisfied."
+}

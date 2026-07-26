@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "x", "delta_dbu": -144}
+  ],
+  "explanation": "Moves the center V2 cut (shape_index=1) of VIA_VIA23_1_3_36_36 by -144 dbu in x, shifting it from relative x=[-36,36] to x=[-180,-108] where it overlaps and merges with the left cut, eliminating the isolated center-cut position that caused all 4 V2.M3.AUX.2 violations."
+}

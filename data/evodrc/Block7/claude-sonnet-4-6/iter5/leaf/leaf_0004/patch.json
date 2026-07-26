@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [-96, -48]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0177 from origin (19460,27948) to (19364,27900), realigning it to a valid M2 track center (y=27900) and shifting left to increase clearance; this clears all five violations (V1.M1.EN.1, M1.S.2, V1.M2.AUX.2, and two V1.S.2) at the cost of one declared-debt M1.S.2 corner violation with frozen std-cell geometry."
+}

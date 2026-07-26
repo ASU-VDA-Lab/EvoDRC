@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0274", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1604", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "v0013 (V0.M1.AUX.3): VIA_VIA12 i0274's M1 land was partially overlapping the std-cell V0 x-range, creating a merged-M1 bump above y=5580 that formed a convex corner at (8676,5580); moving i0274 right by 36 dbu shifts its M1 land entirely outside the V0 x-range, restoring V0-top coincidence with std-cell M1. p1604 is extended right by 92 dbu to maintain full M2 coverage of the via's new M2 land."
+}

@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0038",
+      "delta_dbu": [0, -64]
+    }
+  ],
+  "explanation": "Moved VIA_VIA12 i0038 down 64 dbu (origin 12168,11744 → 12168,11680) so its M1 land top (now y=11724) falls below _ptemp_53 top bar (y=11772), eliminating the stepped merged-M1 TIP edges that caused both M1.S.2 violations (v0005, v0006), and positioning the V1 cut fully within _ptemp_53 coverage (56 dbu = 14 nm top enclosure) to satisfy V1.M1.EN.1 via vgood (v0009)."
+}

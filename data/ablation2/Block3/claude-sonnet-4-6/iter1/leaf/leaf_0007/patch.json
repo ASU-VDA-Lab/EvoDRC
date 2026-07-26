@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0263", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1223", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0210", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1189", "axis": "x", "end": "high", "delta_dbu": 56}
+  ],
+  "explanation": "Fixed two V0.M1.AUX.3 violations by moving VIA_VIA12 instances i0263 and i0210 +36 dbu in X (shifting their M1 lands off the std-cell V0 pin areas) and extending M2 polygons p1223 and p1189 right edges by +56 dbu to maintain full M2 coverage of the relocated via M2 lands."
+}

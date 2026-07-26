@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block7_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1891", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p3430", "axis": "x", "end": "low", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i1405", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1921", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved three VIA_VIA12 instances (i1891 left, i1405 and i1921 right) by 36 dbu each to clear four DRC violations (V1.M1.EN.1, M1.S.4, and two V0.M1.AUX.3), and extended M2 stripe p3430's low-x edge leftward by 56 dbu to maintain full M2 landing coverage for the relocated i1891. All 4 targets cleared with no new violations and all 3325 connectivity seeds preserved."
+}

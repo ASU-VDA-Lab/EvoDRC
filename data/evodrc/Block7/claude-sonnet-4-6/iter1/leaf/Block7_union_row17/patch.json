@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block7_union_row17",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0791", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0995", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0316", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0280", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0414", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3187", "axis": "x", "end": "low", "delta_dbu": 56}
+  ],
+  "explanation": "Moves five VIA_VIA12 instances (i0791, i0995, i0316, i0280, i0414) rightward by 36 dbu each so their M1 lands no longer overlap the adjacent std-cell V0 pins, clearing V0.M1.AUX.3 on all five sites and M1.S.6 on v0166/v0167; extends M2 polygon p3187 leftward by 56 dbu to increase the parallel-run-length of the M2.S.7 gap from 112 dbu to 148 dbu (> 35 nm threshold), clearing v0192."
+}

@@ -1,0 +1,47 @@
+**Gating criterion and acceptance behavior**
+
+All 27 trials in this iteration were accepted with decision "gated_in" because conn_preserved=true (trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26). The unit_gate channel accepts a trial when connectivity is preserved regardless of the number of new in-crop DRC violations introduced. Observed n_new_in_crop values range from 0 (the majority of trials) to 9 (trial:i01.ug.Block7_union_row21.11), and all were accepted. n_new_out_of_crop is 0 in every trial, meaning none of the accepted operations introduced violations outside the crop boundary.
+
+**Operation types on M1**
+
+Three operation types directly modify M1 geometry in this history: move_instance, resize_end, and resize. move_instance dominates the operation count; most trials apply between one and eight instance moves, sometimes combined with polygon-level edits. resize_end moves one end of a polygon along a specified axis (trial:i01.ug.Block7_union_row10.00 applies resize_end on p3286 axis=x end=high +308 dbu and on p3751 axis=x end=low +180 dbu then end=high +56 dbu; trial:i01.ug.Block7_union_row13.03 applies resize_end on both ends of p3526). resize without an end specifier shifts the entire polygon uniformly in one direction (trial:i01.ug.Block7_union_row15.05 applies resize +160 dbu x on p3586; trial:i01.ug.Block7_union_row19.09 applies resize on p3619 at +40 dbu, p3654 at -72 dbu, and p3523 at +72 dbu). An add_polygon operation occurs once in trial:i01.ug.Block7_union_row20.10, but it targets M2, not M1, alongside an M1-connected instance move.
+
+**Direction of operations**
+
+The overwhelming majority of both instance moves and polygon resizes are along the x-axis. The only y-direction operations in the entire history occur in trial:i01.ug.Block7_union_row16.06 (instances i0336 and i0308 moved [0,-12] dbu, polygon p3516 moved y=-12) and trial:i01.ug.leaf_0095.26 (instances i0177 and i0184 moved [0,+48] dbu, resize_end +68 dbu y high end on p2432, resize_end +48 dbu y high end on p3537). These two trials are also the only ones touching M3 and V2 in addition to M1, M2, and V1.
+
+**move_instance delta magnitudes**
+
+Observed x-direction instance move deltas (in dbu, absolute values): 4 (trial:i01.ug.Block7_union_row22.12, instance i0132), 12 (trial:i01.ug.Block7_union_row12.02, instance i1356), 24 (trial:i01.ug.leaf_0024.25, instance i1292), 28 (trial:i01.ug.Block7_union_row6.18, instance i1473), 36 (most common, e.g., trial:i01.ug.Block7_union_row11.01), 40 (trial:i01.ug.Block7_union_row9.21), 52 (trial:i01.ug.Block7_union_row10.00, instance i1140), 56 (trial:i01.ug.leaf_0024.25, instance i1062), 64 (trial:i01.ug.Block7_union_row24.14, instance i0561), 68 (trial:i01.ug.Block7_union_row4.16), 72 (trial:i01.ug.Block7_union_row18.08), 108 (trial:i01.ug.leaf_0001.22, instance i1486), 136 (trial:i01.ug.Block7_union_row13.03), 216 (trial:i01.ug.Block7_union_row10.00, instance i1811 at -216), 288 (trial:i01.ug.Block7_union_row10.00, instance i1180). The 36 dbu step is the single most frequently used move delta.
+
+**resize_end delta magnitudes on M1 polygons**
+
+Observed x-axis resize_end deltas: 16 dbu high end (trial:i01.ug.Block7_union_row14.04, p3539), 56 dbu low end (trial:i01.ug.Block7_union_row3.15 p3384; trial:i01.ug.Block7_union_row8.20 p3430; trial:i01.ug.Block7_union_row13.03 p3526 low end; trial:i01.ug.Block7_union_row17.07 p3187), 56 dbu high end (trial:i01.ug.Block7_union_row12.02 p3273; trial:i01.ug.Block7_union_row14.04 p3215), 60 dbu high end (trial:i01.ug.Block7_union_row18.08 p3532), 72 dbu high end (trial:i01.ug.Block7_union_row14.04 p3200), 92 dbu high end (trial:i01.ug.Block7_union_row5.17 p3737 and p3746), 100 dbu high end (trial:i01.ug.Block7_union_row13.03 p3526), 120 dbu high end (trial:i01.ug.Block7_union_row24.14 p3635), 128 dbu high end (trial:i01.ug.Block7_union_row7.19 p3317; trial:i01.ug.Block7_union_row24.14 p3564), 136 dbu high end (trial:i01.ug.Block7_union_row24.14 p3058), 180 dbu low end (trial:i01.ug.Block7_union_row10.00 p3751), 192 dbu high end (trial:i01.ug.Block7_union_row13.03 p3525), 308 dbu high end (trial:i01.ug.Block7_union_row10.00 p3286).
+
+**End-direction asymmetry in resize_end**
+
+resize_end with end="low" and a positive delta_dbu contracts the polygon's low-x edge inward (moves it in the +x direction, reducing polygon extent). This pattern appears at exactly 56 dbu in four separate trials: trial:i01.ug.Block7_union_row3.15 (p3384), trial:i01.ug.Block7_union_row8.20 (p3430), trial:i01.ug.Block7_union_row13.03 (p3526), and trial:i01.ug.Block7_union_row17.07 (p3187). The recurrence of 56 dbu low-end contraction across distinct rows indicates this is a stable repair quantum for M1 low-side trimming. resize_end with end="high" and positive delta expands the polygon's high-x edge outward; the range of accepted magnitudes (16 to 308 dbu) is wider.
+
+**Simultaneous multi-layer scope**
+
+Every accepted trial touches M1, M2, and V1 together (all 27 trials from trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26). Two trials also touch M3 and V2 (trial:i01.ug.Block7_union_row16.06, trial:i01.ug.leaf_0095.26). No trial in this history touches M1 in isolation. This co-occurrence of M1, M2, and V1 in every repair reflects the interdependence of the via enclosure rules: adjusting M1 geometry to satisfy V0.M1.EN.1 or V1.M1.EN.1 enclosure on one side often requires coordinating the via's position and the connected M2 segment simultaneously.
+
+**Via enclosure rules (V0.M1.EN.1, V0.M1.AUX.3, V1.M1.EN.1)**
+
+V0.M1.EN.1 requires M1 to enclose V0 by at least 5 nm on two opposite sides (projection check), with the alternative of 5 nm on one pair and 0 nm on the other. V0.M1.AUX.3 requires that V0 edges are not left exposed beyond the M1 boundary: every non-coincident V0 edge in both horizontal and vertical directions must be co-incident with an M1 edge, meaning V0 must exactly match M1 width in the direction perpendicular to M1 length. V1.M1.EN.1 requires M1 to enclose V1 by 5 nm on one opposite-side pair and 2 nm on the other. The consistent co-touching of M1 and V1 in all trials is consistent with repair operations that address enclosure on both sides simultaneously. resize_end operations extending the high end of an M1 polygon increase enclosure on the far side; pairing with a move_instance that shifts the bounding cell (which moves V0/V1 and M2 together) can correct the near-side enclosure while keeping V0.M1.AUX.3 satisfied because the via moves with its parent cell.
+
+**M1 minimum width and area**
+
+M1.W.1 requires a minimum width of 18 nm. M1.A.1 requires a minimum area of 504 nm-sq (equivalent to an 18 nm by 28 nm rectangle). resize and resize_end operations that expand M1 polygon extents address underwidth and underarea conditions. Contraction of the low end (as in trial:i01.ug.Block7_union_row3.15, trial:i01.ug.Block7_union_row8.20, trial:i01.ug.Block7_union_row13.03, trial:i01.ug.Block7_union_row17.07) is accepted when conn_preserved=true, confirming that the resulting polygon dimensions remain compliant with M1.W.1 and M1.A.1 after contraction. Contractions of 56 dbu on the low end paired with larger extensions on the high end (e.g., trial:i01.ug.Block7_union_row13.03 contracts p3526 low by 56 dbu and extends it high by 100 dbu, net +44 dbu) produce a net area increase while repositioning the polygon.
+
+**M1 spacing rules**
+
+M1.S.1 governs side-to-side spacing (18 nm minimum when both edges exceed 36 nm). M1.S.2 governs tip-to-side spacing (25 nm minimum when one edge is at most 36 nm and the other exceeds 36 nm). M1.S.3 governs tip-to-tip spacing between wide tips (27 nm when both edges are 24-36 nm). M1.S.4 and M1.S.5 cover tip-to-tip configurations with narrow tips (31 nm). M1.S.6 requires 20 nm corner-to-corner spacing. The recurrence of 36 dbu instance moves across many trials (trial:i01.ug.Block7_union_row11.01, trial:i01.ug.Block7_union_row12.02, trial:i01.ug.Block7_union_row6.18, and many others) shows that single-grid-step moves are commonly sufficient to open clearance between adjacent M1 segments, while larger moves (up to 288 dbu in trial:i01.ug.Block7_union_row10.00) are applied and accepted when the spacing gap requires it.
+
+**M1.R.0 (redundant island rule)**
+
+M1.R.0 flags M1 polygons that enclose exactly one small V0 via and sit near a large empty M1 region (>= 500 nm wide, area > 2.5 um-sq, expanded by 400 nm proximity). None of the 27 trials in this history add a polygon to M1 or remove one; the single add_polygon in trial:i01.ug.Block7_union_row20.10 targets M2. Repair operations focus on adjusting existing M1 polygon extents and instance positions. No operation in this history directly creates or removes an M1 island, so M1.R.0 is not directly triggered by any of the recorded repair actions.
+
+**NONORTHOGONAL constraint**
+
+All M1 geometry must remain orthogonal (GEOMETRY.NONORTHOGONAL applies to every drawing layer). Every resize_end and resize operation in the history is aligned to x or y axis exclusively (trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26). Every move_instance and polygon move uses a delta_dbu vector with at least one zero component. No diagonal polygon edges are introduced by any operation in this history, confirming that all repair operations in this iteration maintain Manhattan geometry on M1.

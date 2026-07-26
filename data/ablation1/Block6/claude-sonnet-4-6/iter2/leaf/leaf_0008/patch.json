@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0213", "delta_dbu": [28, 0], "group": "v0042_i0213_p1923"},
+    {"op": "resize_end", "polygon_id": "p1923", "axis": "x", "end": "high", "delta_dbu": 28, "group": "v0042_i0213_p1923"}
+  ],
+  "explanation": "Clears V1.M1.EN.1 (v0042): moves VIA_VIA12 instance i0213 right by 28 dbu so the V1 cut's left edge (x=3656) is enclosed by frozen std-cell M1 (_ptemp_5, left=3636) with 20 dbu (5 nm) enclosure; companion resize_end on M2 stripe p1923 extends its real HIGH-x end by 28 dbu to keep the via M2 land fully covered."
+}

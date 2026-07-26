@@ -1,0 +1,11 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "x", "delta_dbu": -144},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "x", "delta_dbu": 144},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "x", "delta_dbu": 288},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "x", "delta_dbu": 288},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "x", "delta_dbu": 288}
+  ],
+  "explanation": "Merges the three separate V2 cut shapes in VIA_VIA23_1_3_36_36 (centers moved to x=0, then each expanded to 360 dbu wide) so that the single merged V2 region has x-edges coincident with M3 x-edges at ±180 dbu, clearing all 27 V2.M3.AUX.2 violations across 9 placements with no new violations introduced."
+}

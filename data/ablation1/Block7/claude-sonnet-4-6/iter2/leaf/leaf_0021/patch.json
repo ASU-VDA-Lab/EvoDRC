@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0021",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0920", "delta_dbu": [0, -64]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0920 down 64 dbu (16 nm) to clear the M1.S.2 tip-to-side spacing violation (v0060) and the two V1.S.2 wec-mask spacing violations (v0117, v0121) against the M1 power strap and its V1 cuts; i0894 (VIA_VIA23) remains in place so the merged M2 edge at y=17200 retains side-edge classification, avoiding a new M2.S.2 violation."
+}

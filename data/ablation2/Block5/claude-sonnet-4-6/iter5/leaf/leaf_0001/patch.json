@@ -1,0 +1,13 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {
+      "op": "resize_end",
+      "polygon_id": "p891",
+      "axis": "y",
+      "end": "high",
+      "delta_dbu": 20
+    }
+  ],
+  "explanation": "Extended p891 M3 top edge by 20 dbu to provide 5nm V2 enclosure, clearing v0002 and v0003, clearing v0004."
+}

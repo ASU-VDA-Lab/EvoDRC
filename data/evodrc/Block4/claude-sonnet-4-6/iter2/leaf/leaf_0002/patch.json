@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p1402", "axis": "y", "end": "low", "delta_dbu": -64},
+    {"op": "resize_end", "polygon_id": "p1402", "axis": "y", "end": "high", "delta_dbu": 64}
+  ],
+  "explanation": "Shifts M6 polygon p1402 by +64 dbu in y (low edge 2240→2304, high edge 2880→2944) to align flush with adjacent VIA_VIA56 M6 lands at y=[2304,2944], eliminating the L-shaped corner that caused M6.AUX.3 violations and placing both y-edges on the 128-dbu manufacturing grid to clear M6.AUX.1. Edit A (V2 y-expansion in VIA_VIA23_1_3_36_36) was rejected after DRC preview showed it cleared 36 original V2.M3.AUX.2 targets but introduced 36 new V2.M3.AUX.2 + 72 V2.M3.EN.2 + 18 V1.M2.AUX.2 violations — a net regression."
+}

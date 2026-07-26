@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"V4","shape_index":0,"axis":"x","delta_dbu":152,"group":"fix_via45"},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"V4","shape_index":1,"axis":"x","delta_dbu":152,"group":"fix_via45"},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M4","shape_index":0,"axis":"x","delta_dbu":152,"group":"fix_via45"}
+  ],
+  "explanation": "Clears all 8 V4.M5.AUX.2 violations by symmetrically growing both V4 cuts in VIA_VIA45_1_2_58_58 (delta_dbu=+152 in x) so they overlap and merge into a single full-width cut spanning the M5 x-extent (±240 dbu from cell center), while widening the M4 land by the same amount to maintain 11 nm enclosure of V4."
+}

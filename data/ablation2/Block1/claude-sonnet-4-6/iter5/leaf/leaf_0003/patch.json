@@ -1,0 +1,213 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0363",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0352",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0331",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0312",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0344",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0317",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0207",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0229",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0141",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0139",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0171",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0170",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0499",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0509",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0412",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0398",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0417",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0421",
+      "delta_dbu": [
+        0,
+        -24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0102",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0105",
+      "delta_dbu": [
+        0,
+        -72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0026",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0025",
+      "delta_dbu": [
+        0,
+        72
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0037",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0045",
+      "delta_dbu": [
+        0,
+        24
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0180",
+      "delta_dbu": [
+        -48,
+        0
+      ]
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p1458",
+      "axis": "x",
+      "end": "high",
+      "delta_dbu": -8
+    }
+  ],
+  "explanation": "Corrects M4 horizontal-grid alignment at 12 VIA34/VIA45 sites by nudging each pair in y to land on the nearest 24-dbu M4 track (clearing 12 M4.AUX.1 violations); and eliminates 3 M3.S.2 tip-to-side violations at the i0180 VIA23 by shifting it 48 dbu left and trimming the adjacent M3 polygon p1458 to match, increasing the gap to p1480 from 15 nm to 27 nm."
+}

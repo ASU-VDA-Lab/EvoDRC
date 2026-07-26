@@ -1,0 +1,33 @@
+## Via Enclosure and M4 Interaction (V3.M4.EN.2, V3.M4.AUX.2, V4.M4.EN.1)
+
+Rule V3.M4.EN.2 requires V3 to be enclosed by M4 by at least 11 nm on two opposite sides. Rule V3.M4.AUX.2 additionally requires V3 to be exactly the same width as M4 along the direction perpendicular to the M4 length direction — coincident edges on two sides are required. Rule V4.M4.EN.1 imposes the same 11 nm two-sided enclosure requirement on V4 within M4.
+
+In the only repair event recorded for this layer, the cell VIA_VIA45_1_2_58_58 produced violations touching M4, M5, and V4. A five-operation candidate that included an M4 x-axis resize of +152 dbu (shape_index 0), combined with V4 moves and resizes, reduced violations by 18 counts but lost the tournament (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01). The winning repair applied a single M5 y-axis shrink of 88 dbu and reduced violations by 20, without touching M4 at all (trial:i01.cu.def:VIA_VIA45_1_2_58_58.02). Both trials preserved connectivity. The implication is that M4 need not be resized to close V4-enclosure violations in this class of VIA cell: prefer adjusting the adjacent metal (M5) first when M4 enclosure rules can be satisfied without direct M4 edits (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01, trial:i01.cu.def:VIA_VIA45_1_2_58_58.02).
+
+## M4 Width Constraints (M4.W.1 – M4.W.5)
+
+**Vertical width** must be at least 24 nm (M4.W.1) and no greater than 480 nm (M4.W.2). Rule M4.W.3 prohibits vertical widths that are exact even multiples of the 24 nm minimum: 48, 96, 144, 192, 240, 288, 336, 384, 432, and 480 nm are all illegal. Rule M4.W.4 additionally prohibits vertical widths of 72, 168, 264, 360, and 456 nm on the basis that these would cause a polygon to span an even number of minimum-width routing tracks. In practice this means only odd-multiplier widths that are not multiples of 72 nm (i.e., 1×, 3×, 5×, 7×, 9×, 11× of 24 nm = 24, 72 excluded by W.4, so 24 nm itself is the primary legal single-track width) are safe at the lower end of the range. When resizing M4 in y, the resulting height must satisfy all three of W.1, W.2, W.3, and W.4 simultaneously. No trial in the current history directly exercised a y-axis M4 resize, so the ordering of checks must be derived from the rules alone.
+
+**Horizontal width** must be at least 44 nm (M4.W.5). The single recorded M4 edit (an x-axis resize of +152 dbu in trial:i01.cu.def:VIA_VIA45_1_2_58_58.01) increased horizontal extent, consistent with moving away from an M4.W.5 or M4.S.2 violation. That trial lost the tournament to a non-M4 fix (trial:i01.cu.def:VIA_VIA45_1_2_58_58.02), so the M4 horizontal expand was not necessary to clear the winning violation set.
+
+## M4 Spacing Rules (M4.S.1 – M4.S.5)
+
+Rule M4.S.1 sets a 24 nm minimum vertical spacing between M4 polygon edges (checked both by projection and euclidean for completeness across all polygon pairs). Rule M4.S.2 sets 40 nm minimum horizontal spacing between vertical edges. Rules M4.S.3 and M4.S.4 impose a 40 nm tip-to-tip spacing between M4 polygons on adjacent tracks, covering both non-overlapping (S.3) and overlapping (S.4) parallel run length cases. Rule M4.S.5 requires a minimum parallel run length of 44 nm when two M4 polygons sit on adjacent tracks with a gap of exactly 24 nm (the minimum vertical space). No spacing violations are directly cited in the recorded trial history for M4, so no trial-grounded prescriptions can be made for spacing repair sequences beyond what the rule text specifies.
+
+## Grid and Track Alignment (M4.AUX.1, M4.AUX.2)
+
+Rule M4.AUX.1 requires all M4 horizontal edges to land on a 24 nm vertical grid. Any y-coordinate move or resize of an M4 polygon must snap to a multiple of 24 nm (in dbu units where 1 dbu = 1 nm unless the deck specifies otherwise). Rule M4.AUX.2 further constrains minimum-width M4 tracks (those whose y-extent would be consumed by a ±13 nm erosion plus re-expansion): their centerlines must lie on tracks spaced 192 dbu apart with an offset of 48 dbu from the origin. Routing-track snapping is therefore not optional for any M4 stripe whose vertical width is at or near 24 nm. The recorded M4 edit was an x-axis resize (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01); no y-axis M4 move was attempted, so AUX.1 and AUX.2 compliance was not exercised in the recorded history — apply these grid constraints as hard prerequisites whenever a y-coordinate M4 operation is constructed.
+
+## Shape Topology Constraints (M4.AUX.3, M4.AUX.4)
+
+Rule M4.AUX.3 prohibits any bend in an M4 polygon: corners with interior angles between 0° and 90° trigger a violation. M4 polygons must remain strictly rectilinear with only 90° angles at all vertices. Do not introduce T-junctions, L-turns, or any non-rectangular outline when editing M4 shapes (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01 applied a simple x-axis resize, not a shape topology change, consistent with keeping M4 unbent).
+
+Rule M4.AUX.4 prohibits a wide M4 polygon's horizontal edges from touching a routing-track edge. Wide M4 is defined as geometry that survives a ±13 nm y-erosion cycle; its outer horizontal edges must not align with the horizontal edges of any neighboring minimum-width M4 track. When expanding a wide M4 polygon in y, verify that the resulting outer edges do not coincide with the centerline-derived track-edge positions dictated by M4.AUX.2.
+
+## Non-Orthogonal Edge Prohibition (m4.GEOMETRY.NONORTHOGONAL)
+
+The nonorthogonal block applies to M4 as to every drawing layer. No M4 edge may have an angle between 1°–89°, 91°–179°, −179°–−91°, or −89°–−1°. All M4 edits must produce axis-aligned (horizontal or vertical) edges exclusively. The single recorded M4 operation was an axis-aligned x-resize (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01), which is consistent with this constraint.
+
+## Tournament Outcome Summary for VIA_VIA45_1_2_58_58
+
+Two candidates were evaluated for cell VIA_VIA45_1_2_58_58 at locus [1728, 2068, 11016, 10892]. The five-operation candidate (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01) resized M4 (+152 dbu, x) and made four V4 edits, achieving a −18 violation reduction but losing the tournament. The one-operation candidate (trial:i01.cu.def:VIA_VIA45_1_2_58_58.02) resized only M5 (−88 dbu, y) with no M4 or V4 edits, achieved a −20 violation reduction, and was applied. Fewer operations and targeting M5 rather than M4 or V4 produced the strictly better outcome for this VIA cell class. Prefer minimal-operation M5 y-shrinks over multi-operation M4/V4 combinations when both preserve connectivity in this cell type (trial:i01.cu.def:VIA_VIA45_1_2_58_58.01, trial:i01.cu.def:VIA_VIA45_1_2_58_58.02).

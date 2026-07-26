@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [],
+  "explanation": "v0001 (V0.M1.AUX.3) is already cleared in the baseline; all attempted repairs for V2.M3.AUX.2 and M4.AUX.1 introduce more violations than they clear due to merged M3/M4 geometry interactions with co-located VIA_VIA34 shapes, and M5.AUX.1 is not admissible for via-structure edits (4/7 block-wide)."
+}

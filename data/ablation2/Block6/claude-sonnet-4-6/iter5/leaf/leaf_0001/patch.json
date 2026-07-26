@@ -1,0 +1,134 @@
+{
+ "patch_format": "v2",
+ "leaf": "leaf_0001",
+ "ops": [
+  {
+   "op": "move_instance",
+   "inst_id": "i0138",
+   "delta_dbu": [
+    -72,
+    0
+   ],
+   "group": "fix_v0001_v0010"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p1927",
+   "axis": "x",
+   "end": "low",
+   "delta_dbu": 128,
+   "group": "fix_v0001_v0010"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0512",
+   "delta_dbu": [
+    0,
+    44
+   ],
+   "group": "fix_v0003"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p2030",
+   "axis": "x",
+   "end": "high",
+   "delta_dbu": 20,
+   "group": "fix_v0003"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p2030",
+   "axis": "y",
+   "end": "high",
+   "delta_dbu": 44,
+   "group": "fix_v0003"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p2030",
+   "axis": "y",
+   "end": "low",
+   "delta_dbu": -44,
+   "group": "fix_v0003"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0536",
+   "delta_dbu": [
+    0,
+    44
+   ],
+   "group": "fix_v0006"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p2071",
+   "axis": "x",
+   "end": "high",
+   "delta_dbu": 64,
+   "group": "fix_v0006"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p2071",
+   "axis": "y",
+   "end": "high",
+   "delta_dbu": 44,
+   "group": "fix_v0006"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0163",
+   "delta_dbu": [
+    0,
+    -96
+   ],
+   "group": "fix_v0013"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0162",
+   "delta_dbu": [
+    0,
+    -96
+   ],
+   "group": "fix_v0013"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p1807",
+   "axis": "y",
+   "end": "low",
+   "delta_dbu": 96,
+   "group": "fix_v0013"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0025",
+   "delta_dbu": [
+    0,
+    -96
+   ],
+   "group": "fix_v0014"
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0028",
+   "delta_dbu": [
+    0,
+    -96
+   ],
+   "group": "fix_v0014"
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p1738",
+   "axis": "y",
+   "end": "low",
+   "delta_dbu": 96,
+   "group": "fix_v0014"
+  }
+ ],
+ "leaf_id": "leaf_0001"
+}

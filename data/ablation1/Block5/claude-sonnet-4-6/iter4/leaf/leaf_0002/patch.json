@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize", "polygon_id": "p893", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p892", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p891", "axis": "y", "delta_dbu": -64}
+  ],
+  "explanation": "Shrinks M3 polygons p893/p892/p891 from 136 to 72 dbu in y to create exact edge coincidence between V2 cuts and merged M3, clearing 6 V2.M3.AUX.2 violations (V2 cut shapes 0 and 2 at all three via locations)."
+}

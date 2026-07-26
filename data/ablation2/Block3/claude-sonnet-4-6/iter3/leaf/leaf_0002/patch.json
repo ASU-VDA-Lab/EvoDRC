@@ -1,0 +1,13 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move", "polygon_id": "p1060", "axis": "x", "delta_dbu": 32, "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0163", "delta_dbu": [32, 0], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [32, 0], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0079", "delta_dbu": [32, -96], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [32, 0], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0140", "delta_dbu": [32, 0], "group": "m5_align"},
+    {"op": "move_instance", "inst_id": "i0102", "delta_dbu": [0, -96], "group": "m5_align"}
+  ],
+  "explanation": "Shifts die-spanning M5 polygon p1060 by +32 dbu in x (aligning both x-edges to the 96-dbu grid) along with its 5 owned VIA45 instances to fix M5.AUX.1 violations v0005/v0006 and M4.S.3 violation v0002 (i0078 M4 left edge gap increases to 176 dbu); moves VIA45 i0079 and VIA34 i0102 by -96 dbu in y to align M4 landing center_y to 6384 (6384 mod 192 = 48) fixing M4.AUX.2 violation v0004."
+}

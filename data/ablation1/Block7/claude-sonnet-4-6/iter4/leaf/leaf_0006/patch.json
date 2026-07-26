@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [0, -44]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i1062 downward by 44 dbu to address M1 spacing violations v0042 (M1.S.4) and v0044 (M1.S.5): the i1062 M1 land was creating tip-to-tip and tip-to-side spacing violations with frozen std-cell M1 polygons, and shifting it down merges the via M1 land flush with the underlying _ptemp_2 M1 stripe, eliminating the exposed tip edges."
+}

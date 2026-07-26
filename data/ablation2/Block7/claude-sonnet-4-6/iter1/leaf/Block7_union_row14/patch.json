@@ -1,0 +1,17 @@
+{
+  "leaf_id": "Block7_union_row14",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0874", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3200", "axis": "x", "end": "high", "delta_dbu": 72},
+    {"op": "move_instance", "inst_id": "i0915", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3215", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0920", "delta_dbu": [108, 0]},
+    {"op": "move_instance", "inst_id": "i0519", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i1020", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0374", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0405", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0528", "delta_dbu": [52, 0]},
+    {"op": "resize_end", "polygon_id": "p3539", "axis": "x", "end": "high", "delta_dbu": 16}
+  ],
+  "explanation": "Moved 8 via instances and resized 3 M2 polygons to clear 15 DRC violations (M1.S.2, V1.M1.EN.1, M1.S.4, M1.S.5, M1.S.6, V0.M1.AUX.3) with connectivity preserved; i0920 required +108 delta (vs planned +72) to avoid M2.S.4 near the i0894 anchor, and i0519 required delta [-36,0] (vs planned [-36,-36]) to minimize newly introduced violations, resulting in net 14 violations cleared."
+}

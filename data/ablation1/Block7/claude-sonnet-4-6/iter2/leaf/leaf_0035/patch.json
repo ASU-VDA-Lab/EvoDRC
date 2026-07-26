@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0035",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0235", "delta_dbu": [0, -48]}
+  ],
+  "explanation": "Clears M1.S.2 tip-to-side violation v0063 by moving via i0235 (VIA_VIA12) down 48 dbu so its M1 land tip top edge shifts from y=22904 to y=22856, eliminating the y-projection overlap with the std-cell M1 arm left wall that starts at y=22860."
+}

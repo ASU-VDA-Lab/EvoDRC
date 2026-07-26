@@ -1,0 +1,60 @@
+{
+  "case_name": "Block3",
+  "design_type": "block",
+  "total_violations": 2,
+  "total_rules_violated": 1,
+  "rules": {
+    "M4.S.3": {
+      "violation_count": 2,
+      "description": "M4.S.3 : Minimum tip-to-tip spacing between two M4 layer polygons\u2014\u2014that do not share a parallel run length\u2014\u2014on adjacent tracks is 40 nm.",
+      "violations": [
+        {
+          "type": "edge_pair",
+          "edges": [
+            [
+              1700,
+              8736,
+              1700,
+              8712
+            ],
+            [
+              1856,
+              8712,
+              1856,
+              8736
+            ]
+          ],
+          "bbox": [
+            1700,
+            8712,
+            1856,
+            8736
+          ]
+        },
+        {
+          "type": "edge_pair",
+          "edges": [
+            [
+              1856,
+              8832,
+              1856,
+              8856
+            ],
+            [
+              1700,
+              8856,
+              1700,
+              8832
+            ]
+          ],
+          "bbox": [
+            1700,
+            8832,
+            1856,
+            8856
+          ]
+        }
+      ]
+    }
+  }
+}

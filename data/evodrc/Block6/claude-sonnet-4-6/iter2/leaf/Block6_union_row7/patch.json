@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block6_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0093", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Moves via i0093 (VIA_VIA12) right by 4 dbu so its M1 left edge lands at x=8892 (the V0 right edge), eliminating the partial M1 intrusion into the V0 footprint whose non-coincident convex corner triggered V0.M1.AUX.3 at (8820,9540,8892,9612); v0008 is left unfixed because all tested regional repair ops for i0122 introduce new violations (M1.S.2, V1.M1.EN.1, V1.M2.AUX.2, M1.S.5)."
+}

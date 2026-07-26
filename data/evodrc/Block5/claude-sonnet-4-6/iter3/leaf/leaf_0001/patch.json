@@ -1,0 +1,44 @@
+{
+ "leaf": "leaf_0001",
+ "ops": [
+  {
+   "op": "move_instance",
+   "inst_id": "i0104",
+   "delta_dbu": [
+    8,
+    0
+   ]
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p946",
+   "axis": "x",
+   "end": "high",
+   "delta_dbu": 28
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0061",
+   "delta_dbu": [
+    8,
+    0
+   ]
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p968",
+   "axis": "x",
+   "end": "high",
+   "delta_dbu": 64
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0073",
+   "delta_dbu": [
+    -32,
+    0
+   ]
+  }
+ ],
+ "leaf_id": "leaf_0001"
+}

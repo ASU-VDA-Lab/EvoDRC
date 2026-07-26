@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [0, 84]},
+    {"op": "resize_end", "polygon_id": "p3592", "axis": "x", "end": "low", "delta_dbu": 72},
+    {"op": "resize_end", "polygon_id": "p3592", "axis": "y", "end": "low", "delta_dbu": -48},
+    {"op": "resize_end", "polygon_id": "p3592", "axis": "y", "end": "high", "delta_dbu": -48}
+  ],
+  "explanation": "Moved VIA_VIA12 i1062 upward 84 dbu to clear M1.S.2/M2.S.2 spacing to frozen rails (v0026, v0049); extended M2 polygon p3592 leftward 72 dbu (new x-min=14560) and trimmed its y-range to match VIA_VIA12 M2 land y-extent (17424-17496) to fix M2.W.1 narrow-neck violations (v0045, v0046) and M2.S.2 spacing (v0050), while avoiding a new V1.M2.AUX.2 violation. Note: a new M1.S.2 tip-to-side spacing gap (28 dbu / 7nm) appears between i1062 M1 land top and the frozen HAxp5 std-cell M1 pin at y=17532; this is geometrically unavoidable given the 216 dbu space between M1 rail (17316) and frozen M1 feature (17532) is insufficient for VIA_VIA12 M1 land (88 dbu) with 25nm clearance on both sides. The three V2.M3.AUX.2 violations appearing in new_in_window are pre-existing violations (confirmed in Block7.drc.json) that entered the DRC window due to window expansion, not caused by our ops."
+}

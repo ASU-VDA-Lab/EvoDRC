@@ -1,0 +1,15 @@
+{
+  "leaf_id": "Block7_union_row17",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0791", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0995", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0316", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0280", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0414", "delta_dbu": [36, 0]},
+    {"op": "move", "polygon_id": "p3631", "axis": "y", "delta_dbu": -57},
+    {"op": "move_instance", "inst_id": "i0794", "delta_dbu": [0, -57]},
+    {"op": "move_instance", "inst_id": "i0810", "delta_dbu": [0, -57]},
+    {"op": "resize_end", "polygon_id": "p2594", "axis": "y", "end": "low", "delta_dbu": 20}
+  ],
+  "explanation": "Five VIA_VIA12 instances (i0791, i0995, i0316, i0280, i0414) are shifted +36 dbu in x so their M1 land's left edge aligns with the respective frozen V0 pin right edge, clearing all five V0.M1.AUX.3 violations; the i0280 shift also clears M1.S.6 violations v0058/v0059 by moving the M1 land corner >80 dbu from nearby std-cell M1. The M2.S.1 violation (v0069) is cleared by translating M2 stub p3631 and co-moving vias i0794/i0810 down 57 dbu (gap to p3216 increases 15→72 dbu = 18 nm minimum), with resize_end on M3 stripe p2594 extending its low y-end 20 dbu to maintain full V2.M3.EN enclosure after the via shift."
+}

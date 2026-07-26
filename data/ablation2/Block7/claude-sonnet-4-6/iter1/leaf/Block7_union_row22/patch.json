@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block7_union_row22",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0132", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0132 right by 4 dbu (1 nm) to increase the corner-to-corner distance between its M1 land upper-left corner and the adjacent frozen std-cell M1 corner from ~77 dbu to ~81 dbu, clearing M1.S.6 violations v0158 and v0161."
+}

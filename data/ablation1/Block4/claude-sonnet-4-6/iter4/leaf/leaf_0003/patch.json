@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0238", "delta_dbu": [-8, 0]},
+    {"op": "resize_end", "polygon_id": "p1410", "axis": "x", "end": "high", "delta_dbu": -8}
+  ],
+  "explanation": "Fixes M3.S.2 (v0002) by moving VIA_VIA23 instance i0238 left 8 dbu and shrinking M3 polygon p1410's right edge 8 dbu, reducing the merged M3 right edge from x=3076 to x=3068 to achieve the required 100 dbu (25 nm) spacing to p1432."
+}

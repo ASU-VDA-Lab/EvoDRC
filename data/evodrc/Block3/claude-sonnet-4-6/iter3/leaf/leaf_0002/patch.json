@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move", "polygon_id": "p1060", "axis": "x", "delta_dbu": 32, "group": "m5_x_shift"},
+    {"op": "move_instance", "inst_id": "i0163", "delta_dbu": [32, 0], "group": "m5_x_shift"},
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [32, 0], "group": "m5_x_shift"},
+    {"op": "move_instance", "inst_id": "i0079", "delta_dbu": [32, 0], "group": "m5_x_shift"},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [32, 0], "group": "m5_x_shift"},
+    {"op": "move_instance", "inst_id": "i0140", "delta_dbu": [32, 0], "group": "m5_x_shift"}
+  ],
+  "explanation": "Moved p1060 (M5 stripe) and all 5 co-located VIA_VIA45_1_2_58_58 instances by +32 dbu in x to snap M5 vertical edges from off-grid (x=1888,2368; residual 64 mod 96) to on-grid (x=1920,2400), clearing M5.AUX.1 at v0004/v0005; the M4 land of i0078 moves from x=1844 to x=1876, increasing the tip gap from 144 to 176 dbu (>=160 dbu threshold), clearing M4.S.3 at v0002."
+}

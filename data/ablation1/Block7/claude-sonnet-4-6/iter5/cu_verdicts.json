@@ -1,0 +1,177 @@
+{
+ "strip": {
+  "leaf_0014": [
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": -116, \"group\": \"v45-fix\", \"layer_name\": \"V4\", \"op\": \"move_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": -152, \"group\": \"v45-fix\", \"layer_name\": \"M5\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 116, \"group\": \"v45-fix\", \"layer_name\": \"V4\", \"op\": \"move_via_shape\", \"shape_index\": 1}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 232, \"group\": \"v45-fix\", \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"x\", \"cell_name\": \"VIA_VIA45_1_2_58_58\", \"delta_dbu\": 232, \"group\": \"v45-fix\", \"layer_name\": \"V4\", \"op\": \"resize_via_shape\", \"shape_index\": 1}]"
+  ]
+ },
+ "winners": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "ops": [
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -116,
+     "group": "v45-fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 232,
+     "group": "v45-fix"
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 116,
+     "group": "v45-fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 232,
+     "group": "v45-fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -152,
+     "group": "v45-fix"
+    }
+   ],
+   "attributed_to": "leaf_0014"
+  }
+ ],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA45_1_2_58_58",
+   "target_keys": [
+    "def:VIA_VIA45_1_2_58_58"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA45_1_2_58_58"
+   ],
+   "group": "v45-fix",
+   "atomic": true,
+   "ops": [
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -116,
+     "group": "v45-fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": 232,
+     "group": "v45-fix"
+    },
+    {
+     "op": "move_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 116,
+     "group": "v45-fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "V4",
+     "shape_index": 1,
+     "axis": "x",
+     "delta_dbu": 232,
+     "group": "v45-fix"
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA45_1_2_58_58",
+     "layer_name": "M5",
+     "shape_index": 0,
+     "axis": "x",
+     "delta_dbu": -152,
+     "group": "v45-fix"
+    }
+   ],
+   "proposers": [
+    "leaf_0014"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0002",
+     "before": 13,
+     "after": 11,
+     "delta": -2
+    },
+    {
+     "window": "unit:leaf_0005",
+     "before": 9,
+     "after": 9,
+     "delta": 0
+    },
+    {
+     "window": "unit:leaf_0009",
+     "before": 10,
+     "after": 10,
+     "delta": 0
+    },
+    {
+     "window": "unit:leaf_0010",
+     "before": 11,
+     "after": 11,
+     "delta": 0
+    },
+    {
+     "window": "unit:leaf_0011",
+     "before": 10,
+     "after": 10,
+     "delta": 0
+    },
+    {
+     "window": "unit:leaf_0013",
+     "before": 405,
+     "after": 324,
+     "delta": -81
+    },
+    {
+     "window": "unit:leaf_0014",
+     "before": 386,
+     "after": 311,
+     "delta": -75
+    }
+   ],
+   "delta_total": -158,
+   "conn_preserved": true,
+   "decision": "applied"
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0014",
+  "ops": [],
+  "explanation": "All 282 violations involve via def structures where co-location of stacked VIA23/VIA34/VIA45 instances prevents enclosure fixes, or M6/V5 routing geometry that cannot be resolved by def-level edits."
+}

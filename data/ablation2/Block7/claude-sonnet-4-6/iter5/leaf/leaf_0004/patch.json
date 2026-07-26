@@ -1,0 +1,14 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i1062",
+      "delta_dbu": [
+        126,
+        0
+      ]
+    }
+  ],
+  "explanation": "Moves VIA_VIA12 i1062 right by 126 dbu to eliminate tip-to-side M1.S.2 projection overlap with ptemp_8 (v0024) and reposition V1 cut so M2 land boundaries coincide at both top and bottom edges satisfying V1.M2.AUX.2 (v0060)."
+}

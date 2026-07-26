@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0010",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1358", "delta_dbu": [0, -36]}
+  ],
+  "explanation": "Moved VIA_VIA23 instance i1358 down 36 dbu to shift its M2 land's end-cap extension away from the adjacent std-cell V1 cuts, clearing both V1.S.2 violations v0120 and v0122."
+}

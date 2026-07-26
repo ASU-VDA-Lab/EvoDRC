@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1140", "delta_dbu": [56, 0]},
+    {"op": "move_instance", "inst_id": "i1144", "delta_dbu": [56, 0]},
+    {"op": "resize_end", "polygon_id": "p3297", "axis": "x", "end": "low", "delta_dbu": -36},
+    {"op": "resize_end", "polygon_id": "p2719", "axis": "x", "end": "low", "delta_dbu": -56},
+    {"op": "resize_end", "polygon_id": "p2719", "axis": "x", "end": "high", "delta_dbu": 56}
+  ],
+  "explanation": "Clears V0.M1.AUX.3 at (12276,11988,12348,12060) with zero new violations and connectivity preserved (3325/3325 seeds). (1) Move i1140 (VIA_VIA12) +56 in x: M1 land left edge shifts from 12292 to 12348, removing the protrusion above background M1 at y=12060 that caused the convex-corner violation at the V0 pin right edge. (2) Move i1144 (VIA_VIA23) +56 in x: i1140's new M2 right edge at 12440 was only 68 dbu from i1144's M2 left at 12508, violating M2.S.4 tip-to-tip rule (need >=124 dbu). Moving i1144 to origin (12620,12060) puts its M2 left at 12564, giving a 124 dbu gap. (3) resize_end p3297 M2 left edge from 12528 to 12564 (delta=-36): p3297 is a fixed M2 shape whose left edge at 12528 was only 88 dbu from i1140's new M2 right (12440), also violating M2.S.4; shrinking its left to 12564 gives exactly 124 dbu. (4+5) Slide p2719 M3 stripe x-range from [12528,12600] to [12584,12656]: after i1144 moves to (12620,12060), its V2 cut lands at x=[12584,12656]. p2719 originally provided left+right M3-edge coincidence with i1144's V2 at [12528,12600]; without adjustment V2.M3.AUX.2 fires because only the right edge coincides. Sliding p2719's x-range to [12584,12656] restores both left-edge and right-edge coincidence with the new V2 position."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA23_1_3_36_36","layer_name":"M3","shape_index":0,"axis":"y","delta_dbu":-40}
+  ],
+  "explanation": "Shrinks VIA_VIA23_1_3_36_36 M3 land from ±56 y to ±36 y (delta=-40 dbu symmetric), creating coincident M3/V2 boundary edges at x-positions where VIA_VIA23 M3 is the sole outer-boundary contributor, clearing 8 of 12 V2.M3.AUX.2 violations with 0 new violations introduced."
+}

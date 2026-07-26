@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row15",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0913", "delta_dbu": [-96, 0]},
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [0, -84]},
+    {"op": "resize", "polygon_id": "p3592", "axis": "y", "delta_dbu": 96}
+  ],
+  "explanation": "Moved i0913 (VIA_VIA12) left 96 dbu to close the M1 notch (v0041) and widen M2 clearance to i0901 (v0063); moved i1062 (VIA_VIA12) down 84 dbu to clear M1 tip-to-side spacing violation (v0042); symmetrically resized M2 polygon p3592 by 96 dbu in y to restore M2 connectivity to the shifted i1062 land."
+}

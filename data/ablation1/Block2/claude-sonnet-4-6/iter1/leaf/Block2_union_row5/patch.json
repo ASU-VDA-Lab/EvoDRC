@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block2_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0083", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0018", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0034", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved three VIA_VIA12 instances +36 dbu in x to shift each M1 land bump rightward so its left edge aligns with the V0 right edge, restoring full background M1 top-edge coincidence across each V0 top and clearing all three V0.M1.AUX.3 violations."
+}

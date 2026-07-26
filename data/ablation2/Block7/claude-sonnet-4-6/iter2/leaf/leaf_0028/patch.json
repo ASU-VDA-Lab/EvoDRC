@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0028",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [108, -48]},
+    {"op": "move_instance", "inst_id": "i0184", "delta_dbu": [0, -48]},
+    {"op": "resize_end", "polygon_id": "p3537", "axis": "y", "end": "high", "delta_dbu": -48}
+  ],
+  "explanation": "Moved VIA_VIA12 i0177 right 108 dbu and down 48 dbu to clear M1.S.2/V1.S.2/V1.M1.EN.1 by landing on HAxp5 std-cell M1 that provides adequate enclosure; moved VIA_VIA23 i0184 down 48 dbu and shortened p3537 M2 stub by 48 dbu to preserve M2/M3 connectivity and eliminate M2.S.1 from the background M2 strap."
+}

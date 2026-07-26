@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0090", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0110", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0089", "delta_dbu": [0, -24]}
+  ],
+  "explanation": "Moves VIA_VIA34 i0090 and VIA_VIA45 i0110 from y=5400 to y=5424 to put M4 edges on the 96-dbu grid (fixing M4.AUX.1 v0036), moves VIA_VIA23 i0089 from y=5424 to y=5400 to align its M2 land with p1006 stripe (fixing V1.M2.AUX.2 v0003/v0004); V4 cut relocation of i0110 also clears V4.M5.AUX.2 v0020/v0021 at old positions."
+}

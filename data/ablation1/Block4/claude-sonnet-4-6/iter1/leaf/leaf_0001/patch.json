@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "resize", "polygon_id": "p1374", "axis": "x", "delta_dbu": 200}
+  ],
+  "explanation": "Clears M4.S.5 v0086 by extending p1374 (M4) symmetrically on x-axis by 200 dbu, moving the right edge from x=5412 to x=5512, increasing the parallel run between the merged top-M4 at y=1824 and merged bottom-M4 at y=1920 from 28 nm (112 dbu) to 45 nm (180 dbu), exceeding the required 44 nm minimum."
+}

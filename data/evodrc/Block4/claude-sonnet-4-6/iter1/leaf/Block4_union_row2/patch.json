@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block4_union_row2",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0250", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1548", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0163", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1569", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0250 and i0163 each +36 dbu in x to clear two M1.S.2 spacing violations and one V1.M1.EN.1 enclosure violation; extends M2 polygons p1548 and p1569 rightward to maintain full M2 land coverage at the shifted via positions."
+}

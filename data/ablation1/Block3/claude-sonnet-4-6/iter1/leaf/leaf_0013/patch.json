@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0013",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0023", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Moving via i0023 (VIA_VIA12) left by 36 dbu increases the M1 tip-to-tip gap from the via's M1 land right edge to the frozen _ptemp_10 M1 stripe from 88 dbu (22 nm) to 124 dbu (31 nm), clearing M1.S.4; the shift also repositions the V1 cut fully within the merged M1 coverage of _ptemp_6, clearing V1.M1.EN.1."
+}

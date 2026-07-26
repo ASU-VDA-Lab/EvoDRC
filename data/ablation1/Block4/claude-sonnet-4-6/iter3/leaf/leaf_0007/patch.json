@@ -1,0 +1,14 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {
+      "op": "move_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "V2",
+      "shape_index": 1,
+      "axis": "x",
+      "delta_dbu": 144
+    }
+  ],
+  "explanation": "Moves the center V2 cut in VIA_VIA23_1_3_36_36 (shape_index=1) rightward by 144 dbu so its x-edges coincide with the M3 land boundary, satisfying V2.M3.AUX.2 for all 5 instances in the window. Connectivity verified preserved across all 588 seeds."
+}

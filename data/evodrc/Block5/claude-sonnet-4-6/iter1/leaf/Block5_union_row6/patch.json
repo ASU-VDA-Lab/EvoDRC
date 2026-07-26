@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block5_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [108, 0]},
+    {"op": "resize", "polygon_id": "p955", "axis": "x", "delta_dbu": 256},
+    {"op": "move_instance", "inst_id": "i0019", "delta_dbu": [108, 0]},
+    {"op": "resize", "polygon_id": "p971", "axis": "x", "delta_dbu": 328}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i0025 and i0019 right by 108 dbu to clear M1.S.2 tip-to-side spacing violations, fix V1.M1.EN.1 by gaining extra M1 y-enclosure from the frozen std-cell M1 track at the new position, and resolve V0.M1.AUX.3 by removing M1 land overlap with the V0 pin. Extended M2 routing polygons p955 and p971 rightward to maintain M2 connectivity to the moved via M2 lands."
+}

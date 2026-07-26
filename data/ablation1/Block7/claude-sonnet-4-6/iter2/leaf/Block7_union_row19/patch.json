@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row19",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0294", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0418", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3523", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "Moves VIA_VIA12 i0294 right 36 dbu to merge its M1 land with the frozen std-cell notch, clearing the M1.S.4 tip-to-tip spacing violation; moves VIA_VIA12 i0418 right 36 dbu to align its M1 land left edge with V0 _ptemp_7's right edge making all V0 edges M1-coincident and clearing V0.M1.AUX.3; extends M2 polygon p3523 rightward 92 dbu to re-establish M2 enclosure of i0418's relocated V1 cut."
+}

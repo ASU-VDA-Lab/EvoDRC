@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0794", "delta_dbu": [0, 68]},
+    {"op": "move_instance", "inst_id": "i0810", "delta_dbu": [0, 68]},
+    {"op": "move", "polygon_id": "p3631", "axis": "y", "delta_dbu": 68},
+    {"op": "resize_end", "polygon_id": "p2596", "axis": "y", "end": "high", "delta_dbu": 68}
+  ],
+  "explanation": "Moves the upper M2/V2 via group (i0794 VIA_VIA12, i0810 VIA_VIA23) and M2 stub p3631 up by 68 dbu, and extends M3 polygon p2596 top edge by 68 dbu, increasing the M2 tip-to-tip gap at v0060 from 72 dbu (18 nm) to 140 dbu (35 nm) to clear M2.S.7."
+}

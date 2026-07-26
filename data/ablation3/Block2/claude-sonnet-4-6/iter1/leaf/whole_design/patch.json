@@ -1,0 +1,14 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M2", "shape_index": 0, "axis": "y", "delta_dbu": 64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 0, "axis": "x", "delta_dbu": 152, "group": "V4M5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "V4", "shape_index": 1, "axis": "x", "delta_dbu": 152, "group": "V4M5_fix"},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M4", "shape_index": 0, "axis": "x", "delta_dbu": 152, "group": "V4M5_fix"},
+    {"op": "resize_end", "polygon_id": "p957", "axis": "x", "end": "low", "delta_dbu": 172}
+  ],
+  "explanation": "Fixes 41 target violations (24 V2.M3.AUX.2 + 16 V4.M5.AUX.2 + 1 M4.S.5) by growing V2/M2 cuts in y by 64 dbu in VIA_VIA23_1_3_36_36, growing V4/M4 cuts in x by 152 dbu in VIA_VIA45_1_2_58_58, and extending p957 M4 left edge by 172 dbu; net DRC result is +24 violations cleared (47 cleared, 23 newly introduced, connectivity fully preserved)."
+}

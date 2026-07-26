@@ -1,0 +1,59 @@
+**All iteration-1 trials accepted; connectivity preservation is the decisive gate**
+
+All 26 recorded trials ended with decision=gated_in and conn_preserved=true (trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26). Trials with n_new_in_crop > 0 — including trial:i01.ug.Block7_union_row21.11 (9 new violations in crop) and trial:i01.ug.Block7_union_row22.12 (2 new violations) — were still accepted because conn_preserved=true. Additional confirmed examples: trial:i01.ug.Block7_union_row13.03 (1 new), trial:i01.ug.Block7_union_row19.09 (1 new), trial:i01.ug.Block7_union_row4.16 (1 new), trial:i01.ug.Block7_union_row5.17 (1 new), trial:i01.ug.Block7_union_row24.14 (2 new), trial:i01.ug.leaf_0002.23 (2 new), trial:i01.ug.leaf_0024.25 (1 new). Acceptance requires connectivity preservation regardless of whether new DRC violations are introduced within the crop region.
+
+**V1 is repositioned exclusively via move_instance; resize_end targets enclosing metal polygons**
+
+In every trial, V1 position changes are effected by move_instance ops (trial:i01.ug.Block7_union_row10.00, trial:i01.ug.Block7_union_row11.01, trial:i01.ug.leaf_0001.22, and all 23 remaining trials). No resize_end op in any of the 26 trials carries a polygon_id that belongs to V1; all polygon_ids targeted by resize_end (p3305, p3273, p3694, p3526, p3576, p3200, p3058, p3379, p3317, p3300, p2720, p3695, p3771, p3538, p2333, p3706) are M1 or M2 metal shapes in trials that also contain V1 in touched_layers.
+
+**V1 co-moves with M1 and M2 in every trial**
+
+Every trial in the history lists both M1 and V1 in touched_layers (trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26). Trials that touch additional layers add M3 and V2 but still always include M1, M2, and V1 (trial:i01.ug.Block7_union_row12.02, trial:i01.ug.Block7_union_row13.03, trial:i01.ug.Block7_union_row14.04, trial:i01.ug.Block7_union_row9.21, trial:i01.ug.Block7_union_row19.09, trial:i01.ug.leaf_0024.25). This co-movement pattern is consistent with V1.AUX.1 (V1 must be inside both M1 and M2) and V1.M2.AUX.2 (V1 width must match M2 width perpendicular to M2 length): displacing V1 without adjusting the enclosing metal, or adjusting metal without repositioning V1, would violate these two constraints.
+
+**36 dbu is the most frequent x-axis move_instance delta**
+
+A move_instance delta of 36 dbu on the x-axis appears in trial:i01.ug.Block7_union_row11.01, trial:i01.ug.Block7_union_row15.05, trial:i01.ug.Block7_union_row16.06, trial:i01.ug.Block7_union_row18.08, trial:i01.ug.Block7_union_row20.10, trial:i01.ug.Block7_union_row22.12, trial:i01.ug.Block7_union_row23.13, trial:i01.ug.Block7_union_row24.14, trial:i01.ug.Block7_union_row4.16, trial:i01.ug.Block7_union_row5.17, and trial:i01.ug.Block7_union_row9.21. Other observed x-axis move magnitudes are 4 dbu (trial:i01.ug.Block7_union_row10.00, trial:i01.ug.Block7_union_row21.11), 28 dbu (trial:i01.ug.Block7_union_row6.18, trial:i01.ug.Block7_union_row7.19), 37 dbu (trial:i01.ug.Block7_union_row19.09), 40 dbu (trial:i01.ug.Block7_union_row13.03, trial:i01.ug.Block7_union_row16.06), 44 dbu (trial:i01.ug.Block7_union_row20.10), 56 dbu (trial:i01.ug.Block7_union_row9.21), 64 dbu (trial:i01.ug.Block7_union_row8.20), 72 dbu (trial:i01.ug.Block7_union_row23.13, trial:i01.ug.leaf_0002.23), and 108 dbu (trial:i01.ug.Block7_union_row7.19, trial:i01.ug.Block7_union_row9.21, trial:i01.ug.leaf_0008.24). Y-axis move_instance deltas observed are 8 dbu (trial:i01.ug.Block7_union_row12.02), -12 dbu (trial:i01.ug.Block7_union_row14.04), -52 dbu (trial:i01.ug.Block7_union_row19.09), 64 dbu (trial:i01.ug.Block7_union_row14.04), 44 dbu (trial:i01.ug.Block7_union_row23.13), and -48 dbu (trial:i01.ug.Block7_union_row22.12).
+
+**resize_end co-occurs with move_instance and is not applied in isolation**
+
+resize_end appears in 11 of the 26 trials and, in every one of those 11 trials, is accompanied by at least one move_instance op (trial:i01.ug.Block7_union_row10.00, trial:i01.ug.Block7_union_row12.02, trial:i01.ug.Block7_union_row13.03, trial:i01.ug.Block7_union_row14.04, trial:i01.ug.Block7_union_row24.14, trial:i01.ug.Block7_union_row3.15, trial:i01.ug.Block7_union_row7.19, trial:i01.ug.Block7_union_row9.21, trial:i01.ug.leaf_0002.23, trial:i01.ug.leaf_0008.24, trial:i01.ug.leaf_0024.25). The remaining 15 trials are accepted using move_instance alone, with no resize_end (e.g., trial:i01.ug.Block7_union_row11.01, trial:i01.ug.Block7_union_row16.06, trial:i01.ug.Block7_union_row6.18, trial:i01.ug.leaf_0001.22).
+
+**resize_end axis=x dominates; axis=y resize appears in multi-axis trials**
+
+resize_end with axis=x appears in all 11 trials that include any resize_end (trial:i01.ug.Block7_union_row10.00 delta=50 end=high; trial:i01.ug.Block7_union_row12.02 delta=56 end=high; trial:i01.ug.Block7_union_row13.03 delta=4 end=high; trial:i01.ug.Block7_union_row14.04 delta=48 end=high; trial:i01.ug.Block7_union_row24.14 delta=36 end=high; trial:i01.ug.Block7_union_row3.15 delta=49 end=high; trial:i01.ug.Block7_union_row7.19 delta=16 end=high; trial:i01.ug.Block7_union_row9.21 delta=-36 end=low; trial:i01.ug.leaf_0002.23 delta=128 end=high; trial:i01.ug.leaf_0008.24 delta=164 end=high; trial:i01.ug.leaf_0024.25 delta=36 end=high and delta=52 end=low). resize_end with axis=y appears only in trial:i01.ug.Block7_union_row12.02 (delta=8 end=high and delta=-8 end=low) and trial:i01.ug.leaf_0024.25 (delta=44 end=high and delta=20 end=high), both of which also include axis=x resize_end ops in the same trial.
+
+**Both-axis resize and multi-direction move combinations are accepted**
+
+Trial trial:i01.ug.Block7_union_row14.04 applies resize_end axis=y delta=64 end=high and resize_end axis=x delta=48 end=high alongside move_instance ops in both x and y, touching M1/M2/M3/V1/V2, and is accepted with n_new_in_crop=0. Trial trial:i01.ug.leaf_0024.25 applies resize_end on axis=x (delta=36 end=high; delta=52 end=low) and axis=y (delta=44 end=high; delta=20 end=high) alongside move_instance ops, touching M1/M2/M3/V1, accepted with n_new_in_crop=1. Multi-axis combinations in a single trial do not prevent acceptance.
+
+**Large resize_end deltas pair with large move_instance deltas**
+
+Trial trial:i01.ug.leaf_0008.24 applies resize_end axis=x delta=164 end=high alongside move_instance deltas of 108 and 40 dbu on M1/M2/V1, accepted with n_new_in_crop=0. Trial trial:i01.ug.leaf_0002.23 applies resize_end axis=x delta=128 end=high alongside a move_instance delta of 72 dbu on M1/M2/V1, accepted with n_new_in_crop=2. The end=high convention on the high-x edge extends the metal in the direction of the move, consistent with keeping the enclosing metal from falling behind the repositioned V1.
+
+**V1.AUX.1 and V1.M2.AUX.2: V1 must remain inside M1 and M2, width-matched to M2**
+
+V1.AUX.1 flags any V1 not fully inside both M1 and M2. V1.M2.AUX.2 flags any V1 whose width does not exactly match the M2 width in the direction perpendicular to M2 length — the rule checks that V1.inside(m2) instances interact with at least two coincident M2 edges. The consistent co-movement of V1 with M1 and M2 in every trial (trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26) reflects the strict coupling imposed by these two rules.
+
+**V1.M1.EN.1: M1 must provide 5 nm enclosure on one axis and 2 nm on the opposite axis**
+
+V1.M1.EN.1 classifies each V1 edge direction (horizontal angle=0, vertical angle=90) independently. A V1 is compliant if, on at least one axis, M1 provides >= 5 nm enclosure on one side and >= 2 nm on the other. A V1 not meeting this criterion on any axis, or not inside M1 at all, is flagged. resize_end on M1 metal polygons in trials touching M1/M2/V1 — such as trial:i01.ug.Block7_union_row7.19 (axis=x delta=16 end=high) and trial:i01.ug.Block7_union_row3.15 (axis=x delta=49 end=high) — extends the enclosing M1 shape to increase edge enclosure. The minimum 2 nm threshold on the non-primary side means small metal shifts can resolve an enclosure deficit when the primary-side margin already exceeds 5 nm.
+
+**V1.M2.EN.2: M2 enclosure of V1 must be 5 nm and 5 nm, or 5 nm and 0 nm flush**
+
+V1.M2.EN.2 requires that V1 have at least two opposite edges with M2 enclosure >= 5 nm (the fully symmetric case), or that one pair of opposite edges satisfies 5 nm on one side and a flush coincident edge (0 nm, confirmed by the v1_en2_ep_zero sub-check at 1 dbu tolerance) on the other. The second sub-check — v1_en2_all.second_edges.not(v1_en2_ep_zero.second_edges) — flags non-zero, sub-5 nm enclosure on the secondary side, meaning partial enclosure between 1 dbu and 4 nm is not valid. All trials maintain V1 within M2 as evidenced by V1 appearing in touched_layers alongside M2 in every trial (trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26).
+
+**V1.S.1: spacing thresholds are 18 nm same-track, 27 nm non-aligned parallel, 18 nm aligned parallel**
+
+V1.S.1 constructs two mask geometries — v1_nec_mask for vias without a 5 nm M2 end-cap (built by extending the coincident M2 edges 5 nm in three directions) and v1_wec_mask for vias with a 5 nm M2 end-cap (built by extending coincident M2 edges 5 nm laterally then applying a 5 nm grow-shrink). The projection spacing check on v1_mask_nm2_nte vertical edges uses 17 nm (the minimum spacing minus 1 nm for 1 dbu grid), and the check on v1_maskav non-M2 edges uses 18 nm directly. The v1_mask.space(1 nm) sub-check catches merged mask overlaps. X-axis move_instance deltas of 36 dbu across trials trial:i01.ug.Block7_union_row11.01, trial:i01.ug.Block7_union_row15.05, trial:i01.ug.Block7_union_row18.08, and others bring adjacent V1 instances into compliance with the 18 nm same-track minimum. The 27 nm non-aligned limit governs pairs on different M2 tracks whose projected extents do not overlap; the 17 nm check on vertical mask edges — which captures this case via projection — is the binding constraint for off-track pairs.
+
+**V1.S.2 through V1.S.4: corner-to-corner spacing depends on end-cap configuration**
+
+V1.S.2 requires a 23 nm Euclidean corner-to-corner minimum between two V1 instances both classified as wec (with 5 nm M2 end-cap); the deck checks 16.4 nm on v1_wec_mask using Euclidean distance. V1.S.3 requires 30 nm corner-to-corner between two nec vias (both without end-cap); the deck checks 16.12 nm on v1_nec_mask Euclidean and excludes violations also caught by projection, isolating pure diagonal corner cases. V1.S.4 requires 27 nm corner-to-corner between one wec and one nec via; the deck checks 17.11 nm separation between v1_wec_mask and v1_nec_mask Euclidean, again excluding projection-caught cases. These three rules are complementary to V1.S.1 and target corner proximity that projection spacing does not detect.
+
+**V1.W.1: minimum V1 width is 18 nm along the M2 length direction**
+
+V1.W.1 flags any V1 polygon narrower than 18 nm in the direction along the M2 wire length. Because all V1 position changes in this iteration are move_instance ops and no resize_end targets a V1 polygon (trial:i01.ug.Block7_union_row10.00 through trial:i01.ug.leaf_0095.26), V1 instances are treated as fixed-geometry cells and width compliance is preserved by not modifying V1 geometry directly.
+
+**GEOMETRY.NONORTHOGONAL: all V1 edges must be axis-aligned**
+
+The nonorthogonal check flags V1 edges at any angle outside 0 and 90 degrees. All move_instance delta vectors in the history are axis-aligned: x-only (trial:i01.ug.Block7_union_row11.01 delta=[36,0]), y-only (trial:i01.ug.Block7_union_row14.04 delta=[0,-12] and delta=[0,64]), or combined x and y in separate ops (trial:i01.ug.Block7_union_row12.02, trial:i01.ug.Block7_union_row19.09). All resize_end ops use axis=x or axis=y (trial:i01.ug.Block7_union_row12.02, trial:i01.ug.leaf_0024.25). No diagonal move vector appears in any of the 26 trials.

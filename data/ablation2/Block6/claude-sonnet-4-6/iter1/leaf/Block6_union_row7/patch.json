@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block6_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0093", "delta_dbu": [104, 0]},
+    {"op": "resize_end", "polygon_id": "p1903", "axis": "x", "end": "high", "delta_dbu": 124},
+    {"op": "move_instance", "inst_id": "i0074", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p1920", "axis": "x", "end": "low", "delta_dbu": 56}
+  ],
+  "explanation": "Moved via i0093 +104 dbu in x so its M1 merges into _ptemp_15, clearing M1.S.2 (v0029) and V1.M1.EN.1 (v0048) via x-pair enclosure (100/256 dbu); extended p1903 M2 rightward to maintain M2 coverage. Moved via i0074 -36 dbu in x, clearing M1.S.4 (v0034) with a 124 dbu tip-to-tip gap to _ptemp_25 and V1.M1.EN.1 (v0049) via y-pair enclosure (128/36 dbu) through merged _ptemp_23; extended p1920 M2 leftward to maintain M2 coverage."
+}

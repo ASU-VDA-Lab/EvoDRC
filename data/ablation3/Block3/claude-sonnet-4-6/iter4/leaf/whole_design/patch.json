@@ -1,0 +1,11 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"V4","shape_index":0,"axis":"x","delta_dbu":152},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"V4","shape_index":1,"axis":"x","delta_dbu":152},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M4","shape_index":0,"axis":"x","delta_dbu":152},
+    {"op":"move_instance","inst_id":"i0023","delta_dbu":[-36,0]},
+    {"op":"move_instance","inst_id":"i0041","delta_dbu":[36,0]}
+  ],
+  "explanation": "Fixes all 21 violations: expands both V4 cuts in VIA_VIA45_1_2_58_58 symmetrically by 152 dbu in x so their merged union edges coincide with M5 edges (clearing 18 V4.M5.AUX.2 violations), expands M4 in x by 152 dbu to maintain 44 dbu enclosure, then moves VIA_VIA12 i0023 left by 36 dbu to clear M1.S.4 and V1.M1.EN.1, and moves i0041 right by 36 dbu to clear V0.M1.AUX.3."
+}
