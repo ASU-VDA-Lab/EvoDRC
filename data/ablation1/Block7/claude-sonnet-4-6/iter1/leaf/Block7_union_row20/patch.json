@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block7_union_row20",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0753", "delta_dbu": [-44, 0]},
+    {"op": "move_instance", "inst_id": "i0600", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0263", "delta_dbu": [40, 0]},
+    {"op": "move_instance", "inst_id": "i0142", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves four VIA_VIA12 instances to fix five violations: i0753 left 44dbu resolves V1.M1.EN.1 (std-cell M1 now provides 9nm Y-enclosure) and M1.S.4 (gap to neighbour increases to 33nm); i0600 right 36dbu and i0142 right 36dbu fix two V0.M1.AUX.3 violations by aligning via M1 lands so all V0 edges become coincident with merged M1 boundaries; i0263 right 40dbu fixes a third V0.M1.AUX.3 by shifting the via M1 clear of the V0 footprint so std-cell M1 alone covers it flush."
+}

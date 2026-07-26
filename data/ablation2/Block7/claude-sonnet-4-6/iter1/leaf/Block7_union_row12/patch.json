@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row12",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1208", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3273", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i1356", "delta_dbu": [12, 0]}
+  ],
+  "explanation": "Moves i1208 +36 dbu (with M1 wire extension on p3273 +56) to clear M1.S.2/V1.M1.EN.1/V0.M1.AUX.3 violations, and moves i1356 +12 dbu to clear both M1.S.6 violations; ops for i1311/i1320/i1759 were dropped because their -36 moves failed to clear V0.M1.AUX.3 and introduced new M1.S.2 violations."
+}

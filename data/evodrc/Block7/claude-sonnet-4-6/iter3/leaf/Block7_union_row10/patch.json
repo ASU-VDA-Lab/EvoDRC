@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row10",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1140", "delta_dbu": [56, 0]},
+    {"op": "resize_end", "polygon_id": "p3305", "axis": "x", "end": "high", "delta_dbu": 52}
+  ],
+  "explanation": "Op1 moves VIA_VIA12 i1140 right by 56 dbu so its M1 land clears V0 ptemp_5's x-range, removing the M1-edge interruption that triggered V0.M1.AUX.3 (v0018). Op2 extends M2 polygon p3305 rightward by 52 dbu to make the parallel run between the two M2 strips 144 dbu (36 nm), meeting the M2.S.7 ≥35 nm threshold (v0052)."
+}

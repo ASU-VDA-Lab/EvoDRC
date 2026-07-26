@@ -1,0 +1,174 @@
+{
+  "leaf_id": "leaf_0012",
+  "ops_total": 4,
+  "ops_applied": 12,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA45_1_2_58_58",
+        "layer_name": "V4",
+        "shape_index": 0,
+        "axis": "x",
+        "delta_dbu": 152,
+        "group": "via45-v4m5"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA45_1_2_58_58",
+        "layer_name": "V4",
+        "shape_index": 1,
+        "axis": "x",
+        "delta_dbu": 152,
+        "group": "via45-v4m5"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA45_1_2_58_58",
+        "layer_name": "M4",
+        "shape_index": 0,
+        "axis": "x",
+        "delta_dbu": 152,
+        "group": "via45-v4m5"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA23_1_3_36_36",
+        "layer_name": "M3",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": -40,
+        "group": "via23-m3"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize",
+        "polygon_id": "p965",
+        "axis": "y",
+        "delta_dbu": -64,
+        "group": "via23-m3"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize",
+        "polygon_id": "p964",
+        "axis": "y",
+        "delta_dbu": -64,
+        "group": "via23-m3"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize",
+        "polygon_id": "p963",
+        "axis": "y",
+        "delta_dbu": -64,
+        "group": "via23-m3"
+      },
+      "reason": "cu_pool:applied"
+    },
+    {
+      "op": {
+        "op": "resize",
+        "polygon_id": "p962",
+        "axis": "y",
+        "delta_dbu": -64,
+        "group": "via23-m3"
+      },
+      "reason": "cu_pool:applied"
+    }
+  ],
+  "had_drop": true,
+  "cu_pool": [
+    {
+      "target": "def:VIA_VIA23_1_3_36_36",
+      "role": "winner",
+      "ops": [
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA23_1_3_36_36",
+          "layer_name": "M3",
+          "shape_index": 0,
+          "axis": "y",
+          "delta_dbu": -40,
+          "group": "via23-m3"
+        },
+        {
+          "op": "resize",
+          "polygon_id": "p965",
+          "axis": "y",
+          "delta_dbu": -64,
+          "group": "via23-m3"
+        },
+        {
+          "op": "resize",
+          "polygon_id": "p964",
+          "axis": "y",
+          "delta_dbu": -64,
+          "group": "via23-m3"
+        },
+        {
+          "op": "resize",
+          "polygon_id": "p963",
+          "axis": "y",
+          "delta_dbu": -64,
+          "group": "via23-m3"
+        },
+        {
+          "op": "resize",
+          "polygon_id": "p962",
+          "axis": "y",
+          "delta_dbu": -64,
+          "group": "via23-m3"
+        }
+      ]
+    },
+    {
+      "target": "def:VIA_VIA45_1_2_58_58",
+      "role": "winner",
+      "ops": [
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA45_1_2_58_58",
+          "layer_name": "V4",
+          "shape_index": 0,
+          "axis": "x",
+          "delta_dbu": 152,
+          "group": "via45-v4m5"
+        },
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA45_1_2_58_58",
+          "layer_name": "V4",
+          "shape_index": 1,
+          "axis": "x",
+          "delta_dbu": 152,
+          "group": "via45-v4m5"
+        },
+        {
+          "op": "resize_via_shape",
+          "cell_name": "VIA_VIA45_1_2_58_58",
+          "layer_name": "M4",
+          "shape_index": 0,
+          "axis": "x",
+          "delta_dbu": 152,
+          "group": "via45-v4m5"
+        }
+      ]
+    }
+  ]
+}

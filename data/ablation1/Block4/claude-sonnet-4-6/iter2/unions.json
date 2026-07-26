@@ -1,0 +1,230 @@
+{
+  "iter": 2,
+  "case": "Block4",
+  "units": [
+    {
+      "unit_id": "Block4_union_row1",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0001",
+        "leaf_0002"
+      ],
+      "bbox_dbu": [
+        8800,
+        2268,
+        12456,
+        3132
+      ],
+      "violation_ids": [
+        "v0010",
+        "v0002"
+      ],
+      "n_viol": 2
+    },
+    {
+      "unit_id": "Block4_union_row3",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0003",
+        "leaf_0004"
+      ],
+      "bbox_dbu": [
+        6844,
+        4428,
+        8352,
+        5292
+      ],
+      "violation_ids": [
+        "v0011",
+        "v0007"
+      ],
+      "n_viol": 2
+    },
+    {
+      "unit_id": "Block4_union_row7",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0005",
+        "leaf_0006",
+        "leaf_0007"
+      ],
+      "bbox_dbu": [
+        4480,
+        8748,
+        12456,
+        9612
+      ],
+      "violation_ids": [
+        "v0005",
+        "v0012",
+        "v0017",
+        "v0006",
+        "v0004"
+      ],
+      "n_viol": 5
+    },
+    {
+      "unit_id": "Block4_union_row10",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0009",
+        "leaf_0010",
+        "leaf_0011"
+      ],
+      "bbox_dbu": [
+        4264,
+        11988,
+        11376,
+        12980
+      ],
+      "violation_ids": [
+        "v0001",
+        "v0009",
+        "v0036",
+        "v0008"
+      ],
+      "n_viol": 4
+    },
+    {
+      "unit_id": "leaf_0008",
+      "kind": "multi",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0008"
+      ],
+      "bbox_dbu": [
+        4960,
+        10908,
+        12960,
+        11916
+      ],
+      "violation_ids": [
+        "v0013",
+        "v0018",
+        "v0014"
+      ],
+      "n_viol": 3
+    },
+    {
+      "unit_id": "leaf_0012",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0012"
+      ],
+      "bbox_dbu": [
+        1728,
+        2068,
+        13168,
+        13052
+      ],
+      "violation_ids": [
+        "v0019",
+        "v0020",
+        "v0022",
+        "v0023",
+        "v0025",
+        "v0026",
+        "v0028",
+        "v0029",
+        "v0031",
+        "v0032",
+        "v0034",
+        "v0035",
+        "v0037",
+        "v0038",
+        "v0039",
+        "v0040",
+        "v0041",
+        "v0042",
+        "v0045",
+        "v0046",
+        "v0047",
+        "v0048",
+        "v0051",
+        "v0052",
+        "v0053",
+        "v0054",
+        "v0057",
+        "v0058",
+        "v0059",
+        "v0060",
+        "v0063",
+        "v0064",
+        "v0065",
+        "v0066",
+        "v0069",
+        "v0070",
+        "v0071",
+        "v0072",
+        "v0073",
+        "v0074",
+        "v0075",
+        "v0076",
+        "v0077",
+        "v0078",
+        "v0080",
+        "v0081",
+        "v0084",
+        "v0085",
+        "v0088",
+        "v0089",
+        "v0092",
+        "v0093",
+        "v0094",
+        "v0095",
+        "v0096"
+      ],
+      "n_viol": 55
+    },
+    {
+      "unit_id": "leaf_0013",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0013"
+      ],
+      "bbox_dbu": [
+        1728,
+        3148,
+        12960,
+        11972
+      ],
+      "violation_ids": [
+        "v0003",
+        "v0015",
+        "v0016",
+        "v0021",
+        "v0024",
+        "v0027",
+        "v0030",
+        "v0033",
+        "v0043",
+        "v0044",
+        "v0049",
+        "v0050",
+        "v0055",
+        "v0056",
+        "v0061",
+        "v0062",
+        "v0067",
+        "v0068",
+        "v0079",
+        "v0082",
+        "v0083",
+        "v0086",
+        "v0087",
+        "v0090",
+        "v0091"
+      ],
+      "n_viol": 25
+    }
+  ],
+  "n_union": 4,
+  "quarantined": [],
+  "count": 7
+}

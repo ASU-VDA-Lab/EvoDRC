@@ -1,0 +1,14 @@
+{
+  "leaf_id": "Block7_union_row15",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0913", "delta_dbu": [136, 0]},
+    {"op": "resize", "polygon_id": "p3586", "axis": "x", "delta_dbu": 160},
+    {"op": "move_instance", "inst_id": "i0909", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0346", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1045", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0351", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0377", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0477", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved seven VIA_VIA12 instances +36 dbu in x to separate their M1 lands from adjacent std-cell V0 pins (clearing V0.M1.AUX.3); moved i0913 +136 dbu in x and extended p3586 M2 symmetrically by 160 dbu total (left 6920, right 7172) to clear co-located M1.S.2 and V1.M1.EN.1 violations. All 8 target violations cleared; connectivity fully preserved (3325/3325 seeds). Two new violations introduced as declared debt: M1.S.2 at (7164,17460,7192,17504) and M2.S.4 at (7284,17424,7324,17496), arising from conflicting geometric constraints at i0913 site that cannot be resolved with a single move_instance op."
+}

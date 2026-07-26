@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row13",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0856", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1059", "delta_dbu": [-72, 0]},
+    {"op": "move_instance", "inst_id": "i0396", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves three VIA_VIA12 instances to align their M1 lands with adjacent frozen V0 pins (clearing V0.M1.AUX.3) and increase spacing to background M1 side edges (clearing M1.S.2 and V1.M1.EN.1); verified by DRC preview (6/8 violations cleared, 0 new introduced) and connectivity preview (3325/3325 seeds preserved)."
+}

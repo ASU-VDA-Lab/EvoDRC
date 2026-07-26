@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0086", "delta_dbu": [128, 0]},
+    {"op": "resize_end", "polygon_id": "p1065", "axis": "x", "end": "high", "delta_dbu": 184},
+    {"op": "resize_end", "polygon_id": "p957", "axis": "x", "end": "low", "delta_dbu": 176}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0086 +128 dbu in x to clear M1.S.2 tip spacing (v0013), V1.M1.EN.1 enclosure (v0015), and V0.M1.AUX.3 coincidence (v0002) by removing M1 land from the V0 x-region and leveraging merged M1 with _ptemp_20; extends p1065 M2 rightward to maintain connectivity to i0086's new position, and extends p957 M4 leftward by 176 dbu to achieve the required 180 dbu parallel overlap with p956 and clear M4.S.5 (v0041)."
+}

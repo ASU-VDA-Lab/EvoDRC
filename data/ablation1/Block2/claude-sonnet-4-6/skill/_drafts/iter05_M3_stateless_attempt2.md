@@ -1,0 +1,23 @@
+**V2 Repositioning and Resizing Resolves V2.M3 Enclosure and Width-Match Violations**
+
+V2.M3.EN.2 demands that M3 enclose V2 by at least 5 nm on two opposite sides (5 & 5 nm or 5 & 0 nm, projection); V2.M3.AUX.2 further requires V2 to match the M3 width perpendicular to the M3 run direction. When both rules fire on the same via stack, moving individual V2 shapes in x to recentre them under M3 and simultaneously widening each V2 polygon in x resolves the enclosure deficit without opening new M3.S.1 side-to-side gaps. In trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 a combined move-and-resize on three V2 shapes within cell VIA_VIA23_1_3_36_36—two lateral moves plus three x-axis resizes of 288 dbu each, all touching M2, M3, and V2—reduced the total violation count by 24 across two windows (leaf_0012 −12, leaf_0013 −12) and was accepted as applied.
+
+**M3 Polygon End Extension in X Restores Via Enclosure Margins**
+
+Extending both ends of an M3 polygon along x (resize\_end ops, one on each side) can restore V3.M3.EN.1 or V2.M3.EN.2 enclosure on the left and right simultaneously; asymmetric extensions are permissible provided each side individually meets the 5 nm floor. In trial:i03.ug.leaf_0002.01 polygon p937 received a low-end x extension of 64 dbu and a high-end x extension of 320 dbu, touching M3, M4, M5, V3, and V4; the trial was accepted (gated\_in, n\_new\_in\_crop=2, n\_new\_out\_of\_crop=0), confirming that unequal end extensions are compatible with the enclosure rules.
+
+**Instance Moves in Y Correct M3 Spacing Without Generating Out-of-Crop Violations**
+
+Moving cell instances in y by small steps (24–72 dbu) shifts contained M3 polygons relative to adjacent shapes, correcting M3.S.1 side-to-side (≥18 nm) or M3.S.2 tip-to-side (≥25 nm) shortfalls caused by near-minimum pitch placement. Symmetric displacement—some instances shifted +Δy, others −Δy within the same operation—preserves overall layout pitch and avoids propagating new violations outside the repair window. Trials trial:i03.ug.leaf_0002.01 (eight instance moves, ±24 to ±72 dbu in y), trial:i04.ug.leaf_0003.02 (three instance moves, ±24 dbu in y), and trial:i05.ug.leaf_0003.01 (five instance moves, ±24 dbu in y) all touched M3 and were accepted (gated\_in); all three recorded n\_new\_out\_of\_crop=0.
+
+**Added M3 Polygons Must Satisfy M3.W.1 and M3.A.1**
+
+When instance moves sever a formerly continuous M3 route, inserting an add\_polygon on M3 bridges the gap. In trial:i05.ug.leaf_0002.00 three M3 rectangles were inserted alongside eight instance moves: two measured 360 dbu × 48 dbu (area 17 280 nm²) and one measured 360 dbu × 96 dbu (area 34 560 nm²). All three dimensions are well above the M3.W.1 minimum of 18 nm in every direction and the M3.A.1 minimum area of 504 nm²; the trial was accepted (gated\_in, n\_new\_in\_crop=0, n\_new\_out\_of\_crop=0). Every add\_polygon on M3 must therefore have both its x-extent and y-extent ≥18 nm and a total area ≥504 nm² to avoid triggering M3.W.1 or M3.A.1 violations.
+
+**Edge Length Determines Which Tip Spacing Rule Governs Added Polygons**
+
+M3.S.3 (27 nm tip-to-tip) governs pairs of facing edges both in the 24–36 nm length band; M3.S.4 (31 nm tip-to-tip) governs pairs both <24 nm; M3.S.5 (31 nm mixed tip-to-tip) governs one edge in 24–36 nm against one <24 nm; M3.S.2 (25 nm tip-to-side) governs a tip edge ≤36 nm facing a side edge >36 nm; M3.S.1 (18 nm side-to-side) governs pairs both >36 nm. The three polygons added in trial:i05.ug.leaf_0002.00 had their shortest dimension at 48 nm and 96 nm respectively—both above the 36 nm threshold—so all their edges were classified as side edges and M3.S.1 (18 nm) governed their spacing, not any of the tip rules. When adding a short M3 stub whose y-extent falls at or below 36 nm, the stricter tip rules (M3.S.2 through M3.S.5, requiring 25–31 nm clearance) will govern the spacing to neighbouring polygons instead.
+
+**V3.M3.EN.1 Enclosure Requires 5 nm on at Least One Opposite Pair of Sides**
+
+V3.M3.EN.1 fails when V3 is not inside an M3 shrunk by 5 nm in x and also not inside an M3 shrunk by 5 nm in y, meaning neither the left/right pair nor the top/bottom pair provides 5 nm of enclosure simultaneously. The fix in trial:i03.ug.leaf_0002.01—extending M3 polygon p937 substantially in x (total net extension 384 dbu on the high end plus 64 dbu on the low end)—directly addresses the case where the x-side pair lacked the required margin; the accepted outcome confirms that securing 5 nm on the left/right pair alone satisfies V3.M3.EN.1.

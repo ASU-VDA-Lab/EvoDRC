@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0404", "delta_dbu": [104, 0]}
+  ],
+  "explanation": "Clears V0.M1.AUX.3 at (10548,4140,10620,4212) by moving VIA_VIA12 instance i0404 right by 104 dbu, shifting its M1 land left edge from x=10516 to x=10620 so the protrusion below the _ptemp_9 top strip lies entirely to the right of the V0 pin, making the V0 pin's bottom edge fully coincident with the merged M1 outer boundary at y=4140."
+}

@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block4_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0220", "delta_dbu": [37, 0]},
+    {"op": "move_instance", "inst_id": "i0198", "delta_dbu": [37, 0]},
+    {"op": "move_instance", "inst_id": "i0341", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i0271", "delta_dbu": [37, 0]}
+  ],
+  "explanation": "For V0.M1.AUX.3 violations (v0017, v0003, v0018): each VIA_VIA12 was placed with its M1 land overlapping the std-cell M1 step edge at y=6660, absorbing it into the merged M1 and creating a non-coincident V0 top corner; moving each via +37 dbu in x shifts its M1 land left edge just past the V0 right edge, restoring the step as a coincident M1 outer boundary over the full V0 top. For M1.S.2 (v0025): moving i0341 left by 36 dbu increases the gap between its M1 land right tip edge and the frozen std-cell M1 side edge from 72 dbu to 108 dbu, meeting the 25 nm (100 dbu) requirement."
+}

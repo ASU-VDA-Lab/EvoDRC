@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block5_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [4, 0]},
+    {"op": "move_instance", "inst_id": "i0019", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Move VIA_VIA12 instances i0025 (origin 6228,7740→6232,7740) and i0019 (origin 7956,7740→7960,7740) right by 4 dbu (1 nm), increasing the M1 tip-to-side gap from the frozen std-cell M1 edges (x=6096, x=7824) from 96 dbu (24 nm, below threshold) to 100 dbu (25 nm, at threshold), clearing M1.S.2 violations v0014 and v0015 and providing sufficient merged-M1 coverage to clear V1.M1.EN.1 violations v0022 and v0023. V0.M1.AUX.3 violations v0009 and v0006 are structurally unfixable: the 72-dbu-wide V0 cuts sit inside 428-dbu-wide frozen M1 polygons (_ptemp_19/_ptemp_23) making all four V0 edges non-coincident with M1 edges, and resize_via_shape is forbidden (VIA_VIA12 V0.M1.AUX.3 is only 9/52=17% violating, well below the 100% threshold)."
+}

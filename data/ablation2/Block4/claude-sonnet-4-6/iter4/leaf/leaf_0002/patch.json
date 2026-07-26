@@ -1,0 +1,18 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {
+      "op": "resize_end",
+      "pid": "p1410",
+      "edge": "right",
+      "delta": -8
+    },
+    {
+      "op": "move_instance",
+      "iid": "i0238",
+      "dx": -8,
+      "dy": 0
+    }
+  ],
+  "explanation": "Two ops fix v0002 (M3.S.2 at [3076,3172,3168,3308]): (A1) resize p1410 right edge 3076→3068 dbu; (A2) move VIA_VIA23 i0238 by dx=-8 so its M3 land right shifts 3076→3068 dbu. Together, merged M3 right edge at x=3068, gap to p1432 left at x=3168 equals exactly 100 dbu (=25 nm), which satisfies the ≥100 dbu threshold for M3.S.2. The shift also moves the middle V2 cut of i0238 from abs-x=[2860,2932] to [2852,2924], clearing the in-window V2.M3.AUX.2 violation at [2860,3172,2932,3308] (v0031). One new violation is introduced as declared debt: V2.M3.AUX.2 at [2852,3172,2924,3308] (same V2 cut at shifted position; V2 y-edges at [3204,3276] remain non-coincident with merged M3 y-bounds [3172,3308]). Net: +1 (2 cleared, 1 introduced). Connectivity: 588/588 seeds preserved. V0.M1.AUX.3 (v0001) is not a crop-window-level violation (clears even at 0 ops). M1.A.1 and V1.M1.EN.1 at [3024,5176,3096,5264] are pre-existing crop artifacts present at baseline (0 ops); not introduced by this patch."
+}

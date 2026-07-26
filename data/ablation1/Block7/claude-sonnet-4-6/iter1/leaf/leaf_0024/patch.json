@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0024",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0347", "delta_dbu": [72, 44]},
+    {"op": "resize_end", "polygon_id": "p3538", "axis": "x", "end": "high", "delta_dbu": 36},
+    {"op": "resize_end", "polygon_id": "p3538", "axis": "y", "end": "high", "delta_dbu": 44},
+    {"op": "resize_end", "polygon_id": "p2333", "axis": "y", "end": "high", "delta_dbu": 20},
+    {"op": "move_instance", "inst_id": "i1292", "delta_dbu": [-16, 0]},
+    {"op": "resize_end", "polygon_id": "p3706", "axis": "x", "end": "low", "delta_dbu": 52}
+  ],
+  "explanation": "Moves VIA_VIA12 i0347 by (+72,+44) dbu to resolve V0.M1.AUX.3 v0090 by aligning via M1 edges with the std-cell V0 pin, with companion M2 polygon p3538 and M3 polygon p2333 extensions to maintain landing coverage. Moves VIA_VIA12 i1292 by (-16,0) dbu to increase the M1.S.4 tip-to-tip spacing from 108 to 124 dbu for v0130, with M2 polygon p3706 extended left to maintain via connectivity."
+}

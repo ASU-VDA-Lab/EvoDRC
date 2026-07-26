@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0274", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0274 +36 dbu in x so its M1 land no longer extends into the V0 pin x-range (8604..8676), eliminating the merged-M1 step at x=8640 that caused the non-coincident convex corner triggering V0.M1.AUX.3. M2 connectivity is preserved through co-located VIA_VIA23 i0316 (unchanged, 56 dbu overlap with p1604) and a residual 20 dbu M2 land overlap between i0274's shifted land and p1604."
+}

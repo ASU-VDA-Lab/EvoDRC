@@ -1,0 +1,296 @@
+{
+  "budget_s": 0,
+  "case": "Block5",
+  "iter": 1,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 38.72
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 85.36
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 97.61
+        }
+      ],
+      "judged": false,
+      "layer": "M1",
+      "n_new_records": 6,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 34.4
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 114.55
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 60.08
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites all ops accurately, covers direction/magnitude/compound patterns with rule context; A omits Y-axis constraint note and op-count range detail.",
+          "wall_s": 24.36
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 6,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 176.71
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 73.01
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 128.68
+        }
+      ],
+      "judged": false,
+      "layer": "M3",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 32.79
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 70.89
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 74.45
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B accurately notes windows did not reach zero (residual violations); A falsely implies the fix fully cleared enclosure violations. B also correctly i",
+          "wall_s": 19.75
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites M4 op type/shape_index, correctly notes residual violations remain post-fix, and adds locus/window symmetry detail absent in A. A incorrectly",
+          "wall_s": 11.17
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 170.0
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 202.12
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B stays within evidence: notes M3 delta=48 correctly, lists all unobserved rules explicitly. A fabricates M3=48 as chain detail but misstates cell na",
+          "wall_s": 6.36
+        }
+      ],
+      "judged": true,
+      "layer": "M5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 95.63
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 43.22
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 122.36
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 71.78
+        }
+      ],
+      "judged": false,
+      "layer": "V1",
+      "n_new_records": 6,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 107.76
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 81.87
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B's connectivity section accurately enumerates all 6 ops (2xV3,1xM3,1xM4,2xV4); covers every rule including S.1-S.4 and AUX.1; less redundant, better org",
+          "wall_s": 50.46
+        }
+      ],
+      "judged": true,
+      "layer": "V3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 117.61
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 167.19
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly identifies cross-cell fix (VIA_VIA34\u2192VIA_VIA45), all 6 ops, M3/V3 ops, and axis rationale; A omits M3/V3 entirely and misstates cell cont",
+          "wall_s": 16.78
+        }
+      ],
+      "judged": true,
+      "layer": "V4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "V1",
+    "V3",
+    "V4"
+  ],
+  "wall_s": 208.5
+}

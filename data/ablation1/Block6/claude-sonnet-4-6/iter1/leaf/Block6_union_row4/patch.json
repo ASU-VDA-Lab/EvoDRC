@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block6_union_row4",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0319", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0410", "delta_dbu": [4, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 i0319 right 36 dbu (to x=7560) and i0410 right 4 dbu (to x=11848) to clear M1.S.2 tip-to-side spacing violations (v0025, v0026) and V1.M1.EN.1 enclosure violations (v0045, v0046) by aligning both vias with adjacent frozen M1 that provides 9 nm top enclosure; v0002 (V0.M1.AUX.3) is irreducible as deleting i0410 breaks connectivity and resize_via_shape is inadmissible (21/180 < 100%)."
+}

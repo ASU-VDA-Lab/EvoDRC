@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0011", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p974", "axis": "x", "end": "high", "delta_dbu": 72}
+  ],
+  "explanation": "V0.M1.AUX.3 fires because the M1-land of via i0011 (VIA_VIA12) overlaps the frozen std-cell V0 at (5148,2268,5220,2340), creating a merged-M1 step that makes the V0 top and right edges non-coincident at a convex corner; moving i0011 right 36 dbu pulls its M1-land away from the V0, and extending p974 (M2) right 72 dbu maintains M2 coverage over the repositioned V1-cut."
+}

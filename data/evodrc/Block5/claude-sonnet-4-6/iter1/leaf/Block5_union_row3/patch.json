@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block5_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0117", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0131", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0117 and i0131 by +36 dbu in x so their M1 lands no longer overlap the frozen std-cell V0 pins, eliminating the non-coincident convex corner that triggers V0.M1.AUX.3 at both sites (v0005 and v0003)."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0025",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0234", "delta_dbu": [0, 64]},
+    {"op": "move_instance", "inst_id": "i0305", "delta_dbu": [0, 64]}
+  ],
+  "explanation": "Moves VIA_VIA56_2_2_66_58 (i0234) and VIA_VIA56_2_1_66_58 (i0305) by +64 dbu in y, clearing 6 V5.M6.AUX.2 violations at their V5 cut positions; DRC preview confirmed 6 targets cleared, 0 new violations introduced, connectivity preserved (588/588 seeds)."
+}

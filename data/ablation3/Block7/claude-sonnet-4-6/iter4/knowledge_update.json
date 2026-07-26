@@ -1,0 +1,264 @@
+{
+  "budget_s": 0,
+  "case": "Block7",
+  "iter": 4,
+  "layers": {
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 3381.65
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 3381.64
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites instance move y-components and [0,y] moves explicitly; A mischaracterizes instance moves as purely paired with polygon moves. B covers NONORT",
+          "wall_s": 152.79
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 3381.65
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 3381.65
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B more precisely enumerates y-delta set, notes SINCE-MODIFIED on i03 record, covers M4.AUX.4 wide-polygon constraint, and organizes rules by function wit",
+          "wall_s": 83.63
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 3555.26
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 6,
+          "ok": false,
+          "wall_s": 3584.15
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 837.55
+        }
+      ],
+      "judged": false,
+      "layer": "M5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M6": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 3381.65
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 224.87
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 3471.86
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 193.36
+        }
+      ],
+      "judged": false,
+      "layer": "M6",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 3502.77
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 374.05
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 3456.37
+        }
+      ],
+      "judged": false,
+      "layer": "V3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    },
+    "V4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 3552.61
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 55.52
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 3611.7
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 72.28
+        }
+      ],
+      "judged": false,
+      "layer": "V4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 3527.06
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 3454.49
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 111.57
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B cites specific instance IDs, polygon IDs, and delta values verifiable in the history; A misstates iter-1 y-deltas (claims {16,32,64} but history shows ",
+          "wall_s": 25.36
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B cites specific instance IDs, polygon IDs, and delta values from both trials; A misstates i01 y-deltas as {16,32,64} when record shows {-64,-32,-16,+16,",
+          "wall_s": 24.57
+        }
+      ],
+      "judged": true,
+      "layer": "V5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "wall_s": 4421.73
+}

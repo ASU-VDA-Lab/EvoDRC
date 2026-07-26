@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row11",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1828", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1728", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA12 i1828 right 36 dbu so its M1 land left edge aligns with V0 right edge (x=16020), restoring the y=13860 merged-M1 step boundary to fully cover V0 _ptemp_1 bottom edge and clear v0054; moves VIA12 i1728 right 36 dbu so its M1 land left edge aligns with V0 right edge (x=26388), restoring the y=13140 merged-M1 step boundary to fully cover V0 _ptemp_7 top edge and clear v0064."
+}

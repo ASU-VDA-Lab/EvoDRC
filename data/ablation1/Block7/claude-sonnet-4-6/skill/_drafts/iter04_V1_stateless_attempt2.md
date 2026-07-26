@@ -1,0 +1,43 @@
+## V1.W.1 — Minimum Width
+
+All instance moves in the accepted history translate V1-bearing cells along the M2 track direction (x-axis) or perpendicular (y-axis) without narrowing the V1 polygon; the 18 nm minimum width is preserved through all 57 trials by retaining V1 polygon dimensions during instance translation (trial:i01.ug.Block7_union_row10.00, trial:i01.ug.Block7_union_row15.05). Resize_end operations on surrounding M1 and M2 polygons extend endpoints away from the V1 center and do not reduce V1 width (trial:i01.ug.leaf_0002.23, trial:i01.ug.leaf_0008.24).
+
+## V1.S.1 — Spacing Between V1 Instances
+
+V1.S.1 checks projection-distance between V1 instances after expanding each via with the M2 end-cap mask (v1_mask). The dominant repair is translating instances along the x-axis by 36 dbu to open inter-via spacing; this delta recurs across rows and leaf cells in every iteration (trial:i01.ug.Block7_union_row15.05, trial:i01.ug.Block7_union_row22.12, trial:i02.ug.Block7_union_row6.08, trial:i02.ug.Block7_union_row21.05, trial:i03.ug.Block7_union_row24.05). Larger shifts of 40, 64, or 108 dbu appear where the violation is wider or multiple congested vias require repositioning together (trial:i01.ug.Block7_union_row7.19, trial:i01.ug.Block7_union_row8.20, trial:i01.ug.Block7_union_row9.21). When a row contains many adjacent vias with accumulated spacing violations, all affected instances move in the same direction within a single trial to avoid creating downstream violations; trial:i01.ug.Block7_union_row9.21 moves seven instances and trial:i01.ug.Block7_union_row15.05 moves seven instances in a single op-set. A resize_end on the enclosing M2 polygon endpoint accompanies the instance move when the displaced V1 would otherwise exit M2 coverage (trial:i01.ug.Block7_union_row10.00, trial:i01.ug.Block7_union_row24.14, trial:i02.ug.Block7_union_row19.04). Y-axis components appear in the same op-set when a second constraint (M2 track alignment or enclosure) must also be resolved (trial:i01.ug.Block7_union_row19.09, trial:i01.ug.Block7_union_row23.13).
+
+## V1.S.2 — Corner-to-Corner Spacing (Both With End-Cap)
+
+V1.S.2 checks Euclidean corner-to-corner spacing between WEC (with-end-cap) V1 pairs. The x-axis instance translations that resolve V1.S.1 simultaneously increase the Euclidean diagonal distance, satisfying V1.S.2 without a separate step (trial:i01.ug.Block7_union_row11.01, trial:i02.ug.Block7_union_row6.08). Y-axis translations that shift a V1 off a conflicting M2 track also expand the corner-to-corner gap and are accepted as sufficient repairs (trial:i02.ug.leaf_0035.18, trial:i02.ug.leaf_0021.14).
+
+## V1.S.3 — Corner-to-Corner Spacing (Both Without End-Cap)
+
+V1.S.3 fires on Euclidean diagonal violations between NEC (no-end-cap) V1 pairs, filtering out cases already covered by the projection check. Large x-axis shifts of 108 dbu place NEC instances well beyond the 30 nm Euclidean threshold (trial:i01.ug.Block7_union_row7.19, trial:i01.ug.Block7_union_row9.21). In trial:i01.ug.Block7_union_row9.21 the low-x end of p3300 is resized by -36 dbu at the same time as the associated instance moves +108 dbu, adjusting M1/M2 coverage symmetrically around the displaced V1.
+
+## V1.S.4 — Corner-to-Corner Spacing (Mixed End-Cap)
+
+V1.S.4 fires on Euclidean diagonal violations between one WEC and one NEC via. Mixed-direction instance moves (non-zero x and y components in the same move_instance op) resolve this rule when a purely x-axis translation does not clear the diagonal threshold (trial:i01.ug.Block7_union_row19.09, trial:i03.ug.Block7_union_row19.03).
+
+## V1.M1.EN.1 — M1 Enclosure of V1
+
+M1 must enclose V1 by 5 nm on one opposite-side pair and 2 nm on the other. When instance moves create or worsen an M1 enclosure deficit, the repair includes resize_end on the affected M1 polygon endpoint in the same trial. Trial:i01.ug.Block7_union_row3.15 pairs a -36 dbu instance x-move (i1623) with a +49 dbu high-x extension of p3379. Trial:i01.ug.leaf_0008.24 pairs a +40 dbu instance x-move (i1964) with a +164 dbu high-x extension of p3771; the extension exceeds the move by 124 dbu. Trial:i04.ug.leaf_0001.01 simultaneously shrinks p3297 (x, low, -40 dbu) and extends p3696 (x, high, +108 dbu) alongside a +108 dbu move of i1140 and a +60 dbu move of i1144, adjusting enclosure on both ends of the V1 cluster in one op-set. Trial:i01.ug.leaf_0024.25 resizes p3538 (x, high, +36 dbu; y, high, +44 dbu) alongside a diagonal +72/+44 dbu move of i0347, addressing enclosure in both axes together.
+
+## V1.M2.EN.2 — M2 Enclosure of V1
+
+M2 must enclose V1 by 5 & 5 nm or 5 & 0 nm on two opposite sides. When this enclosure is deficient, the repair extends the M2 polygon endpoint on the deficient side via resize_end. Trial:i01.ug.leaf_0002.23 extends p3695 (x, high, +128 dbu) after i1646 moves +72 dbu; the extension is 56 dbu larger than the instance displacement. Trial:i01.ug.leaf_0008.24 extends p3771 (x, high, +164 dbu) after a +40 dbu instance move; the extension exceeds the move by 124 dbu. Trial:i04.ug.leaf_0001.01 extends p3696 (x, high, +108 dbu) alongside a +108 dbu instance move, matching the move delta exactly. When V1 moves in the y-direction, the M2 polygon's y-endpoint requires a corresponding resize_end; trial:i04.ug.leaf_0007.05 extends p2596 (y, high, +68 dbu) to match a +68 dbu y-translation of i0794 and i0810. All accepted trials preserve M2 enclosure at or above the 5 & 0 nm minimum; no trial reduces any M2 enclosure edge below flush on either side (trial:i01.ug.Block7_union_row12.02, trial:i03.ug.Block7_union_row14.01).
+
+## V1.AUX.1 — V1 Inside M1 and M2
+
+V1 must lie entirely within the intersection of M1 and M2. All accepted trials that move V1-bearing instances also resize or reposition the surrounding M1/M2 polygons to maintain full containment. Trial:i01.ug.Block7_union_row10.00 moves i1140 (+4 dbu x) and extends p3305 (x, high, +50 dbu) in the same op-set, keeping M2 coverage over V1 after the displacement. Trial:i04.ug.Block7_union_row13.00 moves three instances and one polygon with V1 listed in touched_layers, confirming that M1/M2 boundaries are adjusted alongside the via positions. No accepted trial results in V1 outside M1 or M2; all 57 trials carry conn_preserved=true and decision=gated_in (trial:i04.ug.leaf_0005.03, trial:i04.ug.leaf_0009.07).
+
+## V1.M2.AUX.2 — V1 Width Matched to M2
+
+V1 must span the full M2 width in the direction perpendicular to the M2 track length. X-axis instance moves do not affect the y-dimension and therefore do not risk V1.M2.AUX.2 compliance. When V1-bearing instances move along y, the M2 polygon moves by the same y-delta to keep V1 flush with both M2 edges. Trial:i02.ug.Block7_union_row17.02 moves p3631 (y, +57) and i0794/i0810 (y, +57) by equal deltas. Trial:i03.ug.Block7_union_row17.02 applies the same pairing in the opposite direction: p3631 (y, -57) and i0794/i0810 (y, -57). Trial:i04.ug.leaf_0007.05 moves p3631 (y, +68) and i0794/i0810 (y, +68) while also extending p2596 (y, high, +68), extending M2 coverage in step with the instance displacement (trial:i03.ug.Block7_union_row19.03 confirms the same coordinated y-pairing at a different offset).
+
+## GEOMETRY.NONORTHOGONAL
+
+All V1 geometry in accepted repairs consists of axis-aligned rectangles with horizontal and vertical edges. All instance move and polygon resize operations use integer dbu deltas on the x or y axis with no diagonal components, producing no non-orthogonal V1 edges across all 57 trials (trial:i01.ug.Block7_union_row10.00, trial:i04.ug.leaf_0009.07).
+
+## Cross-Rule Repair Patterns
+
+The primary operation unit is a coordinated set of move_instance ops on all instances sharing a V1 cluster, paired where needed with resize_end ops on the enclosing M1 and M2 polygons. Resize_end ops always appear in the same trial as the instance moves they accompany, never deferred to a later iteration (trial:i01.ug.Block7_union_row24.14, trial:i04.ug.leaf_0001.01). Trials that touch M3 or V2 alongside M1/M2/V1 show that a V1-level fix propagated upward into the routing stack and is handled in the same op-set (trial:i01.ug.Block7_union_row9.21, trial:i02.ug.leaf_0023.16, trial:i04.ug.Block7_union_row13.00). Trials with n_new_in_crop > 0 confirm that a local repair can expose previously hidden violations within the crop window, requiring additional trials in the same or a subsequent iteration (trial:i01.ug.Block7_union_row21.11 with n_new_in_crop=9; trial:i02.ug.leaf_0041.19 with n_new_in_crop=5; trial:i03.ug.leaf_0020.09 with n_new_in_crop=5).

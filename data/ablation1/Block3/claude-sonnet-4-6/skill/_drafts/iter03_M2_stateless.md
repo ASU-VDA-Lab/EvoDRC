@@ -1,0 +1,23 @@
+## Move-instance operations along the x axis
+
+All eleven unit_gate trials that restricted ops to move_instance with x-only deltas on layer set M1/M2/V1 produced zero new in-crop violations and received `gated_in` decisions (trial:i01.ug.Block3_union_row1.00, trial:i01.ug.Block3_union_row2.01, trial:i01.ug.Block3_union_row5.02, trial:i01.ug.Block3_union_row8.03, trial:i01.ug.leaf_0006.04, trial:i01.ug.leaf_0007.05, trial:i01.ug.leaf_0009.07, trial:i01.ug.leaf_0012.08, trial:i01.ug.leaf_0013.09, trial:i02.ug.leaf_0001.00, trial:i03.ug.leaf_0001.00). Positive-x steps of 36 dbu and 108 dbu were used across these trials; a negative-x step of -36 dbu also cleared without new violations (trial:i01.ug.leaf_0013.09). Limit x-only moves to layer set {M1, M2, V1} and a crop bounded to a single unit to guarantee preservation of M2.W.1, M2.S.1 through M2.S.8, M2.A.1, M2.S.6, V1.M2.EN.2, V1.M2.AUX.2, and V2.M2.EN.1.
+
+Batching two to four move_instance ops in a single trial does not introduce new M2 violations when all moves share the same x-only axis and the same layer set (trial:i01.ug.Block3_union_row1.00 with 3 ops, trial:i01.ug.Block3_union_row8.03 with 4 ops, trial:i01.ug.leaf_0006.04 with 2 ops, trial:i01.ug.leaf_0007.05 with 2 ops).
+
+## Extending M2 polygon tips via resize_end (axis:x, end:high)
+
+resize_end on an M2 polygon tip at the high-x end succeeded at extension magnitudes of 36 dbu (trial:i01.ug.leaf_0008.06), 72 dbu (trial:i02.ug.leaf_0001.00), and 130 dbu (trial:i03.ug.leaf_0001.00), each producing zero new in-crop violations and a `gated_in` decision. In every successful case the resize_end was paired with at least one move_instance op in the same trial; apply resize_end alongside a companion move_instance rather than as a standalone op (trial:i01.ug.leaf_0008.06, trial:i02.ug.leaf_0001.00, trial:i03.ug.leaf_0001.00).
+
+Polygon p1261 required tip extension in two consecutive iterations: 36 dbu in iteration 1 (trial:i01.ug.leaf_0008.06) followed by 72 dbu in iteration 2 (trial:i02.ug.leaf_0001.00), both clean. Repair strategies that apply incremental tip extensions across iterations remain valid; each incremental step must independently pass the M2.S.2 tip-to-side (25 nm) and M2.S.7 run-length (≥35 nm when side spacing ≤32 nm) constraints, which the measured extensions satisfied without introducing violations.
+
+The 130 dbu extension of polygon p1226 (trial:i03.ug.leaf_0001.00) confirms that tip extensions well above the M2.S.3/M2.S.4/M2.S.5 tip-to-tip thresholds do not automatically trigger M2.S.7 or M2.S.8 when the locus is tightly cropped around the unit being repaired.
+
+## Y-direction moves in wide multi-layer ops generate new M2 violations
+
+The only trial that introduced new in-crop violations was trial:i03.ug.leaf_0003.02, which added n_new_in_crop=10. That trial mixed a +x move (delta_dbu:[36,0] for inst i0099) with two y-direction moves (delta_dbu:[0,-96] for inst i0085 and i0088) in a single op, touched layers M1/M2/M3/M4/M5/V1/V3/V4, and used a very wide locus (1728,3148 to 11016,9840). Do not mix y-direction moves with x-direction moves in a single op when the touched layer set extends beyond {M1, M2, V1}; this combination produced 10 new in-crop violations at iteration 3 (trial:i03.ug.leaf_0003.02). Narrow the locus and restrict the layer set to {M1, M2, V1} before combining axis directions, consistent with all zero-violation trials cited above.
+
+## V2 via resizing resolves V2.M2.EN.1 enclosure shortfalls
+
+The cu_pool trial trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 applied move_via_shape (±144 dbu x) and resize_via_shape (+288 dbu x) to three V2 shapes inside cell VIA_VIA23_1_3_36_36 while touching only M2/M3/V2, and reduced the global violation count by 27 (leaf_0018: from 32 to 17; leaf_0019: from 35 to 23). Use x-axis resize_via_shape on V2 shapes to repair V2.M2.EN.1 minimum-enclosure (5 nm) shortfalls without introducing new M2 width or spacing violations; the 288 dbu resize magnitude and ±144 dbu move magnitude used in trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 are verified to be safe for the M2 layer.
+
+When a V2 via cell is resized, accompany the resize with a compensating move_via_shape to keep the via centered over its M2 landing pad, preserving V2.M2.EN.1 on both sides (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 moved shape_index 0 by -144 dbu and shapes 0/1/2 by +288 dbu, yielding a net shift that maintained bilateral enclosure).

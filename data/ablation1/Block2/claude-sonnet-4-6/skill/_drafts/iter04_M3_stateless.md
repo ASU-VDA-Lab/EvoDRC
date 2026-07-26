@@ -1,0 +1,31 @@
+**Via cell V2 shape adjustment clears M3-region violations in bulk**
+
+In trial:i01.cu.def:VIA_VIA23_1_3_36_36.00, 5 operations on layer V2 inside cell VIA_VIA23_1_3_36_36 (channel `cu_pool`) eliminated a net 24 violations touching layers M2, M3, and V2. The repair spread two of the three V2 shapes outward along x by ±144 dbu (shape_index 0 moved −144 dbu, shape_index 2 moved +144 dbu) and simultaneously widened all three V2 shapes by +288 dbu each along x. Connectivity was preserved and the trial was applied. The simultaneous spread-and-expand pattern is necessary because rule V2.M3.EN.2 requires M3 to enclose V2 by 5 nm on two opposite sides in projection; widening V2 without repositioning would push the via edge closer to the M3 boundary on one side, and spreading without widening leaves the enclosure gap on the opposite side. Rule V2.M3.AUX.2 adds the constraint that V2 must match M3 width exactly in the direction perpendicular to M3 length, so any resize of V2 in x must remain consistent with the M3 boundary in that dimension. The locus for this repair spanned y 2068–9812, x 1728–10368 (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00).
+
+**Effect scope per window: both affected windows improved equally**
+
+Both unit windows touched by trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 saw identical reductions: leaf_0012 dropped from 27 to 15 violations (−12), and leaf_0013 dropped from 28 to 16 violations (−12). This symmetry is consistent with the symmetric ±144 dbu spread of the two outer V2 shapes: the two windows likely contain one landing shape each, and the same enclosure deficit appeared in both before repair.
+
+**M3 polygon asymmetric x-extension with y instance rebalancing**
+
+In trial:i03.ug.leaf_0002.01 (channel `unit_gate`, iter 3), polygon p937 on M3 was extended asymmetrically along x: the low-x end grew by +64 dbu and the high-x end grew by +320 dbu. Eight instances (i0094, i0066, i0069, i0070, i0061, i0090, i0098, i0110) were simultaneously displaced along y by values of ±24 dbu or ±72 dbu to rebalance connectivity. Touched layers included M3, M4, M5, V3, and V4. The trial was accepted as `gated_in` because connectivity was preserved, even though 2 new in-crop violations were introduced and 0 escaped the crop window. The asymmetric extension of p937 (320 dbu on one end vs. 64 dbu on the other) suggests the pre-existing deficit was concentrated at the high-x tip, consistent with rule M3.S.2 (tip-to-side spacing 25 nm when one edge ≤ 36 nm) or V3.M3.EN.1 (V3 enclosure by M3 requires 5 nm on at least two opposite sides); the smaller extension at the low-x end likely reflects a tighter constraint from an adjacent shape on that side.
+
+**Small y-axis instance shifts propagate M3 changes across multiple layers**
+
+In trial:i04.ug.leaf_0003.02 (channel `unit_gate`, iter 4), 3 instance moves along y (i0090 +24 dbu, i0110 +24 dbu, i0089 −24 dbu) were sufficient to touch layers M2, M3, M4, M5, V2, V3, and V4. The trial was accepted as `gated_in` with 2 new in-crop violations and 0 out-of-crop, connectivity preserved. The ±24 dbu magnitude (equal to the M3 minimum width of 18 nm in a 1 dbu = 1 nm grid, but here implying a finer grid or a coarser rule snap) is a small enough shift that it primarily affects via enclosure margins rather than spacing between independent shapes. Because both trial:i03.ug.leaf_0002.01 and trial:i04.ug.leaf_0003.02 produced exactly 2 new in-crop violations each while leaving 0 out-of-crop, the unit_gate channel is accepting minor enclosure margin trades inside the crop window as long as no new violations escape to the wider layout.
+
+**Gated-in acceptance threshold observed at 2 new in-crop violations**
+
+Both unit_gate trials in this history (trial:i03.ug.leaf_0002.01 and trial:i04.ug.leaf_0003.02) were accepted at exactly 2 new in-crop violations with 0 out-of-crop, with `reason: conn_preserved`. Do not assume that a `gated_in` decision implies the repair is complete; the in-crop violation count did not reach zero in either case, and subsequent iterations may still need to address the residual violations introduced in those trials.
+
+**Spacing rule sensitivity to edge-length classification**
+
+Rules M3.S.1 through M3.S.5 apply different minimum clearances depending on whether each interacting edge falls in the "side" (> 36 nm), "wide tip" (24–36 nm), or "narrow tip" (< 24 nm) category. The hierarchy is: side-to-side 18 nm (M3.S.1), tip-to-side 25 nm (M3.S.2), wide-tip-to-wide-tip 27 nm (M3.S.3), wide-tip-to-narrow-tip 31 nm (M3.S.5), narrow-tip-to-narrow-tip 31 nm (M3.S.4). When resizing an M3 polygon end (as in the p937 extension in trial:i03.ug.leaf_0002.01), the resulting edge length determines which spacing rule governs the new geometry: extending a tip past 36 nm converts it to a "side" edge and may relax the required clearance from 25 nm (M3.S.2) to 18 nm (M3.S.1), potentially resolving a violation without additional spacing adjustment.
+
+**Corner-to-corner rule M3.S.6 governs diagonal proximity**
+
+Rule M3.S.6 uses Euclidean (not projection) measurement and fires only on near-corner configurations not already caught by M3.S.1–M3.S.5 projection checks. No trial in the current history records a repair explicitly targeting M3.S.6, but any x- or y-displacement of instances (as in trial:i03.ug.leaf_0002.01 and trial:i04.ug.leaf_0003.02) can change diagonal distances between polygon corners without changing projection-measured edge spacings. When instance moves are used to address enclosure rules, verify M3.S.6 compliance for corners of any M3 shape that was indirectly displaced.
+
+**Minimum area M3.A.1 constrains how far tip extensions can be retracted**
+
+Rule M3.A.1 requires each M3 polygon to be at least 504 nm². With M3.W.1 fixing minimum width at 18 nm, the minimum polygon length is 504/18 = 28 nm. Any repair that shortens an M3 polygon to fix a spacing violation must preserve this minimum length. The asymmetric extension in trial:i03.ug.leaf_0002.01 grew p937 rather than shrinking it, which is safe with respect to M3.A.1; shrink-based repairs were not attempted in the recorded history.

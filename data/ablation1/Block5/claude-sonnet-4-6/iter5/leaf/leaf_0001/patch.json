@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p879", "axis": "x", "end": "low", "delta_dbu": 352},
+    {"op": "resize_end", "polygon_id": "p879", "axis": "x", "end": "high", "delta_dbu": 32}
+  ],
+  "explanation": "Expands M5 polygon p879 from x=[1888,2368] to x=[1536,2400] to align both vertical edges to the 96-dbu M5 x-grid (1536%96=0, 2400%96=0), clearing two M5.AUX.1 violations; width of 216 nm avoids the M5.W.3/W.4 forbidden-multiple bands while fully covering the VIA_VIA45 M5 lands at x=[1888,2368]."
+}

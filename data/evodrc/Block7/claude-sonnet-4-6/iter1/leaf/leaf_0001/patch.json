@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1486", "delta_dbu": [108, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i1486 right by 108 dbu, clearing M1.S.2 (tip-to-side gap 96→204 dbu), V1.M1.EN.1 (V1 cut fully inside _ptemp_11 M1 coverage, top enclosure 36 dbu ≥ 20 dbu), and V0.M1.AUX.3 (M1 land no longer overlaps V0 x-range so v0_nonc_h is empty); confirmed by DRC preview with all 3 cleared and 0 new violations."
+}

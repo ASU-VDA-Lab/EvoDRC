@@ -1,0 +1,16 @@
+{
+  "leaf_id": "Block1_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0097", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1323", "axis": "x", "end": "high", "delta_dbu": 36},
+    {"op": "move_instance", "inst_id": "i0434", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1329", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i0455", "delta_dbu": [-72, 0]},
+    {"op": "resize_end", "polygon_id": "p1346", "axis": "x", "end": "low", "delta_dbu": 36},
+    {"op": "move_instance", "inst_id": "i0436", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1325", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i0116", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1250", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "Moved five VIA_VIA12 instances (i0097, i0434, i0455, i0436, i0116) laterally by 72 dbu to eliminate M1-land x-overlap with adjacent frozen V0 std-cell pins, clearing all five V0.M1.AUX.3 violations and the co-located M1.S.2 on i0455; each corresponding M2 routing polygon (p1323, p1329, p1346, p1325, p1250) was extended by the exact amount needed to maintain full enclosure of the via's M2 land at its new position."
+}

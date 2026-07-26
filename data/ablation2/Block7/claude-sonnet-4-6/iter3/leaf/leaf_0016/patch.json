@@ -1,0 +1,14 @@
+{
+  "leaf_id": "leaf_0016",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p2784", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p2795", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p2816", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p2929", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p2928", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p2896", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p2629", "axis": "y", "end": "high", "delta_dbu": 9},
+    {"op": "resize_end", "polygon_id": "p2380", "axis": "y", "end": "high", "delta_dbu": 9}
+  ],
+  "explanation": "Extends the top edge of each of the 8 VIA_VIA23_1_3_36_36 M3 landing pads (p2784, p2795, p2816, p2929, p2928, p2896, p2629, p2380) upward by 9 dbu, converting their right (tip) edge from 136 dbu (34 nm, classified as a tip by M3.S.2) to 145 dbu (36.25 nm, classified as a side), so the 92-dbu gap to the adjacent M3 stripe satisfies M3.S.1 (18 nm side-to-side) instead of failing M3.S.2 (25 nm tip-to-side). DRC preview confirmed: 8 M3.S.2 remaining violations cleared, 0 new violations introduced, 3325 connectivity seeds preserved."
+}

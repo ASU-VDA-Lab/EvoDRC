@@ -1,0 +1,356 @@
+{
+  "budget_s": 0,
+  "case": "Block2",
+  "iter": 2,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 136.38
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 374.44
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 53.19
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 112.81
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"B\",\"reason\":\"B claims 35 move_instance ops (actual: 28) and 6 of 8 polygons with y-moves (actual: 7/8); A's iter-2 facts are accurate throughout.\"}",
+          "wall_s": 75.92
+        }
+      ],
+      "judged": true,
+      "layer": "M1",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 82.97
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 282.46
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B accurately cites 3 V2+1 M2 ops and before/after counts (68\u219260); A misstates op counts and omits before counts. B covers both trials fully; A's pros",
+          "wall_s": 27.4
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 43.49
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 80.0
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites trial IDs per claim, notes SINCE-MODIFIED locus correctly, gives per-rule repair guidance, and is better organized with less redundancy than ",
+          "wall_s": 92.46
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 99.92
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 324.69
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 270.5
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"A falsely asserts no y-axis M4 ops exist, contradicting i02 y-moves on p958-p965; B covers iter-2 bulk pattern correctly though minor p965 two-op ove",
+          "wall_s": 43.19
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 180.35
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 157.39
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 212.84
+        }
+      ],
+      "judged": false,
+      "layer": "M5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 306.83
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 193.23
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 181.67
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 217.27
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A cites seed+reference-design-verified evidence per claim; B attributes polygon/M1/M2/M3 ops from the whole_design trial to V1 rules incorrectly, oversta",
+          "wall_s": 9.43
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A cites specific coordinates, deltas, and worked examples verifiable against history; B draws correct but shallow inferences from the same trial; A cover",
+          "wall_s": 10.35
+        }
+      ],
+      "judged": true,
+      "layer": "V1",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 379.35
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 96.12
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 153.34
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A cites locus_status SINCE-MODIFIED correctly as past state, covers both trials in depth, and is better organized with no overclaims; B omits SINCE-MODIF",
+          "wall_s": 26.48
+        }
+      ],
+      "judged": true,
+      "layer": "V2",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "V3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 7,
+          "ok": false,
+          "wall_s": 244.72
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 419.46
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 302.14
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 74.35
+        }
+      ],
+      "judged": false,
+      "layer": "V3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 120.48
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 215.34
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 118.66
+        }
+      ],
+      "judged": false,
+      "layer": "V4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "V1",
+    "V2",
+    "V3",
+    "V4"
+  ],
+  "wall_s": 664.21
+}

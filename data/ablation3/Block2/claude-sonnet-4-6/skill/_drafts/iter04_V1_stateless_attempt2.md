@@ -1,0 +1,33 @@
+## Operation Patterns and V1 Compliance
+
+All three measured trials (trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, trial:i04.ug.whole_design.00) were accepted with `decision: gated_in`, `conn_preserved: true`, and zero new violations (`n_new_in_crop: 0`, `n_new_out_of_crop: 0`). Every prescriptive statement below is grounded exclusively in these records.
+
+## Coordinated Instance-Move Plus M2-Resize Is the Safe Repair Pattern
+
+The consistent repair strategy across all three iterations is to move instances rightward along the x-axis while simultaneously extending the high end of associated M2 polygons by the same or greater x-delta. In trial:i02.ug.whole_design.00, the bulk of V1-touching ops consisted of moving instances by `[32, 0]` dbu (with per-group y-offsets of 0, ±48, ±72, ±96 dbu) paired with `resize_end` operations on the high-x end of M2 polygons by 32 dbu, plus two larger moves of instances i0086 and i0063 by `[72, 0]` and their associated M2 polygon extensions of 116 dbu (p1065) and 80 dbu (p1036). In trial:i03.ug.whole_design.00, instance i0063 received an additional `[36, 0]` move and p1036 a further +84 dbu resize_end. In trial:i04.ug.whole_design.00, eleven instances were moved `[72, 0]` and eleven M2 polygons (p1065, p1045, p1026, p1052, p1053, p1040, p1063, p1034, p1057, p1059, p1060) each received a +72 dbu high-x resize_end. All three trials cleared V1 with no new violations.
+
+Never apply an instance move without a corresponding M2 polygon extension at the high end when V1 is inside that M2 shape; the three trials consistently pair these operations, and all three cleared DRC (trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, trial:i04.ug.whole_design.00).
+
+## V1.AUX.1 and V1.M2.AUX.2: Keep V1 Inside Both M1 and M2, Width-Matched to M2
+
+V1.AUX.1 requires V1 to lie inside the intersection of M1 and M2. V1.M2.AUX.2 requires V1 to be exactly the same width as M2 in the direction perpendicular to the M2 length (i.e., V1 edges must be coincident with M2 edges on both sides perpendicular to the wire run). The repair pattern in all three trials extends M2 to cover the displaced V1 position rather than resizing V1 itself, which preserves the width-match relationship required by V1.M2.AUX.2. Use M2 polygon high-end extension to track instance displacement; do not resize V1 independently, as the M2-extension approach proved sufficient in trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, and trial:i04.ug.whole_design.00.
+
+## V1.M1.EN.1: M1 Must Enclose V1 With 5 nm on One Axis and 2 nm on the Other
+
+V1.M1.EN.1 requires that on two opposite sides along one projection axis M1 encloses V1 by at least 5 nm, and on the orthogonal axis by at least 2 nm. The instance moves in all three trials displace both V1 shapes and their enclosing M1 cells together (since V1 lives inside instances), so M1 enclosure of V1 is maintained automatically when the entire instance is translated. Apply whole-instance moves rather than moving V1 shapes in isolation to avoid disturbing the M1-V1 enclosure relationship; this approach was used in trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, and trial:i04.ug.whole_design.00 without producing V1.M1.EN.1 violations.
+
+## V1.M2.EN.2: M2 Must Enclose V1 With 5 nm on Two Opposite Sides (or 5 & 0 nm)
+
+V1.M2.EN.2 requires M2 to enclose V1 by at least 5 nm on two opposite sides along one projection axis (5 & 5 nm, or the 5 & 0 nm flush variant). Because M2 polygons are on the top level (not inside instances), moving an instance shifts V1 relative to the M2 polygon, which can violate enclosure on the high-x side if M2 is not extended. The repair in all three trials extends the M2 high-end by the same or greater dbu as the instance displacement (trial:i02.ug.whole_design.00 extended some polygons by more than the instance delta to recover enclosure margin; trial:i04.ug.whole_design.00 matched the 72 dbu instance delta exactly with 72 dbu polygon extensions). Always extend M2 at the high-x end by at least the instance displacement delta to maintain V1.M2.EN.2 enclosure after a rightward instance move (trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, trial:i04.ug.whole_design.00).
+
+## V1.W.1: Minimum V1 Width of 18 nm Along M2 Length
+
+V1.W.1 sets a 18 nm minimum width for V1 along the M2 length direction. None of the three trials applied any direct resize to V1 polygons; all ops were instance moves or M2/M1 polygon extensions. No V1.W.1 violations appeared in any trial. Avoid resizing V1 shapes directly; the instance-move strategy leaves V1 internal geometry unchanged and has not triggered V1.W.1 in trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, or trial:i04.ug.whole_design.00.
+
+## V1.S.1 Through V1.S.4: Spacing Rules Depend on M2 End-Cap Classification
+
+V1.S.1–V1.S.4 distinguish between V1 instances that have a 5 nm M2 end-cap (WEC: with end-cap) and those that do not (NEC: no end-cap). The mask expansion and spacing thresholds differ: V1.S.1 requires 17 nm projection spacing for the mask-derived geometry, V1.S.2 requires 16.4 nm Euclidean corner-to-corner for WEC pairs (corresponding to 23 nm physical), V1.S.3 requires 16.12 nm Euclidean corner-to-corner for NEC pairs (corresponding to 30 nm physical), and V1.S.4 requires 17.11 nm Euclidean corner separation between mixed WEC/NEC pairs (corresponding to 27 nm physical). The three trials produced no new spacing violations despite displacing clusters of instances by 32–72 dbu, which confirms that the inter-instance spacing in this design was not at the spacing minimum before repair, and that the direction of displacement (rightward, along x) moved instances away from or parallel to existing spacing edges rather than closing gaps. When moving instances rightward, verify that no V1 on the left side of the displaced cluster closes the spacing with a V1 anchored on a non-moving M2 track; the three trials cleared this check (trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, trial:i04.ug.whole_design.00).
+
+## GEOMETRY.NONORTHOGONAL: All V1 Edges Must Be Orthogonal
+
+The nonorthogonal block flags any edge on V1 with an angle not in {0°, 90°, 180°, 270°}. All ops in the three trials used axis-aligned moves and high-end resizes, producing only rectangular geometry. Never introduce diagonal edges on V1; the purely orthogonal operation set used across trial:i02.ug.whole_design.00, trial:i03.ug.whole_design.00, and trial:i04.ug.whole_design.00 produced no GEOMETRY.NONORTHOGONAL violations.

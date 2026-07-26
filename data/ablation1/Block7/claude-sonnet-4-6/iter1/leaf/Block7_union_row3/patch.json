@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1623", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p3379", "axis": "x", "end": "high", "delta_dbu": 49}
+  ],
+  "explanation": "Moving via i1623 (VIA_VIA12) left 36 dbu aligns its M1 land with background std-cell M1 _ptemp_7, satisfying V1.M1.EN.1 hgood (128 dbu bottom enclosure) and eliminating the narrow M1 tip that caused M1.S.4 (tip merges into wide _ptemp_7 feature, gap to _ptemp_11 becomes 124 dbu = 31 nm). Extending p3379 right end by 49 dbu widens the facing M2 horizontal-edge overlap from 112 dbu to 141 dbu (> 35 nm threshold), clearing M2.S.7 sub-rule 2."
+}

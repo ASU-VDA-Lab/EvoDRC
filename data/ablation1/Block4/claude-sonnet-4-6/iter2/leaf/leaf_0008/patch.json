@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0038", "delta_dbu": [0, -44]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0038 down 44 dbu so its M1 land top moves from y=11788 to y=11744 (gap to p1614 increases from 56 to 100 dbu = 25 nm, clearing M1.S.2) and the V1 cut top moves from y=11780 to y=11736 (fully within the _ptemp_53 M1 band at y=11700-11772 that provides x-enclosure, clearing V1.M1.EN.1). Violation v0013 between frozen std-cell M1 (_ptemp_53) and die-spanning p1614 has no admissible regional fix."
+}

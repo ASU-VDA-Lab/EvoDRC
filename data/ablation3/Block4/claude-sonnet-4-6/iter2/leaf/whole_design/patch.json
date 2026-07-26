@@ -1,0 +1,14 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "V2",
+      "shape_index": 1,
+      "axis": "x",
+      "delta_dbu": 144
+    }
+  ],
+  "explanation": "Widens the center V2 cut in VIA_VIA23_1_3_36_36 from (-36,-36,36,36) to (-108,-36,108,36), making the three V2 cuts abut so their merged extent matches the M3 land x-edges at ±180 and satisfying V2.M3.AUX.2 at all 17 placements."
+}

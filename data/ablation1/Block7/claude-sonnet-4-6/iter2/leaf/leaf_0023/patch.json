@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0023",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0336", "delta_dbu": [0, -16]},
+    {"op": "move_instance", "inst_id": "i0308", "delta_dbu": [0, -16]},
+    {"op": "move", "polygon_id": "p3516", "axis": "y", "delta_dbu": -16}
+  ],
+  "explanation": "Moves VIA_VIA12 i0336 and VIA_VIA23 i0308 down 16 dbu to increase the M1.S.4 tip-to-tip gap from 112 dbu (28 nm) to 128 dbu (32 nm), clearing v0073; also moves M2 stub p3516 down 16 dbu to keep its top edge coincident with the new via M2 land tops and avoid a V1.M2.EN.2 partial-enclosure violation."
+}

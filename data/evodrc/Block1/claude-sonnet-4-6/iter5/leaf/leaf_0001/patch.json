@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0181", "delta_dbu": [76, 0]}
+  ],
+  "explanation": "Moving via i0181 (VIA_VIA45) by +76 dbu in x shifts its M5 land from x=4148..4244 to x=4224..4320, exactly aligning it with polygon p1154, eliminating the M5 bend (M5.AUX.3 v0091, v0092) and placing both M5 vertical edges on the 96-dbu grid (M5.AUX.1 v0129)."
+}

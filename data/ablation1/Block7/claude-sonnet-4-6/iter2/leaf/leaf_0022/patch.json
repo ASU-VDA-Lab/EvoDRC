@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0022",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [0, -44]}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i1062 down 44 dbu to eliminate the M1 protrusion above _ptemp_1's top edge (y=17460), clearing all five M1 spacing violations (M1.S.4, M1.S.5, M1.S.6) without introducing new violations."
+}

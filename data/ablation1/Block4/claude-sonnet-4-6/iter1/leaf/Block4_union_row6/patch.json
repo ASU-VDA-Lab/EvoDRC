@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block4_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0139", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0043", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0028", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Each VIA_VIA12 instance's M1 land (88 dbu tall) protruded past the std-cell V0 pin (72 dbu tall), breaking the flush-edge coincidence required by V0.M1.AUX.3; shifting each via +36 dbu in X moves its M1 land left edge to exactly V0's right edge, restoring flush corners without disrupting connectivity."
+}

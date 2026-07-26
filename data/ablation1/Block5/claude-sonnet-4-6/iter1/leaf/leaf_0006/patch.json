@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0012", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0012 right by 36 dbu (9 nm), placing via M1 left edge at x=5220 (= V0 pin right boundary), eliminating via M1 overlap with V0 pin x-range so _ptemp_13 M1 cleanly encapsulates the V0 pin and clears V0.M1.AUX.3; also moves via M1 corner further from frozen std-cell M1, clearing both M1.S.6 violations."
+}

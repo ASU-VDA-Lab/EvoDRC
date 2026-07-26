@@ -1,0 +1,5 @@
+{
+  "leaf_id": "Block7_union_row9",
+  "ops": [],
+  "explanation": "No safe net-reducing fix exists. v0008 (V0.M1.AUX.3): moving i1117 right by +68 dbu clears the violation but introduces an unavoidable M2.S.4 (net=0); deleting i1117 clears it with no new violations but breaks block connectivity (2 pin seeds severed). v0001 (V0.M1.AUX.3): caused by frozen std-cell M1 (_ptemp_18) burying the V0 contact; no editable regional op can fix it."
+}

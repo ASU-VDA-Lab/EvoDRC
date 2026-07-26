@@ -1,0 +1,225 @@
+{
+  "budget_s": 0,
+  "case": "Block2",
+  "iter": 1,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 44.99
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 60.68
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites exact op params, coordinates, instance IDs, and per-trial deltas matching the history; A omits y=0 constraint, multi-instance uniformity, ass",
+          "wall_s": 43.49
+        }
+      ],
+      "judged": true,
+      "layer": "M1",
+      "n_new_records": 8,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 41.61
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 71.9
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly notes 12 dbu move in leaf_0001 and multi-instance group moves; A misidentifies leaf_0001 as 12dbu yet omits group-move detail. B covers c",
+          "wall_s": 39.04
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B covers multi-instance moves, 12dbu step, M1 polygon add, row-level grouping rationale, and conn_preserved requirement\u2014all verifiable in history. A omit",
+          "wall_s": 7.1
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 9,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 93.38
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 143.12
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 44.13
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B covers all M3 rules with explicit non-implication notes, adds AUX.2 interaction insight, warns against partial fixes, and cites evidence throughout",
+          "wall_s": 6.12
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 91.86
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 197.09
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 74.73
+        }
+      ],
+      "judged": false,
+      "layer": "M5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 47.83
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 92.57
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 97.27
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B verifies V1-specific DRC outcomes, per-rule attribution, and M1 enclosure math from the record; A misattributes a resize op to leaf_0001 that belon",
+          "wall_s": 10.14
+        }
+      ],
+      "judged": true,
+      "layer": "V1",
+      "n_new_records": 8,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 70.34
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 132.39
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B faithfully cites all ops/deltas, covers touched_layers side-effects, enclosure/spacing rules, and cell-vs-instance guidance; A omits multi-layer si",
+          "wall_s": 5.99
+        }
+      ],
+      "judged": true,
+      "layer": "V2",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "M5",
+    "V1",
+    "V2"
+  ],
+  "wall_s": 271.83
+}

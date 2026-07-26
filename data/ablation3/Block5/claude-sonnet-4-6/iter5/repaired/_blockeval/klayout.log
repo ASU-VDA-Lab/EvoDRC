@@ -1,0 +1,8 @@
+[entrypoint] Dropping all capabilities except CAP_CHOWN/CAP_DAC_OVERRIDE/CAP_FOWNER/CAP_SETUID/CAP_SETGID/CAP_KILL (irreversible)...
+
+[entrypoint] Dropping all capabilities except CAP_CHOWN/CAP_DAC_OVERRIDE/CAP_FOWNER/CAP_SETUID/CAP_SETGID/CAP_KILL (irreversible)...
+ERROR: In ./DAC26_DRC_Benchmark/testcase/asap7/asap7.lydrc: 'source': The layout has multiple top cells in Layout::top_cell
+ERROR: RuntimeError: 'source': The layout has multiple top cells in Layout::top_cell in Executable::execute
+  ./DAC26_DRC_Benchmark/testcase/asap7/asap7.lydrc:41:in `execute'
+  :/built-in-macros/drc_interpreters.lym:31:in `instance_eval'
+  :/built-in-macros/drc_interpreters.lym:31:in `execute'

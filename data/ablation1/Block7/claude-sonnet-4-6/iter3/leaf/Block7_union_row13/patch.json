@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row13",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0347", "delta_dbu": [0, -88]},
+    {"op": "resize_end", "polygon_id": "p3538", "axis": "y", "end": "high", "delta_dbu": -44}
+  ],
+  "explanation": "Moves VIA_VIA12 i0347 down 88 dbu so its V1 y-edges (15264–15336) coincide with the merged M2 outer boundary, clearing V1.M2.AUX.2 (v0116); simultaneously trims M2 polygon p3538 high-y from 15380 to 15336 to match, removing the prior merged-M2 extension that had suppressed coincidence and also closing the 32 nm M2.S.7 gap between i0347 and i0356 (v0075) to 54 nm."
+}

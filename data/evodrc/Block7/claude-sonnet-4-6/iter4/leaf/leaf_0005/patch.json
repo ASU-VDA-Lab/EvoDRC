@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [0, -44]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i1062 downward by 44 dbu (origin y=17460→17416), shifting its M1 land top tip from y=17504 to y=17460 and eliminating the M1.S.2 tip-to-side projection overlap with the frozen _ptemp_4 bottom side at y=17532."
+}

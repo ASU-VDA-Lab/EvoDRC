@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move", "polygon_id": "p879", "axis": "x", "delta_dbu": 32},
+    {"op": "move_instance", "inst_id": "i0114", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0112", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0073", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0062", "delta_dbu": [32, 0]}
+  ],
+  "explanation": "M5.AUX.1 fires because p879's vertical edges (x=1888, x=2368) are 64 dbu off the required 96 dbu grid; co-moving p879 and the four VIA_VIA45_1_2_58_58 instances by +32 dbu in x places all edges on-grid (1920=20×96, 2400=25×96) while preserving connectivity."
+}

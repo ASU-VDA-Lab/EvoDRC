@@ -1,0 +1,13 @@
+{
+  "leaf_id": "Block1_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0294", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1295", "axis": "x", "end": "high", "delta_dbu": 156},
+    {"op": "move_instance", "inst_id": "i0433", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p1305", "axis": "x", "end": "low", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0313", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1366", "axis": "x", "end": "high", "delta_dbu": 92},
+    {"op": "resize_end", "polygon_id": "p1297", "axis": "x", "end": "high", "delta_dbu": 48}
+  ],
+  "explanation": "Seven ops targeting four violation clusters in Block1_union_row5: VIA_VIA12 instances i0294, i0433, and i0313 are shifted along x to resolve via enclosure and spacing violations, with corresponding M2 polygon extensions on p1295, p1305, and p1366 to maintain connectivity; M2 polygon p1297 is extended to clear a metal spacing violation. DRC preview confirmed all 7 target violations cleared with zero new violations introduced, and connectivity preview confirmed all 824 seeds preserved."
+}

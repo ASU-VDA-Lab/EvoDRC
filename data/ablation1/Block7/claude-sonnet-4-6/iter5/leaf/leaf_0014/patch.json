@@ -1,0 +1,51 @@
+{
+  "leaf_id": "leaf_0014",
+  "ops": [
+    {
+      "op": "move_via_shape",
+      "cell_name": "VIA_VIA45_1_2_58_58",
+      "layer_name": "V4",
+      "shape_index": 0,
+      "axis": "x",
+      "delta_dbu": -116,
+      "group": "v45-fix"
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA45_1_2_58_58",
+      "layer_name": "V4",
+      "shape_index": 0,
+      "axis": "x",
+      "delta_dbu": 232,
+      "group": "v45-fix"
+    },
+    {
+      "op": "move_via_shape",
+      "cell_name": "VIA_VIA45_1_2_58_58",
+      "layer_name": "V4",
+      "shape_index": 1,
+      "axis": "x",
+      "delta_dbu": 116,
+      "group": "v45-fix"
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA45_1_2_58_58",
+      "layer_name": "V4",
+      "shape_index": 1,
+      "axis": "x",
+      "delta_dbu": 232,
+      "group": "v45-fix"
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA45_1_2_58_58",
+      "layer_name": "M5",
+      "shape_index": 0,
+      "axis": "x",
+      "delta_dbu": -152,
+      "group": "v45-fix"
+    }
+  ],
+  "explanation": "Fixes V4.M5.AUX.2 by centering both V4 cuts of VIA_VIA45_1_2_58_58 at x=0 and widening to \u00b1164 dbu to flush the shrunk M5 land x-edges (\u00b1240\u2192\u00b1164 dbu); admitted as a def-level edit since V4.M5.AUX.2 is =100% block-wide for this cell."
+}

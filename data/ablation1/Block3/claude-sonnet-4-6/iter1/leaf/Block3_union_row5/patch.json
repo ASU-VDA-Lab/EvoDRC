@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block3_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0124", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0011", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0033", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Three VIA_VIA12 instances (i0124, i0011, i0033) were each shifted +36 dbu in X so their M1 lands align flush with the right edges of the frozen std-cell V0 pins, eliminating the non-coincident convex corners that triggered V0.M1.AUX.3 at all three violation sites."
+}

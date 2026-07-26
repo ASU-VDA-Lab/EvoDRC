@@ -1,0 +1,40 @@
+{
+  "leaf_id": "leaf_0004",
+  "leaf_bbox": [
+    4244,
+    6588,
+    12316,
+    7596
+  ],
+  "n_targets": 10,
+  "n_cleared": 2,
+  "n_remaining": 8,
+  "cleared": [
+    "V0.M1.AUX.3",
+    "V0.M1.AUX.3"
+  ],
+  "remaining": [
+    "V0.S.2",
+    "V0.M1.AUX.3",
+    "V1.M1.EN.1",
+    "V1.M2.AUX.2",
+    "M1.S.2",
+    "M1.S.2",
+    "V1.S.2",
+    "V1.S.2"
+  ],
+  "repair_rate": 0.2,
+  "n_new_in_crop": 1,
+  "n_new_out_of_crop": 0,
+  "new_in_crop_by_rule": {
+    "M2.S.2": 1
+  },
+  "new_out_of_crop_by_rule": {},
+  "new_out_of_crop_bboxes": [],
+  "drc_total_after": 152,
+  "drc_baseline": 153,
+  "drc_delta": -1,
+  "connectivity_preserved": true,
+  "scored_against": "isolated",
+  "had_drop": true
+}

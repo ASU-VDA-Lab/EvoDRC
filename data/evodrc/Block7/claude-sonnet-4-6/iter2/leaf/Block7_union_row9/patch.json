@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row9",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1150", "delta_dbu": [56, 0]},
+    {"op": "resize_end", "polygon_id": "p3683", "axis": "x", "end": "high", "delta_dbu": 112}
+  ],
+  "explanation": "Fixes v0001 (V0.M1.AUX.3) by sliding VIA_VIA12 i1150 +56 dbu in x so its M1 land no longer overlaps the V0 contact's x-span, then extends M2 polygon p3683 rightward 112 dbu to maintain continuous M2 coverage over the relocated via's M2 land. v0008 is left unfixed because any move of i1117 sufficient to clear the V0.M1.AUX.3 violation introduces secondary M1.W.1, M1.S.2, M2.S.4, and V1.M1.EN.1 violations (declared debt)."
+}

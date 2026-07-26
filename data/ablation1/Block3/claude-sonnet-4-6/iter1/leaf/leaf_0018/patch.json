@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0018",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M5","shape_index":0,"axis":"y","delta_dbu":-88}
+  ],
+  "explanation": "Shrinks the M5 land of VIA_VIA45_1_2_58_58 by 88 dbu total (44 each side) in Y so its top/bottom edges align with the V4 cut extents (±48 dbu), clearing 10 V4.M5.AUX.2 violations and as a side effect clearing 2 M5.AUX.1 violations (12 target violations cleared total). The originally planned Op 1 (resize VIA_VIA23_1_3_36_36 M3 in Y by -40) was removed after DRC preview showed it has no effect: VIA_VIA34_1_2_58_52 instances share the same origin and contribute M3 with larger Y extent (±68 dbu vs ±56 dbu), so the merged M3 is dominated by VIA_VIA34 and shrinking VIA_VIA23 M3 does not change any DRC outcome. V2.M3.AUX.2 violations (15) are declared debt: they cannot be fixed because the merged M3 at those locations is controlled by VIA_VIA34 M3 (±68), and shrinking VIA_VIA34 M3 would break V3 containment. DECLARED DEBT: 15 V2.M3.AUX.2, 2 M4.AUX.1, 1 M4.AUX.2, and 1 new M5.AUX.1 introduced at (1888,2068,2368,10892) because shrinking the via M5 patches exposes the top-level M5 stripe boundary edges (Y=2068 and Y=10892) which are off the 24nm horizontal-edge grid."
+}

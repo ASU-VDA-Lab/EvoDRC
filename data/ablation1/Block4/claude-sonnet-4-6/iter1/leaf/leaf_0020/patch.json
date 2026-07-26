@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0020",
+  "ops": [{"op": "move_instance", "inst_id": "i0101", "delta_dbu": [36, 0]}],
+  "explanation": "Moves VIA12 instance i0101 from origin (6516,10620) to (6552,10620) by +36 dbu in X. This eliminates the V0.M1.AUX.3 violation at bbox [6444,10620,6516,10692]: previously, the VIA12 M1 land extended below the bottom of background M1 _ptemp_5, creating merged M1 with no horizontal outer boundary at y=10620 in range x=6480-6552, causing V0 bottom edge to be non-coincident with merged M1 in that sub-range and pairing with the non-coincident V0 right edge (x=6516) to form a convex violation. After the move, VIA12 M1 left edge is at x=6516 (coincident with V0 right edge), so only _ptemp_5 provides M1 within the V0 x-range and all V0 horizontal edges remain coincident with M1 edges. M2 connectivity is preserved: VIA12 M2 land after move spans abs (6496,10584)-(6608,10656), overlapping M2 polygon p1568 by 20x72 dbu."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0453", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 instance i0453 rightward by 72 dbu (from origin 11268,4500 to 11340,4500) so its M1 land (now x=11304–11376) falls entirely within the background _ptemp_9 M1 polygon, eliminating the bump above y=4500 that caused V0's top-right corner at (11268,4500) to have both a horizontal and vertical edge non-coincident with M1, clearing V0.M1.AUX.3."
+}

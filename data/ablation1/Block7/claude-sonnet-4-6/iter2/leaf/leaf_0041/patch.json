@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0041",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0041", "delta_dbu": [0, -44]}
+  ],
+  "explanation": "Moves via i0041 (VIA_VIA12) downward 44 dbu to new origin (25488, 26820), shifting its M1 land from (25452,26820,25524,26908) to (25452,26776,25524,26864) and its V1 cut from (25452,26828,25524,26900) to (25452,26784,25524,26856), clearing 7 violations (v0001 V0.S.2, v0003 V0.M1.EN.1, v0068 M1.S.2, v0124 V1.S.2, v0125 V1.S.2, v0140 V1.M1.EN.1, v0144 V1.M2.AUX.2) while preserving full connectivity through maintained M2-land overlap with p3504 and i0053."
+}

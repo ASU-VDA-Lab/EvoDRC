@@ -1,0 +1,14 @@
+{
+  "leaf_id": "Block7_union_row14",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0894", "delta_dbu": [0, 64]},
+    {"op": "move_instance", "inst_id": "i0920", "delta_dbu": [0, 64]},
+    {"op": "resize_end", "polygon_id": "p3576", "axis": "y", "end": "high", "delta_dbu": 64},
+    {"op": "move_instance", "inst_id": "i0519", "delta_dbu": [0, -12]},
+    {"op": "move_instance", "inst_id": "i0524", "delta_dbu": [0, -12]},
+    {"op": "move_instance", "inst_id": "i0874", "delta_dbu": [28, 0]},
+    {"op": "resize_end", "polygon_id": "p3200", "axis": "x", "end": "high", "delta_dbu": 48},
+    {"op": "move_instance", "inst_id": "i0915", "delta_dbu": [28, 0]}
+  ],
+  "explanation": "Clears 8 genuine violations across 4 clusters. CLUSTER A (ops 1-3): move co-located VIA_VIA12 i0920 and VIA_VIA23 i0894 up +64 dbu so via M1 bottom rises from 17056 to 17120, above std-cell M1 bottom at y=17100 — eliminates all downward M1 protrusions causing v0133 (M1.S.4), v0149/v0152 (M1.S.5), v0176/v0177 (M1.S.6); extend D-editable M2 polygon p3576 up +64 dbu to y=17200 to maintain M2 connectivity with both shifted vias. CLUSTER B (ops 4-5): move co-located VIA_VIA12 i0519 and VIA_VIA23 i0524 down -12 dbu so via M1 top falls from 16568 to 16556, yielding exactly 124 dbu = 31 nm gap to std-cell M1 at y=16680, clearing v0132 (M1.S.4). CLUSTERS C/D (ops 6-8): move VIA_VIA12 i0874 right +28 dbu so via M1 left edge moves from x=3600 to x=3628, yielding 100 dbu = 25 nm gap to std-cell M1 at x=3528, clearing v0112 (M1.S.2); extend D-editable M2 polygon p3200 right +48 dbu to x=3720 to cover i0874 shifted M2 land; move VIA_VIA12 i0915 right +28 dbu so via M1 left edge moves from x=4896 to x=4924, yielding 100 dbu = 25 nm gap, clearing v0113 (M1.S.2). UNFIXABLE: v0045/v0070/v0073/v0097 (V0.M1.AUX.3) cannot be fixed by instance moves — std-cell M1 right edge is structurally wider than V0 right edge at every affected site; no regional op eliminates the non-coincident horizontal edges without creating new M1.S violations. DECLARED DEBT: (1) v0111 M1.S.2 x-spacing at i0519 right edge x=25704 vs std-cell M1 at x=25776 remains (y-move does not address x-gap; moving i0519 in x would break M3/V2 alignment with p2476); (2) V1.M1.EN.1 at shifted i0874/i0915 positions is a structural property of VIA_VIA12 (M1 x-enclosure of V1 = 0 dbu by cell definition) — net-zero: 2 repositioned, same count as before; (3) i0524 M3 top at y=16568 extends 8 dbu past p2476 top at y=16560 — M3 rules not active in this leaf crop, no M3.S violation in window; (4) V1.M2.EN.2 zero-height flush condition at i0519 shifted position — structural VIA_VIA12 property (M2 and V1 both span center±36 in y), rule not active in this leaf. NET: 8 genuine violations cleared, 0 genuine new violations introduced, connectivity preserved (3325 seeds checked)."
+}

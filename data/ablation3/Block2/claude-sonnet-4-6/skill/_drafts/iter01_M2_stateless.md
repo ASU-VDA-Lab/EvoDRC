@@ -1,0 +1,22 @@
+## Repair Observations — M2 Layer, Iteration 1
+
+**Via-cell M2 resize (y-axis) resolves enclosure and spacing violations.**
+In trial:i01.cu.def:VIA_VIA23_1_3_36_36.00, a single M2 shape inside cell `VIA_VIA23_1_3_36_36` was extended in the y-axis by +64 dbu. This operation was co-applied with y-axis resizes of three V2 shapes in the same cell. The combined repair reduced total design-wide violations by 8 (from 68 to 60 in the `unit:whole_design` window), was accepted (decision: applied), and preserved connectivity (conn_preserved: true). The touched layer set was {M2, M3, V2}, confirming that M2 edits inside a VIA23 cell type can propagate DRC benefit across adjacent metal and via layers simultaneously.
+
+**V2.M2.EN.1 enclosure drives M2 sizing in VIA23 cells.**
+Rule V2.M2.EN.1 requires M2 to enclose V2 by at least 5 nm on two opposite sides. When V2 shapes are resized in the y-axis (as in trial:i01.cu.def:VIA_VIA23_1_3_36_36.00), the enclosing M2 shape must grow in the same axis to maintain the required enclosure margin; failing to do so will leave the V2 bodies under-enclosed on the y-side edges. The 64 dbu M2 y-extension in trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 was sufficient to satisfy enclosure after the V2 bodies were extended by the same amount.
+
+**Resize axis must match the enclosure direction being repaired.**
+The M2 resize in trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 was strictly y-axis. Applying a resize in the orthogonal (x) axis to address a y-direction enclosure shortfall under V2.M2.EN.1 or V1.M2.EN.2 does not correct the violation; the enclosing edge must move on the same axis as the gap. The trial confirms axis-matched resizing is the correct repair action.
+
+**Cell-level repairs in via cells carry multi-shape scope.**
+Because `VIA_VIA23_1_3_36_36` is a via cell instantiated across the design, a single repair to its M2 shape (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00) propagated globally, accounting for the 8-violation reduction across the whole design with only 4 operations (3 V2 + 1 M2). Targeting the via cell definition rather than individual placement instances is therefore the correct repair granularity for enclosure violations that are systematic across all placements of the cell.
+
+**M2 width and spacing constraints bound resize headroom.**
+Rule M2.W.1 sets minimum M2 width at 18 nm. Rule M2.S.1 requires at least 18 nm side-to-side spacing between M2 polygons on long edges (> 36 nm). Rules M2.S.2 through M2.S.5 impose tighter tip-based spacing: 25 nm tip-to-side, 27 nm tip-to-tip when both tips are 24–36 nm, and 31 nm tip-to-tip when one or both tips are below 24 nm. Rule M2.S.7 forbids the combination of an 18 nm tip-to-tip gap and a side-to-side spacing ≤ 32 nm unless the parallel run length is at least 35 nm. When extending M2 in the y-axis (as in trial:i01.cu.def:VIA_VIA23_1_3_36_36.00), the new M2 tip edges must clear the nearest opposing M2 tip or side edge by whichever tip-spacing rule applies given the resulting tip-edge lengths; failure to respect these margins will produce M2.S.2–M2.S.7 violations even if the enclosure violation is resolved.
+
+**Corner and area rules impose secondary constraints.**
+Rule M2.S.6 requires at least 20 nm euclidean corner-to-corner spacing. Rule M2.A.1 requires minimum M2 polygon area of 504 nm². Resizing M2 in one axis can bring an M2 corner closer to a neighboring polygon corner on a different track; the euclidean distance must remain ≥ 20 nm after the resize. Conversely, a resize that enlarges the M2 body strictly moves corners apart in the resize axis, which reduces—not increases—the risk of M2.S.6 violations in that direction. Trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 applied a positive (expanding) y-resize to M2 and the result passed all checks, consistent with expansion posing no M2.A.1 or M2.S.6 risk when neighboring shapes are not within 20 nm in the same direction.
+
+**Non-orthogonal geometry is absolutely prohibited.**
+The GEOMETRY.NONORTHOGONAL rule applies to M2. All resize and move operations must keep every M2 edge at exactly 0° or 90°. The resize operations in trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 used axis-aligned y moves, which by construction produce only horizontal and vertical edges; this is the required approach for any M2 shape modification.

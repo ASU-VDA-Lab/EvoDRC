@@ -1,0 +1,33 @@
+{
+ "ops": [
+  {
+   "op": "resize_end",
+   "polygon_id": "p2107",
+   "axis": "y",
+   "end": "low",
+   "delta_dbu": 96
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p2107",
+   "axis": "y",
+   "end": "high",
+   "delta_dbu": 32
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p2106",
+   "axis": "y",
+   "end": "low",
+   "delta_dbu": 16
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p2106",
+   "axis": "y",
+   "end": "high",
+   "delta_dbu": 112
+  }
+ ],
+ "leaf_id": "leaf_0020"
+}

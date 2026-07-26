@@ -1,0 +1,264 @@
+{
+  "budget_s": 0,
+  "case": "Block5",
+  "iter": 2,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 248.4
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 52.43
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 140.03
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B adds design-state transition insight, partial-fix escalation pattern, and via-integrity-through-moves section; A omits these. Both cite accurately;",
+          "wall_s": 7.64
+        }
+      ],
+      "judged": true,
+      "layer": "M1",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 69.14
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 155.06
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 66.82
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 128.06
+        }
+      ],
+      "judged": false,
+      "layer": "M2",
+      "n_new_records": 5,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 58.54
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 139.48
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 163.72
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites channel rules, assembler drop, and per-rule breakdowns precisely from history; A misreads i01.cu trial ops (M4/V4 not M3+V3 only) and omits a",
+          "wall_s": 6.53
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 4,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 42.67
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 71.82
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 11,
+          "ok": false,
+          "wall_s": 104.74
+        }
+      ],
+      "judged": false,
+      "layer": "M4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 82.04
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 118.19
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 160.23
+        }
+      ],
+      "judged": false,
+      "layer": "V1",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 105.34
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 60.75
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 115.22
+        }
+      ],
+      "judged": false,
+      "layer": "V2",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    },
+    "V3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 153.47
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 193.35
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 53.06
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A correctly notes the applied trial is SINCE-MODIFIED and accurately lists all 6 ops including V4/M4 in VIA_VIA45; B omits V4 ops entirely, misreads per-",
+          "wall_s": 10.02
+        }
+      ],
+      "judged": true,
+      "layer": "V3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "V1",
+    "V2",
+    "V3"
+  ],
+  "wall_s": 309.75
+}

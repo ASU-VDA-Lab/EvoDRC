@@ -1,0 +1,409 @@
+{
+  "budget_s": 0,
+  "case": "Block4",
+  "iter": 1,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 531.2
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 207.51
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 184.91
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 169.31
+        }
+      ],
+      "judged": false,
+      "layer": "M1",
+      "n_new_records": 10,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 73.31
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 109.22
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 72.01
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites all trials with correct op details (incl. low-end resizes, \u221228/\u221236/\u2212108 moves, M4 p1379/p1395), maps each rule to evidence; A omits several o",
+          "wall_s": 74.37
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 11,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 38.42
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 52.22
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 118.97
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites exact window deltas, correct locus per trial, explains enclosure rule mechanics, and covers all 4 record fields; A has locus error for cu.def",
+          "wall_s": 246.45
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 9,
+          "ok": false,
+          "wall_s": 373.88
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 416.18
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 125.34
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 462.78
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B's x-only resize_end pattern matches all 3 accepted trials exactly; A invents y-reshaping families and M4.S.5 repair (0 repaired in histogram), contradi",
+          "wall_s": 50.95
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 4,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 124.68
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 188.2
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 136.7
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 133.44
+        }
+      ],
+      "judged": false,
+      "layer": "M5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M6": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 101.18
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 11,
+          "ok": false,
+          "wall_s": 203.54
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 148.95
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A stays within cited evidence, directly addresses the single record, and derives grid-alignment reasoning. B pads with rule summaries unsupported by hist",
+          "wall_s": 185.35
+        }
+      ],
+      "judged": true,
+      "layer": "M6",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 375.65
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 178.54
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 411.37
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 234.79
+        }
+      ],
+      "judged": false,
+      "layer": "V1",
+      "n_new_records": 10,
+      "status": "carried",
+      "verdict": null,
+      "winner": null
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 381.68
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 198.46
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 83.7
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 167.47
+        }
+      ],
+      "judged": false,
+      "layer": "V2",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 8,
+          "ok": false,
+          "wall_s": 227.71
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 393.89
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 249.3
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A covers the single measured trial accurately plus seed-verified repair recipes; B only describes the failed trial, missing all seed-verified Family B co",
+          "wall_s": 5.93
+        }
+      ],
+      "judged": true,
+      "layer": "V3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "V5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 152.06
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 140.32
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 210.31
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites trial id on every claim, covers all V5 rules with DRC linkage, and organizes by topic; A is accurate but sparse and omits rule-level rational",
+          "wall_s": 192.82
+        }
+      ],
+      "judged": true,
+      "layer": "V5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "V1",
+    "V2",
+    "V3",
+    "V5"
+  ],
+  "wall_s": 841.03
+}

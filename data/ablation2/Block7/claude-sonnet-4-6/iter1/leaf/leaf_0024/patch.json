@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0024",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1292", "delta_dbu": [-24, 0]},
+    {"op": "move_instance", "inst_id": "i1062", "delta_dbu": [-108, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 i1292 left by 24 dbu to clear M1.S.4 tip-to-tip spacing violation v0130 (gap 108→132 dbu), and moved VIA_VIA12 i1062 left by 108 dbu to clear M1.S.4/S.5/S.6 cluster (v0134/v0148/v0153/v0178/v0179) caused by proximity to HAxp5 std-cell M1."
+}

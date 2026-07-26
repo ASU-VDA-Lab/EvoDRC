@@ -1,0 +1,25 @@
+{
+  "case": "Block3",
+  "design_state": "f0e0dfb100269f7a720b3e5b0436dbead3be1886d00f7dab801a39e4b2a2a49d",
+  "failed_trials": [],
+  "iter": 4,
+  "n_appended_new": 3,
+  "n_cu_pool": 0,
+  "n_failed_trials": 0,
+  "n_records": 1,
+  "n_unit_gate": 1,
+  "n_unmapped": 0,
+  "per_layer": {
+    "M1": 1,
+    "M2": 1,
+    "V1": 1
+  },
+  "touched_layers": [
+    "M1",
+    "M2",
+    "V1"
+  ],
+  "trial_ids": [
+    "i04.ug.leaf_0001.00"
+  ]
+}

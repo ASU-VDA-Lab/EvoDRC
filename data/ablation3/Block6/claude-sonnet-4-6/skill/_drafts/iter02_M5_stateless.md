@@ -1,0 +1,31 @@
+## Via-cell M5 vertical over-extension causes V4.M5 violations; shrink in y resolves them
+
+In cell VIA_VIA45_1_2_58_58, the M5 shape was oversized in the y direction relative to the enclosed V4 cut. A single `resize_via_shape` on M5 (axis y, −88 dbu) eliminated 56 violations in one operation (trial:i01.cu.def:VIA_VIA45_1_2_58_58.00). The touched layers were M4, M5, and V4. The improvement is consistent with V4.M5.AUX.2, which requires V4 to be exactly the same width as M5 in the direction perpendicular to M5's length: excess M5 y-extent relative to the V4 cut width directly triggers this rule. Do not add y-margin to M5 in via cells that contain V4; the M5 y-extent should match the V4 cut extent with no overhang.
+
+## V5.M5.EN.1 requires M5-spanning V5 shapes extended sufficiently in y; the enclosure threshold is 11 nm (11 dbu)
+
+In cell VIA_VIA56_2_2_66_58, four V5 shapes each required +248 dbu y-growth to satisfy V5.M5.EN.1 (minimum 11 nm enclosure of V5 by M5 on two opposite sides) (trial:i01.cu.def:VIA_VIA56_2_2_66_58.01). The operation touched M5, M6, and V5, resolving 32 violations. When V5 shapes protrude past M5's y-boundary, the enclosure check fails; the fix is to grow the V5 shape deeper into M5 in y so that both top and bottom edges satisfy the 11 dbu margin. Because M5.W.5 requires a minimum vertical width of 44 nm, ensure the M5 polygon is tall enough to accommodate the 11 nm bilateral enclosure before enlarging V5; a V5 shape of height h requires M5 vertical extent of at least h + 22 dbu.
+
+## Compound polygon moves and end-extensions on M5 in the unit_gate channel are accepted when connectivity is preserved, even when they introduce unrelated violations on other layers
+
+Trial i02.ug.whole_design.00 applied 69 operations touching M3, M4, M5, M6, V3, V4, and V5 and was accepted with `gated_in` through the unit_gate channel on the basis that `conn_preserved` was true. The trial introduced 10 new V2.M3.EN.2 violations but was not rejected for them. Among the M5-relevant operations: polygons p1682, p1683, and p1685 were moved on the x-axis by −16, +32, and +32 dbu respectively; polygons p2106–p2109 were moved on the y-axis by −16, +32, +16, and −64 dbu respectively; and polygons p1831, p1786, and p1806 each received a `resize_end` extending the x-high end by +20 dbu, with y-low extended +24 dbu on p1831, y-high extended +72 dbu on p1786, and y-high extended +24 dbu on p1806 (trial:i02.ug.whole_design.00). The x-end extensions of +20 dbu are sub-grid moves relative to M5.AUX.1's 24 nm x-grid; their legality depends on the polygon's initial x-position already satisfying the grid before the extension. Ensure x-high endpoints land on multiples of 24 nm after any end-extension.
+
+## M5.AUX.1 grid constraint: vertical (x-axis) edges must be on a 24 nm grid
+
+M5.AUX.1 requires all M5 vertical edges to sit on a 24 nm x-grid. The +20 dbu x-end extensions applied to p1831, p1786, and p1806 in trial:i02.ug.whole_design.00 are only legal when the existing edge was already 4 dbu off-grid prior to extension, or when the resulting endpoint falls on a 24 nm boundary. When constructing or adjusting M5 x-endpoints, always verify the final coordinate is a multiple of 24 nm (24 dbu at 1 dbu = 1 nm scale). Moves in multiples of 24 dbu are always safe; moves of 16 dbu or 32 dbu land on-grid only when the source edge is already aligned.
+
+## M5.AUX.2 routing-track constraint: minimum-width M5 segments must be centered on tracks spaced 192 dbu with 48 dbu offset
+
+M5.AUX.2 identifies minimum-width tracks (those not surviving a ±13 dbu x-erosion) whose centerlines do not satisfy (cl − 48) mod 192 == 0. The x-polygon moves of −16, +32, +32 dbu applied to p1682, p1683, p1685 in trial:i02.ug.whole_design.00 shift those shapes' centerlines. For a minimum-width segment (24 nm wide), a move of ±16 dbu shifts the centerline by ±16 dbu; the center must land at 48, 240, 432, … dbu from origin. Moves of +32 dbu or −16 dbu change alignment by the same amounts, so only apply x-moves to minimum-width M5 that result in centerlines satisfying (cl − 48) mod 192 == 0.
+
+## M5.AUX.3 prohibits bends; all M5 polygons must remain rectilinear and non-L-shaped
+
+M5.AUX.3 flags any M5 edge interacting with corners having angle 0°–90°, i.e., any polygon with an interior bend. No trial in the measured history introduced or removed bends, but the compound operation in trial:i02.ug.whole_design.00 applied separate x- and y-end extensions to the same polygons (p1831: x-high +20, y-low +24; p1786: x-high +20, y-high +72; p1806: x-high +20, y-high +24). End-extensions along orthogonal axes applied independently to a rectangle produce a step/notch corner, which would trigger M5.AUX.3. Apply x and y resizes in a single coordinated update rather than as independent end-extensions on different axes, and verify the resulting polygon has no 45°-type or L-type corners.
+
+## M5.W.3 and M5.W.4 forbid widths that are even multiples of 24 nm or that span an even number of routing tracks
+
+M5.W.3 forbids horizontal (x-axis) widths equal to 48, 96, 144, 192, 240, 288, 336, 384, 432, or 480 nm. M5.W.4 additionally forbids widths of 72, 168, 264, 360, or 456 nm (even-track-count widths). The x-end extensions of +20 dbu applied to p1831, p1786, p1806 in trial:i02.ug.whole_design.00 alter horizontal widths. Before applying any x-resize to an M5 segment, confirm the resulting width does not land on any of these forbidden values. Safe widths are those in the range 24–480 nm that are neither even multiples of 24 nm nor even-track-spanning widths: e.g., 24, 36, 60, 84 nm are acceptable; 48, 96, 72 nm are not.
+
+## y-moves of M5 polygons should respect M5.W.5 (44 nm minimum vertical width) and M5.S.2 (40 nm minimum vertical spacing)
+
+The y-axis moves on p2106 (−16 dbu), p2107 (+32 dbu), p2108 (+16 dbu), and p2109 (−64 dbu) in trial:i02.ug.whole_design.00 shift M5 segments vertically. A move that reduces the gap between vertically adjacent M5 segments risks violating M5.S.2 (40 nm minimum vertical spacing) or M5.S.3/S.4 (tip-to-tip spacing on adjacent tracks). A downward move of −64 dbu on p2109 is the largest y-displacement in the trial and must not reduce the gap below 40 nm to any neighbor above. Always check both edges of a moved segment after a large y-displacement.

@@ -1,0 +1,200 @@
+{
+  "budget_s": 0,
+  "case": "Block2",
+  "iter": 2,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 57.63
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 98.23
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 118.54
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites trials precisely per claim, organizes by rule/topic, avoids unsupported assertions; A mislabels resize op and is less focused per DRC rule.\"}",
+          "wall_s": 7.56
+        }
+      ],
+      "judged": true,
+      "layer": "M1",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 104.44
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 126.82
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly notes SINCE-MODIFIED loci discount, distinguishes 36dbu pitch preference vs rule floor, and avoids A's unsupported claim about p1053 resi",
+          "wall_s": 8.32
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B correctly notes SINCE-MODIFIED loci discount, accurately describes all ops, adds V1 enclosure rationale and iter boundary sections; A has minor inaccur",
+          "wall_s": 7.08
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 94.3
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 125.35
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 85.81
+        }
+      ],
+      "judged": false,
+      "layer": "M4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 20.29
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 62.05
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly notes i01 locus is SINCE-MODIFIED, adds AUX.1/AUX.2/W.3/W.4 grid analysis, covers via/bend/nonortho rules, omits unverifiable vertical cl",
+          "wall_s": 43.81
+        }
+      ],
+      "judged": true,
+      "layer": "M5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 189.71
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 31.62
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 155.39
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 66.03
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A cites trial IDs, displacement values, and op details more precisely; covers all 9 trials including M1 polygon edits; better organized with less redunda",
+          "wall_s": 10.54
+        }
+      ],
+      "judged": true,
+      "layer": "V1",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M4",
+    "M5",
+    "V1"
+  ],
+  "wall_s": 231.97
+}

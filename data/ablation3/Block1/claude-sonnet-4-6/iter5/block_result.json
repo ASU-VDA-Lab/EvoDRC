@@ -1,0 +1,11 @@
+{
+  "iter": 5,
+  "start_violations": 115,
+  "end_violations": 96,
+  "repair_rate": 0.16521739130434782,
+  "new_violation_count": 0,
+  "connectivity": "preserved",
+  "drc_total_after": 96,
+  "input_drc": "./data/ablation3/Block1/claude-sonnet-4-6/iter5/input/Block1.drc.json",
+  "repaired_drc": "./data/ablation3/Block1/claude-sonnet-4-6/iter5/repaired/Block1.drc.json"
+}

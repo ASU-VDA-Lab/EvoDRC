@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block7_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i2003", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3737", "axis": "x", "end": "high", "delta_dbu": 92},
+    {"op": "move_instance", "inst_id": "i1518", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i1583", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1994", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3746", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "Moved 4 VIA_VIA12 instances (i2003 +36x, i1518 -36x, i1583 +36x, i1994 +36x) to clear V0.M1.AUX.3, M1.S.6, M1.S.4, and V1.M1.EN.1 violations by aligning via M1 lands flush with frozen V0 pin edges and increasing M1 tip-to-tip spacing. Extended M2 polygons p3737 and p3746 by +92 dbu on the high-x end to maintain continuous M2 coverage over the relocated via M2 lands."
+}

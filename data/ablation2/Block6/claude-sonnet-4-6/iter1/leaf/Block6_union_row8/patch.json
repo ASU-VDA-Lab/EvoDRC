@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block6_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves instance i0078 (VIA_VIA12) by +36 DBU in X from origin (8676,10620) to (8712,10620), aligning the VIA M1 land left edge with the V0 pin right edge (x=8676) to eliminate the exposed convex corner at (8676,10620) and clear v0020 (V0.M1.AUX.3); v0012 is structurally unfixable with available ops and is left in place."
+}

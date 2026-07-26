@@ -1,0 +1,77 @@
+# RULE V3.W.1 (deck lines 796-796)
+v3.width(18.nm).output("V3.W.1", "V3.W.1 : Minimum width of a V3 instance along the length of M4 is 18 nm.")
+
+# RULE V3.S.1 (deck lines 798-812)
+v3_non_coinc_m4 = v3.edges.not(m4.edges)
+v3_full_flush_m4 = v3.edges.not_interacting(v3_non_coinc_m4)
+v3_nec = v3.interacting(v3_full_flush_m4)
+v3_wec = v3.not_interacting(v3_full_flush_m4)
+v3_wec_coinc_m4 = v3_wec.edges.and(m4.edges)
+v3_wec_mask = (v3_wec + v3_wec_coinc_m4.extended(0, 0, 5.nm, 0)).merged
+v3_nec_mask = v3_nec.sized(5.nm)
+v3_mask = (v3_nec_mask + v3_wec_mask).merged
+v3_nec_mask_nm4 = v3_nec_mask - m4
+v3_nec_mask_nm4_nte = v3_nec_mask_nm4.edges.not_interacting(m4.edges)
+v3_nec_mask_nm4_nte.with_angle(90).space(17.nm, projection).output("V3.S.1", "V3.S.1 : Minimum spacing between V3 instances [on the same M4 track | on parallel M4 tracks, not aligned | on parallel M4 tracks, aligned] is [18 nm | 27 nm | 18 nm].")
+v3_maskav = v3_mask & v3
+v3_maskav_nciem = v3_maskav.edges.not(m4.edges)
+v3_maskav_nciem.space(18.nm, projection).output("V3.S.1", "V3.S.1 : Minimum spacing between V3 instances [on the same M4 track | on parallel M4 tracks, not aligned | on parallel M4 tracks, aligned] is [18 nm | 27 nm | 18 nm].")
+v3_mask.space(1.nm, projection).output("V3.S.1", "V3.S.1 : Minimum spacing between V3 instances [on the same M4 track | on parallel M4 tracks, not aligned | on parallel M4 tracks, aligned] is [18 nm | 27 nm | 18 nm].")
+
+# RULE V3.S.2 (deck lines 798-815)
+v3_non_coinc_m4 = v3.edges.not(m4.edges)
+v3_full_flush_m4 = v3.edges.not_interacting(v3_non_coinc_m4)
+v3_wec = v3.not_interacting(v3_full_flush_m4)
+v3_wec_coinc_m4 = v3_wec.edges.and(m4.edges)
+v3_wec_mask = (v3_wec + v3_wec_coinc_m4.extended(0, 0, 5.nm, 0)).merged
+v3_s2_all = v3_wec_mask.space(16.4.nm, euclidian)
+v3_s2_proj = v3_wec_mask.space(16.4.nm, projection)
+v3_s2_all.not_interacting(v3_s2_proj.polygons).output("V3.S.2", "V3.S.2 : Minimum corner-to-corner spacing between two V3 instances——both with a 5 nm M4 end-cap——is 23 nm.")
+
+# RULE V3.S.3 (deck lines 798-818)
+v3_non_coinc_m4 = v3.edges.not(m4.edges)
+v3_full_flush_m4 = v3.edges.not_interacting(v3_non_coinc_m4)
+v3_nec = v3.interacting(v3_full_flush_m4)
+v3_nec_mask = v3_nec.sized(5.nm)
+v3_s3_all = v3_nec_mask.space(16.12.nm, euclidian)
+v3_s3_proj = v3_nec_mask.space(16.12.nm, projection)
+v3_s3_all.not_interacting(v3_s3_proj.polygons).output("V3.S.3", "V3.S.3 : Minimum corner-to-corner spacing between two V3 instances——both without a 5 nm M4 end-cap——is 30 nm.")
+
+# RULE V3.S.4 (deck lines 798-821)
+v3_non_coinc_m4 = v3.edges.not(m4.edges)
+v3_full_flush_m4 = v3.edges.not_interacting(v3_non_coinc_m4)
+v3_nec = v3.interacting(v3_full_flush_m4)
+v3_wec = v3.not_interacting(v3_full_flush_m4)
+v3_wec_coinc_m4 = v3_wec.edges.and(m4.edges)
+v3_wec_mask = (v3_wec + v3_wec_coinc_m4.extended(0, 0, 5.nm, 0)).merged
+v3_nec_mask = v3_nec.sized(5.nm)
+v3_s4_all = v3_wec_mask.separation(v3_nec_mask, 17.11.nm, euclidian)
+v3_s4_proj = v3_wec_mask.separation(v3_nec_mask, 17.11.nm, projection)
+v3_s4_all.not_interacting(v3_s4_proj.polygons).output("V3.S.4", "V3.S.4 : Minimum corner-to-corner spacing between two V3 instances——one with and another without, a 5 nm M4 end-cap——is 27 nm.")
+
+# RULE V3.M3.EN.1 (deck lines 823-826)
+v3_ok_lr = v3.inside(m3.sized(-5.nm, 0))  # 5nm+ on left AND right
+v3_ok_tb = v3.inside(m3.sized(0, -5.nm))  # 5nm+ on top AND bottom
+v3_m3_en1_fail = v3 - v3_ok_lr - v3_ok_tb  # V3 not OK by either pair
+(v3_m3_en1_fail + v3.not_inside(m3)).merged.output("V3.M3.EN.1", "V3.M3.EN.1 : Minimum enclosure of V3 by M3 on at least two opposite sides is 5 nm.")
+
+# RULE V3.M4.EN.2 (deck lines 827-827)
+v3.interacting(v3 - m4.sized(-11.nm, 0)).interacting(v3 - m4.sized(0, -11.nm)).output("V3.M4.EN.2", "V3.M4.EN.2 : Minimum enclosure of V3 by M4 on at least two opposite sides is 11 nm.")
+
+# RULE V3.AUX.1 (deck lines 828-828)
+v3.not_inside(m3 & m4).output("V3.AUX.1", "V3.AUX.1 : V3 must be inside M3 and M4.")
+
+# RULE V3.M4.AUX.2 (deck lines 829-833)
+v3_aux2_out = v3.not_inside(m4)
+v3_aux2_in = v3.inside(m4)
+v3_aux2_coinc = v3_aux2_in.edges.and(m4.edges)
+v3_aux2_ok = v3_aux2_in.interacting(v3_aux2_coinc, 2)
+(v3_aux2_out + v3_aux2_in - v3_aux2_ok).merged.output("V3.M4.AUX.2", "V3.M4.AUX.2 : V3 must exactly be the same width as M4 along the direction perpendicular to the M4 length.")
+
+# NONORTHOGONAL BLOCK (deck lines 1136-1141) -- applies to every layer
+all_drawing = [ :nwell, :fin, :gate, :gcut, :active, :sdt, :nselect, :pselect, :slvt, :lvt, :sramdrc, :sramvt, :dummy, :lig, :lisd, :v0, :m1, :v1, :m2, :v2, :m3, :v3, :m4, :v4, :m5, :v5, :m6, :v6, :m7, :v7, :m8, :v8, :m9, :v9, ]
+  all_drawing.each do |dwg|
+    layer = binding.local_variable_get(dwg)
+    nonortho_edges = layer.edges.with_angle(1..89) + layer.edges.with_angle(91..179) + layer.edges.with_angle(-179..-91) + layer.edges.with_angle(-89..-1)
+    nonortho_edges.output("#{dwg}.GEOMETRY.NONORTHOGONAL" , "GEOMETRY.NONORTHOGONAL on layer #{dwg}")
+  end

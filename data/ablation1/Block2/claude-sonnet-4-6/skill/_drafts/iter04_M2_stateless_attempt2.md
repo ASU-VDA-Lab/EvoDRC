@@ -1,0 +1,35 @@
+## M2 Operation Patterns
+
+**Move_instance is the dominant repair operation touching M2 in the measured history.** Every trial using move_instance that touches M2 completes with `decision: gated_in` and `conn_preserved: true` and zero new out-of-crop violations: trial:i01.ug.Block2_union_row1.00, trial:i01.ug.Block2_union_row3.01, trial:i01.ug.Block2_union_row5.02, trial:i01.ug.leaf_0001.03, trial:i01.ug.leaf_0004.04, trial:i01.ug.leaf_0007.05, trial:i01.ug.leaf_0011.06, trial:i01.ug.leaf_0013.08, trial:i04.ug.leaf_0001.00, trial:i04.ug.leaf_0003.02.
+
+**Every delta_dbu vector on M2-touching move_instance operations in the measured history is strictly axis-aligned.** Trial:i01.ug.Block2_union_row1.00 uses [36,0]; trial:i01.ug.Block2_union_row3.01 uses [36,0]; trial:i01.ug.Block2_union_row5.02 uses [36,0]; trial:i01.ug.leaf_0001.03 uses [12,0]; trial:i01.ug.leaf_0004.04 uses [37,0]; trial:i01.ug.leaf_0007.05 uses [36,0]; trial:i01.ug.leaf_0011.06 uses [36,0]; trial:i01.ug.leaf_0013.08 uses [36,0]; trial:i04.ug.leaf_0001.00 uses [36,0]; trial:i04.ug.leaf_0003.02 uses [0,24], [0,24], and [0,−24]. No diagonal displacement appears in any M2-touching measured trial. The GEOMETRY.NONORTHOGONAL rule flags any M2 edge at angles 1–89°, 91–179°, −179–−91°, or −89–−1°; no such violation appears in outcomes from any of the above measured trials.
+
+**Resize and resize_end on M2 polygons, when axis-aligned, produce no new violations.** Trial:i01.ug.Block2_union_row1.00 resizes polygon p1053 on the x-axis by 184 dbu alongside two move_instance calls, resulting in zero new in-crop or out-of-crop violations. Trial:i02.ug.leaf_0001.00 applies resize_end (axis=x, delta=172, end=low) on polygon p957 alongside a via addition and instance deletion, also with zero new out-of-crop violations and conn_preserved=true.
+
+**Polygon move (not move_instance) on M2 at small axis-aligned offsets succeeds without new violations.** Trial:i02.ug.leaf_0002.01 moves polygon p1053 by delta_dbu=[76,0] (x-axis only) within a locus of 436×88 dbu, touching only M2, with conn_preserved=true and zero new violations.
+
+## Multi-Layer Context for M2 Operations
+
+M2-touching trials routinely co-modify M1 and V1. Trial:i01.ug.Block2_union_row1.00, trial:i01.ug.Block2_union_row3.01, trial:i01.ug.Block2_union_row5.02, trial:i01.ug.leaf_0001.03, trial:i01.ug.leaf_0004.04, trial:i01.ug.leaf_0007.05, trial:i01.ug.leaf_0011.06, trial:i01.ug.leaf_0013.08, and trial:i04.ug.leaf_0001.00 all list touched_layers including both M2 and V1. Trial:i04.ug.leaf_0003.02 touches M2, M3, M4, M5, V2, V3, V4 together. Co-modifying adjacent metal and via layers is consistent with the enclosure rules V1.M2.EN.2, V1.M2.AUX.2, and V2.M2.EN.1, which tie V1/V2 geometry to M2 geometry.
+
+## Via Enclosure Rules on M2
+
+V1.M2.EN.2 requires M2 to enclose V1 by at least 5 nm on two opposite sides (acceptable combinations: 5 & 5 nm or 5 & 0 nm). V1.M2.AUX.2 requires V1 width to match M2 width along the direction perpendicular to M2 length; V1 must share two coincident edges with the enclosing M2 shape. V2.M2.EN.1 requires M2 to enclose V2 by at least 5 nm on at least two opposite sides. No new violation of any of these enclosure rules appears in any measured trial outcome. Trials that add vias directly (trial:i02.ug.leaf_0001.00 adds a VIA_VIA12 at origin [5472,2340]) and trials that move instances carrying V1 (trial:i01.ug.leaf_0001.03) all complete with conn_preserved=true and zero new out-of-crop violations.
+
+## Via Shape Operations on M2-Adjacent Layers (cu_pool Channel)
+
+Trial:i01.cu.def:VIA_VIA23_1_3_36_36.00 operates through the cu_pool channel on via cell VIA_VIA23_1_3_36_36, touching M2, M3, and V2. It applies five operations: move_via_shape on V2 shape_index 0 (delta=−144 dbu, x-axis) and shape_index 2 (delta=+144 dbu, x-axis), and resize_via_shape on shape_indices 0, 1, and 2 (delta=+288 dbu, x-axis each). The result is delta_total=−24 violations distributed across units leaf_0012 (−12) and leaf_0013 (−12), with decision=applied and conn_preserved=true. All via shape deltas in this trial are x-axis-aligned with no diagonal component.
+
+When this cu_pool repair is already committed, the assemble phase drops redundant via-shape operations. Trial:i01.ug.leaf_0013.08 records five assemble_drops with reason "cu_pool:applied," corresponding exactly to the five operations from trial:i01.cu.def:VIA_VIA23_1_3_36_36.00. The unit_gate trial still gates in (decision: gated_in, conn_preserved=true, zero new out-of-crop violations) despite the dropped ops.
+
+## M2 Spacing and Width Rules (Rule Definitions)
+
+M2.W.1 sets the minimum M2 width at 18 nm. M2.S.1 sets the minimum side-to-side spacing at 18 nm between edges longer than 36 nm. M2.S.2 sets the minimum tip-to-side spacing at 25 nm when one edge is ≤ 36 nm and the other is > 36 nm (projection). M2.S.3 sets the minimum tip-to-tip spacing at 27 nm when both edges are 24–36 nm (projection). M2.S.4 sets the minimum tip-to-tip spacing at 31 nm when both edges are < 24 nm (projection). M2.S.5 sets the minimum tip-to-tip spacing at 31 nm when one edge is 24–36 nm and the other is < 24 nm. M2.S.6 sets the minimum corner-to-corner Euclidean spacing at 20 nm. No new violation of any of M2.S.1 through M2.S.6 or M2.W.1 appears in the measured trial outcomes; every measured trial touching M2 reports n_new_out_of_crop=0 (trial:i01.ug.Block2_union_row1.00 through trial:i04.ug.leaf_0003.02).
+
+M2.S.7 prohibits a tip-to-tip 18 nm gap co-located with a side-to-side spacing ≤ 32 nm; the parallel run length must be ≥ 35 nm when side spacing ≤ 32 nm. M2.S.8 requires diagonal center-to-center spacing of at least 80 nm between tip-to-tip gaps on different M2 tracks (gap centers are located by shrinking each 18 nm gap by 8.5 nm per side). No new M2.S.7 or M2.S.8 violation appears in any measured trial; all trials report zero new out-of-crop violations.
+
+M2.A.1 requires a minimum polygon area of 504 nm². No new M2.A.1 violation appears in any measured trial outcome (trial:i01.ug.Block2_union_row1.00 through trial:i04.ug.leaf_0003.02 all show n_new_out_of_crop=0 and no M2.A.1 entry under new_in_crop_by_rule).
+
+## New In-Crop Violations at Iteration 4
+
+Trial:i04.ug.leaf_0003.02 produces n_new_in_crop=2 and n_new_out_of_crop=0 and is accepted as decision: gated_in because conn_preserved=true. The three operations are move_instance on i0090 by [0,+24], on i0110 by [0,+24], and on i0089 by [0,−24], across a large locus (1728,3148)–(10368,9812), with touched_layers M2, M3, M4, M5, V2, V3, V4. The history record does not attribute the two new in-crop violations to M2 specifically; the per_rule breakdown is absent from this record. The trial proceeds despite the new in-crop count because the gating criterion is conn_preserved and n_new_out_of_crop=0.

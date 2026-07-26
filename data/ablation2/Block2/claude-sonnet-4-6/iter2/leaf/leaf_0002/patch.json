@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "x", "delta_dbu": 144},
+    {"op": "move", "polygon_id": "p938", "axis": "x", "delta_dbu": 32},
+    {"op": "move_instance", "inst_id": "i0098", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0097", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0064", "delta_dbu": [32, 0]},
+    {"op": "move_instance", "inst_id": "i0068", "delta_dbu": [32, 0]}
+  ],
+  "explanation": "Moves VIA_VIA23_1_3_36_36 center V2 cut (shape_index=1) by +144 dbu in x to overlap with the right outer cut, giving it ≥3 edges coincident with M3 and clearing all four V2.M3.AUX.2 violations; co-moves M5 stripe p938 and all four VIA_VIA45_1_2_58_58 instances by +32 dbu in x to snap M5 x-edges onto the 96-dbu routing grid, clearing both M5.AUX.1 violations."
+}

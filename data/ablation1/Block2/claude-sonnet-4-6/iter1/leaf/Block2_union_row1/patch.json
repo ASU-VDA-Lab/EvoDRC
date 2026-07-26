@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block2_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0159", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0152", "delta_dbu": [36, 0]},
+    {"op": "resize", "polygon_id": "p1053", "axis": "x", "delta_dbu": 184}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0159 and i0152 each +36 dbu in x so their M1 lands no longer create non-coincident convex corners on V0 pins _ptemp_3 and _ptemp_6, clearing both V0.M1.AUX.3 violations; extends M2 polygon p1053 symmetrically (delta=184, new bbox 9356–9632 x) to maintain full M2 land coverage after i0152's relocation."
+}

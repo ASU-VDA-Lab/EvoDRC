@@ -1,0 +1,28 @@
+{
+ "ops": [
+  {
+   "op": "move_instance",
+   "inst_id": "i0177",
+   "delta_dbu": [
+    -16,
+    -48
+   ]
+  },
+  {
+   "op": "move_instance",
+   "inst_id": "i0184",
+   "delta_dbu": [
+    0,
+    -48
+   ]
+  },
+  {
+   "op": "resize_end",
+   "polygon_id": "p3537",
+   "axis": "y",
+   "end": "high",
+   "delta_dbu": -48
+  }
+ ],
+ "leaf_id": "leaf_0010"
+}

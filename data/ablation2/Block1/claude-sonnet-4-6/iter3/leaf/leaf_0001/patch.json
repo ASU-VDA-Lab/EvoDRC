@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0181", "delta_dbu": [96, 0]}
+  ],
+  "explanation": "Moves VIA_VIA45 instance i0181 rightward by 96 dbu so its M5 land aligns with p1154 (same x-range [4224,4320]), eliminating the merged-M5 even-width violation (M5.W.3), the M5 bend at (4224,14732) (M5.AUX.3 ×2), the V4/M5 edge-flush violation (V4.M5.AUX.2), and the M4 tip-spacing issue (M4.S.4); all 5 target violations clear with no new violations and connectivity preserved."
+}

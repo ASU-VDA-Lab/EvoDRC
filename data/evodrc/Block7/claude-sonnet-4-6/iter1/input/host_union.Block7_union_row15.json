@@ -1,0 +1,29 @@
+{
+  "leaf_id": "Block7_union_row15",
+  "case": "Block7",
+  "member_leaf_ids": [
+    "leaf_0051",
+    "leaf_0052",
+    "leaf_0053",
+    "leaf_0054",
+    "leaf_0055",
+    "leaf_0056",
+    "leaf_0057"
+  ],
+  "bbox_dbu": [
+    4048,
+    17388,
+    24336,
+    18252
+  ],
+  "violation_ids": [
+    "v0088",
+    "v0114",
+    "v0227",
+    "v0057",
+    "v0019",
+    "v0017",
+    "v0014",
+    "v0025"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block7_union_row20",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0235", "delta_dbu": [0, -44]},
+    {"op": "move_instance", "inst_id": "i0263", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3048", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0142", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Clears M1.S.2 (v0034) by moving VIA_VIA12 i0235 down 44 dbu so its M1 tip no longer has projection overlap with the frozen AND2x2 side edge; clears both V0.M1.AUX.3 violations (v0021, v0008) by moving VIA_VIA12 instances i0263 and i0142 rightward 36 dbu each so their M1 left edges align with the respective V0 right edges, eliminating all non-coincident convex V0 corners. p3048 HIGH-x end is extended 56 dbu to restore full M2 coverage for the repositioned i0263."
+}

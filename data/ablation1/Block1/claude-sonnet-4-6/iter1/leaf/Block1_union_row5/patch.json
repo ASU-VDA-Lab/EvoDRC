@@ -1,0 +1,11 @@
+{
+  "leaf_id": "Block1_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0313", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0294", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0433", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p1297", "axis": "x", "end": "high", "delta_dbu": 36},
+    {"op": "resize_end", "polygon_id": "p1301", "axis": "x", "end": "low", "delta_dbu": 36}
+  ],
+  "explanation": "Moved i0313 right (+36) and i0294 right (+36) to decouple their M1 landings from the std-cell M1 polygons causing V0.M1.AUX.3/M1.S.2/V1.M1.EN.1 violations; moved i0433 left (-36) to clear M1.S.4 and V1.M1.EN.1; extended p1297 right end and p1301 left end each by +36 dbu to close the M2.S.7 co-located tip/side-spacing violation. Clears 6/7 targets with zero new violations; V0.M1.AUX.3 at (4932,6588,5004,6660) is declared debt (frozen std-cell BUFx3_ASAP7_75t_R M1 geometry cannot be modified)."
+}

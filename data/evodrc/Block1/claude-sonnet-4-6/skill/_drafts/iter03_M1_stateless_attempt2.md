@@ -1,0 +1,19 @@
+**M1.S.2: Tip-to-Side Spacing Violations Cleared by Minimal VIA12 Translation**
+
+M1.S.2 requires at least 25 nm (100 dbu) between an M1 tip edge (≤ 36 nm long) and any M1 side edge (> 36 nm long), measured by projection. Both M1.S.2 violations resolved in this block (v0011 and v0012) were cleared by moving the offending VIA12 instance by +4 dbu (+1 nm) in x, shifting the VIA12 M1 land's near edge just enough to reach the 100 dbu clearance target (trial:i03.ug.leaf_0003.02). Do not over-translate: the minimum delta that brings the projected gap to exactly 100 dbu is sufficient and avoids introducing new violations on the far side.
+
+**M2 Overlap Verification After VIA12 Move**
+
+Moving a VIA12 instance to fix an M1.S.2 violation also displaces the VIA12 M2 land. After any such move, verify that the VIA12 M2 land still overlaps its connected M2 routing polygon. In trial:i03.ug.leaf_0003.02, moving i0485 by +4 dbu shifted its M2 left edge from 12208 to 12212, which remained inside p1309 spanning to x=12312; moving i0188 by +4 dbu shifted its M2 left edge from 2700 to 2704, which remained inside p1270 spanning to x=2808. Both moves preserved connectivity (conn_preserved=true, trial:i03.ug.leaf_0003.02). Apply the same overlap check to any VIA12 translation, using the known M2 polygon extents, before committing the fix.
+
+**Instance Moves Across Multiple Rows Preserve M1 Connectivity When Kept Small**
+
+Across iterations 1 and 2, the unit_gate channel accepted ten multi-instance move operations that all touched M1 (along with M2 and V1), with per-instance x-deltas ranging from −72 dbu to +192 dbu (trial:i01.ug.Block1_union_row1.00, trial:i01.ug.Block1_union_row3.03, trial:i01.ug.Block1_union_row4.04, trial:i01.ug.Block1_union_row5.05, trial:i01.ug.Block1_union_row6.06, trial:i01.ug.Block1_union_row8.07, trial:i01.ug.Block1_union_row9.08, trial:i01.ug.leaf_0004.09, trial:i01.ug.leaf_0020.10, trial:i01.ug.leaf_0031.11, trial:i02.ug.leaf_0001.00). All were gated_in with conn_preserved=true. Resize_end operations accompanying these moves extended M1 polygon edges in x by up to 192 dbu, maintaining enclosure of V1 cuts that moved with the instances.
+
+**Large Multi-Layer Operations Risk Connectivity Breaks**
+
+The one gated_out trial in the history (trial:i01.ug.leaf_0034.12) involved 10 operations spanning M1, M2, M3, M4, V1, and V2 across a locus covering nearly the full block extent (1728..14256 x, 2068..13680 y), and was rejected with conn_broken and 89 new violations inside the crop. Do not bundle M1 changes with large M3/M4 restructuring in a single operation set when the locus spans the full block; smaller, layer-local fixes applied per unit row avoid the connectivity risk demonstrated by trial:i01.ug.leaf_0034.12.
+
+**Resize Operations Must Accompany Instance Moves When VIA Enclosure Is at Risk**
+
+Several row-level fixes paired move_instance operations with resize_end operations on M1 polygons (trial:i01.ug.Block1_union_row5.05, trial:i01.ug.Block1_union_row6.06, trial:i01.ug.Block1_union_row8.07). The resize_end adjustments extended M1 polygon ends in x to maintain V0.M1.EN.1 and V1.M1.EN.1 enclosure after the via-containing instances moved. When moving an instance that contains a via, apply a matching resize_end to any M1 routing polygon whose enclosure of that via would otherwise shrink below the 5 nm minimum required by V0.M1.EN.1 (two opposite sides ≥ 5 nm and ≥ 5 nm, or ≥ 5 nm and ≥ 0 nm) and V1.M1.EN.1 (two opposite sides ≥ 5 nm and ≥ 2 nm), as applied across all accepted row trials (trial:i01.ug.Block1_union_row1.00, trial:i01.ug.Block1_union_row5.05, trial:i01.ug.Block1_union_row6.06, trial:i01.ug.Block1_union_row8.07).

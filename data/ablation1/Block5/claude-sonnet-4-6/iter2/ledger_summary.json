@@ -1,0 +1,39 @@
+{
+  "case": "Block5",
+  "design_state": "c5292a284ad4664e01a2ba178591aa00c357719b470d7c2a01f1938996893820",
+  "failed_trials": [],
+  "iter": 2,
+  "n_appended_new": 18,
+  "n_cu_pool": 2,
+  "n_failed_trials": 0,
+  "n_records": 7,
+  "n_unit_gate": 5,
+  "n_unmapped": 1,
+  "per_layer": {
+    "M1": 2,
+    "M2": 5,
+    "M3": 4,
+    "M4": 1,
+    "V1": 2,
+    "V2": 3,
+    "V3": 1
+  },
+  "touched_layers": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "V1",
+    "V2",
+    "V3"
+  ],
+  "trial_ids": [
+    "i02.cu.def:VIA_VIA23_1_3_36_36.00",
+    "i02.cu.def:VIA_VIA23_1_3_36_36.01",
+    "i02.ug.Block5_union_row6.00",
+    "i02.ug.leaf_0001.01",
+    "i02.ug.leaf_0002.02",
+    "i02.ug.leaf_0005.03",
+    "i02.ug.leaf_0006.04"
+  ]
+}

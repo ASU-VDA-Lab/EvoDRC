@@ -1,0 +1,195 @@
+{
+  "iter": 2,
+  "block_bounds_dbu": [
+    0,
+    0,
+    12696,
+    12696
+  ],
+  "violations": [
+    {
+      "violation_id": "v0001",
+      "rule_id": "V0.M1.AUX.3",
+      "bbox": [
+        9684,
+        7668,
+        9756,
+        7740
+      ]
+    },
+    {
+      "violation_id": "v0002",
+      "rule_id": "V0.M1.AUX.3",
+      "bbox": [
+        2988,
+        7380,
+        3060,
+        7452
+      ]
+    },
+    {
+      "violation_id": "v0003",
+      "rule_id": "V0.M1.AUX.3",
+      "bbox": [
+        9684,
+        5508,
+        9756,
+        5580
+      ]
+    },
+    {
+      "violation_id": "v0004",
+      "rule_id": "M4.AUX.2",
+      "bbox": [
+        1920,
+        6480,
+        2336,
+        6576
+      ]
+    },
+    {
+      "violation_id": "v0005",
+      "rule_id": "M4.AUX.1",
+      "bbox": [
+        2688,
+        3192,
+        3104,
+        3288
+      ]
+    },
+    {
+      "violation_id": "v0006",
+      "rule_id": "M4.AUX.1",
+      "bbox": [
+        1920,
+        4272,
+        2336,
+        4368
+      ]
+    },
+    {
+      "violation_id": "v0007",
+      "rule_id": "M4.AUX.1",
+      "bbox": [
+        2688,
+        5352,
+        3104,
+        5448
+      ]
+    },
+    {
+      "violation_id": "v0008",
+      "rule_id": "M4.AUX.1",
+      "bbox": [
+        2688,
+        7512,
+        3104,
+        7608
+      ]
+    },
+    {
+      "violation_id": "v0009",
+      "rule_id": "M4.AUX.1",
+      "bbox": [
+        1920,
+        8592,
+        2336,
+        8688
+      ]
+    },
+    {
+      "violation_id": "v0010",
+      "rule_id": "M4.AUX.1",
+      "bbox": [
+        2688,
+        9672,
+        3104,
+        9768
+      ]
+    },
+    {
+      "violation_id": "v0011",
+      "rule_id": "M5.AUX.1",
+      "bbox": [
+        2656,
+        3148,
+        3136,
+        9812
+      ]
+    },
+    {
+      "violation_id": "v0012",
+      "rule_id": "M5.AUX.1",
+      "bbox": [
+        1888,
+        2068,
+        2368,
+        10892
+      ]
+    }
+  ],
+  "leaves": [
+    {
+      "leaf_id": "leaf_0001",
+      "bbox_dbu": [
+        9232,
+        5508,
+        10080,
+        8532
+      ],
+      "violation_ids": [
+        "v0001",
+        "v0003"
+      ],
+      "rule_counts": {
+        "V0.M1.AUX.3": 2
+      },
+      "n_viol": 2
+    },
+    {
+      "leaf_id": "leaf_0002",
+      "bbox_dbu": [
+        1728,
+        2068,
+        11016,
+        10892
+      ],
+      "violation_ids": [
+        "v0004",
+        "v0006",
+        "v0009",
+        "v0012"
+      ],
+      "rule_counts": {
+        "M4.AUX.2": 1,
+        "M4.AUX.1": 2,
+        "M5.AUX.1": 1
+      },
+      "n_viol": 4
+    },
+    {
+      "leaf_id": "leaf_0003",
+      "bbox_dbu": [
+        1728,
+        3148,
+        11016,
+        9812
+      ],
+      "violation_ids": [
+        "v0002",
+        "v0005",
+        "v0007",
+        "v0008",
+        "v0010",
+        "v0011"
+      ],
+      "rule_counts": {
+        "V0.M1.AUX.3": 1,
+        "M4.AUX.1": 4,
+        "M5.AUX.1": 1
+      },
+      "n_viol": 6
+    }
+  ],
+  "count": 3
+}

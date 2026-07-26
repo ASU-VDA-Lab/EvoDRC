@@ -1,0 +1,33 @@
+**Instance move sizing and connectivity**
+
+All accepted trials in iterations 1 through 4 used move_instance deltas of ±36 dbu on the x-axis as the primary displacement unit (trial:i01.ug.Block1_union_row1.00, trial:i01.ug.Block1_union_row10.01, trial:i01.ug.Block1_union_row3.03, trial:i01.ug.Block1_union_row4.04, trial:i01.ug.Block1_union_row5.05, trial:i01.ug.Block1_union_row6.06, trial:i01.ug.Block1_union_row8.07, trial:i01.ug.Block1_union_row9.08, trial:i01.ug.leaf_0004.09, trial:i01.ug.leaf_0020.10, trial:i02.ug.Block1_union_row6.01, trial:i03.ug.Block1_union_row3.00, trial:i03.ug.leaf_0005.02, trial:i04.ug.leaf_0001.00). Every one of these was gated_in with conn_preserved=true.
+
+Do not increase the displacement of an instance that was already moved in a prior iteration. Instance i0453 was moved +36 dbu in trial:i04.ug.leaf_0001.00 (gated_in, conn_preserved=true). When the same instance was subsequently moved +72 dbu in trial:i05.ug.leaf_0001.00, connectivity broke and the trial was gated_out with reason conn_broken. Use the 36 dbu step; do not escalate displacement for any instance already repositioned in a prior iteration.
+
+**Resize operations paired with move_instance**
+
+When a move_instance shifts an M1 boundary, pair the move with a resize_end on the adjacent M1 polygon along the same axis to maintain enclosure margins. This pattern appears in trial:i01.ug.Block1_union_row1.00 (resize_end x high +128 dbu on p1320 and +92 dbu on p1321, alongside +36 and +108 dbu moves, zero new violations), trial:i01.ug.Block1_union_row3.03 (resize_end x high +92 dbu on p1370 paired with a +36 dbu move, zero new violations), trial:i01.ug.Block1_union_row5.05 (resize_end x high +36 dbu on p1297 and x low +36 dbu on p1301 paired with ±36 dbu moves, zero new violations), trial:i01.ug.leaf_0020.10 (resize_end x low +36 dbu on p1253 paired with a -36 dbu move, zero new violations), and trial:i03.ug.leaf_0004.01 (resize_end x high +72 dbu on p1295 paired with a +72 dbu move, zero new violations). In trial:i01.ug.Block1_union_row4.04, a resize_end x high +52 dbu on p1238 accompanied a +36 dbu move and produced zero new violations; the resize delta exceeded the move delta, indicating M1 end extensions are not required to exactly match the move delta. The symmetric two-end adjustment (both ends ±36 dbu) in trial:i01.ug.Block1_union_row5.05 resolved in-crop violations to zero.
+
+**M1.A.1 minimum area (504 nm²)**
+
+M1.A.1 flags any M1 polygon with area below 504 nm². trial:i05.ug.leaf_0005.04, which applied five ops across a wide locus [1728,3148,14256,14132] including a polygon move on p1561 (y-axis, -96 dbu), introduced 7 new M1.A.1 violations in-crop — the only trial in this history with a per-rule breakdown that identifies M1.A.1 as a source of new violations. Verify that all M1 regions resulting from move_instance or polygon resize ops meet the 504 nm² minimum before committing. Apply particular scrutiny to polygon moves that compress M1 extent in y, as the p1561 y-move in trial:i05.ug.leaf_0005.04 co-occurred with the M1.A.1 spike.
+
+**V1.M1.EN.1 enclosure of V1 by M1**
+
+V1.M1.EN.1 requires M1 to enclose V1 by 5 nm on one pair of opposite sides and 2 nm on the other. trial:i05.ug.leaf_0005.04 introduced 15 new V1.M1.EN.1 violations — the highest single-rule in-crop count in this history's per-rule breakdown — and applied no resize_end ops (only move_instance and one polygon move). By contrast, trials that paired resize_end with move_instance (trial:i01.ug.Block1_union_row1.00, trial:i01.ug.Block1_union_row5.05, trial:i03.ug.leaf_0004.01) produced zero new violations including zero V1.M1.EN.1. Apply resize_end alongside move_instance to maintain M1 enclosure margins for embedded V1 vias. Note that trial:i05.ug.leaf_0005.04 also recorded an assemble drop of one M6 via shape (cu_pool:rejected_net_positive), leaving the multi-layer stack without the assembler's proposed adjustment at that location.
+
+**V0.M1.EN.1 and V0.M1.AUX.3**
+
+V0.M1.EN.1 requires M1 to enclose V0 by at least 5 nm on two opposite sides (or 5 & 0 nm in the endpoint-zero form). V0.M1.AUX.3 requires V0 to be exactly coextensive with M1 in the direction perpendicular to M1 length — any V0 edge not coincident with an M1 edge triggers a violation. The per-rule breakdown for trial:i05.ug.leaf_0005.04 does not list V0.M1.EN.1 or V0.M1.AUX.3 among the new violations despite the broad locus and multiple M1 ops. Trials that matched resize_end delta to move_instance delta (trial:i03.ug.leaf_0004.01: +72 dbu resize alongside +72 dbu move) produced zero new violations, showing that symmetric endpoint extension preserves V0 enclosure under these displacement magnitudes.
+
+**Via replacement as an alternative to move_instance**
+
+In trial:i02.ug.leaf_0004.02, an existing instance was deleted and replaced with a new VIA_VIA12 cell placed at origin [5904,6300] dbu, producing zero new in-crop violations at locus [5344,5508,6192,6372]. Use add_via to reposition a via landing on M1 when direct instance displacement would exceed the 36 dbu single-step limit or risk connectivity: this substitution produced no M1 enclosure or spacing violations where prior ops in the same region (iter 1 and iter 3 for unit leaf_0004) had accumulated defects requiring further repair.
+
+**Large-locus operations and violation accumulation**
+
+Trials with loci spanning the full block introduce large numbers of new in-crop violations. trial:i04.ug.leaf_0004.03 used a locus of [1728,2068,14256,13680] with a single move_instance using delta=4 (a value distinct from the 36 dbu unit used in all other trials) and introduced 80 new in-crop violations. trial:i05.ug.leaf_0005.04 used a locus of [1728,3148,14256,14132] with 5 ops and introduced 24 new violations spanning M1.A.1, V1.M1.EN.1, M3.S.2, M4.W.5, M6.AUX.1, and M6.AUX.3. Prefer loci scoped tightly to the target unit; wide-locus ops in trial:i04.ug.leaf_0004.03 and trial:i05.ug.leaf_0005.04 accumulated M1-layer side effects that each require separate repair passes.
+
+**M1.W.1, M1.S.1–M1.S.6, and M1.R.0 status**
+
+The per-rule breakdown for trial:i05.ug.leaf_0005.04 does not list M1.W.1 (18 nm minimum width), M1.S.1–M1.S.6 (side-to-side, tip-to-side, tip-to-tip, and corner-to-corner spacing), or M1.R.0 (redundant island near large empty M1 region) among the new violations introduced by that trial's ops. No other trial in this history provides a per-rule breakdown; trials with nonzero new-in-crop counts but no breakdown (trial:i01.ug.Block1_union_row1.00 at 4 new, trial:i04.ug.leaf_0004.03 at 80 new) do not confirm or rule out these rules as sources.

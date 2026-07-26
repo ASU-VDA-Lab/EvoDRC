@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block6_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0213", "delta_dbu": [8, 0]},
+    {"op": "resize_end", "polygon_id": "p1923", "axis": "x", "end": "high", "delta_dbu": 8},
+    {"op": "move_instance", "inst_id": "i0071", "delta_dbu": [37, 0]},
+    {"op": "resize_end", "polygon_id": "p1907", "axis": "x", "end": "high", "delta_dbu": 57}
+  ],
+  "explanation": "Ops 1-2 fix v0026 (V1.M1.EN.1): moving via i0213 right by 8 dbu aligns its V1 cut fully with the std-cell AND2x2 M1, giving y-pair enclosure of 128/36 dbu (both >=8, top >=20), while p1923 is extended to cover the shifted M2 land. Ops 3-4 fix v0004 (V0.M1.AUX.3): moving via i0071 right by 37 dbu places its M1 land entirely to the right of V0 (x>=11269 > V0 right=11268), leaving V0's top/bottom edges coincident with frozen std-cell M1 and eliminating all non-coincident horizontal V0 edges, while p1907 is extended to cover the shifted M2 land."
+}

@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0030",
+  "ops": [
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M5","shape_index":0,"axis":"x","delta_dbu":56},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"M6","shape_index":0,"axis":"y","delta_dbu":128},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"M5","shape_index":0,"axis":"x","delta_dbu":-96}
+  ],
+  "explanation": "Fixes M5.AUX.1 in VIA_VIA45_1_2_58_58 by expanding M5 x-edges from ±164 to ±192 dbu (on 96 dbu grid); fixes M6.AUX.1 and M5.AUX.1 in VIA_VIA56_2_2_66_58 by expanding M6 y-edges from ±320 to ±384 dbu (on 128 dbu grid) and shrinking M5 x-edges from ±240 to ±192 dbu (on 96 dbu grid)."
+}

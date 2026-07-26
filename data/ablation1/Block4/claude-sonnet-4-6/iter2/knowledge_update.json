@@ -1,0 +1,122 @@
+{
+  "budget_s": 0,
+  "case": "Block4",
+  "iter": 2,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 90.17
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 91.33
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 164.33
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A cites exact trial IDs and delta values matching history; B contains factual errors (e.g. wrong delta for row2.02, misattributes violations to dropped v",
+          "wall_s": 7.42
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B correctly attributes violations to surviving ops not dropped ones, avoids overstating iter-1 SINCE-MODIFIED loci as current, and organizes findings by ",
+          "wall_s": 6.41
+        }
+      ],
+      "judged": true,
+      "layer": "M1",
+      "n_new_records": 6,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 76.52
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 124.71
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 74.23
+        }
+      ],
+      "judged": false,
+      "layer": "M2",
+      "n_new_records": 6,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 78.31
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 50.97
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 86.57
+        }
+      ],
+      "judged": false,
+      "layer": "V1",
+      "n_new_records": 6,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "V1"
+  ],
+  "wall_s": 269.5
+}

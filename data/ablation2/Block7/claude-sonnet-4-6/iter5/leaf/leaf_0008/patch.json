@@ -1,0 +1,46 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "M2",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -82
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "V2",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -82
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "V2",
+      "shape_index": 1,
+      "axis": "y",
+      "delta_dbu": -82
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "V2",
+      "shape_index": 2,
+      "axis": "y",
+      "delta_dbu": -82
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "M3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -82
+    }
+  ],
+  "explanation": "Shrinks VIA_VIA23_1_3_36_36 M2/V2/M3 shapes from y=\u00b177 to y=\u00b136 dbu so that V1 cuts from VIA_via1_2_6750_18_1_187_36_36 (at y=\u00b136) gain coincident y-edges with the merged M2, clearing 72 V1.M2.AUX.2 violations plus 41 co-located M2.S.1/M1.S/V0.M1 violations; V2 and M3 shrink together to prevent V2.M2.EN cascade, with residual V2.M3.AUX.2 declared as debt per hierarchy-of-standards G4 (admitted 100% def edit)."
+}

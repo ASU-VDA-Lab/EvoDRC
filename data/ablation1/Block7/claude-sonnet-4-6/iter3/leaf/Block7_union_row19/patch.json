@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row19",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0949", "delta_dbu": [0, -52]},
+    {"op": "move_instance", "inst_id": "i0950", "delta_dbu": [0, -52]},
+    {"op": "move_instance", "inst_id": "i0294", "delta_dbu": [37, 0]}
+  ],
+  "explanation": "Moves via stack i0949/i0950 down 52 dbu to eliminate the M1 tip protrusion above the background stripe (clears v0049/v0053/v0060/v0061); moves i0294 right 37 dbu so its M1 land aligns flush with the frozen V0 pin at x=[20916,20988] (clears v0026)."
+}

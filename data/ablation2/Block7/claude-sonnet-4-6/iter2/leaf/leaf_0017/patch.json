@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0017",
+  "ops": [],
+  "explanation": "PATCH-REVIEWER v1 REJECTED the move_instance patch (delta=[0,48] on i0949): cleared=5, introduced=5 (M1.S.4×1, M1.S.5×2, M1.S.6×2), net=0, not strictly greater than zero, fails SG4 gating criterion. CODER v2 evaluated delete_instance on i0949: deleting i0949 clears all 5 target violations (its geometry is the source of every violation) and introduces 0 new DRC violations (no geometry is added). However, connectivity analysis via Block7.json shows i0949 is the SOLE VIA_VIA12 bridging the HAxp5 signal M1 net (x=11952-12780, y=21708-21852) to M2. Connectivity seed path 5571 (HAxp5_ASAP7_75t_R M1 → AND2x2_ASAP7_75t_R M1 pin) requires i0949's V1 cut and M2 land for the M1→M2 transition; no other VIA_VIA12 instance overlaps this M1 feature at this y-row. Deletion would break this seed: conn_preview preserved=false. No move delta clears all 5 violations without introducing ≥5 new M1.S.* violations (net=0). No polygon repair is viable (add_polygon to M1 rail breaks 46+ seeds; bridge to p467 causes net short). No net-reducing legal fix exists. Submitting empty ops per gating doctrine."
+}

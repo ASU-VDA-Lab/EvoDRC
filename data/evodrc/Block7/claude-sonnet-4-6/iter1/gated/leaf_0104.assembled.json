@@ -1,0 +1,19 @@
+{
+  "leaf_id": "leaf_0104",
+  "ops_total": 0,
+  "ops_applied": 0,
+  "ops_dropped": [
+    {
+      "op": {
+        "op": "resize_via_shape",
+        "cell_name": "VIA_VIA45_1_2_58_58",
+        "layer_name": "M5",
+        "shape_index": 0,
+        "axis": "y",
+        "delta_dbu": -88
+      },
+      "reason": "cu_pool:lost_tournament"
+    }
+  ],
+  "had_drop": true
+}

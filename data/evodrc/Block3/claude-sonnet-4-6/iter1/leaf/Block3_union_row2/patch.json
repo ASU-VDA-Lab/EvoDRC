@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block3_union_row2",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0221", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0203", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Both V0.M1.AUX.3 violations at (7740,4140,7812,4212) and (10332,4140,10404,4212) are cleared by shifting VIA_VIA12 instances i0221 and i0203 +36 dbu in x, moving each M1 land left edge to coincide with the corresponding V0 right edge and eliminating the convex-corner notch that triggered the rule."
+}

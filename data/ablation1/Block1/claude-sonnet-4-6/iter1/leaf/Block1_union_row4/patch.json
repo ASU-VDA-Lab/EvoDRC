@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block1_union_row4",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0300", "delta_dbu": [36, -36]},
+    {"op": "move_instance", "inst_id": "i0432", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1238", "axis": "x", "end": "high", "delta_dbu": 52},
+    {"op": "move_instance", "inst_id": "i0438", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0300 (+36x/-36y), i0432 (+36x), and i0438 (+36x) to align their M1 lands with the adjacent std-cell V0/M1 geometry, clearing v0041 (M1.S.2), v0058 (V1.M1.EN.1), v0005 and v0014 (V0.M1.AUX.3); p1238 M2 high-x end is extended +52 dbu to maintain continuous M2 coverage over the moved i0432 M2 land."
+}

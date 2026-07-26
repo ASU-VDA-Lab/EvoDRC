@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0011",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0066", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0066 right by 36 dbu so its M1 land left edge shifts from x=9648 to x=9684, restoring the merged M1 boundary coincidence with the V0 pin's left edge and clearing the V0.M1.AUX.3 convex-corner violation."
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0110", "delta_dbu": [-288, 0]},
+    {"op": "move_instance", "inst_id": "i0092", "delta_dbu": [-288, 0]},
+    {"op": "move_instance", "inst_id": "i0073", "delta_dbu": [-288, 0]}
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [],
+  "explanation": "All 11 violations are structurally unresolvable: V4.M5.AUX.2 (8 violations, 100%-admissible via-structure edit) cannot achieve net DRC reduction because every candidate resize_via_shape on VIA_VIA45_1_2_58_58 introduces an equal number of secondary violations (V4.AUX.1 or M5.W.5) due to p938 dominating merged M5 extents; M4.AUX.1 and M4.AUX.2 (3 violations) have no admissible via-structure edits (6/8 and 1/8, not 100%) and no separate editable M4 polygons exist at the via sites."
+}

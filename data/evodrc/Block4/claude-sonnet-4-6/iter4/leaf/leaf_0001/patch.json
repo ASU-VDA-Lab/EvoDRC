@@ -1,0 +1,20 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op":"move_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":0,"axis":"y","delta_dbu":-132},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":0,"axis":"y","delta_dbu":512},
+    {"op":"move_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":1,"axis":"y","delta_dbu":-132},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":1,"axis":"y","delta_dbu":512},
+    {"op":"move_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":2,"axis":"y","delta_dbu":132},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":2,"axis":"y","delta_dbu":512},
+    {"op":"move_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":3,"axis":"y","delta_dbu":132},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"V5","shape_index":3,"axis":"y","delta_dbu":512},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_2_66_58","layer_name":"M5","shape_index":0,"axis":"y","delta_dbu":160},
+    {"op":"move_via_shape","cell_name":"VIA_VIA56_2_1_66_58","layer_name":"V5","shape_index":0,"axis":"y","delta_dbu":-132},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_1_66_58","layer_name":"V5","shape_index":0,"axis":"y","delta_dbu":512},
+    {"op":"move_via_shape","cell_name":"VIA_VIA56_2_1_66_58","layer_name":"V5","shape_index":1,"axis":"y","delta_dbu":132},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_1_66_58","layer_name":"V5","shape_index":1,"axis":"y","delta_dbu":512},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA56_2_1_66_58","layer_name":"M5","shape_index":0,"axis":"y","delta_dbu":160}
+  ],
+  "explanation": "Cleared all 6 V5.M6.AUX.2 violations in the crop. V5.M6.AUX.2 requires V5 cut y-edges to coincide with M6 y-edges. In both VIA56 cells the V5 cuts were 128 dbu tall, centered at y=±132 dbu from the cell origin, while M6 spans ±320 dbu (640 dbu total). The repair: (1) move each V5 cut to center y=0 within the cell (delta_y = -132 for upper cuts, +132 for lower cuts), then (2) resize each V5 cut by +512 dbu on the y-axis, growing it from 128 dbu to 640 dbu so its edges land at exactly ±320 dbu — coincident with M6 y-edges. Finally (3) grow the M5 land by +160 dbu on y in both cells (from ±240 to ±320 dbu) so V5 remains fully within M5 bounds (V5.AUX.1 satisfied; coincident edge counts as inside in KLayout DRC). Baseline: 78 violations. After patch: 72 violations remaining. Net cleared: 6. Net introduced: 0. Connectivity: 588/588 seeds preserved. Remaining 72 violations (V2.M3.AUX.2 x36, V4.M5.AUX.2 x24, M4.AUX.1 x6, M5.AUX.1 x4, M4.AUX.2 x2) are not addressable: V2/V4 fixes exceed containment bounds or violate minimum-width rules; M4 is not in the editable layer band; M5.AUX.1 involves die-spanning polygons not at 100% admissibility for the relevant via-cell type."
+}

@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row10",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1140", "delta_dbu": [4, 0]},
+    {"op": "move_instance", "inst_id": "i1811", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i1180", "delta_dbu": [-36, 0]},
+    {"op": "resize_end", "polygon_id": "p3305", "axis": "x", "end": "high", "delta_dbu": 50}
+  ]
+}

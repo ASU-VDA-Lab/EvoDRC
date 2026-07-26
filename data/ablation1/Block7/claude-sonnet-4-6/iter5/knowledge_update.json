@@ -1,0 +1,317 @@
+{
+  "budget_s": 0,
+  "case": "Block7",
+  "iter": 5,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 120.4
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 217.64
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 441.95
+        }
+      ],
+      "judged": false,
+      "layer": "M1",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 425.41
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 279.08
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 235.51
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"B misclassifies p2720 row9 +56 as resize_end (it's op:move); A correctly distinguishes move vs resize_end. A covers sym-y resize, M2.S.7, matched-magnitu",
+          "wall_s": 52.91
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 88.29
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 250.89
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 101.24
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"A falsely implies leaf_0024.25 has zero in-crop violations (actual: 1); B covers more trials (leaf_0023.16, row12.02, row13.03); B is better organize",
+          "wall_s": 66.82
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 35.24
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 79.07
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly notes M4 in touched_layers with zero ops; A wrongly claims M4 required no direct modification implying it wasn't touched. B adds move=hal",
+          "wall_s": 124.13
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B cites move=half-resize symmetry rule, def-scope propagation pattern, and per-window breakdown with direct evidence; A has minor inaccuracy claiming M4 ",
+          "wall_s": 54.42
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 160.14
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 95.99
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 121.9
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 158.31
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"A\", \"knowledge_quality\":\"B\", \"reason\":\"B explicitly flags touched_layers/M5 distinction for SINCE-MODIFIED i02 trial and grounds claims in DRC rule IDs; A covers window distributions and l",
+          "wall_s": 79.98
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B cites iter-5 record accurately, covers forbidden-width rules M5.W.3/W.4 and AUX constraints absent in A, and is better organized with less redundancy.\"",
+          "wall_s": 71.0
+        }
+      ],
+      "judged": true,
+      "layer": "M5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 80.12
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 437.43
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 139.9
+        }
+      ],
+      "judged": false,
+      "layer": "V1",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 166.36
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 372.04
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 75.7
+        }
+      ],
+      "judged": false,
+      "layer": "V2",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 195.34
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 216.78
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 92.46
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites leaf_0002 delta(\u22122) missed by A, links ops to specific rules (V4.W.1, V4.M5.AUX.2), and is better organized with less redundancy.\"}",
+          "wall_s": 69.97
+        }
+      ],
+      "judged": true,
+      "layer": "V4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "V1",
+    "V2",
+    "V4"
+  ],
+  "wall_s": 659.61
+}

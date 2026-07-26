@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA45_1_2_58_58", "layer_name": "M5", "shape_index": 0, "axis": "y", "delta_dbu": -88}
+  ],
+  "explanation": "Shrinks the M5 land in VIA_VIA45_1_2_58_58 along the y-axis by 88 dbu total (44 per side) so its top/bottom edges exactly coincide with the V4 cut edges, satisfying V4.M5.AUX.2 at all 4 placements. The 15 M4.*/V3.M4.AUX.2 violations are left unfixed as their rules are below 100% admissibility threshold and no safe regional fix exists."
+}

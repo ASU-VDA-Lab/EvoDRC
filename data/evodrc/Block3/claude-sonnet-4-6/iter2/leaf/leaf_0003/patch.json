@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0177", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0152", "delta_dbu": [0, -48]},
+    {"op": "move_instance", "inst_id": "i0079", "delta_dbu": [0, 96]},
+    {"op": "move_instance", "inst_id": "i0102", "delta_dbu": [0, 96]},
+    {"op": "move_instance", "inst_id": "i0078", "delta_dbu": [0, 48]},
+    {"op": "move_instance", "inst_id": "i0101", "delta_dbu": [0, 48]}
+  ],
+  "explanation": "Moves three pairs of VIA_VIA45/VIA_VIA34 instances (i0177/i0152, i0079/i0102, i0078/i0101) in y only to align their M4 lands to legal track positions (center_y mod 192 == 48), clearing violations v0006 (M4.AUX.1), v0004 (M4.AUX.2), and v0009 (M4.AUX.1). The two M5.AUX.1 violations (v0013, v0014) are declared DEBT as they require moving die-spanning polygon p1060 which lacks the (=100%) shared-target marking required for admissible global edits."
+}

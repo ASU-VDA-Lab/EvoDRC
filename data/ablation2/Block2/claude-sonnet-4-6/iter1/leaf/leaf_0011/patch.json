@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0011",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0027", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1052", "axis": "x", "end": "high", "delta_dbu": 36}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0027 rightward by 36 dbu so its M1 land clears the frozen V0 pin x-range (7308-7380), resolving V0.M1.AUX.3; extends M2 polygon p1052's right edge by 36 dbu to maintain solid M2 overlap with i0027's new M2 land."
+}

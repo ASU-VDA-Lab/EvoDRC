@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op":"move_instance","inst_id":"i0111","delta_dbu":[36,0]},
+    {"op":"resize","polygon_id":"p893","axis":"y","delta_dbu":-64},
+    {"op":"move","polygon_id":"p910","axis":"x","delta_dbu":8},
+    {"op":"resize_via_shape","cell_name":"VIA_VIA45_1_2_58_58","layer_name":"M5","shape_index":0,"axis":"y","delta_dbu":-88}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0111 +36 dbu in x (clears M1.S.2/v0003, V1.M1.EN.1/v0005, V0.M1.AUX.3/v0001), resizes M3 polygon p893 in y by -64 dbu to make V2 cut y-edges coincident with merged M3 (clears v0007, v0009), moves M3 polygon p910 +8 dbu in x to achieve 25 nm spacing to p892 (clears M3.S.2/v0004), and shrinks VIA_VIA45_1_2_58_58 M5 land by -88 dbu in y so M5 y-edges coincide with V4 cut y-edges (clears all 6 V4.M5.AUX.2 violations)."
+}

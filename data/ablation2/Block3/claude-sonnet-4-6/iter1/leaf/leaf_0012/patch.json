@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0012",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1256", "axis": "x", "end": "high", "delta_dbu": 108}
+  ],
+  "explanation": "Clears V0.M1.AUX.3 at (5148,7668,5220,7740) by moving VIA_VIA12 instance i0103 72 dbu right so its M1 land no longer overlaps the V0 x-range; extends M2 polygon p1256 108 dbu rightward to maintain M2 connectivity to the relocated via."
+}

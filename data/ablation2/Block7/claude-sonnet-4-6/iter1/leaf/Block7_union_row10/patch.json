@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block7_union_row10",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1140", "delta_dbu": [52, 0]},
+    {"op": "move_instance", "inst_id": "i1180", "delta_dbu": [288, 0]},
+    {"op": "resize_end", "polygon_id": "p3286", "axis": "x", "end": "high", "delta_dbu": 308},
+    {"op": "move_instance", "inst_id": "i1811", "delta_dbu": [-216, 0]},
+    {"op": "resize_end", "polygon_id": "p3751", "axis": "x", "end": "low", "delta_dbu": 180},
+    {"op": "resize_end", "polygon_id": "p3751", "axis": "x", "end": "high", "delta_dbu": 56}
+  ],
+  "explanation": "Moved VIA_VIA12 instances i1140 (+52x), i1180 (+288x), and i1811 (-216x) to clear M1.S.2, M1.S.4, V1.M1.EN.1, and V0.M1.AUX.3 violations; extended M2 polygons p3286 and p3751 to maintain coverage of relocated vias. Two violations (v0072 V0.M1.AUX.3 and v0194 M2.S.7) could not be cleared without introducing new violations or breaking connectivity (declared as debt)."
+}

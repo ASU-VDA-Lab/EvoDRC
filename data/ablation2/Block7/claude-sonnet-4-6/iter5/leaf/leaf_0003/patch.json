@@ -1,0 +1,14 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0913",
+      "delta_dbu": [
+        0,
+        56
+      ]
+    }
+  ],
+  "explanation": "Moving VIA_VIA12 instance i0913 up by 56 dbu (14 nm) clears all five violations (v0022, v0023, v0051, v0052, v0058): M1 land rises above the spacing threshold relative to p3793, V1 spacing to i0008 increases beyond 92 dbu, and V1.M1.EN.1 is satisfied by the shifted M1 land providing sufficient enclosure. The add_polygon Op 2 from the approved plan was dropped because it overlaps with frozen background polygon _ptemp_25 on M1 (different net), causing a connectivity short \u2014 and Op 1 alone is sufficient to clear all violations."
+}

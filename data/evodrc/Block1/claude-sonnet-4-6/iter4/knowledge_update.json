@@ -1,0 +1,271 @@
+{
+  "budget_s": 0,
+  "case": "Block1",
+  "iter": 4,
+  "layers": {
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 122.97
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 177.68
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 141.26
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"B\",\"reason\":\"A covers iter-4 trials (newest, highest weight) which B omits entirely; B incorrectly attributes V2.M3.EN.2 violations to M3 polygon moves that were asse",
+          "wall_s": 53.59
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 53.05
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 230.35
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 182.26
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"B inverts causality on leaf_0003/leaf_0004 ('clearing violations' when both trials introduced them); A's per-trial counts and iter-4 op details are more ",
+          "wall_s": 58.45
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 172.27
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 111.05
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 299.49
+        }
+      ],
+      "judged": false,
+      "layer": "M5",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M6": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 45.47
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 107.12
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 110.39
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly names all 4 AUX.3 polygons (p1145/p1144/p1143/p1142) and accurately reports p1561 y-move was dropped; A misattributes the drop as a resol",
+          "wall_s": 49.59
+        }
+      ],
+      "judged": true,
+      "layer": "M6",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 104.23
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 51.03
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 156.26
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 95.61
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A cites specific trial IDs and instance IDs matching history; B introduces unverified XY deltas for leaf_0004 not in excerpt. A covers iter-4 y-axis patt",
+          "wall_s": 8.34
+        }
+      ],
+      "judged": true,
+      "layer": "V3",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "V4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 172.39
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 121.05
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"B fatally misreads i04.ug.leaf_0002.01 as zero new V4 violations (actual: 20) and mislabels i02.ug.leaf_0003.02 as pure x-axis; A correctly traces all tr",
+          "wall_s": 30.88
+        }
+      ],
+      "judged": true,
+      "layer": "V4",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "V5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 35.02
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 70.6
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 137.86
+        }
+      ],
+      "judged": false,
+      "layer": "V5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "wall_s": 471.08
+}

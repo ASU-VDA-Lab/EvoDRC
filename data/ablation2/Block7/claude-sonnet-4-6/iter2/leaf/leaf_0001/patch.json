@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1643", "delta_dbu": [0, -57]},
+    {"op": "move", "polygon_id": "p3383", "axis": "y", "delta_dbu": -57}
+  ],
+  "explanation": "Clears M2.S.7 violation v0066 between the M2 lands of i1596 (VIA_VIA12) and i1643 (VIA_VIA23) by moving both i1643 and its companion M2 stripe p3383 downward 57 dbu, increasing the tip-to-tip M2 gap from 72 dbu (18 nm, violating) to 129 dbu (32.25 nm, compliant)."
+}

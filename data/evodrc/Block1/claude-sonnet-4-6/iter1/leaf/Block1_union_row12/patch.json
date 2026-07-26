@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block1_union_row12",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p1211", "axis": "x", "end": "high", "delta_dbu": 456},
+    {"op": "resize_end", "polygon_id": "p1216", "axis": "x", "end": "high", "delta_dbu": 240}
+  ],
+  "explanation": "Extended right edge of lower-track M4 polygon p1211 by 456 dbu and p1216 by 240 dbu to achieve the 176 dbu parallel run-length required by M4.S.5; both polygons now share sufficient overlap with their respective upper-track merged M4 (332 dbu and 288 dbu respectively)."
+}

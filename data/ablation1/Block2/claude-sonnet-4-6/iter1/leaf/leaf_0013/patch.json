@@ -1,0 +1,12 @@
+{
+  "leaf_id": "leaf_0013",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0063", "delta_dbu": [36, 0]},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "x", "delta_dbu": -144},
+    {"op": "move_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "x", "delta_dbu": 144},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "x", "delta_dbu": 288},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "x", "delta_dbu": 288},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "x", "delta_dbu": 288}
+  ],
+  "explanation": "OP1 moves VIA_VIA12 instance i0063 by +36 dbu in x to align its M1 patch with the BUFx2 V0 cut, fixing V0.M1.AUX.3 and M1.S.2 violations. OP2 collapses the three V2 cuts in VIA_VIA23_1_3_36_36 to span the full M3 x-width by moving the outer cuts inward and expanding all three to x=[-180,+180], eliminating 12 V2.M3.AUX.2 violations."
+}

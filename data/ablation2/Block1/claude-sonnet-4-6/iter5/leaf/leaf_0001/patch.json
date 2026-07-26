@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0181", "delta_dbu": [-76, 0]}
+  ],
+  "explanation": "Moves via i0181 (VIA_VIA45) left by 76 dbu, shifting its M4 land right edge from x=4364 to x=4288 and increasing the edge-to-edge gap to the background M4 at x=4448 from 84 dbu (21 nm) to 160 dbu (40 nm), exactly meeting the M4.S.4 tip-to-tip spacing threshold. DRC preview confirmed the target violation clears with no new in-window violations introduced and full connectivity preserved."
+}

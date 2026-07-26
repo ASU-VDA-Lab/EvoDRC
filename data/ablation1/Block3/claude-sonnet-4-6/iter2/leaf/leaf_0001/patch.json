@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0047", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1261", "axis": "x", "end": "high", "delta_dbu": 72}
+  ],
+  "explanation": "Clears v0001 (V0.M1.AUX.3 @ 9684,7668–9756,7740): moves VIA_VIA12 i0047 rightward +72 dbu so its M1 land (now x=9756..9828) no longer overlaps the V0 pin x-range (9684..9756), restoring std-cell M1 top y=7740 as the coincident boundary; extends M2 polygon p1261 high-x by +72 to maintain M2 connectivity to the relocated via."
+}

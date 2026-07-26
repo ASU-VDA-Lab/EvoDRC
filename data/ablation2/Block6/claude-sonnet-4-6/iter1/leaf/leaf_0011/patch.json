@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0011",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0066", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved via i0066 (VIA_VIA12) +36 dbu in x (origin 9684,8460 → 9720,8460) to shift its M1 land left edge from x=9648 to x=9684, making it coincident with frozen _ptemp_4 and the V0 left edge; this eliminates the non-coincident convex corner at (9684,8388) that triggered V0.M1.AUX.3, confirmed clear by DRC preview with no new violations and connectivity fully preserved."
+}

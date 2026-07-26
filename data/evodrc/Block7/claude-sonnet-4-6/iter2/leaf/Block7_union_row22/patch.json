@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block7_union_row22",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0194", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0187", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0075", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0132", "delta_dbu": [32, 0]},
+    {"op": "resize_end", "polygon_id": "p3527", "axis": "x", "end": "high", "delta_dbu": 92},
+    {"op": "move_instance", "inst_id": "i0042", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Fixes all five V0.M1.AUX.3 violations by moving each VIA_VIA12 +36 dbu in x (i0132 by +32) so each via's M1 land x-range aligns flush with or leaves zero area overlap with its corresponding V0 pin, eliminating non-coincident M1/V0 corners; p3527 is extended +92 dbu on high-x to maintain M2 coverage over i0132's shifted M2 land."
+}

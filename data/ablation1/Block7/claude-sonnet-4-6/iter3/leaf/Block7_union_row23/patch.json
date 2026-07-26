@@ -1,0 +1,7 @@
+{
+  "leaf_id": "Block7_union_row23",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0041", "delta_dbu": [0, 72]}
+  ],
+  "explanation": "Moving VIA_VIA12 i0041 up 72 dbu clears v0056 and v0057 (M1.S.6 corner-to-corner spacing) and v0044 (M1.S.2 tip-to-side spacing) by moving the M1 land bottom from y=26776 to y=26848, eliminating the tip protrusion into the notch and widening the corner distance to frozen M1. Two V0.M1.AUX.3 violations (v0031, v0014) are declared debt — they are caused by frozen std-cell M1 strips wider than the V0 footprints and cannot be resolved by any via move."
+}

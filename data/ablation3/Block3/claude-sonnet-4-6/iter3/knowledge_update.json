@@ -1,0 +1,122 @@
+{
+  "budget_s": 0,
+  "case": "Block3",
+  "iter": 3,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 8372.46
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 134.76
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 8372.46
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 73.66
+        }
+      ],
+      "judged": false,
+      "layer": "M1",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 8372.46
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 8372.45
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B correctly flags i01 locus as SINCE-MODIFIED and avoids asserting it as current state; B's actionable bullets cover all key op-class details with less r",
+          "wall_s": 15.09
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 8372.46
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 173.17
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 8435.38
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 66.33
+        }
+      ],
+      "judged": false,
+      "layer": "V1",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "V1"
+  ],
+  "wall_s": 8545.63
+}

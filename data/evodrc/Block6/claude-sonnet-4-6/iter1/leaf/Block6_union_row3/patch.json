@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block6_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0471", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0324", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0481", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "Three VIA_VIA12 instances (i0471, i0324, i0481) shifted +72 dbu in X so their M1 lands no longer straddle the adjacent stdcell M1 notch boundaries, restoring M1-V0 edge coincidence for V0.M1.AUX.3 (v0019, v0007, v0005) and increasing the diagonal M1 corner separation for M1.S.6 (v0035, v0036)."
+}

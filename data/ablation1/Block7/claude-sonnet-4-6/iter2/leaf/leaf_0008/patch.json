@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [],
+  "explanation": "V0.M1.AUX.3 at (12276,11988,12348,12060) is caused by frozen std-cell V0 pin _ptemp_5 sitting interior to frozen M1 stripe _ptemp_14; no editable op can make V0 edges coincide with M1 edges, and via structure edits are forbidden (VIA_VIA12 48/722, VIA_VIA23 21/916 violating)."
+}

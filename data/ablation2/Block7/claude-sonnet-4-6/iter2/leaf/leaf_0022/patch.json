@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0022",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0100", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p3035", "axis": "x", "end": "high", "delta_dbu": 128}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0100 right by 108 dbu so its M1 land corner clears the M1.S.6 spacing threshold (182 dbu) from frozen std-cell _ptemp_3 corner, with the M1 land right edge merging flush into the same-net std-cell M1 column at x=24372; extends M2 polygon p3035 by 128 dbu to maintain M2 connectivity to the repositioned via land."
+}

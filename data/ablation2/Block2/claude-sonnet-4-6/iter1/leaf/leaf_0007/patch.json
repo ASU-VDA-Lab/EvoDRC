@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0132", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Clears violation v0003 (V0.M1.AUX.3 at bbox [7308,5508,7380,5580]) by moving VIA_VIA12 instance i0132 +36 dbu in X, shifting its M1 landing pad left edge to x=7380, which aligns with the V0 right edge so the corner (7380,5580) is fully covered by the merged M1 enclosure."
+}

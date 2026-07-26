@@ -1,0 +1,11 @@
+**Instance co-movement on V2-touching layers**
+
+Moving pairs of instances that share V2-touching layers (M2, M3, V2) together along a single axis, while preserving connectivity, produces zero new V2 DRC violations when the relative positions of all co-moved instances are unchanged. Trial i02.ug.leaf_0001.01 moved instances i0104 and i0061 by +8 dbu in x simultaneously; n_new_in_crop and n_new_out_of_crop both measured 0, and the trial was accepted (decision: gated_in). Single-axis co-movement that keeps M3 widths and V2-to-M3 enclosures intact is safe under V2.W.1, V2.M3.EN.2, V2.M3.AUX.2, and V2.AUX.1.
+
+**M3 shrinkage on V2-containing via cells worsens net violation count**
+
+Shrinking M3 in the y-axis for via cell VIA_VIA23_1_3_36_36 alone by -40 dbu produced no improvement: delta_total=0 (trial i02.cu.def:VIA_VIA23_1_3_36_36.00, decision: rejected_net_positive). Extending the same shrink into a coordinated V2M3_corrected group — adding -112 dbu y shrinks on VIA_VIA34_1_2_58_52 (M3 and V3 shapes) plus symmetric -32 dbu both-end shrinks on M3 polygons p891, p892, and p893 — yielded a net increase of 5 violations (unit:leaf_0005 went from 20 to 28; unit:leaf_0006 dropped from 16 to 13; trial i02.cu.def:VIA_VIA23_1_3_36_36.01, decision: rejected_net_positive). Shrinking M3 on both ends simultaneously reduces M3 enclosure of V2 on two opposite sides, directly risking V2.M3.EN.2 failures (minimum 5 nm enclosure required on two opposite sides). Do not apply symmetric both-end M3 shrinks to polygons that carry V2 instances; the V2M3_corrected group strategy of shrinking M3 end-caps and adjacent via shapes together introduced more violations than it resolved in this design state (i02.cu.def:VIA_VIA23_1_3_36_36.01).
+
+**Isolated M3 y-shrink on a single via cell is DRC-neutral but non-corrective**
+
+A single resize of VIA_VIA23_1_3_36_36's M3 shape by -40 dbu in y (trial i02.cu.def:VIA_VIA23_1_3_36_36.00) left the V2 violation count unchanged across both monitored windows (before and after both measured 20 and 16 respectively). This operation neither fixes nor creates V2 violations at this magnitude, but it also provides no repair value and should not be used as a standalone correction for V2 DRC.

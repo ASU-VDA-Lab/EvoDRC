@@ -1,0 +1,11 @@
+Working from the inline records provided in the prompt.
+
+---
+
+**M3 y-axis shrink via cu_pool resolves enclosure violations in the via23-m3 group.** In trial i01.cu.def:VIA_VIA23_1_3_36_36.00 the cu_pool channel applied a y-axis `resize_via_shape` of −40 dbu to the M3 shape in cell `VIA_VIA23_1_3_36_36` together with y-axis `resize` of −64 dbu each on polygons p962–p965 (group via23-m3). The touched layers were M2, M3, and V2. The result was a net −8 DRC violations in window unit:leaf_0012 (27→19), with `conn_preserved: true` and no new out-of-crop debt. Apply coordinated y-axis shrink of M3 via shapes (−40 dbu) and their surrounding M3 polygons (−64 dbu) when the via23-m3 group shows enclosure or coincident-edge errors involving V2.M3.EN.2 or V2.M3.AUX.2.
+
+**cu_pool shape ops on M3 are dropped as assemble_drops in the co-firing unit_gate trial.** Trial i01.ug.leaf_0012.07 shows the identical M3 resize ops (axis y, −40 dbu on the via shape; −64 dbu on p962–p965) listed under `assemble_drops` with reason `cu_pool:applied`. Do not re-apply these M3 resizes in unit_gate or any subsequent channel within the same iteration once they carry the `cu_pool:applied` tag; duplication would over-shrink the shapes.
+
+**Instance moves in the unit_gate channel co-touch M3 without directly editing M3 geometry.** In trial i01.ug.leaf_0012.07 the four instance moves (i0097, i0092 at Δy = −48 dbu; i0064, i0072 at Δy = +96 dbu) listed M3 among touched_layers alongside M4, M5, V3, V4. The decision was `gated_in` and connectivity was preserved. New V1.M1.EN.1 violations (+2 in-crop) were accepted as a side-effect. M3 geometry in this context is affected only indirectly through instance displacement; no direct M3 polygon edit was needed from the unit_gate side.
+
+**Via23-m3 group targets the VIA_VIA23_1_3_36_36 cell definition.** Both records confirm that M3 shape repairs in the via23-m3 group operate on the cell definition `def:VIA_VIA23_1_3_36_36` (trial i01.cu.def:VIA_VIA23_1_3_36_36.00). Repairs scoped to this cell propagate to all instances and achieve efficient violation reduction across the unit window without per-instance edits.

@@ -1,0 +1,14 @@
+{
+  "leaf_id": "Block3_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0017", "delta_dbu": [108, 0]},
+    {"op": "resize_end", "polygon_id": "p1267", "axis": "x", "end": "high", "delta_dbu": 164},
+    {"op": "move_instance", "inst_id": "i0016", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1266", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i0019", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1269", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i0021", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1257", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "Shifts four VIA_VIA12 instances (i0017, i0016, i0019, i0021) laterally to clear V0/V1/M1 spacing violations (v0026, v0033, v0018, v0010, v0006, v0013), then extends the corresponding M2 D-section polygons (p1267, p1266, p1269, p1257) on their high-x edges to maintain full M2 enclosure of each shifted via."
+}

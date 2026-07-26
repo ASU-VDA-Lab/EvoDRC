@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block4_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0265", "delta_dbu": [72, 0]},
+    {"op": "move_instance", "inst_id": "i0325", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Clears v0010 and v0002 (V0.M1.AUX.3) by moving VIA_VIA12 i0265 right by 72 dbu and i0325 right by 36 dbu, shifting their M1 land protrusions out of the frozen V0 pin x-ranges to restore M1 boundary coincidence with V0 corners."
+}

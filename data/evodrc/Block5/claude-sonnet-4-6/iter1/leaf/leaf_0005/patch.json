@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0017", "delta_dbu": [112, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0017 right by 112 dbu (28 nm) to clear all three violations: increases M1 tip-to-side gap from 96 to 208 dbu (M1.S.2), brings the via onto _ptemp_11 upper strip giving 36 dbu top y-enclosure for V1 (V1.M1.EN.1), and moves via M1 left edge (7168) past V0 right edge (7164) leaving background M1 with exact y-match to cover V0 (V0.M1.AUX.3)."
+}

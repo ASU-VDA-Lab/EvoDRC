@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0047", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p1261", "axis": "x", "end": "high", "delta_dbu": 36}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0239 and i0047 rightward by 36 dbu so their M1 lands shift from x=(9648,9720) to x=(9684,9756), clearing M1.S.2 spacing violations (gap to frozen std-cell M1 at x=9552 grows from 96 to 132 dbu) and V1.M1.EN.1 enclosure violations (merged M1 from _ptemp_53 now provides 9 nm bottom enclosure of V1); p1261 M2 extended 36 dbu rightward to maintain solid M2 connectivity to the moved i0047 via."
+}

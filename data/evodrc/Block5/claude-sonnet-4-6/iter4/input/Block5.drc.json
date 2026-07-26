@@ -1,0 +1,134 @@
+{
+  "case_name": "Block5",
+  "design_type": "block",
+  "total_violations": 4,
+  "total_rules_violated": 3,
+  "rules": {
+    "V0.M1.AUX.3": {
+      "violation_count": 1,
+      "description": "V0.M1.AUX.3 : V0 must exactly be the same width as M1 along the direction perpendicular to the M1 length.",
+      "violations": [
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2772,
+              5220
+            ],
+            [
+              2772,
+              5292
+            ],
+            [
+              2844,
+              5292
+            ],
+            [
+              2844,
+              5220
+            ]
+          ],
+          "bbox": [
+            2772,
+            5220,
+            2844,
+            5292
+          ]
+        }
+      ]
+    },
+    "V2.M3.AUX.2": {
+      "violation_count": 2,
+      "description": "V2.M3.AUX.2 : V2 must exactly be the same width as M3 along the direction perpendicular to the M3 length.",
+      "violations": [
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              2716,
+              7524
+            ],
+            [
+              2716,
+              7596
+            ],
+            [
+              2788,
+              7596
+            ],
+            [
+              2788,
+              7524
+            ]
+          ],
+          "bbox": [
+            2716,
+            7524,
+            2788,
+            7596
+          ]
+        },
+        {
+          "type": "polygon",
+          "vertices": [
+            [
+              3004,
+              7524
+            ],
+            [
+              3004,
+              7596
+            ],
+            [
+              3076,
+              7596
+            ],
+            [
+              3076,
+              7524
+            ]
+          ],
+          "bbox": [
+            3004,
+            7524,
+            3076,
+            7596
+          ]
+        }
+      ]
+    },
+    "M5.AUX.1": {
+      "violation_count": 1,
+      "description": "M5.AUX.1 : M5 vertical edges must be at a grid of 24 nm.",
+      "violations": [
+        {
+          "type": "polygon",
+          "bbox": [
+            1888,
+            2020,
+            2368,
+            8780
+          ],
+          "vertices": [
+            [
+              1888,
+              2020
+            ],
+            [
+              1888,
+              8780
+            ],
+            [
+              2368,
+              8780
+            ],
+            [
+              2368,
+              2020
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}

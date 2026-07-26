@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block7_union_row24",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0215", "delta_dbu": [36, 0]},
+    {"op": "resize_end", "polygon_id": "p3058", "axis": "x", "end": "high", "delta_dbu": 36}
+  ],
+  "explanation": "Op1: Move VIA_VIA12 instance i0215 right by 36 dbu (from origin 15732,27180 to 15768,27180). This eliminates the M1 tip-to-side spacing violation v0122 (M1.S.2 at 15600-15696 x 27136-27224) by separating the via M1 land from the adjacent BUFx3 M1 left edge, and clears the V1-enclosure violation v0236 (V1.M1.EN.1 at 15696-15768 x 27144-27216) by repositioning the V1 cut under sufficient M1 coverage. Op2: Extend M2 polygon p3058 right edge from x=15768 to x=15804 (+36 dbu) to maintain M2 land coverage over the relocated V1 cut position, preventing a V1.AUX.1 violation at the new via location. The four V0.M1.AUX.3 violations (v0040, v0092, v0022, v0049) are declared as residual debt: they arise from V0 contacts inside frozen BUFx3_ASAP7_75t_R standard cell instances (i2080, i2303, i2188, i2156) where the internal std-cell M1 stripes are wider than the 72-dbu V0 cuts. These cannot be corrected by external instance moves or editable polygon resizes without modifying the frozen std-cell geometry. Ops 3-5 from the approved plan (moving i0561, i0221, i0044) were evaluated and found to introduce new M1.S.2 violations at 14724,27180 and 28116,27180 without clearing any V0.M1.AUX.3 violations, so they were dropped. M2.S.2 and M2.S.7 at 17548-17660 x 27792-27864 appear in new_in_window but are confirmed pre-existing in the baseline (no-ops) crop DRC and are not caused by this patch. Connectivity: all 3325 seeds preserved."
+}

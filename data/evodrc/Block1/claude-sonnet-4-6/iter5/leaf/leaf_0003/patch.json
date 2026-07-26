@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M2", "shape_index": 0, "axis": "y", "delta_dbu": -64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 0, "axis": "y", "delta_dbu": -64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 1, "axis": "y", "delta_dbu": -64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "V2", "shape_index": 2, "axis": "y", "delta_dbu": -64},
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -64}
+  ],
+  "explanation": "Shrinks the M2 land, all three V2 cuts, and the M3 land of VIA_VIA23_1_3_36_36 from 136 dbu (34 nm) to 72 dbu (18 nm) in y, so the merged M2 height at every VIA_VIA23 placement matches the 72 dbu V1 cuts from VIA_via1_2_3132_18_1_87_36_36, giving each V1 cut two coincident y-edges with M2 and clearing all 24 V1.M2.AUX.2 violations plus 7 indirect clears; 21 new violations are declared as debt."
+}

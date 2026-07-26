@@ -1,0 +1,21 @@
+## Via-Cell Repair Yield and Operation Patterns
+
+**V4 x-axis resize is the single highest-yield operation in the measured history.**
+In trial:i03.cu.def:VIA_VIA45_1_2_58_58.00, resizing two V4 shapes and one M4 shape each by +152 dbu along the x-axis inside cell VIA_VIA45_1_2_58_58 reduced the whole-design violation count by 28 (from 89 to 61) in a single cu_pool pass. The touched layers were M4, M5, and V4. The +152 dbu expansion is sufficient to satisfy V4.M5.EN.2 (11 nm enclosure of V4 by M5 on two opposite sides) and V4.M5.AUX.2 (V4 width must equal M5 width perpendicular to M5 length) when the surrounding M5 geometry is already correctly placed. When VIA_VIA45-type cells carry V4.M5.EN.2 or V4.M5.AUX.2 violations, apply an x-axis resize of +152 dbu to each V4 shape (and the co-located M4 shape) before attempting any M5 geometry edits; trial:i03.cu.def:VIA_VIA45_1_2_58_58.00 confirms this is accepted without connectivity loss.
+
+## V5 Shape Move+Resize Pairs Fix V5.M5.EN.1 in VIA_VIA56 Cells
+
+**Each V5 shape in a VIA_VIA56 cell requires a coordinated move-then-resize on the y-axis.**
+Trial:i01.cu.def:VIA_VIA56_2_1_66_58.00 applied the pattern to two V5 shapes: shape_index 0 was moved −132 dbu y then resized +512 dbu y; shape_index 1 was moved +132 dbu y then resized +512 dbu y. The result was a net violation reduction of 2. Trial:i01.cu.def:VIA_VIA56_2_2_66_58.01 applied the same per-pair pattern to four V5 shapes (two pairs: shape_index 0 and 1 each move −132, shape_index 2 and 3 each move +132, all resized +512 dbu y), reducing violations by 4. Both trials were accepted (decision: applied, conn_preserved). The symmetric −132/+132 move combined with +512 dbu resize expands the V5 footprint outward from the midpoint, achieving the 11 nm enclosure margin required by V5.M5.EN.1 without disturbing M5 geometry. Do not apply only the resize without the paired move; the recorded sequence always pairs the centroid-repositioning move first, then the size expansion.
+
+## M5 Polygon Vertical Move: +64 dbu in y Is Safe
+
+Trial:i01.ug.whole_design.00 moved M5 polygon p1402 by +64 dbu in y along with instances i0234 and i0305. The unit_gate decision was gated_in with conn_preserved and zero new DRC violations introduced (n_new_in_crop=0, n_new_out_of_crop=0). A +64 dbu y-displacement of an M5 polygon in this design context does not trigger M5.S.2 (40 nm vertical spacing), M5.W.5 (44 nm vertical width), M5.AUX.1 (24 nm vertical-edge grid), or M5.AUX.3 (no bending) violations given the geometry present at that design state.
+
+## Violation Count Trajectory and Operation Order
+
+At the start of iter 1, the whole-design violation count was 147. Trial:i01.cu.def:VIA_VIA56_2_1_66_58.00 reduced it by 2 to 145; trial:i01.cu.def:VIA_VIA56_2_2_66_58.01 reduced it by a further 4 to 143. Both cu_pool operations on VIA_VIA56 cells completed before the unit_gate pass (trial:i01.ug.whole_design.00) assembled and gated those changes in the same iteration. By iter 3, the design state had changed (hash 23df304f4c32690f49a522784098b39cffeaad7d08103d33be281e8216cd26a4) and the pre-repair count was 89; the V4/M4 x-resize in trial:i03.cu.def:VIA_VIA45_1_2_58_58.00 brought it to 61. Prioritize cu_pool via-cell operations before unit_gate M5 moves; the recorded sequence confirms cu_pool repairs are assembled into the unit_gate trial rather than evaluated independently at gate time.
+
+## M5-Touching Operations That Do Not Directly Edit M5 Geometry
+
+All four recorded trials touched M5 as a side-effect layer without directly editing any M5 shape (the ops in records 2–4 operate exclusively on V5, V4, and M4 shapes; the ops in record 1 move M5 polygon p1402 and instances but those instance moves are co-planar with M6/V5). When the DRC engine flags violations involving M5 enclosure rules (V4.M5.EN.2, V4.M5.AUX.2, V5.M5.EN.1), the repair recorded in this history acts on the via or lower-metal geometry—not on M5 itself—and M5 is listed in touched_layers only because the enclosure check re-evaluates after the change. Do not resize or move M5 shapes to fix V4.M5.EN.2, V4.M5.AUX.2, or V5.M5.EN.1 violations; the three accepted cu_pool trials each resolve these rules exclusively through via-side or M4-side edits.

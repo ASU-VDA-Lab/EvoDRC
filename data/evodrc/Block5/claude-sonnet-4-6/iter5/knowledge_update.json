@@ -1,0 +1,44 @@
+{
+  "budget_s": 0,
+  "case": "Block5",
+  "iter": 5,
+  "layers": {
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 146.49
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 86.73
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"A\",\"knowledge_quality\":\"A\",\"reason\":\"A cites all 9 trials with precise op details and draws correct inferences; B misreads i02.ug.leaf_0002.01 drops and i04 symmetric shrink, and omits key p",
+          "wall_s": 6.93
+        }
+      ],
+      "judged": true,
+      "layer": "M3",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M3"
+  ],
+  "wall_s": 153.42
+}

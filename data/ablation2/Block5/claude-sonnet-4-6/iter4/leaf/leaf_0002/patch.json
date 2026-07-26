@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "resize", "polygon_id": "p893", "axis": "y", "delta_dbu": -64},
+    {"op": "resize", "polygon_id": "p891", "axis": "y", "delta_dbu": -64}
+  ],
+  "explanation": "Trimmed M3 horizontal stripes p893 and p891 symmetrically by 64 dbu in y (±32 per side) so their outer y-edges coincide with the V2-cut y-edges inside the co-located VIA_VIA23 cells, clearing four V2.M3.AUX.2 coincidence violations (v0002, v0003, v0005, v0006). The p892 trim was omitted because its single cleared violation (v0004) was outweighed by two introduced V2.M3.EN.2 violations, producing a net-negative result."
+}

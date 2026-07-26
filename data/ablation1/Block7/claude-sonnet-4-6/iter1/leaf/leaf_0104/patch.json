@@ -1,0 +1,5 @@
+{
+  "leaf_id": "leaf_0104",
+  "ops": [],
+  "explanation": "DRC preview shows the approved resize_via_shape op is net-negative: it clears 26 violations (V0.M1.AUX.3, M3.S.2, M1.S.x) but introduces 112 new violations (M1.A.1: 48, V1.M1.EN.1: 47, M2.S.6: 6, M4.W.5: 5, M2.S.7: 3, M2.S.4: 1, M3.S.2: 1, M3.S.4: 1), for a net worsening of 86 violations. Critically, none of the 75 targeted V2.M3.AUX.2 violations are cleared by this op. Connectivity is preserved (3325 seeds verified), but the DRC outcome fails the net-positive threshold. Patch is withheld."
+}

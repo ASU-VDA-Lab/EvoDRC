@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0292", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0292 right by 36 dbu so its M1 land right edge (now x=8316) shifts the merged M1 inner boundary at y=5220 from x=[7720,8208] to x=[7720,8244], making the V0 contact bottom edge fully coincident with that M1 boundary and eliminating the free convex corner that triggered V0.M1.AUX.3."
+}

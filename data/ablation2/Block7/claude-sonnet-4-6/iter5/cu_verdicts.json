@@ -1,0 +1,156 @@
+{
+ "strip": {
+  "leaf_0007": [
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -30, \"layer_name\": \"M3\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]"
+  ],
+  "leaf_0008": [
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"M2\", \"op\": \"resize_via_shape\", \"shape_index\": 0}, {\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 0}, {\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 1}, {\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 2}, {\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"M3\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"M2\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"M3\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 0}]",
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 1}]",
+   "[{\"axis\": \"y\", \"cell_name\": \"VIA_VIA23_1_3_36_36\", \"delta_dbu\": -82, \"layer_name\": \"V2\", \"op\": \"resize_via_shape\", \"shape_index\": 2}]"
+  ]
+ },
+ "winners": [],
+ "verdicts": [
+  {
+   "target": "def:VIA_VIA23_1_3_36_36",
+   "target_keys": [
+    "def:VIA_VIA23_1_3_36_36"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA23_1_3_36_36"
+   ],
+   "group": null,
+   "atomic": false,
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "M3",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -30
+    }
+   ],
+   "proposers": [
+    "leaf_0007"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0001",
+     "before": 4,
+     "after": 4,
+     "delta": 0
+    },
+    {
+     "window": "unit:leaf_0005",
+     "before": 9,
+     "after": 13,
+     "delta": 4
+    },
+    {
+     "window": "unit:leaf_0007",
+     "before": 344,
+     "after": 500,
+     "delta": 156
+    },
+    {
+     "window": "unit:leaf_0008",
+     "before": 194,
+     "after": 194,
+     "delta": 0
+    }
+   ],
+   "delta_total": 160,
+   "conn_preserved": true,
+   "decision": "rejected_net_positive"
+  },
+  {
+   "target": "def:VIA_VIA23_1_3_36_36",
+   "target_keys": [
+    "def:VIA_VIA23_1_3_36_36"
+   ],
+   "conflict_keys": [
+    "via_cell:VIA_VIA23_1_3_36_36"
+   ],
+   "group": null,
+   "atomic": false,
+   "ops": [
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "M2",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -82
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -82
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 1,
+     "axis": "y",
+     "delta_dbu": -82
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "V2",
+     "shape_index": 2,
+     "axis": "y",
+     "delta_dbu": -82
+    },
+    {
+     "op": "resize_via_shape",
+     "cell_name": "VIA_VIA23_1_3_36_36",
+     "layer_name": "M3",
+     "shape_index": 0,
+     "axis": "y",
+     "delta_dbu": -82
+    }
+   ],
+   "proposers": [
+    "leaf_0008"
+   ],
+   "windows": [
+    {
+     "window": "unit:leaf_0001",
+     "before": 4,
+     "after": 4,
+     "delta": 0
+    },
+    {
+     "window": "unit:leaf_0005",
+     "before": 9,
+     "after": 12,
+     "delta": 3
+    },
+    {
+     "window": "unit:leaf_0007",
+     "before": 344,
+     "after": 461,
+     "delta": 117
+    },
+    {
+     "window": "unit:leaf_0008",
+     "before": 194,
+     "after": 302,
+     "delta": 108
+    }
+   ],
+   "delta_total": 228,
+   "conn_preserved": true,
+   "decision": "rejected_net_positive"
+  }
+ ]
+}

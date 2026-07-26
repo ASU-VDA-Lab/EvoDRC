@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block7_union_row13",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0507", "delta_dbu": [0, -57]},
+    {"op": "move_instance", "inst_id": "i0520", "delta_dbu": [0, -57]},
+    {"op": "move", "polygon_id": "p3526", "axis": "y", "delta_dbu": -57}
+  ],
+  "explanation": "Moves the VIA_VIA12 instance i0507 and co-stacked VIA_VIA23 instance i0520 down by 57 dbu, and translates the M2 polygon p3526 down by 57 dbu, clearing the M2.S.2 and M2.S.7 spacing violations at [25940,15336,26052,15408] by creating sufficient separation from the frozen M2 above. The V0.M1.AUX.3 violation at [14220,16020,14292,16092] is left unresolved: the planned i1063 move of -36x would introduce a new M1.S.2 at [14292,15976,14328,16020], so the net gain would be zero; omitting that op yields net +2 reduction with no new violations."
+}

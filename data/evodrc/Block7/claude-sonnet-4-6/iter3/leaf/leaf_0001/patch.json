@@ -1,0 +1,13 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1117", "delta_dbu": [68, 0]},
+    {"op": "move_instance", "inst_id": "i1168", "delta_dbu": [172, 0]},
+    {"op": "resize_end", "polygon_id": "p2720", "axis": "y", "end": "high", "delta_dbu": 20},
+    {"op": "resize_end", "polygon_id": "p3300", "axis": "x", "end": "low", "delta_dbu": -88},
+    {"op": "add_polygon", "layer_name": "M3", "points": [
+      [11664, 11756], [11664, 11828], [11908, 11828], [11908, 11756]
+    ]}
+  ],
+  "explanation": "Moving VIA_VIA12 i1117 right by 68 dbu places its M1 land left edge at x=11484 (coincident with the V0 right edge), eliminating the non-coincident convex corner that triggered V0.M1.AUX.3; VIA_VIA23 i1168 is moved right by 172 dbu and p3300 is trimmed left by 88 dbu to resolve the resulting M2.S.4 spacing gap, while an M3 bridge polygon reconnects p2720 and i1168 M3 lands via p2720's extended top edge."
+}

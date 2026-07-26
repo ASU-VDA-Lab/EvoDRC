@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0005",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0446", "delta_dbu": [104, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0446 rightward by 104 dbu so its M1 land (now x=14508–14580) no longer extends above y=6660 over V0 _ptemp_5's x-range (14436–14508), restoring the merged-M1 top edge at y=6660 that is coincident with the V0 top edge and eliminating the non-coincident convex corner that triggered V0.M1.AUX.3."
+}

@@ -1,0 +1,15 @@
+{
+  "leaf_id": "Block7_union_row19",
+  "ops": [
+    {"op":"move_instance","inst_id":"i0949","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0771","delta_dbu":[40,0]},
+    {"op":"move_instance","inst_id":"i0946","delta_dbu":[40,0]},
+    {"op":"resize","polygon_id":"p3619","axis":"x","delta_dbu":40},
+    {"op":"move_instance","inst_id":"i0026","delta_dbu":[-72,0]},
+    {"op":"resize","polygon_id":"p3654","axis":"x","delta_dbu":-72},
+    {"op":"move_instance","inst_id":"i0294","delta_dbu":[36,0]},
+    {"op":"move_instance","inst_id":"i0418","delta_dbu":[72,0]},
+    {"op":"resize","polygon_id":"p3523","axis":"x","delta_dbu":72}
+  ],
+  "explanation": "Moved six VIA_VIA12 instances to disengage their M1 lands from std-cell V0 contacts (clearing V0.M1.AUX.3) and increase M1 tip-to-tip spacing to frozen std-cell M1 geometry (clearing M1.S.4/5/6); three companion M2 polygons symmetrically resized to maintain routing coverage at the new via positions."
+}

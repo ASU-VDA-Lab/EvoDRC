@@ -1,0 +1,31 @@
+## Horizontal Width and Routing-Track Alignment
+
+Repair operations for M5 horizontal-width violations are performed by `resize_end` on the x-axis. In trial:i01.ug.leaf_0012.07 two x-axis `resize_end` operations were applied to p938 (low end +64 dbu, high end +128 dbu, net extension 192 dbu); in trial:i02.ug.leaf_0003.02 a single x-axis `resize_end` on p938 applied +192 dbu to the low end. Both repairs were accepted (`gated_in`, `conn_preserved=true`). The 192 dbu increment matches the routing-track pitch encoded in M5.AUX.2 (pitch_dbu=192, offset_dbu=48, base_dbu=96); resize deltas must align to this pitch to avoid reintroducing M5.AUX.2 centerline violations.
+
+In trial:i03.ug.leaf_0002.01 the high-end resize on p937 used +320 dbu (low end +64 dbu, high end +320 dbu, net 384 dbu = 2 × 192 dbu), again an integer multiple of the 192 dbu track pitch, and the result was accepted. Resize amounts that are not multiples of the 192 dbu track pitch are not supported by any accepted trial and must be avoided.
+
+M5.W.1 sets the minimum horizontal width at 24 nm; M5.W.2 caps it at 480 nm. M5.W.3 and M5.W.4 prohibit widths that are even integer multiples of 24 nm. When a resize brings the polygon width to an even multiple of the 24 nm minimum (48, 96, 144, 192, 240, 288, 336, 384, 432, or 480 nm) a W.3/W.4 violation will be introduced; resize deltas must be chosen so the resulting width lands on an odd multiple of 24 nm.
+
+## Grid Compliance for Vertical Edges
+
+M5.AUX.1 requires all vertical M5 edges to fall on a 24 nm grid. Every `resize_end` on the x-axis in the recorded trials changed edge positions by multiples of 64 dbu (trial:i01.ug.leaf_0012.07: 64 and 128; trial:i02.ug.leaf_0003.02: 192; trial:i03.ug.leaf_0002.01: 64 and 320), all of which are multiples of 64 dbu and therefore also multiples of the underlying grid unit. All three trials passed without an M5.AUX.1 violation being reported. Every x-axis resize delta must be a multiple of the grid pitch (24 nm / 24 dbu) to keep vertical edges on-grid.
+
+## Vertical Spacing and Instance-Move Strategy
+
+M5.S.2 sets the minimum vertical spacing at 40 nm and M5.W.5 sets the minimum vertical width at 44 nm. Violations involving the vertical dimension are addressed by moving instances along the y-axis rather than by resizing individual M5 polygons. In trial:i03.ug.leaf_0002.01, eight instances were moved in pairs: i0098 and i0094 by +72 dbu, i0110 and i0090 by +24 dbu, i0061 and i0070 by −24 dbu, i0066 and i0069 by −72 dbu. All y-axis deltas are multiples of 24 dbu, matching the M5.S.1 horizontal spacing grid, and the result was accepted. Use y-axis `move_instance` deltas that are multiples of 24 dbu; the recorded values of ±24 and ±72 (= 3 × 24) dbu are the only amounts with acceptance evidence.
+
+## Multi-Layer Coordination Is Required for Instance-Level Repairs
+
+When the repair strategy involves `move_instance` operations, restricting changes to M5 alone is insufficient. In trial:i03.ug.leaf_0002.01, the ten-operation repair touched layers M3, M4, M5, V3, and V4 simultaneously, and it was accepted with `conn_preserved=true`. The two M5 polygon `resize_end` operations in that trial co-occurred with eight instance moves; those instance moves necessarily displaced M3, M4, V3, and V4 geometry along with M5. Attempting to apply only M5 `resize_end` operations when the root cause requires repositioning an instance will leave the connected stack (M3, M4, V3, V4) misaligned and will not preserve connectivity. Always extend the operation set to all layers touched by any moved instance.
+
+## Via Enclosure Constraints
+
+V4.M5.EN.2 requires M5 to enclose V4 by at least 11 nm on two opposite sides. V4.M5.AUX.2 requires V4 to match the M5 width exactly in the direction perpendicular to the M5 length. V5.M5.EN.1 requires M5 to enclose V5 by at least 11 nm on at least two opposite sides. Any x-axis resize or y-axis instance move that changes the relative position of a via with respect to the M5 polygon must be checked against these enclosure rules. In trial:i03.ug.leaf_0002.01 the repair was accepted with `conn_preserved=true` despite touching V4 via the instance moves, confirming that coordinated instance-level moves can satisfy via enclosure constraints; isolated M5-only resizes that ignore via overlap cannot guarantee the same.
+
+## No-Bend and Wide-Polygon Track Constraints
+
+M5.AUX.3 forbids any bend in M5 (no 0°–90° corners). M5.AUX.4 forbids wide M5 polygon vertical edges from touching a routing-track edge. All accepted repairs in the history applied `resize_end` only to the x-axis (horizontal) endpoints, keeping polygon shapes rectilinear and non-bending. No repair has introduced a corner or changed the number of vertices in an M5 polygon, and all three trials were accepted without M5.AUX.3 or M5.AUX.4 violations. Do not introduce new corners or allow wide-polygon outside edges to land on routing-track vertical positions (multiples of 192 dbu + 48 dbu offset, base 96 dbu, per M5.AUX.2/M5.AUX.4).
+
+## Parallel-Run-Length and Tip-to-Tip Spacing
+
+M5.S.5 requires a minimum parallel run length of 44 nm between polygons on adjacent tracks. M5.S.3 and M5.S.4 both require a minimum tip-to-tip spacing of 40 nm. These rules interact with x-axis resize operations: extending a polygon end increases the parallel run length with neighbors on adjacent tracks and can convert a tip-to-tip gap into a parallel-run configuration subject to M5.S.4. The accepted resizes in trial:i01.ug.leaf_0012.07 and trial:i02.ug.leaf_0003.02 both extended the low or high end of p938 without triggering S.3/S.4/S.5 violations, and in trial:i03.ug.leaf_0002.01 the combined instance moves and p937 resize were similarly accepted. No violation of these spacing rules was reintroduced in any accepted trial, indicating that the chosen resize amounts respected the 40 nm tip-to-tip and 44 nm parallel-run requirements. Verify S.3/S.4/S.5 compliance after every x-axis resize by checking the new endpoint positions against the nearest neighbor endpoints on adjacent tracks.

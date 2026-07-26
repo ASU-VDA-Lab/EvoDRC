@@ -1,0 +1,52 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i0177",
+      "delta_dbu": [0, -48]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0152",
+      "delta_dbu": [0, -48]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0079",
+      "delta_dbu": [0, -96]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0102",
+      "delta_dbu": [0, -96]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0078",
+      "delta_dbu": [0, 48]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i0101",
+      "delta_dbu": [0, 48]
+    },
+    {
+      "op": "move",
+      "polygon_id": "p1060",
+      "axis": "x",
+      "delta_dbu": 32,
+      "group": "m5_fix"
+    },
+    {
+      "op": "move_via_shape",
+      "cell_name": "VIA_VIA45_1_2_58_58",
+      "layer_name": "M5",
+      "shape_index": 0,
+      "axis": "x",
+      "delta_dbu": 32,
+      "group": "m5_fix"
+    }
+  ],
+  "explanation": "Moves VIA45/VIA34 instance pairs (i0177/i0152, i0079/i0102, i0078/i0101) to clear M4.AUX.1 and M4.AUX.2 violations at three via stack locations, and translates M5 strap polygon p1060 and the VIA45 M5 landing shape by +32 dbu in x (grouped as m5_fix) to bring all M5 edges on-grid and clear the M5.AUX.1 violation."
+}

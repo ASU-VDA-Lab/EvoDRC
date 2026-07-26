@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0031",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0044", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved VIA_VIA12 i0044 +36 dbu in x so its M1 land no longer overlaps the V0's x-range, eliminating the non-coincident convex corner that triggered V0.M1.AUX.3."
+}

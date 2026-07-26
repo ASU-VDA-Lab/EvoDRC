@@ -1,0 +1,303 @@
+{
+  "budget_s": 0,
+  "case": "Block7",
+  "iter": 3,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 216.33
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 391.32
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 521.8
+        }
+      ],
+      "judged": false,
+      "layer": "M1",
+      "n_new_records": 7,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 67.5
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 226.99
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 827.45
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"A\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"A has cleaner fidelity (B overstates iter1 row15 as 7\u00d736-dbu moves when i0913 moved 136); B wins coverage via rule-keyed sections and convergence pat",
+          "wall_s": 391.2
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 8,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 119.53
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 140.34
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 689.07
+        }
+      ],
+      "judged": false,
+      "layer": "M3",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 59.83
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 76.09
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 1579.72
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly notes i03 introduced 217 new violations (net-new, not removed); A misreads as connectivity-scope count and omits this. B covers all rule ",
+          "wall_s": 8.18
+        }
+      ],
+      "judged": true,
+      "layer": "M5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M6": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 1532.61
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 3,
+          "ok": false,
+          "wall_s": 67.56
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 1414.97
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 45.47
+        }
+      ],
+      "judged": false,
+      "layer": "M6",
+      "n_new_records": 1,
+      "status": "carried",
+      "verdict": null,
+      "winner": null
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 878.11
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 1151.37
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 515.0
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"B\",\"knowledge_quality\":\"A\",\"reason\":\"B falsely claims y-axis moves require M3/V2 presence, contradicted by i02.leaf_0017.09 and i02.row15.03 (y-moves, M1/M2/V1 only). B covers iter-2; A omit",
+          "wall_s": 39.06
+        }
+      ],
+      "judged": true,
+      "layer": "V1",
+      "n_new_records": 7,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 78.45
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 697.12
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 92.43
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 675.23
+        }
+      ],
+      "judged": false,
+      "layer": "V2",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "V5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 820.66
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 762.63
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 113.99
+        }
+      ],
+      "judged": false,
+      "layer": "V5",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "M5",
+    "M6",
+    "V1",
+    "V2",
+    "V5"
+  ],
+  "wall_s": 1705.45
+}

@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block6_union_row8",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0213", "delta_dbu": [8, 0]},
+    {"op": "move_instance", "inst_id": "i0071", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves via i0213 +8 dbu in x so its M1 land left edge aligns with background AND2x2 M1 at x=3636, making the y-pair enclosure (128/36 dbu) satisfy V1.M1.EN.1. Moves via i0071 +36 dbu in x so its M1 land no longer overlaps the V0 pin x-range, eliminating the non-coincident horizontal M1 edge that triggered V0.M1.AUX.3."
+}

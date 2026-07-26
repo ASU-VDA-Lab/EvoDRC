@@ -1,0 +1,13 @@
+{
+  "leaf_id": "leaf_0003",
+  "ops": [
+    {
+      "op": "resize_end",
+      "polygon_id": "p938",
+      "end": "low",
+      "axis": "x",
+      "delta_dbu": 192
+    }
+  ],
+  "explanation": "Fixes M5.W.4 violation (v0006): p938 has forbidden X-width 672 dbu (168 nm = 7x24 nm; M5.W.4 forbidden list includes 168 nm). Moves left edge from x=1824 to x=2016 (delta +192 dbu), yielding new width 480 dbu (120 nm = 5x24 nm; odd-multiple of 24 nm, legal for both M5.W.3 and M5.W.4). Both edges on 96-dbu M5.AUX.1 X-grid: 2016%96=0, 2496%96=0. DRC preview: v0006 cleared, 0 new violations introduced, connectivity preserved (317 seeds). Remaining 11 violations (V4.M5.AUX.2 x8, M4.AUX.1 x2, M4.AUX.2 x1) are DECLARED DEBT: the only admissible repair path for these violations (M4 Y-resize + V4 Y-resize in VIA_VIA45_1_2_58_58) introduces V3.M4.AUX.2 x8 and M4.W.3 x2 as collateral, yielding net DRC change of +4 (worse). No net-negative path found."
+}

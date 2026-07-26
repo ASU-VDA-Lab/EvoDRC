@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0111", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p951", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "resize_end", "polygon_id": "p891", "axis": "y", "end": "low", "delta_dbu": -32},
+    {"op": "resize_end", "polygon_id": "p891", "axis": "y", "end": "high", "delta_dbu": -32}
+  ],
+  "explanation": "Moves via i0111 right (+72 dbu) so its M1 land no longer overlaps the V0 x-range, clearing V0.M1.AUX.3; extends p951 to cover the new M2 land; shrinks p891 in y (from [7492,7628] to [7524,7596]) so M3 height exactly matches V2 cut height, clearing V2.M3.AUX.2 at both v0002 and v0003."
+}

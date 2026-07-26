@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block1_union_row4",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0300", "delta_dbu": [8, 0]},
+    {"op": "move_instance", "inst_id": "i0432", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0438", "delta_dbu": [72, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0300 right by 8 dbu to clear M1 tip-to-side spacing (v0041) and enable merged M1 enclosure of V1 (v0058); moves i0432 right by 36 dbu and i0438 right by 72 dbu so their M1 lands no longer overlap the respective V0 pin regions, allowing frozen std-cell M1 alone to satisfy V0.M1.AUX.3 edge-coincidence (v0005, v0014)."
+}

@@ -1,0 +1,15 @@
+**V2 enclosure violations on M3 are resolved by reshaping V2, not M3**
+
+The single measured repair in this layer's history targeted cell `VIA_VIA23_1_3_36_36` and reduced the total violation count by 78 across two windows (unit:leaf_0019 by 42, unit:leaf_0020 by 36) without touching the M3 geometry directly. All five operations applied to V2 shapes on the x-axis — three `resize_via_shape` calls and two `move_via_shape` calls — while M3 remained unmodified. The repair was applied and connectivity was preserved (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00). When V2.M3.EN.2 or V2.M3.AUX.2 violations appear within a via cell that straddles M2, M3, and V2, resize and reposition the V2 shapes on the axis of violation rather than expanding the enclosing M3 metal (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00).
+
+**X-axis V2 adjustments within via cells clear multi-window violation clusters simultaneously**
+
+The five-operation sequence — move shape 0 by −144 dbu, resize shape 0 by +264 dbu, resize shape 1 by +288 dbu, move shape 2 by +144 dbu, resize shape 2 by +264 dbu, all on the x-axis — cleared violations in two distinct windows in a single applied repair (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00). Do not split this kind of fix across separate single-shape passes; the correlated V2.M3.AUX.2 requirement (V2 must match M3 width perpendicular to M3 length) means partial reshaping of one V2 shape can introduce a fresh AUX.2 violation on an adjacent shape in the same cell (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00). Apply all shape adjustments within the via cell in a single operation bundle.
+
+**V2.M3.EN.2 and V2.M3.AUX.2 are the dominant M3-layer violation sources in cu_pool via cells**
+
+The repair locus `[1728, 2068, 15336, 15216]` in cell `VIA_VIA23_1_3_36_36` on channel `cu_pool` produced the layer's only measured history record. The touched-layer set {M2, M3, V2} without any M3 geometry delta confirms that V2.M3.EN.2 and V2.M3.AUX.2 fire from V2-side geometry defects, not from undersized M3 enclosures (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00). Do not resize M3 to fix V2.M3.EN.2 or V2.M3.AUX.2 in cu_pool via cells; the recorded fix required zero M3 delta to eliminate all violations in scope (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00).
+
+**M3 intrinsic spacing and width rules (M3.W.1, M3.S.1–M3.S.6, M3.A.1) have no repair record in iteration 1**
+
+No trial in this layer's measured history addresses M3.W.1, M3.S.1, M3.S.2, M3.S.3, M3.S.4, M3.S.5, M3.S.6, or M3.A.1 directly. No repair record exists for V3.M3.EN.1 or GEOMETRY.NONORTHOGONAL on M3 either. All 78 violations eliminated in iteration 1 arose from the via-enclosure domain (trial:i01.cu.def:VIA_VIA23_1_3_36_36.00). Intrinsic M3 spacing, width, area, and V3-enclosure rules remain untested by measured repairs at this iteration.

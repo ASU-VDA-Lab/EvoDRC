@@ -1,0 +1,17 @@
+[
+  {"op": "move_instance", "instance_id": "i0491", "delta": [-4, 0]},
+  {"op": "move_instance", "instance_id": "i0396", "delta": [-4, 0]},
+  {"op": "move_instance", "instance_id": "i0429", "delta": [-4, 0]},
+  {"op": "move_instance", "instance_id": "i0123", "delta": [-4, 0]},
+  {"op": "move_instance", "instance_id": "i0125", "delta": [-4, 0]},
+  {"op": "move_instance", "instance_id": "i0036", "delta": [-4, 0]},
+  {"op": "move_instance", "instance_id": "i0373", "delta": [37, 0]},
+  {"op": "move_instance", "instance_id": "i0369", "delta": [37, 0]},
+  {"op": "move_instance", "instance_id": "i0404", "delta": [37, 0]},
+  {"op": "move_instance", "instance_id": "i0060", "delta": [109, 0]},
+  {"op": "resize_end", "polygon_id": "p1255", "axis": "x", "end": "high", "delta_dbu": 129},
+  {"op": "move_instance", "instance_id": "i0061", "delta": [37, 0]},
+  {"op": "move_instance", "instance_id": "i0154", "delta": [37, 0]},
+  {"op": "move_instance", "instance_id": "i0341", "delta": [52, 0]},
+  {"op": "resize_end", "polygon_id": "p1214", "axis": "x", "end": "high", "delta_dbu": -5}
+]

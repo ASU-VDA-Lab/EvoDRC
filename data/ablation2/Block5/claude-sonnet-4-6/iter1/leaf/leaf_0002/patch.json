@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0056", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0103", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Move VIA_VIA12 i0056 right 36 dbu (center 4068,6156 → 4104,6156) to clear M1.S.2/V1.M1.EN.1/V0.M1.AUX.3 at the upper via cluster; move VIA_VIA12 i0103 left 36 dbu (center 4068,5220 → 4032,5220) to clear M1.S.2 at the lower via cluster."
+}

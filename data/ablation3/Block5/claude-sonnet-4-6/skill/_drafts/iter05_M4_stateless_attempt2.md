@@ -1,0 +1,39 @@
+Looking at the valid trial IDs in the M4-touching history records, the previous attempt used shortened forms (`trial:i01`, `trial:i03`, `trial:i05`) instead of the full IDs. I will write the body using the exact `trial_id` strings from the records.
+
+---
+
+**Geometry and bend prohibition (M4.AUX.3, GEOMETRY.NONORTHOGONAL)**
+
+M4.AUX.3 rejects any M4 polygon whose corner set includes an angle strictly between 0° and 90°; GEOMETRY.NONORTHOGONAL rejects any edge whose angle falls outside {0°, 90°, 180°, 270°}. Every polygon-level operation in the M4-touching history used a single axis for each op: trial:i01.ug.whole_design.00 applied resize_end on p879 (axis=y, end=high) and a separate move plus resize_end on p910 (axis=x then axis=y), all individually axis-aligned; trial:i03.ug.whole_design.00 moved p878 and p879 on axis=x; trial:i05.ug.whole_design.00 applied resize_end on p951 and p955 each on axis=x. No operation mixed axes within a single polygon edit, and all three unit-gate trials were gated_in with zero new violations. Apply move and resize_end operations one axis at a time to avoid introducing non-orthogonal edges (trial:i01.ug.whole_design.00, trial:i03.ug.whole_design.00, trial:i05.ug.whole_design.00).
+
+**Horizontal-edge grid (M4.AUX.1)**
+
+M4.AUX.1 requires every horizontal (angle=0°) M4 edge to lie on a 24 nm pitch grid. In trial:i01.ug.whole_design.00, all y-axis instance moves were integer multiples of 24 dbu (values used: 24, 48, 72, 96), and the y-axis resize_end on p879 used delta_dbu=48. The y-axis resize_end on p910 used delta_dbu=20, which was accepted with zero new violations (trial:i01.ug.whole_design.00); this is consistent only if the pre-existing edge coordinate plus 20 dbu landed on a valid 24 nm grid position, confirming that the grid check is absolute (edge coordinate mod 24 == 0), not relative to the delta. When resizing or moving M4 in y, verify that the resulting edge coordinate is a multiple of 24 dbu, not merely that the delta itself is a multiple of 24 dbu (trial:i01.ug.whole_design.00).
+
+**Routing track center-line alignment (M4.AUX.2)**
+
+M4.AUX.2 uses `offgrid_cl(:y, 192, 48, 96)`, meaning minimum-width M4 tracks (those not surviving a ±13 dbu y-erosion) must have their y-centerline satisfy `(cl − 48) mod 192 == 0`, and only for polygons whose top and bottom edges are multiples of 96 dbu (the `base_dbu=96` filter). The y-deltas applied to instances in trial:i01.ug.whole_design.00 are all multiples of 24 dbu, with the half-pitch value of 96 dbu appearing explicitly (+96 for i0073 and i0075), consistent with stepping minimum-width tracks between adjacent legal track positions (spacing 192 dbu). Moving minimum-width M4 tracks in y by multiples of 192 dbu keeps the centerline on the same track; moving by 96 dbu shifts to the adjacent track (trial:i01.ug.whole_design.00).
+
+**Width rules (M4.W.1–M4.W.5)**
+
+M4.W.1 sets minimum vertical (y) width at 24 nm; M4.W.2 sets maximum at 480 nm; M4.W.3 forbids vertical widths of 48, 96, 144, 192, 240, 288, 336, 384, 432, 480 nm (even integer multiples of 24 nm); M4.W.4 additionally forbids 72, 168, 264, 360, 456 nm (widths spanning an even number of routing tracks vertically); M4.W.5 sets minimum horizontal (x) width at 44 nm. In trial:i01.ug.whole_design.00, p879 received a +48 dbu y-extend on its high end and was accepted with zero new violations, confirming that the resulting y-width was not in the M4.W.3 or M4.W.4 forbidden set. The +128 dbu x-extend on p951 and p955 in trial:i05.ug.whole_design.00 was also accepted, confirming the resulting x-widths satisfied M4.W.5. Avoid targeting y-widths of 48, 72, 96, 144, 168, 192, 240, 264, 288, 336, 360, 384, 432, 456, 480 dbu (assuming 1 dbu = 1 nm equivalence in the rule evaluation), as these are explicitly enumerated in M4.W.3 and M4.W.4 (trial:i01.ug.whole_design.00, trial:i05.ug.whole_design.00).
+
+**Spacing rules (M4.S.1–M4.S.5)**
+
+M4.S.1: minimum vertical spacing 24 nm. M4.S.2: minimum horizontal spacing between vertical edges 40 nm. M4.S.3/M4.S.4: minimum tip-to-tip spacing 40 nm (both non-overlapping and overlapping parallel-run cases). M4.S.5: minimum parallel run length 44 nm. In trial:i03.ug.whole_design.00, polygons p878 and p879 were each moved +32 dbu in x simultaneously along with a set of instances; moving a pair of adjacent M4 polygons by the same x-delta preserves their mutual horizontal gap, and the trial was gated_in with zero new violations. When relocating a group of M4 shapes that interact with M4.S.2 or M4.S.3/M4.S.4, move all members of the spacing pair together by the same delta to avoid introducing new spacing violations (trial:i03.ug.whole_design.00).
+
+**V3 enclosure (V3.M4.EN.2, V3.M4.AUX.2)**
+
+V3.M4.EN.2 requires that M4 encloses V3 by ≥11 nm on at least two opposite sides. V3.M4.AUX.2 requires V3 width to exactly equal M4 width in the direction perpendicular to M4's run direction (i.e., V3 edges must be coincident with M4 edges on at least two sides). In trial:i05.ug.whole_design.00, seven VIA_VIA34 instances (the V3 via cell) were added at coordinates (2200,2160), (2200,4272), (2200,6576), (2200,8688), (2968,3312), (2968,5424), (2968,7536) with zero new DRC violations, confirming that the M4 geometry present at those x-positions already provided the required enclosure and width-match. The x-coordinates used (2200 and 2968) identify two distinct M4 run columns that satisfy V3.M4.AUX.2 at those y-positions; add VIA_VIA34 only inside M4 polygons whose horizontal span already provides ≥11 nm margin beyond the via body on both left and right (trial:i05.ug.whole_design.00).
+
+**V4 enclosure and via-cell resize (V4.M4.EN.1)**
+
+V4.M4.EN.1 requires M4 to enclose V4 by ≥11 nm on at least two opposite sides. In trial:i03.cu.def:VIA_VIA45_1_2_58_58.00, a cu_pool operation resized the M5 member of cell VIA_VIA45_1_2_58_58 by −88 dbu in y; the touched_layers list includes M4 and V4, indicating the via cell's M4/V4 geometry is coupled to M5 shape changes. This operation was accepted (decision=applied) and reduced the total DRC count by 15 (delta_total=−15), confirming that shrinking the M5 member of a stacked via cell can resolve violations without disturbing V4.M4.EN.1 compliance. Resizing the M5 member of a via cell in y does not automatically invalidate M4's enclosure of V4 within that cell, provided the M4 member is not also shrunk (trial:i03.cu.def:VIA_VIA45_1_2_58_58.00).
+
+**Instance deletions and via additions (compound restructuring)**
+
+In trial:i05.ug.whole_design.00, seven instances were deleted (i0098, i0105, i0075, i0076, i0099, i0002, i0070) and seven VIA_VIA34 instances were added at a different set of coordinates, together with x-axis instance moves and polygon resize_end operations, all accepted with conn_preserved=true and zero new violations. The y-spacings between the new VIA_VIA34 placements at x=2200 are 2112, 2304, 2112 dbu and at x=2968 are 2112, 2112 dbu, showing that via placement was not on a single uniform pitch but followed the available M4 track positions. Replacing a set of instances with vias at new positions requires that each new via origin fall within a pre-existing M4 polygon providing the required enclosure margins; the accepted result in trial:i05.ug.whole_design.00 confirms this can be achieved in a single compound operation.
+
+**Summary of accepted operation types on M4**
+
+Across all M4-touching history records, the accepted operation types are: move (axis-aligned, polygon or instance), resize_end (single axis, single end, polygon), delete_instance, add_via, and resize_via_shape (on a coupled M5 member). All gated_in unit-gate trials report conn_preserved=true and zero new in-crop or out-of-crop violations (trial:i01.ug.whole_design.00, trial:i03.ug.whole_design.00, trial:i05.ug.whole_design.00). The cu_pool trial reduced total violations by 15 (trial:i03.cu.def:VIA_VIA45_1_2_58_58.00).

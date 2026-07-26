@@ -1,0 +1,31 @@
+## Final-pair measured facts (reference-design tail evidence)
+
+Provenance: these facts come from the final-pair comparison of the reference
+design's initial layout against its repaired final layout, plus the BEFORE and
+AFTER DRC reports. Every coordinate and delta cited in this document is quoted
+inline from that pair; the layout files themselves are not needed and are not
+shipped with this skill.
+
+- The final 33 via instance moves show three stacked-via patterns: coupled,
+  anchor, and partial. Co-movement is NOT unconditionally safe; reproduce the
+  final-pair pattern by checking each shared M2/M3 landing before moving VIA23.
+
+
+## Case notes (reference-design tail evidence)
+
+Stacked via movement is a PER-LEVEL decision, not a co-movement law. Verified
+modes from the final diff: COUPLED (the (5652,5220) pair moved together, +64 x),
+ANCHOR (VIA23 at (3204,1980) stayed while its VIA12 moved +136 x -- the VIA23
+remains the M2-M3 anchor at the old position), PARTIAL (the (6228,2340) pair
+shared +8 y but split in x, +36 vs 0). Anti-pattern AP-1: blindly moving every
+co-located VIA23 with its VIA12 contradicts the clean final pair. Run the anchor
+check before co-moving (reference-design-verified).
+
+
+## Resize-via-shape results (iteration 4)
+
+A y-axis shrink of 40 dbu applied to the M3 shape of cell VIA_VIA23_1_3_36_36
+left the whole-design violation count unchanged at 122 and was rejected as
+net-zero (trial:i04.cu.def:VIA_VIA23_1_3_36_36.00). Do not apply a y-axis M3
+resize of −40 dbu to VIA_VIA23_1_3_36_36 when the baseline violation count is
+122; it yields no reduction (trial:i04.cu.def:VIA_VIA23_1_3_36_36.00).

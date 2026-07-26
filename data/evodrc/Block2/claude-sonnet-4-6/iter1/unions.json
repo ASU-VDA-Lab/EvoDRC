@@ -1,0 +1,234 @@
+{
+  "iter": 1,
+  "case": "Block2",
+  "units": [
+    {
+      "unit_id": "Block2_union_row1",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0002",
+        "leaf_0003"
+      ],
+      "bbox_dbu": [
+        7288,
+        2268,
+        9648,
+        3132
+      ],
+      "violation_ids": [
+        "v0005",
+        "v0006"
+      ],
+      "n_viol": 2
+    },
+    {
+      "unit_id": "leaf_0004",
+      "kind": "union",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0004"
+      ],
+      "bbox_dbu": [
+        5992,
+        3348,
+        6840,
+        4212
+      ],
+      "violation_ids": [
+        "v0009"
+      ],
+      "n_viol": 1
+    },
+    {
+      "unit_id": "Block2_union_row3",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0005",
+        "leaf_0006"
+      ],
+      "bbox_dbu": [
+        3400,
+        4428,
+        5760,
+        5292
+      ],
+      "violation_ids": [
+        "v0010",
+        "v0008"
+      ],
+      "n_viol": 2
+    },
+    {
+      "unit_id": "leaf_0007",
+      "kind": "union",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0007"
+      ],
+      "bbox_dbu": [
+        6856,
+        5508,
+        7704,
+        6372
+      ],
+      "violation_ids": [
+        "v0003"
+      ],
+      "n_viol": 1
+    },
+    {
+      "unit_id": "Block2_union_row5",
+      "kind": "union",
+      "is_union": true,
+      "member_leaf_ids": [
+        "leaf_0008",
+        "leaf_0009",
+        "leaf_0010"
+      ],
+      "bbox_dbu": [
+        3400,
+        6588,
+        8136,
+        7452
+      ],
+      "violation_ids": [
+        "v0007",
+        "v0012",
+        "v0011"
+      ],
+      "n_viol": 3
+    },
+    {
+      "unit_id": "leaf_0011",
+      "kind": "union",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0011"
+      ],
+      "bbox_dbu": [
+        6856,
+        8748,
+        7704,
+        9612
+      ],
+      "violation_ids": [
+        "v0004"
+      ],
+      "n_viol": 1
+    },
+    {
+      "unit_id": "leaf_0001",
+      "kind": "multi",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0001"
+      ],
+      "bbox_dbu": [
+        4656,
+        2112,
+        5760,
+        3132
+      ],
+      "violation_ids": [
+        "v0002",
+        "v0013",
+        "v0015",
+        "v0041"
+      ],
+      "n_viol": 4
+    },
+    {
+      "unit_id": "leaf_0012",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0012"
+      ],
+      "bbox_dbu": [
+        1728,
+        2068,
+        10368,
+        8732
+      ],
+      "violation_ids": [
+        "v0017",
+        "v0018",
+        "v0019",
+        "v0023",
+        "v0024",
+        "v0025",
+        "v0029",
+        "v0030",
+        "v0031",
+        "v0035",
+        "v0036",
+        "v0037",
+        "v0042",
+        "v0043",
+        "v0044",
+        "v0047",
+        "v0048",
+        "v0051",
+        "v0052",
+        "v0055",
+        "v0056",
+        "v0060",
+        "v0063",
+        "v0065",
+        "v0066"
+      ],
+      "n_viol": 25
+    },
+    {
+      "unit_id": "leaf_0013",
+      "kind": "pdn",
+      "is_union": false,
+      "member_leaf_ids": [
+        "leaf_0013"
+      ],
+      "bbox_dbu": [
+        1728,
+        3148,
+        10368,
+        9812
+      ],
+      "violation_ids": [
+        "v0001",
+        "v0014",
+        "v0016",
+        "v0020",
+        "v0021",
+        "v0022",
+        "v0026",
+        "v0027",
+        "v0028",
+        "v0032",
+        "v0033",
+        "v0034",
+        "v0038",
+        "v0039",
+        "v0040",
+        "v0045",
+        "v0046",
+        "v0049",
+        "v0050",
+        "v0053",
+        "v0054",
+        "v0057",
+        "v0058",
+        "v0059",
+        "v0061",
+        "v0062",
+        "v0064",
+        "v0067",
+        "v0068"
+      ],
+      "n_viol": 29
+    }
+  ],
+  "n_union": 3,
+  "quarantined": [],
+  "count": 9
+}

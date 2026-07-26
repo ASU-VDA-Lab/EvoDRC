@@ -1,0 +1,25 @@
+{
+  "leaf_id": "whole_design",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0111", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p951", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i0025", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p955", "axis": "x", "end": "high", "delta_dbu": 128},
+    {"op": "move_instance", "inst_id": "i0012", "delta_dbu": [-36, 0]},
+    {"op": "delete_instance", "inst_id": "i0098"},
+    {"op": "delete_instance", "inst_id": "i0105"},
+    {"op": "delete_instance", "inst_id": "i0075"},
+    {"op": "delete_instance", "inst_id": "i0076"},
+    {"op": "delete_instance", "inst_id": "i0099"},
+    {"op": "delete_instance", "inst_id": "i0002"},
+    {"op": "delete_instance", "inst_id": "i0070"},
+    {"op": "add_via", "cell_name": "VIA_VIA34", "origin_dbu": [2200, 2160]},
+    {"op": "add_via", "cell_name": "VIA_VIA34", "origin_dbu": [2200, 4272]},
+    {"op": "add_via", "cell_name": "VIA_VIA34", "origin_dbu": [2200, 6576]},
+    {"op": "add_via", "cell_name": "VIA_VIA34", "origin_dbu": [2200, 8688]},
+    {"op": "add_via", "cell_name": "VIA_VIA34", "origin_dbu": [2968, 3312]},
+    {"op": "add_via", "cell_name": "VIA_VIA34", "origin_dbu": [2968, 5424]},
+    {"op": "add_via", "cell_name": "VIA_VIA34", "origin_dbu": [2968, 7536]}
+  ],
+  "explanation": "Repairs all 16 remaining DRC violations across 4 rule types. V0.M1.AUX.3 (2 violations): move VIA12 i0111 +72x and i0025 +72x, extend M2 polygon p951 and p955 right edges +128 dbu to cover the new VIA12 M2 land positions. V1.M1.EN.1 (1 violation): move VIA12 i0012 -36x to achieve one-sided M1 enclosure >=5nm. V2.M3.AUX.2 (7 violations) and V2.M3.EN.2 (6 violations, bonus): delete the 7 VIA_VIA34_1_2_58_52 instances (i0002, i0070, i0075, i0076, i0098, i0099, i0105) whose wide M3 footprint (+-160x, +-68y) merged with the adjacent VIA_VIA23_1_3_36_36 M3 (+-180x, +-36y), burying the center V2 cuts inside a merged M3 polygon and producing AUX.2 violations. Replace each with a regular VIA_VIA34 instance shifted +72 dbu in x from the VIA23_1_3 center (placing the new M3 footprint +-36x in the gap between the center and right V2 cuts of VIA23_1_3), so the VIA23_1_3 center V2 cut has its y-edges coincident with VIA23-only M3 outer edges. The new VIA34 M3 (+-36x, +-68y) overlaps VIA23_1_3 M3 to maintain M3 connectivity, and its M4 footprint (+-80x, +-48y) overlaps the existing VIA45_1_2_58_58 M4 (+-208x, +-48y) to maintain M4-to-M5 connectivity. DRC preview: all 16 violations cleared, 0 new violations. Connectivity preview: 167/167 seeds preserved."
+}

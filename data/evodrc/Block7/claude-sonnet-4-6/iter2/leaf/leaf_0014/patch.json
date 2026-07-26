@@ -1,0 +1,9 @@
+{
+  "leaf_id": "leaf_0014",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0519", "delta_dbu": [0, -12]},
+    {"op": "move_instance", "inst_id": "i0524", "delta_dbu": [0, -12]},
+    {"op": "move", "polygon_id": "p3515", "axis": "y", "delta_dbu": -12}
+  ],
+  "explanation": "Clears M1.S.4 tip-to-tip spacing violation (28 nm gap vs 31 nm required) between VIA_VIA12 i0519's M1 land and frozen std-cell M1 by moving i0519 down 12 dbu; i0524 and p3515 move together to preserve V1/M2 enclosure alignment."
+}

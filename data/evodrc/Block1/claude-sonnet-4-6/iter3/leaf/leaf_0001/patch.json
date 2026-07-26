@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p1187", "axis": "x", "end": "high", "delta_dbu": -32},
+    {"op": "move_instance", "inst_id": "i0181", "delta_dbu": [76, 0]}
+  ],
+  "explanation": "Shrinks p1187 right edge 32 dbu left to restore M4.S.4 spacing (gap 4288→4448 = 160 dbu = 40 nm); moves VIA_VIA45 i0181 by +76 dbu in x so its M5 land (now 4224–4320) aligns exactly with p1154, eliminating the off-grid M5.AUX.1 edge and the L-corner violations (M5.AUX.3 v0151, v0135)."
+}

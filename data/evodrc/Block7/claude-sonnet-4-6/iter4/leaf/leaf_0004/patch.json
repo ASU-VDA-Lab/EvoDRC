@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1140", "delta_dbu": [-56, 0]}
+  ],
+  "explanation": "Moves via i1140 (VIA_VIA12) left by 56 dbu to increase the M2 tip-to-tip gap between i1140's M2 right edge and i1144's M2 left edge from 68 dbu (17 nm, violating M2.S.4's 31 nm threshold) to 124 dbu (31 nm, exactly meeting the rule)."
+}

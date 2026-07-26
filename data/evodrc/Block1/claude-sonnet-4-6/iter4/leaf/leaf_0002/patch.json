@@ -1,0 +1,22 @@
+{
+  "leaf_id": "leaf_0002",
+  "ops": [
+    {"op":"move_instance","inst_id":"i0267","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0265","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0392","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0393","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0341","delta_dbu":[0,-96]},
+    {"op":"move_instance","inst_id":"i0337","delta_dbu":[0,-96]},
+    {"op":"move_instance","inst_id":"i0416","delta_dbu":[0,-96]},
+    {"op":"move_instance","inst_id":"i0401","delta_dbu":[0,-96]},
+    {"op":"move_instance","inst_id":"i0189","delta_dbu":[0,48]},
+    {"op":"move_instance","inst_id":"i0193","delta_dbu":[0,48]},
+    {"op":"move_instance","inst_id":"i0127","delta_dbu":[0,48]},
+    {"op":"move_instance","inst_id":"i0130","delta_dbu":[0,48]},
+    {"op":"move_instance","inst_id":"i0175","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0182","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0043","delta_dbu":[0,-48]},
+    {"op":"move_instance","inst_id":"i0038","delta_dbu":[0,-48]}
+  ],
+  "explanation": "Moves VIA_VIA45 and VIA_VIA34 instances at off-grid M4 positions (y=4320, 6480, 8640, 12960) by small y-deltas (-48, -96, +48, -48 dbu respectively) to bring M4 y-edges onto the 96 dbu grid and centers to 48 mod 192, clearing M4.AUX.1, M4.AUX.2, V4.M5.AUX.2, V0.M1.AUX.3, and M1.S.2 violations; VIA_VIA23 instances are left in place to preserve M2 bus connectivity. DECLARED DEBT: 8 V2.M3.AUX.2 violations at the center V2 cut (p104) of each VIA_VIA23 are introduced because moving VIA34 shifts its M3 footprint, causing the merged M3 y-extent to no longer align with the stationary VIA23 V2 cut edges; the A ops (resize_via_shape to fix V1.M2.AUX.2) and C ops (move i0338/i0074 for M4.S.5) were dropped because they introduced more new violations than they cleared."
+}

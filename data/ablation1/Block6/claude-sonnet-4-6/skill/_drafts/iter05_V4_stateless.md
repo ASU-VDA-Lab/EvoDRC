@@ -1,0 +1,31 @@
+## V4.M5.AUX.2 — Width-match violations fixed by resizing M5 within via cell definitions
+
+V4.M5.AUX.2 requires that V4 exactly match the M5 width along the direction perpendicular to the M5 length. The measured fix strategy is to resize the M5 shape inside the via cell definition rather than moving the V4 shape independently. In trial:i01.cu.def:VIA_VIA45_1_2_58_58.00 (group `v4_m5_aux2_fix`), a `resize_via_shape` op on M5 in cell `VIA_VIA45_1_2_58_58` with axis y and delta -88 dbu resolved the mismatch and reduced the error count by 56 across two windows (leaf_0019: -30, leaf_0020: -26) while preserving connectivity. In trial:i05.cu.def:VIA_VIA45_1_2_58_58.00, the same mechanism was applied on the x-axis: M5 shapes in both `VIA_VIA45_1_2_58_58` and `VIA_VIA56_2_2_66_58` were each resized by -64 dbu (group `m5_fix`), combined with lateral moves of the adjacent M5 routing polygons (p1683 +32, p1682 -16 on x). Both ops preserved connectivity and the net error count decreased. Do not resize V4 directly to satisfy V4.M5.AUX.2; the measured record shows that reshaping the M5 footprint within the via cell is the effective and safe repair path.
+
+## M5 polygon coordination when resizing via cells
+
+When a `resize_via_shape` narrows the M5 landing pad inside a via cell, the M5 routing segments connecting to that cell must be adjusted simultaneously. Trial:i05.cu.def:VIA_VIA45_1_2_58_58.00 applied -64 dbu x-axis shrinks to M5 inside both `VIA_VIA45_1_2_58_58` and `VIA_VIA56_2_2_66_58`, and in the same operation moved polygon p1683 by +32 dbu and polygon p1682 by -16 dbu on x. This four-op bundle produced a net error reduction of -2 (leaf_0003 window) with conn_preserved true. Apply via-cell M5 resize and adjacent polygon moves together; the history contains no example of an isolated via-cell resize on the x-axis succeeding without the companion polygon moves.
+
+## V4.AUX.1 — containment inside both M4 and M5
+
+V4.AUX.1 flags any V4 shape not fully inside the intersection of M4 and M5. The cu_pool repair that fixed V4.M5.AUX.2 in trial:i01.cu.def:VIA_VIA45_1_2_58_58.00 touched M4, M5, and V4 simultaneously and preserved containment. The x-axis fix in trial:i05.cu.def:VIA_VIA45_1_2_58_58.00 touched M4, M5, M6, V4, and V5 and also preserved containment. In both cases the repair shrank M5 to match V4, keeping V4 interior to the M5 boundary; no op in the history expanded V4 beyond its enclosing M4 or M5 region.
+
+## V4.M4.EN.1 and V4.M5.EN.2 — enclosure on two opposite sides
+
+V4.M4.EN.1 requires M4 to enclose V4 by at least 11 nm on at least two opposite sides; V4.M5.EN.2 requires the same from M5. The repairs in trial:i01.cu.def:VIA_VIA45_1_2_58_58.00 and trial:i05.cu.def:VIA_VIA45_1_2_58_58.00 both shrank M5 inside the via cell (y-axis -88 dbu and x-axis -64 dbu respectively) without triggering new V4.M5.EN.2 violations. This establishes that shrinking M5 to match V4 does not undercut the 11 nm enclosure requirement when the shrink corrects a width overshoot rather than reducing the enclosing margin. Monitor both EN rules after any M5 or M4 resize; the history shows no EN violations introduced by the applied ops.
+
+## V4.S.1, V4.S.2, V4.S.3 — spacing rules
+
+No spacing violation (V4.S.1, V4.S.2, or V4.S.3, all requiring 33 nm minimum separation whether same-net projection, different-net projection, or corner-to-corner euclidean) appears in the error counts of any trial in the measured history. The bulk instance moves in trial:i04.ug.leaf_0003.01 and trial:i05.ug.leaf_0003.01, which repositioned 24 and 18 instances respectively touching V4, introduced zero new out-of-crop violations and preserved connectivity. The spacing budget of 33 nm was not violated by those moves. Do not rely on this observation to bypass spacing checks when spacing is tight; the history simply does not record a spacing failure for V4 in these trials.
+
+## V4.W.1 — minimum width 24 nm
+
+No V4.W.1 (minimum width 24 nm) violation appears in any trial record. The via cells `VIA_VIA45_1_2_58_58` (58x58 nominal, based on name) and `VIA_VIA56_2_2_66_58` are well above the 24 nm threshold even after the M5 shrinks applied in trial:i01.cu.def:VIA_VIA45_1_2_58_58.00 and trial:i05.cu.def:VIA_VIA45_1_2_58_58.00. No width-reducing op on V4 itself appears in the history; all width adjustments targeted the enclosing M5 shape.
+
+## Unit-gate instance moves involving V4
+
+Large-scale instance moves in the unit_gate channel that displace V4 via indirect placement (moving parent instances) are safe when the gate check confirms conn_preserved and n_new_out_of_crop equals zero. Trial:i04.ug.leaf_0003.01 moved 24 instances (touching M3, M4, M5, V3, V4) with 68 new in-crop resolutions and zero new out-of-crop violations. Trial:i05.ug.leaf_0003.01 moved 18 instances across M3, M4, M5, M6, V3, V4, V5 with the same result (68 in-crop, 0 out-of-crop). In both cases the assemble step dropped cu_pool ops that had already been applied to avoid double-application: trial:i05.ug.leaf_0003.01 records four `assemble_drops` with reason `cu_pool:applied`, covering M5 polygon moves and M5 via shape resizes that overlapped with the cu_pool work from trial:i05.cu.def:VIA_VIA45_1_2_58_58.00. When scheduling unit_gate moves that co-touch V4 and M5, confirm that any pending cu_pool M5 ops in the same region have already been committed, or they will be silently dropped at assembly.
+
+## Op-ordering and drop hazard between cu_pool and unit_gate
+
+The assemble_drops in trial:i05.ug.leaf_0003.01 show that cu_pool M5 ops (axis x moves and resize_via_shape on `VIA_VIA45_1_2_58_58` and `VIA_VIA56_2_2_66_58`) were committed first (in trial:i05.cu.def:VIA_VIA45_1_2_58_58.00 at the same iteration), and the unit_gate op at the same iteration detected and dropped the duplicates. This means cu_pool and unit_gate ops for the same via cell must not be scheduled to execute in the same iteration unless one channel's result is visible to the other before assembly. The measured outcome was correct (no double-move artifact), but only because the drop logic was active. Always apply cu_pool via-cell fixes before or concurrently with unit_gate moves that touch the same V4-bearing cell, and verify that assemble_drops accounts for every overlapping op.

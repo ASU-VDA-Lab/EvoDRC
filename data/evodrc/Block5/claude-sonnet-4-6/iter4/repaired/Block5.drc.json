@@ -1,0 +1,48 @@
+{
+  "case_name": "Block5",
+  "design_type": "block",
+  "total_violations": 2,
+  "total_rules_violated": 1,
+  "rules": {
+    "V2.M3.EN.2": {
+      "violation_count": 2,
+      "description": "V2.M3.EN.2 : Minimum enclosure of V2 by M3 on two opposite sides is 5 & 5 nm or 5 & 0 nm.",
+      "violations": [
+        {
+          "type": "edge",
+          "edges": [
+            [
+              2736,
+              7596,
+              2788,
+              7596
+            ]
+          ],
+          "bbox": [
+            2736,
+            7596,
+            2788,
+            7596
+          ]
+        },
+        {
+          "type": "edge",
+          "edges": [
+            [
+              3004,
+              7596,
+              3056,
+              7596
+            ]
+          ],
+          "bbox": [
+            3004,
+            7596,
+            3056,
+            7596
+          ]
+        }
+      ]
+    }
+  }
+}

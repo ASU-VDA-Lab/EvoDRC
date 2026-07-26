@@ -1,0 +1,47 @@
+{
+  "iter": 4,
+  "case": "Block3",
+  "units": [
+    {
+      "unit_id": "whole_design",
+      "kind": "whole",
+      "is_union": false,
+      "member_leaf_ids": [
+        "whole_design"
+      ],
+      "bbox_dbu": [
+        0,
+        0,
+        12696,
+        12696
+      ],
+      "violation_ids": [
+        "v0001",
+        "v0002",
+        "v0003",
+        "v0004",
+        "v0005",
+        "v0006",
+        "v0007",
+        "v0008",
+        "v0009",
+        "v0010",
+        "v0011",
+        "v0012",
+        "v0013",
+        "v0014",
+        "v0015",
+        "v0016",
+        "v0017",
+        "v0018",
+        "v0019",
+        "v0020",
+        "v0021"
+      ],
+      "n_viol": 21
+    }
+  ],
+  "n_union": 0,
+  "quarantined": [],
+  "count": 1
+}

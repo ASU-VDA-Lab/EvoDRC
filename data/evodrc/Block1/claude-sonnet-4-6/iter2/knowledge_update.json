@@ -1,0 +1,399 @@
+{
+  "budget_s": 0,
+  "case": "Block1",
+  "iter": 2,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 127.17
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 171.08
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 87.14
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 296.55
+        }
+      ],
+      "judged": false,
+      "layer": "M1",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 91.02
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 248.41
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 263.12
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B names all 9 M1/M2/V1 trials, details all 3 conflict-resolution mechanisms with correct instance IDs, and covers M2.S.8/V2/cu_pool gating crisply wi",
+          "wall_s": 7.31
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 67.52
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 85.29
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 245.96
+        }
+      ],
+      "judged": false,
+      "layer": "M3",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 150.17
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 197.06
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly cites p1143/p1145/p1142/p1144 in leaf_0003, covers block_histogram and conflict-resolution drops A omits entirely, and its summary table ",
+          "wall_s": 102.31
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B correctly reports leaf_0003 had 80 new violations (not 89), accurately covers assemble_drops/conflict resolution detail, and is better organized with n",
+          "wall_s": 5.71
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 133.87
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 236.63
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 5,
+          "ok": false,
+          "wall_s": 105.83
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 6,
+          "ok": false,
+          "wall_s": 165.84
+        }
+      ],
+      "judged": false,
+      "layer": "M5",
+      "n_new_records": 3,
+      "status": "carried",
+      "verdict": null,
+      "winner": null
+    },
+    "M6": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 64.32
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 85.48
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\", \"evidence_fidelity\":\"A\", \"coverage\":\"B\", \"knowledge_quality\":\"A\", \"reason\":\"B mischaracterizes +72 dbu as divisible by 32; A's claims are fully traceable. B covers more rules but pads with zero-evidence 'not triggered' sectio",
+          "wall_s": 135.21
+        }
+      ],
+      "judged": true,
+      "layer": "M6",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 307.59
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 6,
+          "ok": false,
+          "wall_s": 265.54
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 352.96
+        }
+      ],
+      "judged": false,
+      "layer": "V1",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    },
+    "V2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 230.45
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 120.19
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 205.32
+        }
+      ],
+      "judged": false,
+      "layer": "V2",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": null,
+      "winner": "stateless"
+    },
+    "V3": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 7,
+          "ok": false,
+          "wall_s": 234.0
+        },
+        {
+          "attempt": 2,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 340.43
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 166.48
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"A misattributes i0345/i0505 as applied in leaf_0004 when both were dropped; B correctly accounts for all V3 ops in both trials and stays within cited",
+          "wall_s": 54.75
+        }
+      ],
+      "judged": true,
+      "layer": "V3",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 144.35
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 147.4
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites exact delta vectors, isolates y-component moves as V4.M5.AUX.2 cause, covers all rules including untriggered ones, and is better organized wi",
+          "wall_s": 25.28
+        }
+      ],
+      "judged": true,
+      "layer": "V4",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 137.96
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 138.36
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"A\",\"evidence_fidelity\":\"A\",\"coverage\":\"B\",\"knowledge_quality\":\"A\",\"reason\":\"B wrongly claims leaf_0003 vectors prevailed for i0345/i0505 (both were dropped) and contradicts the histogram (24 V5.M6.AUX.2 violations repaired, not p",
+          "wall_s": 143.65
+        }
+      ],
+      "judged": true,
+      "layer": "V5",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "A",
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "wall_s": 629.22
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p891", "axis": "y", "end": "high", "delta_dbu": 20}
+  ],
+  "explanation": "Extended M3 polygon p891's top edge by 20 dbu (5 nm) to provide the minimum required V2.M3.EN.2 enclosure above both V2 cuts of via i0077 (VIA_VIA23_1_3_36_36), clearing both violations at y=7596."
+}

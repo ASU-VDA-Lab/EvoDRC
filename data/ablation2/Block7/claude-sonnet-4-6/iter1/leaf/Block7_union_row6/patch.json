@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block7_union_row6",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1473", "delta_dbu": [28, 0]},
+    {"op": "move_instance", "inst_id": "i1231", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1264", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1886", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1965", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1907", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moved six VIA_VIA12 instances rightward: i1473 by +28 dbu to bring the gap to frozen std-cell M1 from 72 to 100 dbu (= 25 nm, clearing M1.S.2), and i1231/i1264/i1886/i1965/i1907 each by +36 dbu to shift their M1 lands entirely right of the adjacent V0 std-cell pins, clearing five V0.M1.AUX.3 violations."
+}

@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0006",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0913", "delta_dbu": [-84, -48]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0913 left 84 dbu and down 48 dbu: the downward shift removes the y-projection of i0913's M1 tip from the frozen std-cell M1 side edge (clearing M1.S.2 v0024), while the leftward shift increases the M2 gap from i0913 to Net-B (i0901+p3212) from 40 dbu to 124 dbu (clearing M2.S.4 v0045)."
+}

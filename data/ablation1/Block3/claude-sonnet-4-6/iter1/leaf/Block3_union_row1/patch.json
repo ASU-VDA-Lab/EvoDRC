@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block3_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0233", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0246", "delta_dbu": [108, 0]},
+    {"op": "move_instance", "inst_id": "i0205", "delta_dbu": [108, 0]}
+  ],
+  "explanation": "Move three VIA_VIA12 instances laterally (i0233 by +36x, i0246 and i0205 by +108x) so their M1 lands no longer overlap the adjacent background V0 pins, clearing V0.M1.AUX.3, M1.S.2, and V1.M1.EN.1 violations while preserving connectivity."
+}

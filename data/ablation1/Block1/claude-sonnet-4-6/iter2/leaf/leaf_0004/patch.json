@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "delete_instance", "inst_id": "i0300"},
+    {"op": "add_via", "cell_name": "VIA_VIA12", "origin_dbu": [5904, 6300]}
+  ],
+  "explanation": "Deletes VIA_VIA12 i0300 whose M1 land merged with frozen _ptemp_11 M1, creating a V0 convex-corner violation at _ptemp_5 (V0.M1.AUX.3). Adds a replacement VIA_VIA12 at (5904,6300) that reconnects M1-to-M2 without overlapping the _ptemp_5 V0 footprint."
+}

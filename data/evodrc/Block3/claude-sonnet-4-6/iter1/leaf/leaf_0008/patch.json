@@ -1,0 +1,10 @@
+{
+  "leaf_id": "leaf_0008",
+  "ops": [
+    {"op": "resize_end", "polygon_id": "p1159", "axis": "y", "end": "high", "delta_dbu": 20},
+    {"op": "move_instance", "inst_id": "i0239", "delta_dbu": [4, 0]},
+    {"op": "move_instance", "inst_id": "i0047", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1261", "axis": "x", "end": "high", "delta_dbu": 92}
+  ],
+  "explanation": "Group A (violations v0024, v0030): Move VIA_VIA12 i0239 right by +4 dbu to origin (9688,5580). New M1 land left = 9652, giving exactly 100 dbu gap to frozen _ptemp_50 right edge at x=9552 — clears M1.S.2 (v0024). V1 x-range [9652,9724] now fully covered by _ptemp_53 lower (x=9652-10080), merged M1 bottom enclosure = 36 dbu >= 20 dbu — clears V1.M1.EN.1 (v0030). M2 land left = 9632 still overlaps p1226 right = 9720, preserving M2 connectivity. Group B (violations v0025, v0031, v0005): Move VIA_VIA12 i0047 right by +136 dbu to origin (9820,7740). New M1 land left = 9784, gap to _ptemp_52 right (x=9552) = 232 dbu — clears M1.S.2 (v0025). V1 x-range [9784,9856] fully within _ptemp_54 lower — clears V1.M1.EN.1 (v0031). New M1 land left (9784) > V0 right (9756), so only _ptemp_54 lower covers the V0 footprint; its horizontal edges coincide with V0 top/bottom — no convex corner possible — clears V0.M1.AUX.3 (v0005). Extend p1261 (M2) HIGH x +92 dbu to x=9776 to bridge i0064 M2 land (right=9740) to i0047 new M2 land (left=9764), 12 dbu overlap. Extend p1159 (M3 C-partial) HIGH y +20 dbu to y=7796 to exactly cover i0064 VIA_VIA23 M3 land top (7740+56=7796). Declared debt: v0002 (V0.M1.AUX.3 @ [9684,5508,9756,5580]) — structurally unfixable: fixing requires M1 land left > V0 right (9756), meaning i0239 origin_x > 9792, but M2 connectivity to p1226 (right=9720) requires origin_x - 56 <= 9720, i.e. origin_x <= 9776, a mutually exclusive constraint."
+}

@@ -1,0 +1,11 @@
+{
+  "leaf_id": "leaf_0009",
+  "ops": [
+    {"op": "resize_via_shape", "cell_name": "VIA_VIA23_1_3_36_36", "layer_name": "M3", "shape_index": 0, "axis": "y", "delta_dbu": -40, "group": "g1"},
+    {"op": "resize", "polygon_id": "p897", "axis": "y", "delta_dbu": -64, "group": "g1"},
+    {"op": "resize", "polygon_id": "p896", "axis": "y", "delta_dbu": -64, "group": "g1"},
+    {"op": "resize", "polygon_id": "p895", "axis": "y", "delta_dbu": -64, "group": "g1"},
+    {"op": "resize", "polygon_id": "p894", "axis": "y", "delta_dbu": -64, "group": "g1"}
+  ],
+  "explanation": "Shrinks the shared M3 land of VIA_VIA23_1_3_36_36 (shape_index=0, y: ±56→±36 dbu) and the four co-located top-level M3 polygons p894–p897 (each y -64 dbu symmetric) so that the merged-M3 y-edges align with the outer V2 cut y-edges, clearing 8 outer-cut V2.M3.AUX.2 violations; all ops share group g1 so the def-level via edit and regional polygon shrinks are measured atomically by the harness."
+}

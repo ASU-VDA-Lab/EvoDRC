@@ -1,0 +1,19 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "move", "polygon_id": "p1059", "axis": "x", "delta_dbu": 32},
+    {"op": "move_instance", "inst_id": "i0151", "delta_dbu": [0, 72]},
+    {"op": "move_instance", "inst_id": "i0173", "delta_dbu": [32, 72]},
+    {"op": "resize_end", "polygon_id": "p1104", "axis": "y", "end": "high", "delta_dbu": 72},
+    {"op": "move_instance", "inst_id": "i0192", "delta_dbu": [0, 24]},
+    {"op": "move_instance", "inst_id": "i0147", "delta_dbu": [32, 24]},
+    {"op": "resize_end", "polygon_id": "p1103", "axis": "y", "end": "high", "delta_dbu": 24},
+    {"op": "move_instance", "inst_id": "i0096", "delta_dbu": [0, -24]},
+    {"op": "move_instance", "inst_id": "i0083", "delta_dbu": [32, -24]},
+    {"op": "resize_end", "polygon_id": "p1102", "axis": "y", "end": "low", "delta_dbu": 24},
+    {"op": "move_instance", "inst_id": "i0088", "delta_dbu": [0, -72]},
+    {"op": "move_instance", "inst_id": "i0085", "delta_dbu": [32, -72]},
+    {"op": "resize_end", "polygon_id": "p1101", "axis": "y", "end": "low", "delta_dbu": 72}
+  ],
+  "explanation": "Fixes M5.AUX.1 (v0011, v0012) by moving M5 polygon p1059 right by 32 dbu to align x-edges with the 96 dbu routing grid, and co-moves all four VIA45 instances +32 in x; fixes M4.AUX.1 (v0005, v0007, v0008, v0010) by moving each VIA34/VIA45 pair to new on-grid y-positions (edges at multiples of 96 dbu) with companion M3 polygon extensions to maintain M3 coverage across both the anchored VIA23 and relocated VIA34 lands."
+}

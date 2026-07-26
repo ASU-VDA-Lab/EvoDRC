@@ -1,0 +1,15 @@
+{
+  "leaf_id": "Block7_union_row9",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i1398", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1215", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1885", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1178", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i1117", "delta_dbu": [108, 0]},
+    {"op": "move_instance", "inst_id": "i1168", "delta_dbu": [56, 0]},
+    {"op": "move_instance", "inst_id": "i1271", "delta_dbu": [56, 0]},
+    {"op": "resize_end", "polygon_id": "p3300", "axis": "x", "end": "low", "delta_dbu": -36},
+    {"op": "move", "polygon_id": "p2720", "axis": "x", "delta_dbu": 56}
+  ],
+  "explanation": "Four VIA_VIA12 instances (i1398, i1215, i1885, i1178) are each shifted +36 dbu in x to align their M1 lands flush with the respective V0 contact edges, clearing five V0.M1.AUX.3 violations; i1117 is shifted +108 dbu in x to simultaneously clear V0.M1.AUX.3, M1.S.2, and V1.M1.EN.1 at the cluster near x=11412, with i1168, i1271, p3300 (resize_end low -36), and p2720 (move +56) providing secondary fixes to prevent M2 spacing and V2.M3.AUX collateral violations introduced by that larger shift."
+}

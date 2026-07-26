@@ -1,0 +1,3754 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report-database>
+ <description>ASAP7 DRC runset</description>
+ <original-file/>
+ <generator>drc: script='./DAC26_DRC_Benchmark/testcase/asap7/asap7.lydrc'</generator>
+ <top-cell>Block4</top-cell>
+ <tags>
+ </tags>
+ <categories>
+  <category>
+   <name>WELL.W.1</name>
+   <description>WELL.W.1 : Minimum horizontal width of WELL is 108 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.W.2</name>
+   <description>WELL.W.2 : Minimum vertical width of WELL is 54 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.S.1</name>
+   <description>WELL.S.1 : Minimum vertical spacing between WELL layer polygons is 108 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.S.2</name>
+   <description>WELL.S.2 : Minimum horizontal spacing between WELL layer polygons is 54 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.A.1A</name>
+   <description>WELL.A.1A : Minimum area of WELL is 5832 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.A.1B</name>
+   <description>WELL.A.1B : Minimum enclosed area of WELL is 5832 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.GATE.EX.1</name>
+   <description>WELL.GATE.EX.1 : Minimum horizontal extension of WELL past GATE (not cut by GCUT layer) is 7 nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.GATE.EX.2</name>
+   <description>WELL.GATE.EX.2 : Minimum vertical extension of WELL past GATE (not cut by GCUT layer) that does not interact with SRAMDRC, is 7 nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>FIN.W.1</name>
+   <description>FIN.W.1 : Exact vertical FIN width is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>FIN.W.2</name>
+   <description>FIN.W.2 : Minimum horizontal FIN width is 108 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>FIN.S.1</name>
+   <description>FIN.S.1 : Exact vertical FIN pitch is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>FIN.AUX.1</name>
+   <description>FIN.AUX.1 : FIN may not bend.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.W.1</name>
+   <description>GATE.W.1 : Exact horizontal GATE width is 20 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.W.2</name>
+   <description>GATE.W.2 : Minimum vertical GATE width is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.S.1</name>
+   <description>GATE.S.1 : Exact horizontal GATE pitch is 54 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.S.2</name>
+   <description>GATE.S.2 : Minimum horizontal GATE spacing is 34 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.S.3</name>
+   <description>GATE.S.3 : Every GATE (not cut by GCUT and not interacting with the layer SRAMDRC) must have at least one other GATE within 54 nm of its surrounding along the horizontal axis. The spacing being the distance between centers of the two GATE layer polygons.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.AUX.1</name>
+   <description>GATE.AUX.1 : GATE may not bend.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.AUX.2</name>
+   <description>GATE.AUX.2 : GATE may not be discontinuous along the vertical axis. Use GCUT layer to mark cuts in the GATE.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.ACTIVE.AUX.3</name>
+   <description>GATE.ACTIVE.AUX.3 : ACTIVE layer vertical edge may not lie inside, or coincide with, the GATE layer.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.ACTIVE.EX.1</name>
+   <description>GATE.ACTIVE.EX.1 : Minimum vertical extension of GATE (not cut by GCUT) past ACTIVE is 4 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.ACTIVE.EX.2</name>
+   <description>GATE.ACTIVE.EX.2 : Minimum horizontal extension of ACTIVE interacting with GATE (not cut by GCUT layer) past GATE (not cut by GCUT layer) is 25 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GATE.ACTIVE.S.4</name>
+   <description>GATE.ACTIVE.S.4 : Minimum horizontal spacing between ACTIVE and GATE (not cut by GCUT and not interacting with ACTIVE) is 9 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.FIN.EX.1</name>
+   <description>ACTIVE.FIN.EX.1 : Minimum vertical extension of ACTIVE past FIN is 10 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.W.1</name>
+   <description>ACTIVE.W.1 : Minimum vertical width of ACTIVE layer is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.W.2</name>
+   <description>ACTIVE.W.2 : ACTIVE layer vertical width increment is an integer multiple of 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.W.3</name>
+   <description>ACTIVE.W.3 : Minimum horizontal width of ACTIVE is 16 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.S.1</name>
+   <description>ACTIVE.S.1 : Minimum vertical spacing of ACTIVE is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.S.2A</name>
+   <description>ACTIVE.S.2A : Minimum horizontal spacing between ACTIVE layers forming source/drain regions (of different transistors) on different nets is 92 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.S.2B</name>
+   <description>ACTIVE.S.2B : Minimum horizontal spacing of ACTIVE is 38 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.WELL.S.4</name>
+   <description>ACTIVE.WELL.S.4 : Minimum spacing of ACTIVE (outside the layer SRAMDRC) to WELL is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.ACTIVE.WELL.S.5</name>
+   <description>SRAM.ACTIVE.WELL.S.5 : Minimum spacing of ACTIVE (interacting with the layer SRAMDRC) to WELL is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.WELL.EN.1</name>
+   <description>ACTIVE.WELL.EN.1 : Minimum enclosure of ACTIVE (outside the layer SRAMDRC) by WELL is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.ACTIVE.WELL.EN.2</name>
+   <description>SRAM.ACTIVE.WELL.EN.2 : Minimum enclosure of ACTIVE (interacting with the layer SRAMDRC) by WELL is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.A.1A</name>
+   <description>ACTIVE.A.1A : Minimum area of an ACTIVE layer polygon that does not interact with the layer SRAMDRC is 864 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.A.1B</name>
+   <description>ACTIVE.A.1B : Minimum enclosed area of an ACTIVE layer polygon that does not interact with the layer SRAMDRC is 864 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.ACTIVE.A.2A</name>
+   <description>SRAM.ACTIVE.A.2A : Minimum area of an ACTIVE layer polygon that interacts with the layer SRAMDRC is 432 nm-sq</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.ACTIVE.A.2B</name>
+   <description>SRAM.ACTIVE.A.2B : Minimum enclosed area of an ACTIVE layer polygon that interacts with the layer SRAMDRC is 432 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.AUX.1</name>
+   <description>ACTIVE.AUX.1 : ACTIVE must always be enclosed by NSELECT or PSELECT, such that no ACTIVE layer edge(s) coincide with NSELECT or PSELECT layer edge(s).</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.ACTIVE.AUX.2</name>
+   <description>SRAM.ACTIVE.AUX.2 : ACTIVE layer polygons not belonging to an SRAM cell, i.e. those that are either completely outside the SRAMDRC layer or those that do not intersect the SRAMDRC layer, may not touch the SRAMDRC layer.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.AUX.3</name>
+   <description>ACTIVE.AUX.3 : A notch in ACTIVE along vertical axis is not allowed.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.LUP.1</name>
+   <description>ACTIVE.LUP.1 : Maximum distance, to prevent latch-up, between ACTIVE forming a MOS device and ACTIVE forming a bulk/substrate contact within the same WELL/substrate is 30 um.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GCUT.W.1</name>
+   <description>GCUT.W.1 : Minimum vertical width of GCUT is 17 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GCUT.ACTIVE.S.1</name>
+   <description>GCUT.ACTIVE.S.1 : Minimum vertical spacing between GCUT and channel is 4 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GCUT.GATE.EX.1</name>
+   <description>GCUT.GATE.EX.1 : Minimum horizontal extension of GCUT past GATE is 17 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GCUT.GATE.S.2</name>
+   <description>GCUT.GATE.S.2 : Minimum spacing of GCUT to GATE, when the former is not being used to cut a particular polygon drawn using the latter, is 17 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GCUT.S.3</name>
+   <description>GCUT.S.3 : Minimum vertical spacing between two GCUT layer polygons is 35 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GCUT.AUX.1</name>
+   <description>GCUT.AUX.1 : GCUT layer may not exist without the layer GATE.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GCUT.AUX.2</name>
+   <description>GCUT.AUX.2 : GCUT layer vertical edge may not lie inside, or coincide with, the GATE layer.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GCUT.AUX.3</name>
+   <description>GCUT.AUX.3 : GCUT may not interact with channel.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>NSELECT.W.1</name>
+   <description>NSELECT.W.1 : Minimum horizontal width of NSELECT is 108 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>NSELECT.W.2</name>
+   <description>NSELECT.W.2 : Minimum vertical width of NSELECT is 54 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>NSELECT.ACTIVE.EN.1</name>
+   <description>NSELECT.ACTIVE.EN.1 : Minimum horizontal enclosure of ACTIVE (not interacting with SRAMDRC) by NSELECT is 46 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>NSELECT.ACTIVE.EN.2</name>
+   <description>NSELECT.ACTIVE.EN.2 : Minimum vertical enclosure of ACTIVE (not interacting with SRAMDRC) by NSELECT is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.NSELECT.ACTIVE.EN.3</name>
+   <description>SRAM.NSELECT.ACTIVE.EN.3 : Minimum horizontal enclosure of ACTIVE (interacting with SRAMDRC) by NSELECT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.NSELECT.ACTIVE.EN.4</name>
+   <description>SRAM.NSELECT.ACTIVE.EN.4 : Minimum vertical enclosure of ACTIVE (interacting with SRAMDRC) by NSELECT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>NSELECT.GATE.EX.1</name>
+   <description>NSELECT.GATE.EX.1 : Minimum horizontal extension of NSELECT past GATE (not cut by GCUT) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>NSELECT.GATE.EX.2</name>
+   <description>NSELECT.GATE.EX.2 : Minimum vertical extension of NSELECT past GATE (not cut by GCUT layer) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>PSELECT.W.1</name>
+   <description>PSELECT.W.1 : Minimum horizontal width of PSELECT is 108 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>PSELECT.W.2</name>
+   <description>PSELECT.W.2 : Minimum vertical width of PSELECT is 54 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>PSELECT.ACTIVE.EN.1</name>
+   <description>PSELECT.ACTIVE.EN.1 : Minimum horizontal enclosure of ACTIVE (not interacting with SRAMDRC) by PSELECT 46 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>PSELECT.ACTIVE.EN.2</name>
+   <description>PSELECT.ACTIVE.EN.2 : Minimum vertical enclosure of ACTIVE (not interacting with SRAMDRC) by PSELECT is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.PSELECT.ACTIVE.EN.3</name>
+   <description>SRAM.PSELECT.ACTIVE.EN.3 : Minimum horizontal enclosure of ACTIVE (interacting with SRAMDRC) by PSELECT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.PSELECT.ACTIVE.EN.4</name>
+   <description>SRAM.PSELECT.ACTIVE.EN.4 : Minimum vertical enclosure of ACTIVE (interacting with SRAMDRC) by PSELECT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>PSELECT.GATE.EX.1</name>
+   <description>PSELECT.GATE.EX.1 : Minimum horizontal extension of PSELECT past GATE (not cut by GCUT) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>PSELECT.GATE.EX.2</name>
+   <description>PSELECT.GATE.EX.2 : Minimum vertical extension of PSELECT past GATE (not cut by GCUT layer) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>NSELECT.PSELECT.AUX.1</name>
+   <description>NSELECT.PSELECT.AUX.1 : NSELECT and PSELECT may not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VT.AUX.2</name>
+   <description>VT.AUX.2 : VT layers (LVT, SLVT, and SRAMVT) may not overlap.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SLVT.W.1</name>
+   <description>SLVT.W.1 : Minimum horizontal width of SLVT is 108 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SLVT.W.2</name>
+   <description>SLVT.W.2 : Minimum vertical width of SLVT is 54 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SLVT.ACTIVE.EN.1</name>
+   <description>SLVT.ACTIVE.EN.1 : Minimum horizontal enclosure of ACTIVE (not interacting with SRAMDRC) by SLVT is 46 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SLVT.ACTIVE.EN.2</name>
+   <description>SLVT.ACTIVE.EN.2 : Minimum vertical enclosure of ACTIVE (not interacting with SRAMDRC) by SLVT is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.SLVT.ACTIVE.EN.3</name>
+   <description>SRAM.SLVT.ACTIVE.EN.3 : Minimum horizontal enclosure of ACTIVE (interacting with SRAMDRC) by SLVT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.SLVT.ACTIVE.EN.4</name>
+   <description>SRAM.SLVT.ACTIVE.EN.4 : Minimum vertical enclosure of ACTIVE (interacting with SRAMDRC) by SLVT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SLVT.GATE.EX.1</name>
+   <description>SLVT.GATE.EX.1 : Minimum horizontal extension of SLVT past GATE (not cut by GCUT) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SLVT.GATE.EX.2</name>
+   <description>SLVT.GATE.EX.2 : Minimum vertical extension of SLVT past GATE (not cut by GCUT layer) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LVT.W.1</name>
+   <description>LVT.W.1 : Minimum horizontal width of LVT is 108 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LVT.W.2</name>
+   <description>LVT.W.2 : Minimum vertical width of LVT is 54 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LVT.ACTIVE.EN.1</name>
+   <description>LVT.ACTIVE.EN.1 : Minimum horizontal enclosure of ACTIVE (not interacting with SRAMDRC) by LVT is 46 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LVT.ACTIVE.EN.2</name>
+   <description>LVT.ACTIVE.EN.2 : Minimum vertical enclosure of ACTIVE (not interacting with SRAMDRC) by LVT is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.LVT.ACTIVE.EN.3</name>
+   <description>SRAM.LVT.ACTIVE.EN.3 : Minimum horizontal enclosure of ACTIVE (interacting with SRAMDRC) by LVT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.LVT.ACTIVE.EN.4</name>
+   <description>SRAM.LVT.ACTIVE.EN.4 : Minimum vertical enclosure of ACTIVE (interacting with SRAMDRC) by LVT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LVT.GATE.EX.1</name>
+   <description>LVT.GATE.EX.1 : Minimum horizontal extension of LVT past GATE (not cut by GCUT) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LVT.GATE.EX.2</name>
+   <description>LVT.GATE.EX.2 : Minimum vertical extension of LVT past GATE (not cut by GCUT layer) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAMVT.W.1</name>
+   <description>SRAMVT.W.1 : Minimum horizontal width of SRAMVT is 108 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAMVT.W.2</name>
+   <description>SRAMVT.W.2 : Minimum vertical width of SRAMVT is 54 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAMVT.ACTIVE.EN.1</name>
+   <description>SRAMVT.ACTIVE.EN.1 : Minimum horizontal enclosure of ACTIVE (not interacting with SRAMDRC) by SRAMVT is 46 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAMVT.ACTIVE.EN.2</name>
+   <description>SRAMVT.ACTIVE.EN.2 : Minimum vertical enclosure of ACTIVE (not interacting with SRAMDRC) by SRAMVT is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.SRAMVT.ACTIVE.EN.3</name>
+   <description>SRAM.SRAMVT.ACTIVE.EN.3 : Minimum horizontal enclosure of ACTIVE (interacting with SRAMDRC) by SRAMVT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.SRAMVT.ACTIVE.EN.4</name>
+   <description>SRAM.SRAMVT.ACTIVE.EN.4 : Minimum vertical enclosure of ACTIVE (interacting with SRAMDRC) by SRAMVT is 13.5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAMVT.GATE.EX.1</name>
+   <description>SRAMVT.GATE.EX.1 : Minimum horizontal extension of SRAMVT past GATE (not cut by GCUT) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAMVT.GATE.EX.2</name>
+   <description>SRAMVT.GATE.EX.2 : Minimum vertical extension of SRAMVT past GATE (not cut by GCUT layer) is 7 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.W.1</name>
+   <description>SDT.W.1 : Minimum horizontal width of SDT is 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.W.2</name>
+   <description>SDT.W.2 : Minimum vertical width of SDT (not interacting with SRAMDRC) is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.W.3</name>
+   <description>SDT.W.3 : SDT (not interacting with SRAMDRC) layer vertical width increment is an integer multiple of 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.SDT.W.4</name>
+   <description>SRAM.SDT.W.4 : Minimum vertical width of SDT (interacting with SRAMDRC) is 17 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.S.1</name>
+   <description>SDT.S.1 : Minimum horizontal spacing between two SDT layer polygons is 30 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.GATE.S.2</name>
+   <description>SDT.GATE.S.2 : Minimum horizontal spacing between SDT and GATE is 5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.ACTIVE.OV.1</name>
+   <description>SDT.ACTIVE.OV.1 : Minimum vertical overlap between SDT and ACTIVE is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.LISD.OV.2</name>
+   <description>SDT.LISD.OV.2 : Minimum vertical overlap between SDT and LISD is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.SDT.ACTIVE.OV.3</name>
+   <description>SRAM.SDT.ACTIVE.OV.3 : Minimum vertical overlap between SDT (interacting with SRAMDRC) and ACTIVE is 17 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.SDT.LISD.OV.4</name>
+   <description>SRAM.SDT.LISD.OV.4 : Minimum vertical overlap between SDT (interacting with SRAMDRC) and LISD is 17 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.GATE.AUX.1</name>
+   <description>SDT.GATE.AUX.1 : SDT and GATE may not overlap or touch.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.ACTIVE.AUX.2</name>
+   <description>SDT.ACTIVE.AUX.2 : SDT (not interacting with SRAMDRC) horizontal edges must coincide with ACTIVE horizontal edges.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.ACTIVE.AUX.3</name>
+   <description>SDT.ACTIVE.AUX.3 : SDT may not be entirely outside ACTIVE.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SDT.LISD.AUX.4</name>
+   <description>SDT.LISD.AUX.4 : SDT must always be inside LISD.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LISD.W.1</name>
+   <description>LISD.W.1 : Minimum width of LISD is 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LISD.S.1</name>
+   <description>LISD.S.1 : Minimum (side-to-side) spacing between two LISD layer polygons' edges, when both edges are &gt; 36 nm, is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LISD.S.2</name>
+   <description>LISD.S.2 : Minimum (tip-to-side) spacing between two LISD layer polygons' edges, when one edge is &lt;= 36 nm and the other edge is &gt; 36 nm, is 25 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LISD.S.3</name>
+   <description>LISD.S.3 : Minimum (tip-to-tip) spacing between two LISD layer polygons' (lying completely outside the layer SRAMDRC) edges, when both edges are &gt;= 24 nm and &lt;= 36 nm, is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.LISD.S.4</name>
+   <description>SRAM.LISD.S.4 : Minimum (tip-to-tip) spacing between two LISD layer polygons' (interacting with the layer SRAMDRC) edges, when both edges are &lt;= 36 nm, is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LISD.A.1</name>
+   <description>LISD.A.1 : Minimum LISD area is 648 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.LISD.AUX.1</name>
+   <description>SRAM.LISD.AUX.1 : LISD layer polygons, which are either completely outside the SRAMDRC layer or which do not intersect the SRAMDRC layer, may not touch the SRAMDRC layer.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.W.1</name>
+   <description>LIG.W.1 : Minimum width of LIG is 16 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.S.1</name>
+   <description>LIG.S.1 : Minimum (side-to-side) spacing between two LIG layer polygons' edges, when both edges are &gt; 36 nm, is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.S.2</name>
+   <description>LIG.S.2 : Minimum (tip-to-side) spacing between two LIG layer polygons' edges, when one edge is &lt;= 36 nm and the other edge is &gt; 36 nm, is 25 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.S.3</name>
+   <description>LIG.S.3 : Minimum (tip-to-tip) spacing between two LIG layer polygons' (lying completely outside the layer SRAMDRC) edges, when both edges are &gt;= 24 nm and &lt;= 36 nm, is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.S.4</name>
+   <description>LIG.S.4 : Minimum (tip-to-tip) spacing between two LIG layer polygons' (lying completely outside the layer SRAMDRC) edges, when both edges are &lt; 24 nm, is 31 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.S.5</name>
+   <description>LIG.S.5 : Minimum (tip-to-tip) spacing between two LIG layer polygons' (lying completely outside the layer SRAMDRC) edges, when one of the edges is &gt;= 24 nm and &lt;= 36 nm, and the other is &lt; 24 nm, is 31 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.LISD.S.6</name>
+   <description>LIG.LISD.S.6 : Minimum spacing between LIG and LISD layer polygons not on the same net is 14 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.LISD.S.7</name>
+   <description>LIG.LISD.S.7 : Minimum corner-to-corner spacing between LISD and LIG not on the same net is 15 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.SDT.S.8</name>
+   <description>LIG.SDT.S.8 : Minimum spacing between LIG and SDT layer polygons not on the same net is 14 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.GATE.S.9A</name>
+   <description>LIG.GATE.S.9A : Minimum vertical spacing between LIG and GATE (not cut using GCUT) layer polygons is 14 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.GATE.S.9B</name>
+   <description>LIG.GATE.S.9B : Minimum horizontal spacing between LIG and GATE (not cut using GCUT) layer polygons is 17 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.GATE.S.10</name>
+   <description>LIG.GATE.S.10 : Minimum spacing between LIG and GATE (not cut using GCUT) forming a channel (GATE layer polygon over ACTIVE) is 5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.GCUT.S.11</name>
+   <description>LIG.GCUT.S.11 : Minimum vertical spacing between LIG and GCUT is 5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.A.1</name>
+   <description>LIG.A.1 : Minimum LIG area is 324 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.LISD.A.2</name>
+   <description>LIG.LISD.A.2 : Minimum area of overlap between LIG and LISD is 128 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.GATE.A.3</name>
+   <description>LIG.GATE.A.3 : Minimum area of overlap between LIG (lying completely outside the layer SRAMDRC) and GATE (not cut using GCUT) is 320 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.LIG.GATE.A.4</name>
+   <description>SRAM.LIG.GATE.A.4 : Minimum area of overlap between LIG (interacting with the layer SRAMDRC) and GATE (not cut using GCUT) is 240 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.GATE.AUX.1</name>
+   <description>LIG.GATE.AUX.1 : LIG layer (lying completely outside the layer SRAMDRC) vertical edge may not lie inside, or coincide with, the GATE layer.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.LIG.AUX.2</name>
+   <description>SRAM.LIG.AUX.2 : LIG layer polygons, which are either completely outside the SRAMDRC layer or which do not intersect the SRAMDRC layer, may not touch the SRAMDRC layer.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.GATE.EX.1</name>
+   <description>LIG.GATE.EX.1 : Minimum extension of LIG (lying completely outside the layer SRAMDRC) over GATE (not cut using GCUT) on both opposite sides is 1 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>LIG.LISD.OV.1</name>
+   <description>LIG.LISD.OV.1 : Minimum overlap between LIG and LISD connected together is 8 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>SRAM.LIG.GATE.OV.2</name>
+   <description>SRAM.LIG.GATE.OV.2 : Minimum overlap of LIG (interacting with the layer SRAMDRC) and GATE (not cut using GCUT) is 15 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.W.1</name>
+   <description>V0.W.1 : Minimum width of a V0 instance along the length of M1 is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.S.1</name>
+   <description>V0.S.1 : Minimum spacing between V0 instances [on the same M1 track | on parallel M1 tracks, not aligned | on parallel M1 tracks, aligned] is [18 nm | 27 nm | 18 nm].</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.S.2</name>
+   <description>V0.S.2 : Minimum corner-to-corner spacing between two V0 instances——both with a 5 nm M1 end-cap——is 23 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.S.3</name>
+   <description>V0.S.3 : Minimum corner-to-corner spacing between two V0 instance——both without a 5 nm M1 end-cap——is 30 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.S.4</name>
+   <description>V0.S.4 : Minimum corner-to-corner spacing between two V0 instances——one with and another without, a 5 nm M1 end-cap——is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.M1.EN.1</name>
+   <description>V0.M1.EN.1 : Minimum enclosure of V0 by M1 on two opposite sides is 5 &amp; 5 nm or 5 &amp; 0 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.LISD.EN.3</name>
+   <description>V0.LISD.EN.3 : Minimum enclosure of V0 (sharing some, but not all its area with LISD) by LISD (interacting with LIG) on at least two opposite sides is 3 nm and such a V0 does not need to lie completely inside LISD.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.LIG.EN.4</name>
+   <description>V0.LIG.EN.4 : Minimum enclosure of V0 (interacting with LIG and not inside LISD) by LIG on two opposite sides is 1 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.LIG.A.1</name>
+   <description>V0.LIG.A.1 : Min. area of overlap between V0 (interacting with LIG and not inside LISD) and LIG : 288nm2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.M1.AUX.3</name>
+   <description>V0.M1.AUX.3 : V0 must exactly be the same width as M1 along the direction perpendicular to the M1 length.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.LISD.EN.2</name>
+   <description>V0.LISD.EN.2 : Minimum enclosure of V0 (interacting with LISD, but not with LIG) by LISD on at least two opposite sides is 3 nm and such a V0 must lie completely inside LISD.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.AUX.1</name>
+   <description>V0.AUX.1 : V0 must always interact with M1 and [LISD|LIG].</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V0.LIG.AUX.2</name>
+   <description>V0.LIG.AUX.2 : V0 (interacting LIG, not inside LIG/LISD) must not have edges lying inside or coincident with LIG.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.W.1</name>
+   <description>M1.W.1 : Minimum width of M1 is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.S.1</name>
+   <description>M1.S.1 : Minimum (side-to-side) spacing between two M1 layer polygons' edges, when both edges are &gt; 36 nm, is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.S.2</name>
+   <description>M1.S.2 : Minimum (tip-to-side) spacing between two M1 layer polygons' edges, when one of the edges is &lt;= 36 nm and the other is &gt; 36 nm, is 25 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.S.3</name>
+   <description>M1.S.3 : Minimum (tip-to-tip) spacing between two M1 layer polygons' edges, when both edges are &gt;= 24 nm and &lt;= 36 nm, is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.S.4</name>
+   <description>M1.S.4 : Minimum (tip-to-tip) spacing between two M1 layer polygons' edges, when both edges are &lt; 24 nm, is 31 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.S.5</name>
+   <description>M1.S.5 : Minimum (tip-to-tip) spacing between two M1 layer polygons' edges, when one of the edges is &gt;= 24 nm and &lt;= 36 nm, and the other is &lt; 24 nm, is 31 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.S.6</name>
+   <description>M1.S.6 : Minimum corner-to-corner spacing between two M1 polygons is 20 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.A.1</name>
+   <description>M1.A.1 : Minimum M1 area is 504 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M1.R.0</name>
+   <description>M1.R.0 : Redundant M1 island (approximation). M1 enclosing exactly one small V0 via is flagged near a large empty M1 region (&gt;= 500 nm wide, area &gt; 2.5 um-sq, expanded by 400 nm).</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.W.1</name>
+   <description>M2.W.1 : Minimum width of M2 is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.S.1</name>
+   <description>M2.S.1 : Minimum (side-to-side) spacing between two M2 layer polygons' edges, when both edges are &gt; 36 nm, is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.S.2</name>
+   <description>M2.S.2 : Minimum (tip-to-side) spacing between two M2 layer polygons' edges, when one of the edges is &lt;= 36 nm and the other is &gt; 36 nm, is 25 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.S.3</name>
+   <description>M2.S.3 : Minimum (tip-to-tip) spacing between two M2 layer polygons' edges, when both edges are &gt;= 24 nm and &lt;= 36 nm, is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.S.4</name>
+   <description>M2.S.4 : Minimum (tip-to-tip) spacing between two M2 layer polygons' edges, when both edges are &lt; 24 nm, is 31 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.S.5</name>
+   <description>M2.S.5 : Minimum (tip-to-tip) spacing between two M2 layer polygons' edges, when one of the edges is &gt;= 24 nm and &lt;= 36 nm, and the other is &lt; 24 nm, is 31 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.S.6</name>
+   <description>M2.S.6 : Minimum corner-to-corner spacing between two M2 polygons is 20 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.A.1</name>
+   <description>M2.A.1 : Minimum M2 area is 504 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.S.7</name>
+   <description>M2.S.7 : M2 tip-to-tip (18 nm) co-located with side-to-side spacing &lt;= 32 nm is forbidden; parallel run length must be &gt;= 35 nm when side spacing &lt;= 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M2.S.8</name>
+   <description>M2.S.8 : Minimum diagonal center-to-center spacing between M2 tip-to-tip gaps on different tracks is 80 nm. Gap centers are found by shrinking each 18 nm tip-to-tip gap by 8.5 nm per side; euclidian distance between centers must be &gt;= 80 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M3.W.1</name>
+   <description>M3.W.1 : Minimum width of M3 is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M3.S.1</name>
+   <description>M3.S.1 : Minimum (side-to-side) spacing between two M3 layer polygons' edges, when both edges are &gt; 36 nm, is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M3.S.2</name>
+   <description>M3.S.2 : Minimum (tip-to-side) spacing between two M3 layer polygons' edges, when one of the edges is &lt;= 36 nm and the other is &gt; 36 nm, is 25 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M3.S.3</name>
+   <description>M3.S.3 : Minimum (tip-to-tip) spacing between two M3 layer polygons' edges, when both edges are &gt;= 24 nm and &lt;= 36 nm, is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M3.S.4</name>
+   <description>M3.S.4 : Minimum (tip-to-tip) spacing between two M3 layer polygons' edges, when both edges are &lt; 24 nm, is 31 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M3.S.5</name>
+   <description>M3.S.5 : Minimum (tip-to-tip) spacing between two M3 layer polygons' edges, when one of the edges is &gt;= 24 nm and &lt;= 36 nm, and the other is &lt; 24 nm, is 31 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M3.S.6</name>
+   <description>M3.S.6 : Minimum corner-to-corner spacing between two M3 polygons is 20 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M3.A.1</name>
+   <description>M3.A.1 : Minimum M3 area is 504 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.W.1</name>
+   <description>V1.W.1 : Minimum width of a V1 instance along the length of M2 is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.S.1</name>
+   <description>V1.S.1 : Minimum spacing between V1 instances [on the same M2 track | on parallel M2 tracks, not aligned | on parallel M2 tracks, aligned] is [18 nm | 27 nm | 18 nm].</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.S.2</name>
+   <description>V1.S.2 : Minimum corner-to-corner spacing between two V1 instances——both with a 5 nm M2 end-cap——is 23 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.S.3</name>
+   <description>V1.S.3 : Minimum corner-to-corner spacing between two V1 instances——both without a 5 nm M2 end-cap——is 30 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.S.4</name>
+   <description>V1.S.4 : Minimum corner-to-corner spacing between two V1 instances——one with and another without, a 5 nm M2 end-cap——is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.M1.EN.1</name>
+   <description>V1.M1.EN.1 : Minimum enclosure of V1 by M1 on two opposite sides is 5 &amp; 2 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.M2.EN.2</name>
+   <description>V1.M2.EN.2 : Minimum enclosure of V1 by M2 on two opposite sides is 5 &amp; 5 nm or 5 &amp; 0 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.AUX.1</name>
+   <description>V1.AUX.1 : V1 must be inside M1 and M2.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V1.M2.AUX.2</name>
+   <description>V1.M2.AUX.2 : V1 must exactly be the same width as M2 along the direction perpendicular to the M2 length.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.W.1</name>
+   <description>V2.W.1 : Minimum width of a V2 instance along the length of M3 is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.S.1</name>
+   <description>V2.S.1 : Minimum spacing between V2 instances [on the same M3 track | on parallel M3 tracks, not aligned | on parallel M3 tracks, aligned] is [18 nm | 27 nm | 18 nm].</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.S.2</name>
+   <description>V2.S.2 : Minimum corner-to-corner spacing between two V2 instances——both with a 5 nm M3 end-cap——is 23 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.S.3</name>
+   <description>V2.S.3 : Minimum corner-to-corner spacing between two V2 instances——both without a 5 nm M3 end-cap——is 30 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.S.4</name>
+   <description>V2.S.4 : Minimum corner-to-corner spacing between two V2 instances——one with and another without, a 5 nm M3 end-cap——is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.M2.EN.1</name>
+   <description>V2.M2.EN.1 : Minimum enclosure of V2 by M2 on at least two opposite sides is 5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.M3.EN.2</name>
+   <description>V2.M3.EN.2 : Minimum enclosure of V2 by M3 on two opposite sides is 5 &amp; 5 nm or 5 &amp; 0 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.AUX.1</name>
+   <description>V2.AUX.1 : V2 must be inside M2 and M3.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V2.M3.AUX.2</name>
+   <description>V2.M3.AUX.2 : V2 must exactly be the same width as M3 along the direction perpendicular to the M3 length.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.W.1</name>
+   <description>V3.W.1 : Minimum width of a V3 instance along the length of M4 is 18 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.S.1</name>
+   <description>V3.S.1 : Minimum spacing between V3 instances [on the same M4 track | on parallel M4 tracks, not aligned | on parallel M4 tracks, aligned] is [18 nm | 27 nm | 18 nm].</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.S.2</name>
+   <description>V3.S.2 : Minimum corner-to-corner spacing between two V3 instances——both with a 5 nm M4 end-cap——is 23 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.S.3</name>
+   <description>V3.S.3 : Minimum corner-to-corner spacing between two V3 instances——both without a 5 nm M4 end-cap——is 30 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.S.4</name>
+   <description>V3.S.4 : Minimum corner-to-corner spacing between two V3 instances——one with and another without, a 5 nm M4 end-cap——is 27 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.M3.EN.1</name>
+   <description>V3.M3.EN.1 : Minimum enclosure of V3 by M3 on at least two opposite sides is 5 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.M4.EN.2</name>
+   <description>V3.M4.EN.2 : Minimum enclosure of V3 by M4 on at least two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.AUX.1</name>
+   <description>V3.AUX.1 : V3 must be inside M3 and M4.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V3.M4.AUX.2</name>
+   <description>V3.M4.AUX.2 : V3 must exactly be the same width as M4 along the direction perpendicular to the M4 length.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.W.1</name>
+   <description>M4.W.1 : Minimum vertical width of M4 is 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.W.2</name>
+   <description>M4.W.2 : Maximum vertical width of M4 is 480 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.W.3</name>
+   <description>M4.W.3 : M4 vertical width may not be an even integer multiple of its minimum width.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.W.4</name>
+   <description>M4.W.4 : M4 vertical width, resulting in the polygon spanning an even number of minimum width routing tracks vertically, is not allowed.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.W.5</name>
+   <description>M4.W.5 : Minimum horizontal width of M4 is 44 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.S.1</name>
+   <description>M4.S.1 : Minimum vertical spacing between two M4 layer polygons' edges, regardless of the edge lengths and mask colors, is 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.S.2</name>
+   <description>M4.S.2 : Minimum horizontal spacing between two M4 layer polygons' edges, regardless of the edge lengths and mask colors, is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.S.3</name>
+   <description>M4.S.3 : Minimum tip-to-tip spacing between two M4 layer polygons——that do not share a parallel run length——on adjacent tracks is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.S.4</name>
+   <description>M4.S.4 : Minimum tip-to-tip spacing between two M4 layer polygons——that share a parallel run length——on adjacent tracks is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.S.5</name>
+   <description>M4.S.5 : Minimum parallel run length of two M4 layer polygons on adjacent tracks is 44 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.AUX.2</name>
+   <description>M4.AUX.2 : Minimum width M4 tracks must lie along the horizontal routing tracks at a spacing of 2N x minimum metal width + offset from the origin.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.AUX.3</name>
+   <description>M4.AUX.3 : M4 may not bend.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.AUX.4</name>
+   <description>M4.AUX.4 : Outside edge of a wide M4 layer polygon may not touch a routing track edge.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.W.1</name>
+   <description>M5.W.1 : Minimum horizontal width of M5 is 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.W.2</name>
+   <description>M5.W.2 : Maximum horizontal width of M5 is 480 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.W.3</name>
+   <description>M5.W.3 : M5 horizontal width may not be an even integer multiple of its minimum width.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.W.4</name>
+   <description>M5.W.4 : M5 horizontal width, resulting in the polygon spanning an even number of minimum width routing tracks horizontally, is not allowed.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.W.5</name>
+   <description>M5.W.5 : Minimum vertical width of M5 is 44 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.S.1</name>
+   <description>M5.S.1 : Minimum horizontal spacing between two M5 layer polygons' edges, regardless of the edge lengths and mask colors, is 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.S.2</name>
+   <description>M5.S.2 : Minimum vertical spacing between two M5 layer polygons' edges, regardless of the edge lengths and mask colors, is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.S.3</name>
+   <description>M5.S.3 : Minimum tip-to-tip spacing between two M5 layer polygons——that do not share a parallel run length——on adjacent tracks is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.S.4</name>
+   <description>M5.S.4 : Minimum tip-to-tip spacing between two M5 layer polygons——that share a parallel run length——on adjacent tracks is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.S.5</name>
+   <description>M5.S.5 : Minimum parallel run length of two M5 layer polygons on adjacent tracks is 44 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.AUX.2</name>
+   <description>M5.AUX.2 : Minimum width M5 tracks must lie along the vertical routing tracks at a spacing of 2N x minimum metal width + offset from the origin.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.AUX.3</name>
+   <description>M5.AUX.3 : M5 may not bend.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.AUX.4</name>
+   <description>M5.AUX.4 : Outside edge of a wide M5 layer polygon may not touch a routing track edge.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V4.W.1</name>
+   <description>V4.W.1 : Minimum width of a V4 instance along the length of M5 is 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V4.S.1</name>
+   <description>V4.S.1 : Minimum spacing between V4 instances on the same net is 33 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V4.S.2</name>
+   <description>V4.S.2 : Minimum spacing between V4 instances on different nets is 33 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V4.S.3</name>
+   <description>V4.S.3 : Minimum corner-to-corner spacing between two V4 instances is 33 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V4.M4.EN.1</name>
+   <description>V4.M4.EN.1 : Minimum enclosure of V4 by M4 on at least two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V4.M5.EN.2</name>
+   <description>V4.M5.EN.2 : Minimum enclosure of V4 by M5 on two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V4.AUX.1</name>
+   <description>V4.AUX.1 : V4 must be inside M4 and M5.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V4.M5.AUX.2</name>
+   <description>V4.M5.AUX.2 : V4 must exactly be the same width as M5 along the direction perpendicular to the M5 length.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V5.W.1</name>
+   <description>V5.W.1 : Minimum width of a V5 instance along the length of M6 is 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V5.S.1</name>
+   <description>V5.S.1 : Minimum spacing between V5 instances on the same net is 33 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V5.S.2</name>
+   <description>V5.S.2 : Minimum spacing between V5 instances on different nets is 33 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V5.S.3</name>
+   <description>V5.S.3 : Minimum corner-to-corner spacing between two V5 instances is 33 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V5.M5.EN.1</name>
+   <description>V5.M5.EN.1 : Minimum enclosure of V5 by M5 on at least two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V5.M6.EN.2</name>
+   <description>V5.M6.EN.2 : Minimum enclosure of V5 by M6 on two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V5.AUX.1</name>
+   <description>V5.AUX.1 : V5 must be inside M5 and M6.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V5.M6.AUX.2</name>
+   <description>V5.M6.AUX.2 : V5 must exactly be the same width as M6 along the direction perpendicular to the M6 length.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.W.1</name>
+   <description>M6.W.1 : Minimum vertical width of M6 is 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.W.2</name>
+   <description>M6.W.2 : Maximum vertical width of M6 is 640 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.W.3</name>
+   <description>M6.W.3 : M6 vertical width may not be an even integer multiple of its minimum width.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.W.4</name>
+   <description>M6.W.4 : M6 vertical width, resulting in the polygon spanning an even number of minimum width routing tracks vertically, is not allowed.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.W.5</name>
+   <description>M6.W.5 : Minimum horizontal width of M6 is 44 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.S.1</name>
+   <description>M6.S.1 : Minimum vertical spacing between two M6 layer polygons' edges, regardless of the edge lengths and mask colors, is 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.S.2</name>
+   <description>M6.S.2 : Minimum horizontal spacing between two M6 layer polygons' edges, regardless of the edge lengths and mask colors, is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.S.3</name>
+   <description>M6.S.3 : Minimum tip-to-tip spacing between two M6 layer polygons——that do not share a parallel run length——on adjacent tracks is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.S.4</name>
+   <description>M6.S.4 : Minimum tip-to-tip spacing between two M6 layer polygons——that share a parallel run length——on adjacent tracks is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.S.5</name>
+   <description>M6.S.5 : Minimum parallel run length of two M6 layer polygons on adjacent tracks is 44 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.AUX.2</name>
+   <description>M6.AUX.2 : Minimum width M6 tracks must lie along the horizontal routing tracks at a spacing of 2N x minimum metal width + offset from the origin.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.AUX.3</name>
+   <description>M6.AUX.3 : M6 may not bend.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.AUX.4</name>
+   <description>M6.AUX.4 : Outside edge of a wide M6 layer polygon may not touch a routing track edge.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.W.1</name>
+   <description>M7.W.1 : Minimum horizontal width of M7 is 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.W.2</name>
+   <description>M7.W.2 : Maximum horizontal width of M7 is 640 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.W.3</name>
+   <description>M7.W.3 : M7 horizontal width may not be an even integer multiple of its minimum width.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.W.4</name>
+   <description>M7.W.4 : M7 horizontal width, resulting in the polygon spanning an even number of minimum width routing tracks horizontally, is not allowed.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.W.5</name>
+   <description>M7.W.5 : Minimum vertical width of M7 is 44 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.S.1</name>
+   <description>M7.S.1 : Minimum horizontal spacing between two M7 layer polygons' edges, regardless of the edge lengths and mask colors, is 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.S.2</name>
+   <description>M7.S.2 : Minimum vertical spacing between two M7 layer polygons' edges, regardless of the edge lengths and mask colors, is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.S.3</name>
+   <description>M7.S.3 : Minimum tip-to-tip spacing between two M7 layer polygons——that do not share a parallel run length——on adjacent tracks is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.S.4</name>
+   <description>M7.S.4 : Minimum tip-to-tip spacing between two M7 layer polygons——that share a parallel run length——on adjacent tracks is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.S.5</name>
+   <description>M7.S.5 : Minimum parallel run length of two M7 layer polygons on adjacent tracks is 44 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.AUX.2</name>
+   <description>M7.AUX.2 : Minimum width M7 tracks must lie along the vertical routing tracks at a spacing of 2N x minimum metal width + offset from the origin.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.AUX.3</name>
+   <description>M7.AUX.3 : M7 may not bend.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.AUX.4</name>
+   <description>M7.AUX.4 : Outside edge of a wide M7 layer polygon may not touch a routing track edge.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V6.W.1</name>
+   <description>V6.W.1 : Minimum width of a V6 instance along the length of M7 is 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V6.S.1</name>
+   <description>V6.S.1 : Minimum spacing between V6 instances on the same net is 45 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V6.S.2</name>
+   <description>V6.S.2 : Minimum spacing between V6 instances on different nets is 45 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V6.S.3</name>
+   <description>V6.S.3 : Minimum corner-to-corner spacing between two V6 instances is 45 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V6.M6.EN.1</name>
+   <description>V6.M6.EN.1 : Minimum enclosure of V6 by M6 on at least two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V6.M7.EN.2</name>
+   <description>V6.M7.EN.2 : Minimum enclosure of V6 by M7 on two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V6.AUX.1</name>
+   <description>V6.AUX.1 : V6 must be inside M6 and M7.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V6.M7.AUX.2</name>
+   <description>V6.M7.AUX.2 : V6 must exactly be the same width as M7 along the direction perpendicular to the M7 length.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V7.W.1</name>
+   <description>V7.W.1 : Minimum width of a V7 instance along the length of M8 is 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V7.S.1</name>
+   <description>V7.S.1 : Minimum spacing between V7 instances on the same net is 45 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V7.S.2</name>
+   <description>V7.S.2 : Minimum spacing between V7 instances on different nets is 45 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V7.S.3</name>
+   <description>V7.S.3 : Minimum corner-to-corner spacing between two V7 instances is 45 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V7.M7.EN.1</name>
+   <description>V7.M7.EN.1 : Minimum enclosure of V7 by M7 on at least two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V7.M8.EN.2</name>
+   <description>V7.M8.EN.2 : Minimum enclosure of V7 by M8 on two opposite sides is 11 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V7.AUX.1</name>
+   <description>V7.AUX.1 : V7 must be inside M7 and M8.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V7.M8.AUX.2</name>
+   <description>V7.M8.AUX.2 : V7 must exactly be the same width as M8 along the direction perpendicular to the M8 length.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.W.1</name>
+   <description>M8.W.1 : Minimum width of M8 is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.W.2</name>
+   <description>M8.W.2 : Minimum width of M8, when its length &gt;= 400 nm and &lt; 1200 nm, is 60 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.W.3</name>
+   <description>M8.W.3 : Minimum width of M8, when its length &gt;= 1200 nm and &lt; 1800 nm, is 80 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.W.4</name>
+   <description>M8.W.4 : Minimum width of M8, when its length &gt;= 1800 nm, is 120 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.W.5</name>
+   <description>M8.W.5 : Maximum width of M8 is 2000 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.S.1</name>
+   <description>M8.S.1 : Minimum (side-to-side) spacing between two M8 layer polygons' edges, when both edges are &gt;= 80 nm, is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.S.2</name>
+   <description>M8.S.2 : Minimum (tip-to-side) spacing between two M8 layer polygons' edges, when one of the edges is &lt; 80 nm and the other is &gt;= 80 nm, is 43 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.S.3</name>
+   <description>M8.S.3 : Minimum (tip-to-tip) spacing between two M8 layer polygons' edges, when both edges are &lt; 80 nm, is 46 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.S.4</name>
+   <description>M8.S.4 : Minimum spacing between two M8 layer polygons, when the minimum width of one polygon is &gt;= 60 nm and &lt; 80 nm, is 60 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.S.5</name>
+   <description>M8.S.5 : Minimum spacing between two M8 layer polygons, when the minimum width of one polygon is &gt;= 80 nm and &lt; 120 nm, is 80 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.S.6</name>
+   <description>M8.S.6 : Minimum spacing between two M8 layer polygons, when the minimum width of one polygon is &gt;= 120 nm and &lt; 500 nm, is 120 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.S.7</name>
+   <description>M8.S.7 : Minimum spacing between two M8 layer polygons, when the minimum width of one polygon is &gt;= 500 nm and &lt; 1000 nm, is 500 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.S.8</name>
+   <description>M8.S.8 : Minimum spacing between two M8 layer polygons, when the minimum width of one polygon is &gt;= 1000 nm, is 1000 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.A.1</name>
+   <description>M8.A.1 : Minimum area of M8 is 7520 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M8.L.1</name>
+   <description>M8.L.1 : Minimum feature length of M8 is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.W.1</name>
+   <description>M9.W.1 : Minimum width of M9 is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.W.2</name>
+   <description>M9.W.2 : Minimum width of M9, when its length &gt;= 400 nm and &lt; 1200 nm, is 60 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.W.3</name>
+   <description>M9.W.3 : Minimum width of M9, when its length &gt;= 1200 nm and &lt; 1800 nm, is 80 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.W.4</name>
+   <description>M9.W.4 : Minimum width of M9, when its length &gt;= 1800 nm, is 120 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.W.5</name>
+   <description>M9.W.5 : Maximum width of M9 is 2000 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.S.1</name>
+   <description>M9.S.1 : Minimum (side-to-side) spacing between two M9 layer polygons' edges, when both edges are &gt;= 80 nm, is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.S.2</name>
+   <description>M9.S.2 : Minimum (tip-to-side) spacing between two M9 layer polygons' edges, when one of the edges is &lt; 80 nm and the other is &gt;= 80 nm, is 43 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.S.3</name>
+   <description>M9.S.3 : Minimum (tip-to-tip) spacing between two M9 layer polygons' edges, when both edges are &lt; 80 nm, is 46 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.S.4</name>
+   <description>M9.S.4 : Minimum spacing between two M9 layer polygons, when the minimum width of one polygon is &gt;= 60 nm and &lt; 80 nm, is 60 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.S.5</name>
+   <description>M9.S.5 : Minimum spacing between two M9 layer polygons, when the minimum width of one polygon is &gt;= 80 nm and &lt; 120 nm, is 80 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.S.6</name>
+   <description>M9.S.6 : Minimum spacing between two M9 layer polygons, when the minimum width of one polygon is &gt;= 120 nm and &lt; 500 nm, is 120 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.S.7</name>
+   <description>M9.S.7 : Minimum spacing between two M9 layer polygons, when the minimum width of one polygon is &gt;= 500 nm and &lt; 1000 nm, is 500 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.S.8</name>
+   <description>M9.S.8 : Minimum spacing between two M9 layer polygons, when the minimum width of one polygon is &gt;= 1000 nm, is 1000 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.A.1</name>
+   <description>M9.A.1 : Minimum area of M9 is 7520 nm-sq.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M9.L.1</name>
+   <description>M9.L.1 : Minimum feature length of M9 is 40 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V8.W.1</name>
+   <description>V8.W.1 : Exact width of a V8 instance is [40 nm x 40 nm | 40 nm x 120 nm | 120 nm x 40 nm].</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V8.S.1</name>
+   <description>V8.S.1 : Minimum spacing between two V8 instances is 57 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V8.S.2</name>
+   <description>V8.S.2 : Minimum corner-to-corner spacing between V8 instances is 57 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V8.M8.EN.1</name>
+   <description>V8.M8.EN.1 : Minimum enclosure of V8 by M8 on at least two opposite sides is 20 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V8.M9.EN.2</name>
+   <description>V8.M9.EN.2 : Minimum enclosure of V8 by M9 on at least two opposite sides is 20 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V8.AUX.1</name>
+   <description>V8.AUX.1 : V8 must be inside M8 and M9.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V9.W.1</name>
+   <description>V9.W.1 : Exact width of a V9 instance is [40 nm x 40 nm | 40 nm x 120 nm | 120 nm x 40 nm].</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V9.S.1</name>
+   <description>V9.S.1 : Minimum spacing between two V9 instances is 57 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V9.S.2</name>
+   <description>V9.S.2 : Minimum corner-to-corner spacing between V9 instances is 57 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V9.M9.EN.1</name>
+   <description>V9.M9.EN.1 : Minimum enclosure of V9 by M9 on at least two opposite sides is 20 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V9.PAD.EN.2</name>
+   <description>V9.PAD.EN.2 : Minimum enclosure of V9 by PAD on at least two opposite sides is 20 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>V9.AUX.1</name>
+   <description>V9.AUX.1 : V9 must be inside M9 and PAD.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M4.AUX.1</name>
+   <description>M4.AUX.1 : M4 horizontal edges must be at a grid of 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M5.AUX.1</name>
+   <description>M5.AUX.1 : M5 vertical edges must be at a grid of 24 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M6.AUX.1</name>
+   <description>M6.AUX.1 : M6 horizontal edges must be at a grid of 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>M7.AUX.1</name>
+   <description>M7.AUX.1 : M7 vertical edges must be at a grid of 32 nm.</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>nwell.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer nwell</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>fin.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer fin</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>gate.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer gate</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>gcut.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer gcut</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>active.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer active</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>sdt.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer sdt</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>nselect.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer nselect</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>pselect.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer pselect</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>slvt.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer slvt</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>lvt.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer lvt</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>sramdrc.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer sramdrc</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>sramvt.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer sramvt</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>dummy.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer dummy</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>lig.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer lig</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>lisd.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer lisd</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v0.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v0</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m1.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v1.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m2.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v2.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m3.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v3.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m4.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v4.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m5.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v5.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m6.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v6.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m7.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v7.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m8.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v8.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>m9.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer m9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>v9.GEOMETRY.NONORTHOGONAL</name>
+   <description>GEOMETRY.NONORTHOGONAL on layer v9</description>
+   <categories>
+   </categories>
+  </category>
+ </categories>
+ <cells>
+  <cell>
+   <name>Block4</name>
+   <variant/>
+   <layout-name/>
+   <references>
+   </references>
+  </cell>
+ </cells>
+ <items>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.071,1.917;1.071,1.935;1.089,1.935;1.089,1.917)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.043,3.195;2.043,3.213;2.061,3.213;2.061,3.195)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.503,1.647;1.503,1.665;1.521,1.665;1.521,1.647)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.313,0.765;2.313,0.783;2.331,0.783;2.331,0.765)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.745,2.997;2.745,3.015;2.763,3.015;2.763,2.997)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.043,1.305;2.043,1.323;2.061,1.323;2.061,1.305)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.475,2.385;2.475,2.403;2.493,2.403;2.493,2.385)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.015,2.115;3.015,2.133;3.033,2.133;3.033,2.115)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.691,1.917;2.691,1.935;2.709,1.935;2.709,1.917)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.015,2.385;3.015,2.403;3.033,2.403;3.033,2.385)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.015,2.925;3.015,2.943;3.033,2.943;3.033,2.925)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.747,1.305;0.747,1.323;0.765,1.323;0.765,1.305)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.151,1.377;2.151,1.395;2.169,1.395;2.169,1.377)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.015,0.765;3.015,0.783;3.033,0.783;3.033,0.765)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.179,2.997;1.179,3.015;1.197,3.015;1.197,2.997)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.449,0.837;1.449,0.855;1.467,0.855;1.467,0.837)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.963,1.647;0.963,1.665;0.981,1.665;0.981,1.647)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.799,1.647;2.799,1.665;2.817,1.665;2.817,1.647)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.233,2.187;1.233,2.205;1.251,2.205;1.251,2.187)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V0.M1.AUX.3'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.611,2.655;1.611,2.673;1.629,2.673;1.629,2.655)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M1.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (2.304,0.754;2.304,0.776)/(2.28,0.776;2.28,0.754)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M1.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (1.44,0.844;1.44,0.866)/(1.416,0.866;1.416,0.844)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M1.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.9,1.024;0.9,1.035)/(0.882,1.035;0.882,1.024)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M1.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (1.782,1.136;1.782,1.125)/(1.8,1.125;1.8,1.136)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M1.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (1.998,1.676;1.998,1.665)/(2.016,1.665;2.016,1.676)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M1.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (1.026,2.216;1.026,2.205)/(1.044,2.205;1.044,2.216)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M1.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (1.224,2.194;1.224,2.216)/(1.2,2.216;1.2,2.194)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M1.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (2.736,3.004;2.736,3.026)/(2.712,3.026;2.712,3.004)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M3.S.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.769,0.827;0.769,0.793)/(0.792,0.793;0.792,0.827)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V1.M1.EN.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.304,0.756;2.304,0.774;2.322,0.774;2.322,0.756)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V1.M1.EN.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.44,0.846;1.44,0.864;1.458,0.864;1.458,0.846)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V1.M1.EN.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.224,2.196;1.224,2.214;1.242,2.214;1.242,2.196)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V1.M1.EN.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.736,3.006;2.736,3.024;2.754,3.024;2.754,3.006)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.S.4'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (2.005,3.216;2.005,3.222)/(2.041,3.216;2.041,3.222)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.S.5'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (1.333,0.456;1.333,0.48)|(1.361,0.48;1.361,0.456)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.S.5'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.956,2.184;0.956,2.208)|(0.957,2.208;0.957,2.184)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.48,1.62;0.48,1.644;0.584,1.644;0.584,1.62)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.18,1.62;3.18,1.644;3.284,1.644;3.284,1.62)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.491,0.528;0.491,0.552;0.515,0.552;0.515,0.528)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.549,0.528;0.549,0.552;0.573,0.552;0.573,0.528)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.191,0.528;3.191,0.552;3.215,0.552;3.215,0.528)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.249,0.528;3.249,0.552;3.273,0.552;3.273,0.528)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,0.798;0.683,0.822;0.707,0.822;0.707,0.798)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.741,0.798;0.741,0.822;0.765,0.822;0.765,0.798)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.491,1.068;0.491,1.092;0.515,1.092;0.515,1.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.549,1.068;0.549,1.092;0.573,1.092;0.573,1.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.191,1.068;3.191,1.092;3.215,1.092;3.215,1.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.249,1.068;3.249,1.092;3.273,1.092;3.273,1.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,1.338;0.683,1.362;0.707,1.362;0.707,1.338)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.741,1.338;0.741,1.362;0.765,1.362;0.765,1.338)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.491,1.608;0.491,1.632;0.515,1.632;0.515,1.608)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.549,1.608;0.549,1.632;0.573,1.632;0.573,1.608)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.191,1.608;3.191,1.632;3.215,1.632;3.215,1.608)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.249,1.608;3.249,1.632;3.273,1.632;3.273,1.608)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,1.878;0.683,1.902;0.707,1.902;0.707,1.878)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.741,1.878;0.741,1.902;0.765,1.902;0.765,1.878)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.491,2.148;0.491,2.172;0.515,2.172;0.515,2.148)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.549,2.148;0.549,2.172;0.573,2.172;0.573,2.148)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.191,2.148;3.191,2.172;3.215,2.172;3.215,2.148)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.249,2.148;3.249,2.172;3.273,2.172;3.273,2.148)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,2.418;0.683,2.442;0.707,2.442;0.707,2.418)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.741,2.418;0.741,2.442;0.765,2.442;0.765,2.418)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.491,2.688;0.491,2.712;0.515,2.712;0.515,2.688)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.549,2.688;0.549,2.712;0.573,2.712;0.573,2.688)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.191,2.688;3.191,2.712;3.215,2.712;3.215,2.688)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.249,2.688;3.249,2.712;3.273,2.712;3.273,2.688)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,2.958;0.683,2.982;0.707,2.982;0.707,2.958)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.741,2.958;0.741,2.982;0.765,2.982;0.765,2.958)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.491,3.228;0.491,3.252;0.515,3.252;0.515,3.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.549,3.228;0.549,3.252;0.573,3.252;0.573,3.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.191,3.228;3.191,3.252;3.215,3.252;3.215,3.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'V4.M5.AUX.2'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (3.249,3.228;3.249,3.252;3.273,3.252;3.273,3.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,0.798;0.672,0.798)/(0.672,0.798;0.672,0.798)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,0.822;0.672,0.822)/(0.672,0.822;0.672,0.822)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,0.822;0.776,0.822)/(0.776,0.822;0.776,0.822)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,0.798;0.776,0.798)/(0.776,0.798;0.776,0.798)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.48,1.068;0.48,1.068)/(0.48,1.068;0.48,1.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.48,1.092;0.48,1.092)/(0.48,1.092;0.48,1.092)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.584,1.092;0.584,1.092)/(0.584,1.092;0.584,1.092)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.584,1.068;0.584,1.068)/(0.584,1.068;0.584,1.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.18,1.068;3.18,1.068)/(3.18,1.068;3.18,1.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.18,1.092;3.18,1.092)/(3.18,1.092;3.18,1.092)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.284,1.092;3.284,1.092)/(3.284,1.092;3.284,1.092)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.284,1.068;3.284,1.068)/(3.284,1.068;3.284,1.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,1.338;0.672,1.338)/(0.672,1.338;0.672,1.338)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,1.362;0.672,1.362)/(0.672,1.362;0.672,1.362)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,1.362;0.776,1.362)/(0.776,1.362;0.776,1.362)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,1.338;0.776,1.338)/(0.776,1.338;0.776,1.338)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,1.878;0.672,1.878)/(0.672,1.878;0.672,1.878)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,1.902;0.672,1.902)/(0.672,1.902;0.672,1.902)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,1.902;0.776,1.902)/(0.776,1.902;0.776,1.902)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,1.878;0.776,1.878)/(0.776,1.878;0.776,1.878)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.48,2.148;0.48,2.148)/(0.48,2.148;0.48,2.148)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.48,2.172;0.48,2.172)/(0.48,2.172;0.48,2.172)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.584,2.172;0.584,2.172)/(0.584,2.172;0.584,2.172)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.584,2.148;0.584,2.148)/(0.584,2.148;0.584,2.148)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.18,2.148;3.18,2.148)/(3.18,2.148;3.18,2.148)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.18,2.172;3.18,2.172)/(3.18,2.172;3.18,2.172)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.284,2.172;3.284,2.172)/(3.284,2.172;3.284,2.172)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.284,2.148;3.284,2.148)/(3.284,2.148;3.284,2.148)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,2.418;0.672,2.418)/(0.672,2.418;0.672,2.418)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,2.442;0.672,2.442)/(0.672,2.442;0.672,2.442)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,2.442;0.776,2.442)/(0.776,2.442;0.776,2.442)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,2.418;0.776,2.418)/(0.776,2.418;0.776,2.418)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,2.958;0.672,2.958)/(0.672,2.958;0.672,2.958)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.672,2.982;0.672,2.982)/(0.672,2.982;0.672,2.982)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,2.982;0.776,2.982)/(0.776,2.982;0.776,2.982)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.776,2.958;0.776,2.958)/(0.776,2.958;0.776,2.958)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.48,3.228;0.48,3.228)/(0.48,3.228;0.48,3.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.48,3.252;0.48,3.252)/(0.48,3.252;0.48,3.252)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.584,3.252;0.584,3.252)/(0.584,3.252;0.584,3.252)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.584,3.228;0.584,3.228)/(0.584,3.228;0.584,3.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.18,3.228;3.18,3.228)/(3.18,3.228;3.18,3.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.18,3.252;3.18,3.252)/(3.18,3.252;3.18,3.252)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.284,3.252;3.284,3.252)/(3.284,3.252;3.284,3.252)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M4.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.284,3.228;3.284,3.228)/(3.284,3.228;3.284,3.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.664,0.787;0.664,0.787)/(0.664,0.787;0.664,0.787)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.664,2.993;0.664,2.993)/(0.664,2.993;0.664,2.993)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.784,2.993;0.784,2.993)/(0.784,2.993;0.784,2.993)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.784,0.787;0.784,0.787)/(0.784,0.787;0.784,0.787)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.472,0.517;0.472,0.517)/(0.472,0.517;0.472,0.517)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.472,3.263;0.472,3.263)/(0.472,3.263;0.472,3.263)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.592,3.263;0.592,3.263)/(0.592,3.263;0.592,3.263)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.592,0.517;0.592,0.517)/(0.592,0.517;0.592,0.517)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.172,0.517;3.172,0.517)/(3.172,0.517;3.172,0.517)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.172,3.263;3.172,3.263)/(3.172,3.263;3.172,3.263)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.292,3.263;3.292,3.263)/(3.292,3.263;3.292,3.263)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'M5.AUX.1'</category>
+   <cell>Block4</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.292,0.517;3.292,0.517)/(3.292,0.517;3.292,0.517)</value>
+   </values>
+  </item>
+ </items>
+</report-database>

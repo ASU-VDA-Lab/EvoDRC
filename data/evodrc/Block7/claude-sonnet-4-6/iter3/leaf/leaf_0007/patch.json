@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0949", "delta_dbu": [108, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 i0949 right by 108 dbu, shifting its M1 land out of x-projection with ptemp_3 and ptemp_4 corners, clearing all four M1.S.4/S.5/S.6 violations without introducing new ones."
+}

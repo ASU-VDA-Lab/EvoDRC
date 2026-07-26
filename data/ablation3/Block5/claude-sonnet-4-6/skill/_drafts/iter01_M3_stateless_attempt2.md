@@ -1,0 +1,25 @@
+The single recorded trial for this layer is trial:i01.ug.whole_design.00, which operated on the whole-design block with 19 operations: 14 instance moves and 3 polygon edits on M3 (polygon p879 received a +48 dbu y-axis high-end extension; polygon p910 was shifted +8 dbu in x and received a +20 dbu y-axis high-end extension). The outcome was gated_in with connectivity preserved. The touched-layer set includes M1, M2, M3, M4, M5, V1, V2, V3, and V4.
+
+**Width (M3.W.1).** M3 wires require a minimum width of 18 nm across every transverse cross-section. The polygon edits in trial:i01.ug.whole_design.00 extended M3 extents along both axes and the result cleared all checks, confirming that end-extension operations increase wire width without introducing new violations in the surrounding context.
+
+**Side-to-side spacing (M3.S.1).** Edges longer than 36 nm that face one another require at least 18 nm separation under projection. The 14 instance relocations in trial:i01.ug.whole_design.00 adjusted relative M3 wire positions and the run was accepted, showing that instance-level placement adjustments are consistent with satisfying side-spacing requirements.
+
+**Tip-to-side spacing (M3.S.2).** A tip edge (≤ 36 nm) facing a side edge (> 36 nm) requires 25 nm clearance under projection—7 nm stricter than the side-to-side minimum. This asymmetry means wire ends pointing toward the long edge of an adjacent wire incur a larger keep-out zone than two parallel long edges facing each other.
+
+**Wide-tip-to-tip spacing (M3.S.3).** When both opposing tips fall in the 24–36 nm range the projection gap must be at least 27 nm.
+
+**Mixed-tip spacing (M3.S.5).** When one tip is 24–36 nm and the opposing tip is below 24 nm the required projection gap is 31 nm.
+
+**Narrow-tip-to-tip spacing (M3.S.4).** When both tips are below 24 nm the projection gap is also 31 nm. The 27 nm and 31 nm tip thresholds exceed the 18 nm side-to-side and the 25 nm tip-to-side minima, so tip-facing configurations consistently set the tighter constraint.
+
+**Corner-to-corner spacing (M3.S.6).** The deck flags polygon pairs whose Euclidean corner distance is below 20 nm but whose projection distance exceeds 20 nm—capturing diagonal proximity not caught by the side or tip projection rules. The 18 nm side rule and the 20 nm Euclidean corner rule create a regime where diagonal placement satisfies side-spacing while failing corner-spacing.
+
+**Area (M3.A.1).** M3 polygons must reach a minimum area of 504 nm². In trial:i01.ug.whole_design.00 polygon p910 received both a lateral translation (+8 dbu x) and an axial extension (+20 dbu y high end), producing a larger bounding area; the result was accepted with connectivity preserved, confirming that combined translation-and-extension edits increase polygon area while remaining compatible with the surrounding spacing constraints.
+
+**V2 enclosure (V2.M3.EN.2).** The rule requires M3 to enclose each V2 with at least 5 nm on two opposite sides; the deck checks both a 5 nm projection-based enclosure condition and a nonzero-extension condition on the same edge set. Both V2 and M3 are present in the touched-layer set of trial:i01.ug.whole_design.00, which extended M3 polygon p879 by +48 dbu on the y-axis high end and M3 polygon p910 by +20 dbu on the y-axis high end, and the trial was accepted with connectivity preserved. This confirms that axial end-extension of an enclosing M3 polygon is compatible with V2.M3.EN.2 compliance in the same repair pass.
+
+**V2 width matching (V2.M3.AUX.2).** The rule enforces that V2 spans exactly the M3 width in the direction perpendicular to M3's long axis, verified by requiring that at least two opposite V2 edges are coincident with M3 edges. Because this rule depends on M3 edge alignment rather than M3 area or length alone, lateral translation of an M3 polygon boundary relative to a V2 edge can break the coincidence check. In trial:i01.ug.whole_design.00, polygon p910 received a lateral shift (+8 dbu x) alongside its y-axis extension, and the trial was accepted with V2 in the touched-layer set, confirming that the combined M3 edit was compatible with V2.M3.AUX.2.
+
+**V3 enclosure (V3.M3.EN.1).** The rule requires V3 to lie inside m3.sized(-5, 0) or m3.sized(0, -5), meaning M3 must extend at least 5 nm beyond V3 on a horizontal pair of opposite sides or on a vertical pair. V3 is present in the touched-layer set of trial:i01.ug.whole_design.00 alongside M3 polygon axial extensions, and the trial was accepted, confirming that M3 axial end-extension is compatible with satisfying V3 enclosure requirements in the same repair pass.
+
+**Nonorthogonal geometry.** All M3 edges must lie at exactly 0° or 90°; edges at any angle in the ranges 1–89°, 91–179°, −179° to −91°, or −89° to −1° trigger GEOMETRY.NONORTHOGONAL. The polygon edits in trial:i01.ug.whole_design.00 operated exclusively on axis-aligned endpoints (resize_end on the y-axis, move on the x-axis) and the trial was accepted without nonorthogonal flags, confirming that axis-constrained endpoint operations preserve M3 orthogonality.

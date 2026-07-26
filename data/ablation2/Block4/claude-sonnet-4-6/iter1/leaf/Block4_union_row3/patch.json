@@ -1,0 +1,8 @@
+{
+  "leaf_id": "Block4_union_row3",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0170", "delta_dbu": [-36, 0]},
+    {"op": "move_instance", "inst_id": "i0292", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instance i0170 left by 36 dbu to increase M1 tip-to-side gap from 72 to 108 dbu (27 nm), clearing M1.S.2 (v0024); moves VIA_VIA12 instance i0292 right by 36 dbu so its M1 land left edge aligns with the V0 right edge at x=8244, eliminating the non-coincident convex corner that triggered V0.M1.AUX.3 (v0006)."
+}

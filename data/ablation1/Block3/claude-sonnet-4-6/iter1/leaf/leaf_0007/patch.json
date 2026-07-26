@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0007",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0263", "delta_dbu": [36, 0]},
+    {"op": "move_instance", "inst_id": "i0210", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Both V0.M1.AUX.3 violations are cleared by shifting VIA_VIA12 instances i0263 and i0210 each 36 dbu rightward (+x), which moves their M1 land left edges to x=8676 — coincident with the right edge of the respective frozen std-cell V0 pins — eliminating all convex non-coincident corners that triggered the rule."
+}

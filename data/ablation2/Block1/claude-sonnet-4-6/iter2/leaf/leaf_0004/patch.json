@@ -1,0 +1,53 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA23_1_3_36_36",
+      "layer_name": "M3",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -40
+    },
+    {
+      "op": "resize_via_shape",
+      "cell_name": "VIA_VIA56_2_2_66_58",
+      "layer_name": "M6",
+      "shape_index": 0,
+      "axis": "y",
+      "delta_dbu": -248
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p1458",
+      "axis": "x",
+      "end": "high",
+      "delta_dbu": -8
+    },
+    {
+      "op": "resize_end",
+      "polygon_id": "p1543",
+      "axis": "x",
+      "end": "high",
+      "delta_dbu": -8
+    },
+    {
+      "op": "move",
+      "polygon_id": "p1143",
+      "axis": "x",
+      "delta_dbu": 32
+    },
+    {
+      "op": "move",
+      "polygon_id": "p1142",
+      "axis": "x",
+      "delta_dbu": -16
+    },
+    {
+      "op": "move",
+      "polygon_id": "p1561",
+      "axis": "y",
+      "delta_dbu": 32
+    }
+  ]
+}

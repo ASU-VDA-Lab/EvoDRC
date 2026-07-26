@@ -1,0 +1,38 @@
+{
+  "case": "Block7",
+  "design_state": "192a246cfe42b9ca2ed4714a5bf3cade35a7553e57c9606ed034bf1216226f83",
+  "failed_trials": [],
+  "iter": 3,
+  "n_appended_new": 23,
+  "n_cu_pool": 1,
+  "n_failed_trials": 0,
+  "n_records": 10,
+  "n_unit_gate": 9,
+  "n_unmapped": 1,
+  "per_layer": {
+    "M1": 6,
+    "M2": 7,
+    "M3": 3,
+    "V1": 6,
+    "V2": 1
+  },
+  "touched_layers": [
+    "M1",
+    "M2",
+    "M3",
+    "V1",
+    "V2"
+  ],
+  "trial_ids": [
+    "i03.cu.def:VIA_VIA23_1_3_36_36.00",
+    "i03.ug.Block7_union_row13.00",
+    "i03.ug.Block7_union_row15.01",
+    "i03.ug.Block7_union_row20.02",
+    "i03.ug.Block7_union_row9.03",
+    "i03.ug.leaf_0003.04",
+    "i03.ug.leaf_0010.05",
+    "i03.ug.leaf_0014.06",
+    "i03.ug.leaf_0015.07",
+    "i03.ug.leaf_0016.08"
+  ]
+}

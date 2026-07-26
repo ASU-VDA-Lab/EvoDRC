@@ -1,0 +1,9 @@
+{
+  "leaf_id": "Block6_union_row7",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0093", "delta_dbu": [96, 0]},
+    {"op": "resize_end", "polygon_id": "p1903", "axis": "x", "end": "high", "delta_dbu": 56},
+    {"op": "move_instance", "inst_id": "i0122", "delta_dbu": [36, 0]}
+  ],
+  "explanation": "Moves VIA_VIA12 instances i0093 (+96 dbu in x) and i0122 (+36 dbu in x) so their M1 lands become coincident with the respective frozen V0 pin edges, clearing both V0.M1.AUX.3 violations; extends M2 stripe p1903 HIGH-x end by 56 dbu to maintain M2 coverage of i0093's shifted M2 land."
+}

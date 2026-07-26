@@ -1,0 +1,12 @@
+{
+  "leaf_id": "Block4_union_row5",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0220", "delta_dbu": [64, 0]},
+    {"op": "move_instance", "inst_id": "i0198", "delta_dbu": [64, 0]},
+    {"op": "resize_end", "polygon_id": "p1608", "axis": "x", "end": "high", "delta_dbu": 120},
+    {"op": "move_instance", "inst_id": "i0271", "delta_dbu": [64, 0]},
+    {"op": "resize_end", "polygon_id": "p1593", "axis": "x", "end": "high", "delta_dbu": 120},
+    {"op": "move_instance", "inst_id": "i0341", "delta_dbu": [-36, 0]}
+  ],
+  "explanation": "Three V0.M1.AUX.3 violations cleared by moving VIA_VIA12 instances i0220/i0198/i0271 +64 dbu in x so their M1 lands no longer overlap the frozen V0 std-cell pins, with M2 pads p1608/p1593 extended +120 dbu to maintain coverage; M1.S.2 cleared by moving i0341 -36 dbu in x to increase the M1 tip-to-side gap from 72 to 108 dbu."
+}

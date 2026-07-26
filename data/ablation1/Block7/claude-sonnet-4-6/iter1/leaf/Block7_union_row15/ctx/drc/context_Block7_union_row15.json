@@ -1,0 +1,1 @@
+{"case_name": "Block7", "design_type": "block", "layout_path": "/work/in/Block7.py", "drc_path": "/work/in/Block7.drc.json", "connectivity_path": "/work/in/Block7.json", "rule_path": "/workspace/testcase/asap7/asap7.lydrc", "leaf_id": "Block7_union_row15", "union_members": ["leaf_0051", "leaf_0052", "leaf_0053", "leaf_0054", "leaf_0055", "leaf_0056", "leaf_0057"]}

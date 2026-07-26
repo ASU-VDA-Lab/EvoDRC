@@ -1,0 +1,289 @@
+{
+  "budget_s": 0,
+  "case": "Block1",
+  "iter": 3,
+  "layers": {
+    "M1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 54.85
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 141.31
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly notes y-axis move in i01.ug.Block1_union_row4.04 and multi-iter convergence patterns; A falsely claims no y-axis moves and miscounts tria",
+          "wall_s": 40.44
+        }
+      ],
+      "judged": true,
+      "layer": "M1",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M2": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 141.18
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 2,
+          "ok": false,
+          "wall_s": 123.21
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 167.6
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B covers repeated-unit escalation pattern, -32 dbu off-grid delta, and symmetric resize distinctly; A has minor factual errors (i0496 unlisted, leaf_0031",
+          "wall_s": 7.6
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B matches all trial ops precisely, notes -32 dbu as valid, tracks cross-iteration escalation pattern, and is better organized without redundancy.\"}",
+          "wall_s": 5.56
+        }
+      ],
+      "judged": true,
+      "layer": "M2",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 39.7
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 41.27
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"A\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B covers both trials with equal accuracy, adds rule-specific derivations and channel routing guidance; A is accurate but shorter with less actionable",
+          "wall_s": 107.34
+        }
+      ],
+      "judged": true,
+      "layer": "M4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 28.91
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 87.05
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": false,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B reproduces exact op counts, polygon IDs, before/after window counts, and touched-layer lists from both JSONL records; A omits p1561/p1142 details a",
+          "wall_s": 96.04
+        },
+        {
+          "attempt": 2,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\",\"evidence_fidelity\":\"B\",\"coverage\":\"B\",\"knowledge_quality\":\"B\",\"reason\":\"B cites exact before/after counts, op details, and touched layers from both records; adds rule-grounded analysis of AUX.1/AUX.2/spacing impacts absent in",
+          "wall_s": 7.69
+        }
+      ],
+      "judged": true,
+      "layer": "M5",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "M6": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 172.41
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 184.59
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"A misidentifies p1561 as M5 (history shows touched M6); B adds before/after counts, DRC rule citations (M6.AUX.1, V5.M6.EN.2), cross-window analysis,",
+          "wall_s": 35.27
+        }
+      ],
+      "judged": true,
+      "layer": "M6",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V1": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 175.45
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 171.89
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B correctly flags -32 dbu as sub-36 (contradicting A's claim it's valid), notes symmetric resize introduced violations, and organizes patterns more c",
+          "wall_s": 15.99
+        }
+      ],
+      "judged": true,
+      "layer": "V1",
+      "n_new_records": 3,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V4": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 197.95
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 127.96
+        },
+        {
+          "attempt": 1,
+          "kind": "judge",
+          "ok": true,
+          "raw": "{\"winner\":\"B\", \"evidence_fidelity\":\"B\", \"coverage\":\"B\", \"knowledge_quality\":\"B\", \"reason\":\"B cites ops precisely (p1143/p1142/+32/-16dbu, both via cells), maps violations to specific rules, adds spatial-locality guidance; A is accurate but ",
+          "wall_s": 8.13
+        }
+      ],
+      "judged": true,
+      "layer": "V4",
+      "n_new_records": 1,
+      "status": "updated",
+      "verdict": "B",
+      "winner": "stateless"
+    },
+    "V5": {
+      "calls": [
+        {
+          "attempt": 1,
+          "kind": "markov",
+          "n_violations": 0,
+          "ok": true,
+          "wall_s": 64.62
+        },
+        {
+          "attempt": 1,
+          "kind": "stateless",
+          "n_violations": 4,
+          "ok": false,
+          "wall_s": 236.23
+        },
+        {
+          "attempt": 2,
+          "kind": "stateless",
+          "n_violations": 1,
+          "ok": false,
+          "wall_s": 51.34
+        }
+      ],
+      "judged": false,
+      "layer": "V5",
+      "n_new_records": 2,
+      "status": "updated",
+      "verdict": null,
+      "winner": "markov"
+    }
+  },
+  "parallel": true,
+  "skipped_budget": [],
+  "triggered": [
+    "M1",
+    "M2",
+    "M4",
+    "M5",
+    "M6",
+    "V1",
+    "V4",
+    "V5"
+  ],
+  "wall_s": 303.99
+}

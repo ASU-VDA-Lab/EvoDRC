@@ -1,0 +1,36 @@
+{
+  "leaf_id": "leaf_0001",
+  "ops": [
+    {
+      "op": "move_instance",
+      "inst_id": "i1263",
+      "delta_dbu": [
+        28,
+        0
+      ]
+    },
+    {
+      "op": "move",
+      "polygon_id": "p2722",
+      "axis": "x",
+      "delta_dbu": 28
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1267",
+      "delta_dbu": [
+        28,
+        0
+      ]
+    },
+    {
+      "op": "move_instance",
+      "inst_id": "i1167",
+      "delta_dbu": [
+        28,
+        0
+      ]
+    }
+  ],
+  "explanation": "Fixes V2.M3.AUX.2 by moving VIA_VIA23 i1263 +28 dbu in x so its V2 cut aligns with p2719's x-edges (12584\u201312656); fixes M3.S.1 by moving M3 polygon p2722 and its two VIA_VIA23 vias (i1267, i1167) +28 dbu in x, increasing the p2719/p2722 gap to 72 dbu (18 nm), with p3300's M2 right end extended +76 dbu to maintain M2 coverage for the relocated i1167 land."
+}

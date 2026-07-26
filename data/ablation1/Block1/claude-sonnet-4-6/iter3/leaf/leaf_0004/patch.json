@@ -1,0 +1,8 @@
+{
+  "leaf_id": "leaf_0004",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0294", "delta_dbu": [72, 0]},
+    {"op": "resize_end", "polygon_id": "p1295", "axis": "x", "end": "high", "delta_dbu": 72}
+  ],
+  "explanation": "V0.M1.AUX.3 on V0 pin _ptemp_5 was caused by VIA_VIA12 i0294's M1 land overlapping the V0's top edge, burying it inside merged M1 and firing a convex-corner check; moving i0294 right by 72 dbu shifts its M1 land clear of the V0 x-range, and extending p1295's high-x end by 72 dbu maintains M2 connectivity with the relocated via land."
+}

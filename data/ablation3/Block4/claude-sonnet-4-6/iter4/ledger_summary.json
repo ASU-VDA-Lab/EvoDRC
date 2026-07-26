@@ -1,0 +1,29 @@
+{
+  "case": "Block4",
+  "design_state": "676f376048357b86ac9807d16aec00c8711fff0e6ca76e977b1e994ea11aa1dc",
+  "failed_trials": [],
+  "iter": 4,
+  "n_appended_new": 5,
+  "n_cu_pool": 0,
+  "n_failed_trials": 0,
+  "n_records": 1,
+  "n_unit_gate": 1,
+  "n_unmapped": 0,
+  "per_layer": {
+    "M3": 1,
+    "M4": 1,
+    "M5": 1,
+    "V3": 1,
+    "V4": 1
+  },
+  "touched_layers": [
+    "M3",
+    "M4",
+    "M5",
+    "V3",
+    "V4"
+  ],
+  "trial_ids": [
+    "i04.ug.whole_design.00"
+  ]
+}

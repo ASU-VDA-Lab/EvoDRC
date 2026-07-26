@@ -1,0 +1,7 @@
+{
+  "leaf_id": "leaf_0010",
+  "ops": [
+    {"op": "move", "polygon_id": "p910", "axis": "x", "delta_dbu": 8}
+  ],
+  "explanation": "Moves M3 polygon p910 right by 8 dbu to increase the M3.S.2 tip-to-side gap between p892 right edge and p910 left edge from 92 dbu (23nm) to 100 dbu (25nm), clearing violation v0018."
+}

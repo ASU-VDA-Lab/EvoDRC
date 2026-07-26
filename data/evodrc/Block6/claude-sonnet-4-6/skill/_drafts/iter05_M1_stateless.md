@@ -1,0 +1,44 @@
+Looking at the DRC rules and the 15 measured history records to generate the knowledge section.
+## Observed Operation Patterns
+
+Every trial in the measured history for layer M1 reached a `gated_in` decision with `conn_preserved:true`. The complete set of accepted operations consists of `move_instance` (translating cell instances along the x-axis) and `resize_end` (extending or contracting a single polygon end along x). No trial was rejected. This holds across all five recorded iterations (trial:i01.ug.Block6_union_row3.00 through trial:i05.ug.leaf_0002.01).
+
+## X-Axis Dominance
+
+All `move_instance` deltas in the history are of the form `[N, 0]` — pure x-axis translation — with one exception: instances i0384 and i0528 in trial:i05.ug.leaf_0002.01 moved `[0, 24]` (y-axis only). All `resize_end` operations recorded are on `axis:"x"`. Given that M1 is a horizontal-preferred routing layer and that M1.S.1 enforces 18 nm minimum side-to-side spacing on edges longer than 36 nm while M1.S.2, M1.S.3, M1.S.4, M1.S.5, and M1.S.6 govern tip-related spacings, x-axis adjustments directly address the edge-to-edge and tip-to-side spacing violations that arise when M1 segments run horizontally. Move and resize operations applied in x resolve the majority of spacing violations recorded across all trials (trial:i01.ug.Block6_union_row3.00, trial:i01.ug.Block6_union_row5.01, trial:i01.ug.Block6_union_row7.02, trial:i01.ug.Block6_union_row8.03, trial:i01.ug.leaf_0001.04, trial:i01.ug.leaf_0011.05, trial:i01.ug.leaf_0015.06, trial:i01.ug.leaf_0018.07, trial:i02.ug.Block6_union_row4.00, trial:i02.ug.Block6_union_row7.01, trial:i02.ug.Block6_union_row8.02, trial:i02.ug.leaf_0004.04, trial:i03.ug.leaf_0001.00).
+
+## resize_end Direction: High-End Preferred
+
+Every `resize_end` in the history targets `end:"high"` except for one operation in trial:i01.ug.Block6_union_row7.02, which uses `end:"low"`. The high-end resize extends the rightward (positive-x) tip of a polygon and was used in trials trial:i01.ug.Block6_union_row5.01 (delta 92 dbu on p2072), trial:i01.ug.Block6_union_row7.02 (delta 124 dbu on p1903), trial:i01.ug.leaf_0001.04 (delta 132 dbu on p2016), trial:i01.ug.leaf_0015.06 (delta 48 dbu on p1923), trial:i02.ug.Block6_union_row4.00 (delta 132 dbu on p2020), trial:i05.ug.leaf_0001.00 (delta 12 dbu on p2071), trial:i05.ug.leaf_0002.01 (deltas 168 dbu on p2086, 132 dbu on p1946, 100 dbu on p2046). Prefer targeting the high end for polygon extension when adjusting M1 tip geometry to satisfy V0.M1.EN.1 or V1.M1.EN.1 enclosure requirements; trial:i01.ug.Block6_union_row7.02 confirms the low end is also valid when geometry context requires it.
+
+## Coordinated Multi-Instance Moves
+
+Trials routinely bundle multiple `move_instance` operations — up to five in a single trial — together with one or more `resize_end` operations. Trial:i01.ug.Block6_union_row5.01 combined four instance moves with one resize; trial:i01.ug.Block6_union_row7.02 combined two instance moves with two resizes; trial:i05.ug.leaf_0002.01 combined three instance moves with three resizes. All remained gated_in. Moving a single instance in isolation is also accepted: trial:i01.ug.Block6_union_row8.03, trial:i01.ug.leaf_0011.05, trial:i01.ug.leaf_0018.07, trial:i02.ug.Block6_union_row7.01, trial:i03.ug.leaf_0001.00. Do not restrict repair to single-instance moves when the violation involves multiple nearby instances; coordinating moves across the affected cluster is effective (trial:i01.ug.Block6_union_row3.00, trial:i02.ug.Block6_union_row4.00).
+
+## Move Magnitude Range
+
+Accepted x-axis move deltas span from 4 dbu (trial:i02.ug.Block6_union_row7.01, instance i0093) to 136 dbu (trial:i05.ug.leaf_0002.01, instance i0159). Accepted resize deltas span from 12 dbu (trial:i05.ug.leaf_0001.00, p2071) to 168 dbu (trial:i05.ug.leaf_0002.01, p2086). All were accepted without introducing out-of-crop violations (n_new_out_of_crop = 0 in every trial). Use the smallest delta that closes the spacing gap, since fine corrections (4 dbu, trial:i02.ug.Block6_union_row7.01) are accepted; large adjustments are valid when geometry demands them (trial:i05.ug.leaf_0002.01).
+
+## Connectivity Preservation Is a Hard Gate Requirement
+
+All 15 trials have `conn_preserved:true`. The gate mechanism accepts a trial only when connectivity is preserved regardless of the number of new in-crop violations introduced. In iteration 5, trial:i05.ug.leaf_0001.00 introduced 12 new in-crop violations and trial:i05.ug.leaf_0002.01 introduced 22 new in-crop violations; both were still accepted because connectivity was preserved. Never apply a move or resize that breaks connectivity; in-crop violation count is not a disqualifying factor as long as connectivity holds (trial:i05.ug.leaf_0001.00, trial:i05.ug.leaf_0002.01).
+
+## Multi-Layer Touch Is Normal
+
+Every trial modifies M1 together with at least M2 and V1. Trial:i05.ug.leaf_0002.01 additionally touches M5, M6, and V5. Because V0.M1.EN.1 requires M1 to enclose V0 by at least 5 nm on two opposite sides, and V1.M1.EN.1 requires M1 to enclose V1 with 5 nm and 2 nm on opposite sides, adjusting M1 geometry inherently requires coordinated changes to connected via and upper-metal layers. Treat repairs as multi-layer operations; applying an M1 resize without also verifying enclosure compliance for any V0 or V1 touching the modified polygon risks introducing new enclosure violations (trial:i01.ug.Block6_union_row3.00, trial:i01.ug.Block6_union_row5.01).
+
+## V0.M1.AUX.3 Constraint on Width Matching
+
+Rule V0.M1.AUX.3 requires that V0 be exactly the same width as M1 in the direction perpendicular to M1 length. Any `resize_end` that changes an M1 polygon tip must not alter the M1 width in the dimension that a coincident V0 measures against, or V0.M1.AUX.3 will fire on the via. All resize operations in the history operate on `axis:"x"` (the length axis of horizontal M1 segments), which is safe because they extend or contract along the run direction rather than altering the perpendicular width. Avoid resize operations on axis y for M1 polygons that carry V0, as that would alter the width dimension governed by V0.M1.AUX.3 (trial:i01.ug.Block6_union_row5.01, trial:i01.ug.leaf_0001.04, trial:i05.ug.leaf_0002.01).
+
+## Tip-Spacing Rules and Resize-End Interaction
+
+Rules M1.S.2 through M1.S.6 differentiate spacing requirements by tip-edge length. M1.S.2 requires 25 nm tip-to-side separation when one edge is ≤ 36 nm and the other is > 36 nm. M1.S.3 requires 27 nm tip-to-tip when both edges are 24–36 nm. M1.S.4 and M1.S.5 require 31 nm in tip-to-tip configurations involving edges below 24 nm. All `resize_end` operations in the history extend the endpoint along x by positive deltas (increasing polygon length), which lengthens the existing tip edge and can shift it from one tip-classification bucket to another. A resize_end that extends a sub-24 nm tip past 24 nm changes the applicable rule from M1.S.4/M1.S.5 to M1.S.3; extending past 36 nm changes it further to M1.S.1 or M1.S.2. The accepted resizes in trial:i01.ug.Block6_union_row5.01 (92 dbu), trial:i01.ug.leaf_0001.04 (132 dbu), and trial:i02.ug.Block6_union_row4.00 (132 dbu) involve large deltas consistent with re-classifying a tip edge, and all remained gated_in. Apply resize_end to reclassify short tip edges into the longer-edge spacing regime when the resulting spacing to neighbors satisfies the (looser) long-edge rule.
+
+## M1.A.1 Minimum Area After Resize
+
+Rule M1.A.1 requires each M1 polygon to cover at least 504 nm². A low-end resize that shrinks a polygon (trial:i01.ug.Block6_union_row7.02, end:"low", delta 56 dbu on p1920) must not reduce the polygon below this area threshold. The trial was accepted (gated_in), confirming that the resulting polygon area remained compliant. Always verify that a shrinking resize leaves the polygon above 504 nm²; the measured low-end resize in trial:i01.ug.Block6_union_row7.02 provides the only direct evidence of a shrink operation being accepted.
+
+## M1.R.0 Redundant Island Sensitivity
+
+Rule M1.R.0 flags an M1 island that encloses exactly one small V0 when located near a large empty M1 region. Single-instance moves that isolate a small M1 polygon (trial:i01.ug.leaf_0011.05, trial:i01.ug.leaf_0018.07) are accepted, but the crop loci in those trials are small (200 nm × 864 nm and 200 nm × 864 nm respectively), which limits the spatial context in which a large empty region could be detected. When an M1 island carrying a single V0 is moved, verify that the surrounding empty-M1 area does not exceed the 2.5 µm² threshold after expanding by 400 nm, or M1.R.0 will fire. The history contains no M1.R.0 violations introduced by any accepted trial; avoid operations that create isolated single-via M1 islands adjacent to large routing gaps (trial:i01.ug.leaf_0011.05, trial:i01.ug.leaf_0018.07).

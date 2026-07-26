@@ -1,0 +1,10 @@
+{
+  "leaf_id": "Block1_union_row1",
+  "ops": [
+    {"op": "move_instance", "inst_id": "i0507", "delta_dbu": [136, 0]},
+    {"op": "resize_end", "polygon_id": "p1320", "axis": "x", "end": "high", "delta_dbu": 136},
+    {"op": "move_instance", "inst_id": "i0482", "delta_dbu": [37, 0]},
+    {"op": "move_instance", "inst_id": "i0496", "delta_dbu": [37, 0]}
+  ],
+  "explanation": "Moves three VIA_VIA12 instances (i0507, i0482, i0496) right to clear M1 land overlap with adjacent V0 cuts, and extends M2 stripe p1320 to maintain M2 coverage over i0507's new position; all 5 DRC targets cleared with connectivity fully preserved."
+}
