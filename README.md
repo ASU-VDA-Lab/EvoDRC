@@ -220,18 +220,4 @@ For detailed EvoDRC reports and logs, see `./DAC26_DRC_Benchmark/temp/data/<vari
 (for example, `./DAC26_DRC_Benchmark/temp/data/evodrc/Block5/claude-sonnet-4-6/`).
 The variant directory can be `evodrc`, `ablation1`, `ablation2`, or `ablation3`, corresponding to the `ABLATION` selected in Step 3.
 
-For configuration, authentication, and implementation details, see `agent/README.md`.
-
-## Cite this
-```
-@misc{wu2026evodrcselfevolvingagenticframework,
-      title={EvoDRC: A Self-Evolving Agentic Framework for Automated DRC Violation Repair}, 
-      author={Bing-Yue Wu and Chia-Tung Ho and Haoyu Yang and Brucek Khailany 
-      and Vidya A. Chhabria},
-      year={2026},
-      eprint={2607.20019},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2607.20019}, 
-}
-```
+For configuration, authentication and internals, see [`agent/README.md`](agent/README.md).
