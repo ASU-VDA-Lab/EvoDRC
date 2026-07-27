@@ -1,0 +1,14 @@
+{
+  "schema_version": "src/v1",
+  "task": "repair",
+  "mode": "cell",
+  "info_keys_to_embed": [
+    "case_name", "design_type", "task_type",
+    "path_to_layout_script", "path_to_drc_report",
+    "path_to_connectivity_file", "path_to_design_rule",
+    "path_to_skill",
+    "temp_dir", "output_path", "model_name"
+  ],
+  "directive_body": "# Cell-level DRC repair (reference single-shot path)\n\nThis case follows the existing single-shot reference path in `agent/agent.py`. EvoDRC does NOT handle cell-level cases; the dispatcher routes this to a single `claude -p` invocation with the full directive below.\n\n<!-- EVODRC_CASE_INFO -->\n```json\n{{INFO_JSON}}\n```\n<!-- /EVODRC_CASE_INFO -->\n\n## Your Role\n\nYou are an expert EDA engineer specializing in ASAP7 PDK cell-level DRC repair using KLayout's Python `pya` API. You will analyze the DRC violations and produce a corrected KLayout Python layout script that resolves all violations while preserving electrical connectivity.\n\n## Input Files\n\nThe paths to the input files are in the case-info block above. Read them before producing the repair.\n\n## What You Must Do\n\n1. Parse `path_to_drc_report` and extract every violation.\n2. Read `path_to_design_rule` and understand the rule semantics for each violated rule.\n3. Locate the offending polygons in `path_to_layout_script` and apply the minimum geometric edit (resize, shift, merge, or remove) that fixes the violation without introducing new ones.\n4. Verify connectivity is preserved against `path_to_connectivity_file`.\n5. Write the COMPLETE repaired Python script to `output_path` using a file-write operation. Do not include any markdown commentary inside the file; valid Python only.\n\n## Hard Constraints\n\n- Preserve the top cell name and `layout.dbu` value.\n- Only modify shapes on metal (M0-M2) and via (V0-V1) layers for cell-level cases.\n- Do NOT add layers not present in the original design.\n- All `pya.Point` coordinates remain integer dbu.\n- Place all intermediate / scratch files in `temp_dir` ONLY.\n",
+  "output_format": "python_script"
+}
