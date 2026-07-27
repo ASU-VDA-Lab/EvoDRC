@@ -1,0 +1,14 @@
+{
+  "schema_version": "src/v1",
+  "task": "repair",
+  "mode": "block",
+  "info_keys_to_embed": [
+    "case_name", "design_type", "task_type",
+    "path_to_layout_script", "path_to_drc_report",
+    "path_to_connectivity_file", "path_to_design_rule",
+    "path_to_skill",
+    "temp_dir", "output_path", "model_name"
+  ],
+  "directive_body": "# Block-level DRC repair (EvoDRC dispatch)\n\nThis case is routed through the EvoDRC pipeline. The per-leaf prompt is built in-memory by `agent/src/prompt_format.py:build_leaf_prompt` and dispatched as ONE `claude -p` per leaf. This file's only job is to carry case_info into `agent.py` so that `agent/src/agent_entry.py` can parse it and run the pipeline.\n\n<!-- EVODRC_CASE_INFO -->\n```json\n{{INFO_JSON}}\n```\n<!-- /EVODRC_CASE_INFO -->\n\n## What EvoDRC does (informational; no LLM action required at this top level)\n\n1. Parse `path_to_layout_script` and `path_to_drc_report` into in-memory geometry.\n2. Split block-level violations into ~N cell-equivalent leaves using HRD recursive Stoer-Wagner min-cut.\n3. For each leaf, dispatch ONE `claude -p` call with a self-contained context (per-leaf prompt is constructed by `agent/src/prompt_format.py:build_leaf_prompt`).\n4. Validate the returned patch JSON with a 4-check pure-Python validator (provenance / mount feasibility / crop not empty / connectivity intact).\n5. Mount valid patches, atomic-write the patched layout to `output_path`.\n",
+  "output_format": "python_script"
+}
