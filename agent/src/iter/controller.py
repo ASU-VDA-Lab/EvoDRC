@@ -122,9 +122,9 @@ def _emit_output(src_py, output_path):
 
 def _max_iters():
     try:
-        return int(os.environ.get("MAX_ITERS", "3"))
+        return int(os.environ.get("MAX_ITERS", "5"))
     except (TypeError, ValueError):
-        return 3
+        return 5
 
 
 def run_iterative_block_repair(ctx):
