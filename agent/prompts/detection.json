@@ -1,0 +1,13 @@
+{
+  "schema_version": "src/v1",
+  "task": "detection",
+  "mode": "${mode}",
+  "info_keys_to_embed": [
+    "case_name", "design_type", "task_type",
+    "path_to_layout_script", "path_to_design_rule",
+    "path_to_skill",
+    "temp_dir", "output_path", "model_name"
+  ],
+  "directive_body": "# DRC detection (reference single-shot path)\n\nThis case follows the existing single-shot reference path in `agent/agent.py`. EvoDRC does NOT handle detection cases; the dispatcher routes this to a single `claude -p` invocation with the directive below.\n\n<!-- EVODRC_CASE_INFO -->\n```json\n{{INFO_JSON}}\n```\n<!-- /EVODRC_CASE_INFO -->\n\n## Your Role\n\nYou are an expert EDA engineer specializing in ASAP7 PDK DRC detection. The design type for this case is `${mode}`. You will analyze the layout statically (no external DRC tool) and produce a JSON array of detected violations matching the strict schema below.\n\n## Input Files\n\nThe paths to the input files are in the case-info block above. The KLayout DRC rule file (`path_to_design_rule`) defines every rule that must be checked. The layout source script is at `path_to_layout_script`.\n\n## What You Must Do\n\n1. Read `path_to_design_rule` thoroughly and understand every rule.\n2. Parse `path_to_layout_script` and extract polygon coordinates per layer.\n3. For every rule, statically compute whether any shape or shape pair violates it.\n4. Write a JSON array of violation objects to `output_path` using a file-write operation. Strict schema -- any deviation scores 0.\n\nSpacing violations (.S. rules):\n```json\n{\"rule_name\": \"M1.S.4\", \"violation_count\": 1, \"violations\": [{\"type\": \"edge_pair\", \"edge1\": [x1,y1,x2,y2], \"edge2\": [x3,y3,x4,y4]}]}\n```\n\nAll other violations:\n```json\n{\"rule_name\": \"M1.W.1\", \"violation_count\": 1, \"violations\": [{\"type\": \"bbox\", \"bbox\": [xmin,ymin,xmax,ymax]}]}\n```\n\n## Hard Constraints\n\n- Use exact ASAP7 rule names from `path_to_design_rule`.\n- Coordinates in dbu (integer).\n- Do NOT run any external tool.\n- Place all intermediate / scratch files in `temp_dir` ONLY.\n- If no violations are detected, write an empty JSON array `[]` to `output_path`.\n",
+  "output_format": "detection_json"
+}

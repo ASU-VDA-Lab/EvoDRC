@@ -1,21 +1,6 @@
-# EvoDRC
-This repository contains the experimental data from the EvoDRC paper and the executable EvoDRC framework for iteratively refining skill files during the agentic DRC repair of VLSI circuit layouts.
+#Experimental data storing structure
 
-## Framework Description
-![Inference](etc/EvoDRC.png)
-Design rule check (DRC) closure remains a major bottleneck in advanced-node physical design. Although detailed routers are rule-aware, residual design rule violations (DRVs) often require manual engineering change order iterations. Automating this process is challenging because repairs must account for complex geometric interactions, preserve circuit connectivity, and avoid introducing new violations.
-We present EvoDRC, a skill-evolution framework for agentic block-level DRC repair. EvoDRC initializes layer-specific repair skills using knowledge distilled from an unrelated reference design and continuously evolves these skills using traceable repair experience collected from the target design. EvoDRC decomposes the layout into bounded repair regions and assigns an LLM repair agent to each region. Local DRC analysis, connectivity-checking, and impact-preview tools provide feedback on proposed modifications. Repair operations and their resulting DRV changes are stored in a knowledge database and used to evolve the repair skills. Experiments on seven block-level designs from the DAC26 DRC Benchmark show that EvoDRC achieves a 73.5\% overall reduction compared to the reported baseline. 
-
-## Table of content
-
-[*agent/*](./agent/): EvoDRC agentic framework, replace the agent/ in DAC26_DRC_Benchmark with this
-[*data/*](./data/): Experimental data in the paper
-[*cla_gds/*](./cla_gds/): The external design with/without DRC
-[*DAC26_DRC_Benchmark*](./DAC26_DRC_Benchmark/): The [DAC26_DRC_Benchmark](https://github.com/ASU-VDA-Lab/DAC26_DRC_Benchmark/tree/v1) repository.
-[*external*](./external/): Copy of the initial skill file, with/without knowledge distilled from the [*cla_gds/*](./cla_gds/) case.
-[*Dockerfile.evodrc*](./Dockerfile.evodrc): The Dockerfile used in EvoDRC.     
-
-## EvoDRC output structure
+Identical to the description in [README.md](../README.md).
 
 ```
 data/                  Experimental data in the paper
@@ -31,9 +16,6 @@ data/                  Experimental data in the paper
 | `ablation1` | Starts with the rules but **no prior experience** — learns from scratch. |
 | `ablation2` | Starts with experience but **stops learning** since the first iteration. |
 | `ablation3` | Repairs the design **as a whole** instead of splitting it into pieces. |
-
-Comparing these four shows how much the prior experience and the continued learning
-actually contribute.
 
 ### Names used in the directory tree below
 
@@ -140,89 +122,4 @@ actually contribute.
     │                             is switched off.
     └── ledger_summary.json       An index of this iteration's measurements, linking each
                                   repair back to the layer it affected.
-```
-
-## Running EvoDRC
-
-EvoDRC runs as a drop-in replacement for the [*agent/*](./DAC26_DRC_Benchmark/agent/) folder of the
-[*DAC26 DRC Benchmark*](https://github.com/ASU-VDA-Lab/DAC26_DRC_Benchmark).
-You need Docker, a benchmark checkout, and `~/.claude/.credentials.json`.
-
-**1. Build the image**
-
-Two steps, both required. The stock image is missing two
-Python packages EvoDRC needs.
-
-```bash
-cd ./DAC26_DRC_Benchmark/
-docker build -f Dockerfile.repair -t drc-benchmark-repair:latest .
-cd ../
-docker build -t drc-benchmark-repair:latest - < ./Dockerfile.evodrc
-```
-
-The second build only installs two `pip` packages, so it is fed on stdin and needs no build context — that keeps Docker from copying this whole folder, results and all.
-
-**2. Install the agent**
-
-Copy it in; a symlink will not work.
-
-```bash
-cd ./DAC26_DRC_Benchmark
-mv agent agent_official_backup
-cp -r ../agent ./agent
-```
-
-**3. Pick a variant** (optional)
-
-Edit `agent/evodrc.conf` and set `ABLATION` to blank for `evodrc`, or to `1`, `2`, or `3` for the ablations described above.
-
-**4. Choose the case and the model.**
-
-Edit the `MODEL_NAMES` and `CASES` variables in [*evaluate_claude.sh*](./DAC26_DRC_Benchmark/src/evaluate_claude.sh) to specify the supported models and benchmark cases.
-
-```
-MODEL_NAMES=(
-  "claude-sonnet-4-6 medium" #Claude Sonnet 4.6 with medium reason effort
-  "claude-opus-4-6 high"     #Claude Opus 4.6 with high reason effort
-)
-
-CASES=(
-  "block|repair|Block1"      #Only supports repair tasks in the DAC'26 benchmark.
-  "block|repair|Block2"
-  "block|repair|Block3"
-  "block|repair|Block4"
-  "block|repair|Block5"
-  "block|repair|Block6"
-  "block|repair|Block7"
-)
-```
-
-**5. Run**
-
-From the benchmark root. `RECORD_TOKENS=1` is required; without it the run stops immediately.
-
-```bash
-cd /path/to/DAC26_DRC_Benchmark
-RECORD_TOKENS=1 bash src/evaluate_claude.sh
-```
-
-**6. Find the results**
-
-`DAC26_DRC_Benchmark/temp/data/<variant>/Block{N}/<model>/` — for example `temp/data/evodrc/Block5/claude-sonnet-4-6/`.
-The variant folder is `evodrc`, `ablation1`, `ablation2` or `ablation3`, matching the `ABLATION` you chose in step 3.
-
-For configuration, authentication and internals, see [`agent/README.md`](agent/README.md).
-
-## Cite this
-```
-@misc{wu2026evodrcselfevolvingagenticframework,
-      title={EvoDRC: A Self-Evolving Agentic Framework for Automated DRC Violation Repair}, 
-      author={Bing-Yue Wu and Chia-Tung Ho and Haoyu Yang and Brucek Khailany 
-      and Vidya A. Chhabria},
-      year={2026},
-      eprint={2607.20019},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2607.20019}, 
-}
 ```
