@@ -208,16 +208,19 @@ CASES=(
 From the benchmark root. `RECORD_TOKENS=1` is required; without it the run stops immediately.
 
 ```bash
-cd /path/to/DAC26_DRC_Benchmark
+cd ./DAC26_DRC_Benchmark
 RECORD_TOKENS=1 bash src/evaluate_claude.sh
 ```
 
 **6. Find the results**
 
-`DAC26_DRC_Benchmark/temp/data/<variant>/Block{N}/<model>/` — for example `temp/data/evodrc/Block5/claude-sonnet-4-6/`.
-The variant folder is `evodrc`, `ablation1`, `ablation2` or `ablation3`, matching the `ABLATION` you chose in step 3.
+Please find the results in `./DAC26_DRC_Benchmark/result/` and `./DAC26_DRC_Benchmark/score/`.
 
-For configuration, authentication and internals, see [`agent/README.md`](agent/README.md).
+For detailed EvoDRC reports and logs, see `./DAC26_DRC_Benchmark/temp/data/<variant>/Block{N}/<model>/`
+(for example, `./DAC26_DRC_Benchmark/temp/data/evodrc/Block5/claude-sonnet-4-6/`).
+The variant directory can be `evodrc`, `ablation1`, `ablation2`, or `ablation3`, corresponding to the `ABLATION` selected in Step 3.
+
+For configuration, authentication, and implementation details, see `agent/README.md`.
 
 ## Cite this
 ```
