@@ -394,12 +394,14 @@ def _run_unit(args):
     try:
         result = backend.call_agent(
             prompt_text=prompt_text, output_path=None, model=args.model,
-            workspace=(args.workspace or None), effort=None,
+            workspace=(args.workspace or None),
+            effort=(os.environ.get("CLAUDE_EFFORT") or None),
             call_id=call_id, temp_dir=out_dir)
     except TypeError:
         result = backend.call_agent(
             prompt_text, None, args.model,
-            workspace=(args.workspace or None), effort=None,
+            workspace=(args.workspace or None),
+            effort=(os.environ.get("CLAUDE_EFFORT") or None),
             call_id=call_id, temp_dir=out_dir)
     except Exception as exc:                          # noqa: BLE001
         result = {"status": "fail", "error": str(exc), "raw_data": None}
