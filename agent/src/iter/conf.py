@@ -71,9 +71,9 @@ _COLD_START_PROVENANCE = "cold-start ablation seed"
 # The ablation table. Keys are the ABLATION values; each row is
 #   seed_subdir | evolution | default max_iters | provenance | whole_design
 _ABLATION_TABLE = {
-    "":  ("cla",        EVOLUTION_ON,     3, _CLA_PROVENANCE,        False),
-    "1": ("cold_start", EVOLUTION_ON,     3, _COLD_START_PROVENANCE, False),
-    "2": ("cla",        EVOLUTION_FROZEN, 3, _CLA_PROVENANCE,        False),
+    "":  ("cla",        EVOLUTION_ON,     5, _CLA_PROVENANCE,        False),
+    "1": ("cold_start", EVOLUTION_ON,     5, _COLD_START_PROVENANCE, False),
+    "2": ("cla",        EVOLUTION_FROZEN, 5, _CLA_PROVENANCE,        False),
     "3": ("cla",        EVOLUTION_ON,     5, _CLA_PROVENANCE,        True),
 }
 
