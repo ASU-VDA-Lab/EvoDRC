@@ -89,12 +89,14 @@ def _call_backend(prompt, model, workspace, call_id, stage_dir, label):
         try:
             res = backend.call_agent(
                 prompt_text=prompt, output_path=None, model=model,
-                workspace=(workspace or None), effort=None,
+                workspace=(workspace or None),
+                effort=(os.environ.get("CLAUDE_EFFORT") or None),
                 call_id=call_id, temp_dir=stage_dir)
         except TypeError:
             res = backend.call_agent(
                 prompt, None, model, workspace=(workspace or None),
-                effort=None, call_id=call_id, temp_dir=stage_dir)
+                effort=(os.environ.get("CLAUDE_EFFORT") or None),
+                call_id=call_id, temp_dir=stage_dir)
     raw = (res or {}).get("raw_data") or {}
     return raw.get("result", "") if isinstance(raw, dict) else ""
 

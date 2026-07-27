@@ -143,7 +143,7 @@ S3 = (
     "REPAIR WORKFLOW -- you are the MAIN agent and you MUST divide the work "
     "across subagents in a FOUR-ROLE loop: PLANNER -> PLAN-REVIEWER -> CODER "
     "-> PATCH-REVIEWER. Do NOT write a one-shot patch. Every subagent you "
-    "spawn inherits this model and effort (Sonnet 4.6, medium).\n"
+    "spawn inherits this model and effort.\n"
     "1. PLANNER: spawn a planner subagent. Give it the block/crop, its "
     "target violations, the connectivity constraint to preserve, the patch "
     "grammar, and the skill. It returns ONE concrete candidate repair PLAN "
