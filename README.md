@@ -10,7 +10,7 @@ We present EvoDRC, a skill-evolution framework for agentic block-level DRC repai
   - [*agent/*](./agent/): EvoDRC agentic framework, replace the agent/ in DAC26_DRC_Benchmark with this
   - [*data/*](./data/): Experimental data in the paper
   - [*cla_gds/*](./cla_gds/): The external design with/without DRC
-  - [*DAC26_DRC_Benchmark*](./DAC26_DRC_Benchmark/): The [DAC26_DRC_Benchmark](https://github.com/ASU-VDA-Lab/DAC26_DRC_Benchmark/tree/v1) repository.
+  - *DAC26_DRC_Benchmark*: The [DAC26_DRC_Benchmark](https://github.com/ASU-VDA-Lab/DAC26_DRC_Benchmark/tree/v1) repository.
   - [*external*](./external/): Copy of the initial skill file, with/without knowledge distilled from the [*cla_gds/*](./cla_gds/) case.
   - [*Dockerfile.evodrc*](./Dockerfile.evodrc): The Dockerfile used in EvoDRC.     
 
