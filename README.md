@@ -221,3 +221,13 @@ For detailed EvoDRC reports and logs, see `./DAC26_DRC_Benchmark/temp/data/<vari
 The variant directory can be `evodrc`, `ablation1`, `ablation2`, or `ablation3`, corresponding to the `ABLATION` selected in Step 3.
 
 For configuration, authentication and internals, see [`agent/README.md`](agent/README.md).
+
+## Cite this work
+```
+@INPROCEEDINGS{evodrc,
+  author={B.-Y. Wu and C.-T. Ho and H. Yang and B. Khailany and V. A. Chhabria},
+  booktitle={2027 32nd Asia and South Pacific Design Automation Conference (ASP-DAC)}, 
+  title={EvoDRC: A Self-Evolving Agentic Framework for Automated DRC Violation Repair}, 
+  year={2027},
+}
+```
